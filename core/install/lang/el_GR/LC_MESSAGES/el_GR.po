@@ -1,0 +1,500 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FA2.3RC1+ inst wizard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-03-31 19:34+0100\n"
+"Last-Translator: Translation Team <info@frontaccounting.net>\n"
+"Language-Team: Labyrinth <kt@labyrinthos.gr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+
+#: install/index.php:20
+#: install/index.php:40
+msgid "FrontAccouting ERP Installation Wizard"
+msgstr "Μάγος εγκατάστασης του FrontAccouting ERP"
+
+#: install/index.php:41
+#, php-format
+msgid "Step %d: %s"
+msgstr "Βήμα %d: %s"
+
+#: install/index.php:48
+msgid "Chart of accounts"
+msgstr "Διάγραμμα απολογισμών"
+
+#: install/index.php:48
+#: install/index.php:75
+msgid "Encoding"
+msgstr "Κωδικοποίηση"
+
+#: install/index.php:48
+#: install/index.php:75
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: install/index.php:48
+#: install/index.php:75
+msgid "Install"
+msgstr "Εγκατάσταση"
+
+#: install/index.php:65
+#: install/index.php:93
+msgid "Installed"
+msgstr "Εγκατεστημένο"
+
+#: install/index.php:75
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: install/index.php:123
+msgid "Cannot connect to database. User or password is invalid or you have no permittions to create database."
+msgstr ""
+
+#: install/index.php:159
+msgid "Cannot save system configuration file 'config.php'."
+msgstr "Αδυναμία εγγραφής του αρχείου διαμόρφωσης συστήματος 'config.php'."
+
+#: install/index.php:166
+msgid "Cannot open 'config_db.php' configuration file."
+msgstr "Αδυναμία ανοίγματος του αρχείου διαμόρφωσης 'config_db.php'"
+
+#: install/index.php:169
+msgid "Cannot write to the 'config_db.php' configuration file."
+msgstr "Αδυναμία εγγραφής στο αρχείο διαμόρφωσης 'config_db.php'."
+
+#: install/index.php:172
+msgid "Configuration file 'config_db.php' is not writable. Change its permissions so it is, then re-run installation step."
+msgstr "Το αρχείο διαμόρφωσης 'config_db.php' δεν είναι εγγράψιμο. Παρακαλώ αλλάξτε τα δικαιώματα ώστε να είναι και μετά τρέξτε ξανά το βήμα εγκατάστασης."
+
+#: install/index.php:211
+msgid "Host name cannot be empty."
+msgstr "Το όνομα φιλοξενητή δεν μπορεί να είναι κενό."
+
+#: install/index.php:215
+msgid "Database user name cannot be empty."
+msgstr "Το όνομα χρήστη βάσης δεδομένων δεν μπορεί να είναι κενό."
+
+#: install/index.php:219
+msgid "Database name cannot be empty."
+msgstr "Το όνομα της βάσης δεδομένων δεν μπορεί να είναι κενό."
+
+#: install/index.php:272
+msgid "Company name cannot be empty."
+msgstr "Το όνομα της επιχείρησης δεν μπορεί να είναι κενό."
+
+#: install/index.php:276
+msgid "Company admin name cannot be empty."
+msgstr "Το όνομα Διαχειριστή επιχείρησης δεν μπορεί να είναι κενό."
+
+#: install/index.php:280
+msgid "Company admin password cannot be empty."
+msgstr "Το συνθηματικό Διαχειριστή επιχείρησης δεν μπορεί να είναι κενό."
+
+#: install/index.php:284
+msgid "Company admin passwords differ."
+msgstr "Τα συνθηματικά Διαχειριστή επιχείρησης διαφέρουν."
+
+#: install/index.php:316
+msgid "System Diagnostics"
+msgstr "Διαγνωστικά συστήματος"
+
+#: install/index.php:318
+msgid "Select install wizard language:"
+msgstr "Επιλέξτε γλώσσα μάγου εγκατάστασης:"
+
+#: install/index.php:324
+msgid "All application preliminary requirements seems to be correct. Please press Continue button below."
+msgstr "Όλα τα προκαταρκτικά απαιτούμενα φαίνεται να είναι σωστά. Παρακαλώ πιέστε το κουμπί Συνέχεια χαμηλότερα."
+
+#: install/index.php:325
+#: install/index.php:351
+#: install/index.php:358
+#: install/index.php:365
+#: install/index.php:384
+msgid "Continue >>"
+msgstr "Συνέχεια >>"
+
+#: install/index.php:327
+msgid "Application cannot be installed. Please fix problems listed below in red, and press Refresh button."
+msgstr "Η εφαρμογή δεν μπορεί να εγκατασταθεί. Παρακαλώ διορθώστε τα προβλήματα που απαριθμούνται παρακάτω με κόκκινο και πατήστε το κουμπί Ανανέωση."
+
+#: install/index.php:328
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: install/index.php:338
+msgid "Database Server Settings"
+msgstr "Επιλογές Εξυπηρετητή βάσης δεδομένων"
+
+#: install/index.php:340
+msgid "Server Host:"
+msgstr "Φιλοξενητής Εξυπηρετητή:"
+
+#: install/index.php:341
+msgid "Database User:"
+msgstr "Χρήστης βάσης δεδομένων:"
+
+#: install/index.php:342
+msgid "Database Password:"
+msgstr "Συνθηματικό βάσης δεδομένων:"
+
+#: install/index.php:343
+msgid "Database Name:"
+msgstr "Όνομα βάσης δεδομένων:"
+
+#: install/index.php:344
+msgid "Use '0_' Table Prefix:"
+msgstr "Χρήση '0_' προθέματος πίνακα:"
+
+#: install/index.php:344
+#: includes/system_tests.inc:38
+#: includes/system_tests.inc:113
+#: includes/system_tests.inc:126
+msgid "Yes"
+msgstr "Ναι"
+
+#: install/index.php:344
+#: includes/system_tests.inc:38
+#: includes/system_tests.inc:113
+#: includes/system_tests.inc:126
+msgid "No"
+msgstr "Όχι"
+
+#: install/index.php:345
+msgid "Install Additional Language Packs from FA Repository:"
+msgstr "Εγκατάσταση πρόσθετων πακέτων γλώσσας από την αποθήκη του FA:"
+
+#: install/index.php:346
+msgid "Install Additional COAs from FA Repository:"
+msgstr "Εγκατάσταση Πρόσθετων ΔΑ από την Αποθήκη του FA:"
+
+#: install/index.php:348
+msgid "Use table prefix if you share selected database for more than one FA company."
+msgstr "Χρησιμοποιήστε πρόθεμα πίνακα εάν μοιράζεστε την βάση δεδομένων για περισσότερο από μια επιχείρηση FA."
+
+#: install/index.php:349
+msgid "Do not select additional langs nor COAs if you have no working internet connection right now. You can install them later."
+msgstr "Μην επιλέξετε πρόσθετες γλώσσες ή ΔΑ αν δεν έχετε λειτουργική σύνδεση στο διαδίκτυο τώρα. Μπορείτε να τα εγκαταστήσετε αργότερα."
+
+#: install/index.php:350
+#: install/index.php:357
+#: install/index.php:364
+#: install/index.php:383
+msgid "<< Back"
+msgstr "<< Πίσω"
+
+#: install/index.php:355
+msgid "User Interface Languages Selection"
+msgstr "Επιλογή γλωσσών της διεπαφής χρήστη"
+
+#: install/index.php:362
+msgid "Charts of Accounts Selection"
+msgstr "Επιλογή διαγραμμάτων απολογισμών"
+
+#: install/index.php:374
+msgid "Company Settings"
+msgstr "Επιλογές Επιχείρησης"
+
+#: install/index.php:376
+msgid "Company Name:"
+msgstr "Όνομα Επιχείρησης:"
+
+#: install/index.php:377
+msgid "Admin Login:"
+msgstr "Είσοδος Διαχειριστή:"
+
+#: install/index.php:378
+msgid "Admin Password:"
+msgstr "Συνθηματικό Διαχειριστή:"
+
+#: install/index.php:379
+msgid "Reenter Password:"
+msgstr "Εισάγετε ξανά το συνθηματικό:"
+
+#: install/index.php:380
+msgid "Select Chart of Accounts:"
+msgstr "Επιλογή Διαγραμμάτων Απολογισμών:"
+
+#: install/index.php:381
+msgid "Select Default Language:"
+msgstr "Επιλογή προκαθορισμένης Γλώσσας:"
+
+#: install/index.php:388
+msgid "FrontAccounting ERP has been installed successsfully."
+msgstr "Το FrontAccounting ERP εγκαταστάθηκε επιτυχώς."
+
+#: install/index.php:389
+msgid "Please do not forget to remove install wizard folder."
+msgstr "Παρακαλώ μην ξεχάσετε να αφαιρέσετε το φάκελο του μάγου εγκατάστασης."
+
+#: install/index.php:392
+msgid "Click here to start."
+msgstr "Κάντε κλικ εδώ για να αρχίσετε."
+
+#: includes/system_tests.inc:15
+msgid "Info"
+msgstr "Πληροφορίες"
+
+#: includes/system_tests.inc:16
+msgid "Optional"
+msgstr "Προαιρετικό"
+
+#: includes/system_tests.inc:17
+msgid "Recommended"
+msgstr "Προτείνεται"
+
+#: includes/system_tests.inc:18
+msgid "Required "
+msgstr "Απαιτούμενο"
+
+#: includes/system_tests.inc:24
+msgid "MySQL version"
+msgstr "Έκδοση MySQL"
+
+#: includes/system_tests.inc:28
+msgid "Upgrade MySQL server to version at least 4.1"
+msgstr "Αναβαθμίστε την έκδοση του εξυπηρετητή MySQL τουλάχιστον σε 4.1"
+
+#: includes/system_tests.inc:35
+msgid "PHP MySQL extension"
+msgstr "επέκταση PHP MySQL"
+
+#: includes/system_tests.inc:40
+msgid "Your PHP has to have MySQL extension enabled."
+msgstr "Η PHP πρέπει να έχει την επέκταση MySQL ενεργοποιημένη."
+
+#: includes/system_tests.inc:46
+msgid "PHP version"
+msgstr "Έκδοση PHP"
+
+#: includes/system_tests.inc:50
+msgid "Upgrade PHP to version at least 4.3.3"
+msgstr "Αναβαθμίστε την έκδοση PHP σε τουλάχιστον 4.3.3"
+
+#: includes/system_tests.inc:57
+msgid "Server system"
+msgstr "Σύστημα εξυπηρετητή"
+
+#: includes/system_tests.inc:67
+msgid "Session save path"
+msgstr "Διαδρομή καταχωρήσεων συνεδρίας"
+
+#: includes/system_tests.inc:79
+msgid "Removed install wizard folder"
+msgstr "Έγινε απομάκρυνση του φακέλου του μάγου εγκατάστασης"
+
+#: includes/system_tests.inc:82
+msgid "Not removed"
+msgstr "Δεν έχει απομακρυνθεί"
+
+#: includes/system_tests.inc:83
+msgid "Remove or rename install wizard folder for security reasons."
+msgstr "Διαγράψτε ή μετονομάστε τον φάκελο του μάγου εγκατάστασης για λόγους ασφαλείας."
+
+#: includes/system_tests.inc:90
+msgid "Browser type"
+msgstr "Τύπος φυλλομετρητή"
+
+#: includes/system_tests.inc:94
+msgid "Any browser is supported"
+msgstr "Οποιοσδήποτε φυλλομετρητής υποστηρίζεται"
+
+#: includes/system_tests.inc:101
+msgid "Http server type"
+msgstr "Εξυπηρετητής τύπου HTTP"
+
+#: includes/system_tests.inc:105
+msgid "Any server is supported"
+msgstr "Οποιοσδήποτε εξυπηρετητής υποστηρίζεται"
+
+#: includes/system_tests.inc:112
+msgid "Native gettext"
+msgstr "Μητρικό gettext"
+
+#: includes/system_tests.inc:116
+msgid "In case of no gettext support, php emulation is used"
+msgstr "Στην περίπτωση μη υποστήριξης getext, χρησιμοποιείται εξομοίωση php"
+
+#: includes/system_tests.inc:124
+msgid "Debugging mode"
+msgstr "Καθεστώς εύρεσης προγραμματιστικού λάθους (debugging)"
+
+#: includes/system_tests.inc:128
+msgid "To switch debugging on set $go_debug>0 in config.php file"
+msgstr "Για να ενεργοποιήσετε την αποσφαλμάτωση ορίστε $go_debug>0 στο αρχείο config.php"
+
+#: includes/system_tests.inc:137
+msgid "Error logging"
+msgstr "Αποτυχία καταγράφησης"
+
+#: includes/system_tests.inc:145
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+#: includes/system_tests.inc:148
+msgid "To switch error logging set $error_logging in config.php file"
+msgstr "Για να ενεργοποιήσετε την καταγραφή λαθών ορίστε $error_logging στο αρχείο config.php"
+
+#: includes/system_tests.inc:151
+msgid "Log file is not writeable"
+msgstr "Το αρχείο καταγραφών δεν είναι εγγράψιμο"
+
+#: includes/system_tests.inc:161
+msgid "Current database version"
+msgstr "Τρέχουσα έκδοση βάσης δεδομένων"
+
+#: includes/system_tests.inc:165
+msgid "Database structure seems to be not upgraded to current version"
+msgstr "Η δομή της βάσης δεδομένων φαίνεται μην είναι αναβαθμισμένη στην τρέχουσα έκδοση"
+
+#: includes/system_tests.inc:180
+msgid "Company subdirectories consistency"
+msgstr "Συνέπεια υπο-φακέλων επιχείρησης"
+
+#: includes/system_tests.inc:193
+#: includes/system_tests.inc:200
+#: includes/system_tests.inc:208
+#: includes/system_tests.inc:225
+#: includes/system_tests.inc:340
+#: includes/system_tests.inc:349
+#: includes/system_tests.inc:358
+#, php-format
+msgid "'%s' is not writeable"
+msgstr "Το '%s' δεν είναι εγγράψιμο"
+
+#: includes/system_tests.inc:221
+msgid "Temporary directory"
+msgstr "Προσωρινός κατάλογος αρχείων"
+
+#: includes/system_tests.inc:233
+msgid "Language configuration consistency"
+msgstr "Συνέπεια γλωσσικής διαμόρφωσης"
+
+#: includes/system_tests.inc:242
+msgid "Languages folder should be writeable."
+msgstr "Ο φάκελος των γλωσσών πρέπει να είναι εγγράψιμος."
+
+#: includes/system_tests.inc:251
+msgid "Languages configuration file should be writeable."
+msgstr "Το αρχείο παραμετροποίησης γλωσσών πρέπει να είναι εγγράψιμο."
+
+#: includes/system_tests.inc:270
+#, php-format
+msgid "Missing %s translation file."
+msgstr "Έλλειψη του αρχείου μετάφρασης %s ."
+
+#: includes/system_tests.inc:275
+#, php-format
+msgid "Missing system locale: %s"
+msgstr "Έλλειψη συνόλου τοπικής προσαρμογής του συστήματος: %s"
+
+#: includes/system_tests.inc:288
+msgid "Main config file"
+msgstr "Βασικό αρχείο παραμετροποίησης"
+
+#: includes/system_tests.inc:295
+#: includes/system_tests.inc:317
+#, php-format
+msgid "Can't write '%s' file. Check FA directory write permissions."
+msgstr "Αδυναμία εγγραφής αρχείου '%s'. Ελέγξτε τα δικαιώματα του φακέλου του FA."
+
+#: includes/system_tests.inc:296
+#: includes/system_tests.inc:318
+#, php-format
+msgid "'%s' file exists."
+msgstr "Το αρχείο '%s' υπάρχει."
+
+#: includes/system_tests.inc:300
+#, php-format
+msgid "'%s' file should be read-only"
+msgstr "το '%s' αρχείο θα έπρεπε να είναι μόνο για ανάγνωση"
+
+#: includes/system_tests.inc:309
+msgid "Database auth file"
+msgstr "Αρχείο έγκρισης βάσης δεδομένων"
+
+#: includes/system_tests.inc:322
+#, php-format
+msgid "'%s' file should be read-only if you do not plan to add or change companies"
+msgstr "Το '%s' αρχείο πρέπει να είναι μόνο για ανάγνωση εάν δεν σκοπεύετε να προσθέσετε ή να αφαιρέσετε επιχειρήσεις"
+
+#: includes/system_tests.inc:333
+msgid "Extensions system"
+msgstr "Σύστημα επεκτάσεων"
+
+#: includes/system_tests.inc:363
+msgid "Extensions configuration files and directories should be writeable"
+msgstr "Τα αρχεία και οι φάκελοι επεκτάσεων πρέπει να είναι εγγράψιμα"
+
+#: includes/system_tests.inc:375
+#, php-format
+msgid "Non-standard theme directory '%s' is not writable"
+msgstr "Ο φάκελος μη-προκαθορισμένου θέματος '%s' δεν είναι εγγράψιμος"
+
+#: includes/system_tests.inc:385
+msgid "OpenSSL PHP extension have to be enabled to use extension repository system."
+msgstr "Η επέκταση OpenSSL PHP πρέπει να είναι ενεργοποιημένη για να χρησιμοποιεί το σύστημα αποθήκευσης επεκτάσεων."
+
+#: includes/system_tests.inc:388
+msgid "OpenSSL have to be available on your server to use extension repository system."
+msgstr "Το OpenSSL πρέπει να είναι διαθέσιμο στον εξυπηρετητή σας για να χρησιμοποιήσετε το σύστημα αποθήκευσης επεκτάσεων"
+
+#: includes/system_tests.inc:411
+msgid "Test"
+msgstr "Τεστ"
+
+#: includes/system_tests.inc:411
+msgid "Test type"
+msgstr "Τύπος τεστ"
+
+#: includes/system_tests.inc:411
+msgid "Value"
+msgstr "Τιμή"
+
+#: includes/system_tests.inc:411
+msgid "Comments"
+msgstr "Σχόλια"
+
+#: includes/system_tests.inc:435
+msgid "Ok"
+msgstr "ΟΚ"
+
+#: includes/packages.inc:190
+#, php-format
+msgid "No key field '%s' in file '%s'"
+msgstr ""
+
+#: includes/packages.inc:295
+msgid "Release file in repository is invalid, or public key is outdated."
+msgstr ""
+
+#: includes/packages.inc:311
+msgid "Repository version does not match application version."
+msgstr ""
+
+#: includes/packages.inc:325
+#, php-format
+msgid "Security alert: broken index file in repository '%s'. Please inform repository administrator about this issue."
+msgstr ""
+
+#: includes/packages.inc:358
+#, php-format
+msgid "Security alert: broken package '%s' in repository. Please inform repository administrator about this issue."
+msgstr ""
+
+#: includes/packages.inc:613
+#: includes/packages.inc:664
+#, php-format
+msgid "Package '%s' not found."
+msgstr ""
+
