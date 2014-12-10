@@ -261,7 +261,7 @@ function check_page_security($page_security)
 		end_page(@$_REQUEST['popup']);
 		exit;
 	}
-	if (!$_SESSION['SysPrefs']->db_ok 
+	if (!$_SESSION['SysPrefs']->prefs['db_ok']
 		&& !in_array($page_security, array('SA_SOFTWAREUPGRADE', 'SA_OPEN', 'SA_BACKUP')))
 	{
 		display_error(_('System is blocked after source upgrade until database is updated on System/Software Upgrade page'));
