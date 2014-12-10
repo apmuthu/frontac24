@@ -122,7 +122,8 @@ function handle_submit()
 			$db_connections[$selected_id]['tbpref'] = "";
 
 		$conn = $db_connections[$selected_id];
-		if (($db = db_create_db($conn)) == 0)
+		$db = db_create_db($conn);
+		if (is_bool($db) && !$db)
 		{
 			display_error(_("Error creating Database: ") . $conn['dbname'] . _(", Please create it manually"));
 			$error = true;

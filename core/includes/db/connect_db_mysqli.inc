@@ -14,7 +14,6 @@ function set_global_connection($company=-1)
 {
 	global $db, $transaction_level, $path_to_root, $db_connections;
 
-	include ($path_to_root . "/config_db.php");
 	if ($company == -1) 
 		$company = $_SESSION["wa_current_user"]->company;
 
@@ -188,13 +187,14 @@ function db_field_name($result, $n)
 function db_create_db($connection)
 {
 	$db = mysqli_connect($connection["host"], $connection["dbuser"], $connection["dbpassword"]);
+	if (!$db) return $db;
 	if (strncmp(db_get_version(), "5.6", 3) >= 0) 
 		db_query("SET sql_mode = ''");
 	if (!mysqli_select_db($db, $connection["dbname"]))
 	{
 		$sql = "CREATE DATABASE IF NOT EXISTS " . $connection["dbname"] . "";
 		if (!mysqli_query($db, $sql) || !mysqli_select_db($db, $connection["dbname"]))
-			return 0;
+			return $db;
 	}
 	return $db;
 }
