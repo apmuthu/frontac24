@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2010 at 11:37 PM
+-- Generation Time: Dec 10, 2014 at 06:06 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6-1+lenny2
 
@@ -539,7 +539,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB  AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_cust_allocations`
@@ -756,18 +756,14 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
 --
 
-INSERT INTO `0_fiscal_year` VALUES(1, '2008-01-01', '2008-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(2, '2009-01-01', '2009-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(3, '2010-01-01', '2010-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(4, '2011-01-01', '2011-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(5, '2012-01-01', '2012-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(6, '2013-01-01', '2013-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(1, '2013-01-01', '2013-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(2, '2014-01-01', '2014-12-31', 0);
 
 --
 -- Table structure for table `0_gl_trans`
@@ -957,7 +953,8 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
 -- Dumping data for table `0_item_units`
 --
 
-INSERT INTO `0_item_units` VALUES('ea.', 'Each', 0, 0);
+INSERT INTO `0_item_units` VALUES('each', 'Each', 0, 0);
+INSERT INTO `0_item_units` VALUES('hr', 'Hours', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1557,7 +1554,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_dim2` int(11) default NULL,
   `inactive` tinyint(1) NOT NULL default '0',
   `dflt_no_sale` tinyint(1) NOT NULL default '0',
-  `dflt_no_sale` tinyint(1) NOT NULL default '0',
+  `dflt_no_purchase` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`category_id`),
   UNIQUE KEY `description` (`description`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
@@ -1569,7 +1566,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
 INSERT INTO `0_stock_category` VALUES(1, 'Components', 1, 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 INSERT INTO `0_stock_category` VALUES(2, 'Charges', 1, 'each', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 INSERT INTO `0_stock_category` VALUES(3, 'Systems', 1, 'each', 'M', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hrs', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hr', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1700,7 +1697,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB  AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_supp_allocations`
@@ -1841,12 +1838,13 @@ INSERT INTO `0_sys_prefs` VALUES('default_adj_act', 'glsetup.items', 'varchar', 
 INSERT INTO `0_sys_prefs` VALUES('default_inv_sales_act', 'glsetup.items', 'varchar', 15, '4010');
 INSERT INTO `0_sys_prefs` VALUES('default_assembly_act', 'glsetup.items', 'varchar', 15, '1530');
 INSERT INTO `0_sys_prefs` VALUES('default_workorder_required', 'glsetup.manuf', 'int', 11, '20');
-INSERT INTO `0_sys_prefs` VALUES('version_id', 'system', 'varchar', 11, '2.3rc');
+INSERT INTO `0_sys_prefs` VALUES('version_id', 'system', 'varchar', 11, '2.4 alpha');
 INSERT INTO `0_sys_prefs` VALUES('auto_curr_reval', 'setup.company', 'smallint', 6, '1');
 INSERT INTO `0_sys_prefs` VALUES('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, '1550');
 INSERT INTO `0_sys_prefs` VALUES('bcc_email', 'setup.company', 'varchar', 100, '');
 INSERT INTO `0_sys_prefs` VALUES('deferred_income_act', 'glsetup.sales', 'varchar', '15', '');
 INSERT INTO `0_sys_prefs` VALUES('gl_closing_date','setup.closing_date', 'date', 8, '');
+INSERT INTO `0_sys_prefs` VALUES('db_ok', 'system', 'varchar', 11, '2.4 alpha');
 
 -- --------------------------------------------------------
 

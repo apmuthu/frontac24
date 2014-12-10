@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2010 at 11:32 PM
+-- Generation Time: Dec 10, 2014 at 06:06 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6-1+lenny2
 
@@ -552,7 +552,7 @@ INSERT INTO `0_currencies` VALUES('US Dollars', 'USD', '$', 'United States', 'Ce
 INSERT INTO `0_currencies` VALUES('CA Dollars', 'CAD', '$', 'Canada', 'Cents', 1, 0);
 INSERT INTO `0_currencies` VALUES('Euro', 'EUR', '?', 'Europe', 'Cents', 1, 0);
 INSERT INTO `0_currencies` VALUES('Pounds', 'GBP', '?', 'England', 'Pence', 1, 0);
-INSERT INTO `0_currencies` VALUES('DK Kroner', 'DKK', '?', 'Denmark', 'Ore', 1, 0);
+INSERT INTO `0_currencies` VALUES('DK Kroner', 'DKK', 'kr', 'Denmark', 'Ore', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1113,8 +1113,8 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
 -- Dumping data for table `0_item_units`
 --
 
-INSERT INTO `0_item_units` VALUES('ea.', 'Each', 0, 0);
-INSERT INTO `0_item_units` VALUES('hrs', 'Hours', 1, 0);
+INSERT INTO `0_item_units` VALUES('each', 'Each', 0, 0);
+INSERT INTO `0_item_units` VALUES('hr', 'Hours', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1757,7 +1757,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
 INSERT INTO `0_stock_category` VALUES(1, 'Components', 1, 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 INSERT INTO `0_stock_category` VALUES(2, 'Charges', 1, 'each', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 INSERT INTO `0_stock_category` VALUES(3, 'Systems', 1, 'each', 'M', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hrs', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hr', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2088,6 +2088,7 @@ INSERT INTO `0_sys_prefs` VALUES('grn_clearing_act', 'glsetup.purchase', 'varcha
 INSERT INTO `0_sys_prefs` VALUES('bcc_email', 'setup.company', 'varchar', 100, '');
 INSERT INTO `0_sys_prefs` VALUES('deferred_income_act', 'glsetup.sales', 'varchar', '15', '');
 INSERT INTO `0_sys_prefs` VALUES('gl_closing_date','setup.closing_date', 'date', 8, '');
+INSERT INTO `0_sys_prefs` VALUES('db_ok', 'system', 'varchar', 11, '2.4');
 
 -- --------------------------------------------------------
 
