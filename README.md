@@ -16,3 +16,8 @@ To clone the original in Hg:
 ````
 hg clone http://hg.code.sf.net/p/frontaccounting/mercurial frontaccounting-mercurial
 ````
+
+URL to clone this repo in Git:
+````
+https://github.com/apmuthu/frontac24.git
+````
