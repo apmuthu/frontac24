@@ -19,7 +19,7 @@ include_once($path_to_root . "/includes/ui.inc");
 include_once($path_to_root . "/includes/banking.inc");
 
 $js = "";
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Exchange Rates"), false, false, "", $js);
 
@@ -189,7 +189,7 @@ if ($_POST['curr_abrev'] != get_global_curr_code())
 
 set_global_curr_code($_POST['curr_abrev']);
 
-$sql = get_sql_for_exchange_rates();
+$sql = get_sql_for_exchange_rates($_POST['curr_abrev']);
 
 $cols = array(
 	_("Date to Use From") => 'date', 
@@ -221,4 +221,3 @@ end_form();
 
 end_page();
 
-?>

@@ -17,7 +17,7 @@ include_once($path_to_root . "/includes/session.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 	
 page(_($help_context = "Customers"), @$_REQUEST['popup'], false, "", $js); 
@@ -113,11 +113,11 @@ function handle_submit(&$selected_id)
         	add_branch($selected_id, $_POST['CustName'], $_POST['cust_ref'],
                 $_POST['address'], $_POST['salesman'], $_POST['area'], $_POST['tax_group_id'], '',
                 get_company_pref('default_sales_discount_act'), get_company_pref('debtors_act'), get_company_pref('default_prompt_payment_act'),
-                $_POST['location'], $_POST['address'], 0, 0, $_POST['ship_via'], $_POST['notes']);
+                $_POST['location'], $_POST['address'], 0, $_POST['ship_via'], $_POST['notes'], $_POST['bank_account']);
                 
         	$selected_branch = db_insert_id();
         
-			add_crm_person($_POST['CustName'], $_POST['cust_ref'], '', $_POST['address'], 
+			add_crm_person($_POST['cust_ref'], $_POST['CustName'], '', $_POST['address'], 
 				$_POST['phone'], $_POST['phone2'], $_POST['fax'], $_POST['email'], '', '');
 
 			$pers_id = db_insert_id();
@@ -257,6 +257,7 @@ function customer_settings($selected_id)
 		text_row(_("Secondary Phone Number:"), 'phone2', null, 32, 30);
 		text_row(_("Fax Number:"), 'fax', null, 32, 30);
 		email_row(_("E-mail:"), 'email', null, 35, 55);
+		text_row(_("Bank Account Number:"), 'bank_account', null, 30, 60);
 		sales_persons_list_row( _("Sales Person:"), 'salesman', null);
 	}
 	table_section(2);
@@ -341,7 +342,8 @@ else
 	hidden('customer_id');
 }
 
-if (!$selected_id || list_updated('customer_id'))
+//if (!$selected_id || list_updated('customer_id'))
+if (!$selected_id)
 	unset($_POST['_tabs_sel']); // force settings tab for new customer
 
 tabbed_content_start('tabs', array(
@@ -376,4 +378,3 @@ hidden('popup', @$_REQUEST['popup']);
 end_form();
 end_page(@$_REQUEST['popup']);
 
-?>

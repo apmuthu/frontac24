@@ -25,7 +25,7 @@ include_once($path_to_root . "/manufacturing/includes/work_order_issue_ui.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(800, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
 page(_($help_context = "Issue Items to Work Order"), false, false, "", $js);
@@ -102,9 +102,7 @@ function can_process()
 	$failed_item = $_SESSION['issue_items']->check_qoh($_POST['Location'], $_POST['date_'], !$_POST['IssueType']);
 	if ($failed_item != -1) 
 	{
-		$item = $_SESSION['issue_items']->line_items[$failed_item];
-    	display_error( _("The issue cannot be processed because an entered item would cause a negative inventory balance :") .
-    		" " . $item->stock_id . " - " .  $item->item_description);
+   		display_error(_("The issue cannot be processed because it would cause negative inventory balance for marked items as of document date or later."));
 		return false;
 	}
 
@@ -230,4 +228,3 @@ end_form();
 
 end_page();
 
-?>

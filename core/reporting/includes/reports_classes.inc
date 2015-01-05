@@ -137,6 +137,9 @@ class BoxReports
 				if ($ctrl) break;
 			}
 			if ($ctrl == '') {
+				if (($id == 102 || $id == 202) && $cnt == 3) // set default Show Also Allocated to Yes in aged reports 2014-09-19 Joe Hunt
+					$_POST['PARAM_'.$cnt] = 1;
+				
 				if (isset($_COOKIE['select'][$id][$cnt])) // saved parameters 2010-10-06 Joe Hunt
 					$_POST['PARAM_'.$cnt] = $_COOKIE['select'][$id][$cnt];
 				$ctrl = $this->get_ctrl('PARAM_'.$cnt, $type);
@@ -164,8 +167,8 @@ class BoxReports
 	//
 	function get_ctrl($name, $type)
 	{
-		global $path_to_root, $use_date_picker, $pdf_debug, $print_invoice_no,
-			$def_print_destination, $def_print_orientation, $type_shortcuts;
+		global $path_to_root, $pdf_debug, $SysPrefs,
+			$type_shortcuts;
 
 		$st = '';
 			switch ($type)
@@ -211,7 +214,7 @@ class BoxReports
 					else // saved parameters 2010-10-16 Joe Hunt
 						$date = $_POST[$name];
 					$st = "<input type='text' name='$name' value='$date'>";
-					if ($use_date_picker)
+					if (user_use_date_picker())
 					{
 						$calc_image = (file_exists("$path_to_root/themes/".user_theme()."/images/cal.gif")) ? 
 							"$path_to_root/themes/".user_theme()."/images/cal.gif" : "$path_to_root/themes/default/images/cal.gif";
@@ -230,14 +233,14 @@ class BoxReports
 				case 'DESTINATION':
 					$sel = array(_("PDF/Printer"), "Excel");
 					$def = 0;
-					if (isset($def_print_destination) && $def_print_destination == 1)
+					if (user_def_print_destination() == 1)
 						$def = 1;
 					return array_selector($name, $def, $sel);
 
 				case 'ORIENTATION':
 					$sel = array(_("Portrait"), _("Landscape"));
 					$def = 0;
-					if (isset($def_print_orientation) && $def_print_orientation == 1)
+					if (user_def_print_orientation() == 1)
 						$def = 1;
 					return array_selector($name, $def, $sel);
 
@@ -311,7 +314,7 @@ class BoxReports
 
 				case 'INVOICE':
 					$IV = $type_shortcuts[ST_SALESINVOICE];
-					$ref = ($print_invoice_no == 1 ? "trans_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "trans_no" : "reference");
 					$sql = "SELECT concat(".TB_PREF."debtor_trans.trans_no, '-',
 						".TB_PREF."debtor_trans.type) AS TNO, concat('$IV ', ".TB_PREF."debtor_trans.$ref,' ', ".TB_PREF."debtors_master.name) as IName
 						FROM ".TB_PREF."debtors_master, ".TB_PREF."debtor_trans WHERE type=".ST_SALESINVOICE." AND ".TB_PREF."debtors_master.debtor_no=".TB_PREF."debtor_trans.debtor_no ORDER BY ".TB_PREF."debtor_trans.trans_no DESC";
@@ -319,7 +322,7 @@ class BoxReports
 
 				case 'CREDIT':
 					$CN = $type_shortcuts[ST_CUSTCREDIT];
-					$ref = ($print_invoice_no == 1 ? "trans_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "trans_no" : "reference");
 					$sql = "SELECT concat(".TB_PREF."debtor_trans.trans_no, '-',
 						".TB_PREF."debtor_trans.type) AS TNO, concat('$CN ', ".TB_PREF."debtor_trans.$ref,' ', ".TB_PREF."debtors_master.name) as IName
 						FROM ".TB_PREF."debtors_master, ".TB_PREF."debtor_trans WHERE type=".ST_CUSTCREDIT." AND ".TB_PREF."debtors_master.debtor_no=".TB_PREF."debtor_trans.debtor_no ORDER BY ".TB_PREF."debtor_trans.trans_no DESC";
@@ -336,7 +339,7 @@ class BoxReports
 					return combo_input($name, '', $sql, 'TNO', 'IName',array('order'=>false));
 
 				case 'ORDERS':
-					$ref = ($print_invoice_no == 1 ? "order_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "order_no" : "reference");
 					$sql = "SELECT ".TB_PREF."sales_orders.order_no, concat(".TB_PREF."sales_orders.$ref, '-',
 						".TB_PREF."debtors_master.name) as IName
 						FROM ".TB_PREF."debtors_master, ".TB_PREF."sales_orders WHERE ".TB_PREF."debtors_master.debtor_no=".TB_PREF."sales_orders.debtor_no 
@@ -344,7 +347,7 @@ class BoxReports
 					return combo_input($name, '', $sql, 'order_no', 'IName',array('order'=>false));
 
 				case 'QUOTATIONS':
-					$ref = ($print_invoice_no == 1 ? "order_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "order_no" : "reference");
 					$sql = "SELECT ".TB_PREF."sales_orders.order_no, concat(".TB_PREF."sales_orders.$ref, '-',
 						".TB_PREF."debtors_master.name) as IName
 						FROM ".TB_PREF."debtors_master, ".TB_PREF."sales_orders WHERE ".TB_PREF."debtors_master.debtor_no=".TB_PREF."sales_orders.debtor_no 
@@ -352,7 +355,7 @@ class BoxReports
 					return combo_input($name, '', $sql, 'order_no', 'IName',array('order'=>false));
 
 				case 'PO':
-					$ref = ($print_invoice_no == 1 ? "order_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "order_no" : "reference");
 					$sql = "SELECT ".TB_PREF."purch_orders.order_no, concat(".TB_PREF."purch_orders.$ref, '-',
 						".TB_PREF."suppliers.supp_name) as IName
 						FROM ".TB_PREF."suppliers, ".TB_PREF."purch_orders WHERE ".TB_PREF."suppliers.supplier_id=".TB_PREF."purch_orders.supplier_id ORDER BY ".TB_PREF."purch_orders.order_no DESC";
@@ -371,7 +374,7 @@ class BoxReports
 				case 'RECEIPT':
 					$BD = $type_shortcuts[ST_BANKDEPOSIT];
 					$CP = $type_shortcuts[ST_CUSTPAYMENT];
-					$ref = ($print_invoice_no == 1 ? "trans_no" : "reference");
+					$ref = ($SysPrefs->print_invoice_no() == 1 ? "trans_no" : "reference");
 					$sql = "SELECT concat(".TB_PREF."debtor_trans.trans_no, '-',
 						".TB_PREF."debtor_trans.type) AS TNO, concat(".TB_PREF."debtor_trans.$ref, if (type=".ST_BANKDEPOSIT.", ' $BD ', ' $CP '), ".TB_PREF."debtors_master.name) as IName
 						FROM ".TB_PREF."debtors_master, ".TB_PREF."debtor_trans WHERE (type=".ST_BANKDEPOSIT." OR type=".ST_CUSTPAYMENT." OR type=".ST_CUSTCREDIT.") AND ".TB_PREF."debtors_master.debtor_no=".TB_PREF."debtor_trans.debtor_no ORDER BY ".TB_PREF."debtor_trans.trans_no DESC";
@@ -379,6 +382,9 @@ class BoxReports
 
 				case 'ITEMS':
 					return stock_manufactured_items_list($name);
+
+				case 'ITEMS_ALL':
+					return stock_manufactured_items_list($name, null, true);
 
 				case 'ITEMS_P':
 					return stock_purchasable_items_list($name, null, true);
@@ -494,4 +500,3 @@ function add_custom_reports(&$reports)
 		include_once($file);
 }
 
-?>

@@ -30,7 +30,7 @@ $js = "";
 if ($use_popup_windows) {
 	$js .= get_js_open_window(900, 500);
 }
-if ($use_date_picker) {
+if (user_use_date_picker()) {
 	$js .= get_js_date_picker();
 }
 
@@ -48,7 +48,7 @@ page($_SESSION['page_title'], false, false, "", $js);
 
 //-----------------------------------------------------------------------------
 
-check_edit_conflicts();
+check_edit_conflicts(get_post('cart_id'));
 
 if (isset($_GET['AddedID'])) {
 
@@ -66,12 +66,7 @@ if (isset($_GET['AddedID'])) {
 
 	hyperlink_params("$path_to_root/sales/inquiry/sales_deliveries_view.php", _("Select Another &Delivery For Invoicing"), "OutstandingOnly=1");
 
-	$sql = "SELECT trans_type_from, trans_no_from FROM ".TB_PREF."cust_allocations
-			WHERE trans_type_to=".ST_SALESINVOICE." AND trans_no_to=".db_escape($invoice_no);
-	$result = db_query($sql, "could not retrieve customer allocation");
-	$row = db_fetch($result);
-
-	if ($row === false)
+	if (!db_num_rows(get_allocatable_from_cust_transactions(null, $invoice_no, $trans_type)))
 		hyperlink_params("$path_to_root/sales/customer_payments.php", _("Entry &customer payment for this invoice"),
 		"SInvoice=".$invoice_no);
 
@@ -699,4 +694,3 @@ end_form();
 
 end_page();
 
-?>

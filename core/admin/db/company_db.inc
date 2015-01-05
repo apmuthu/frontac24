@@ -82,7 +82,7 @@ function set_company_pref($pref, $category, $type, $length, $value)
 
 function refresh_sys_prefs()
 {
-	flush_dir(company_path().'/js_cache'); // clear cache
+	flush_dir(user_js_cache()); // clear cache
 	unset($_SESSION['SysPrefs']);
 	get_company_prefs();
 }
@@ -193,4 +193,26 @@ function key_in_foreign_table($id, $tables, $stdkey)
 	return $count[0];
 }
 
-?>
+//---------------------------------------------------------------------------------------------
+//
+// Resets $theme references in users records to 'default'.
+//
+function clean_user_themes($theme)
+{
+	global $db_connections, $db, $installed_extensions;
+
+	$comp = user_company();
+
+	foreach ($db_connections as $n => $conn) {
+		$db = $_SESSION["wa_current_user"]->set_db_connection($n);
+		$sql = "UPDATE {$conn['tbpref']}users SET theme='default' WHERE theme='$theme'";
+		if (!db_query($sql, 'Cannot update user theme settings'))
+			return false;
+	}
+	$db = $_SESSION["wa_current_user"]->set_db_connection($comp);
+
+	$_SESSION['wa_current_user']->prefs->theme = 'default';
+	return true;
+}
+
+

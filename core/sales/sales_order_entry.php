@@ -55,7 +55,7 @@ if ($use_popup_windows) {
 	$js .= get_js_open_window(900, 500);
 }
 
-if ($use_date_picker) {
+if (user_use_date_picker()) {
 	$js .= get_js_date_picker();
 }
 
@@ -220,13 +220,10 @@ if (isset($_GET['AddedID'])) {
 	submenu_print(_("&Print Sales Invoice"), ST_SALESINVOICE, $invoice."-".ST_SALESINVOICE, 'prtopt');
 	submenu_print(_("&Email Sales Invoice"), ST_SALESINVOICE, $invoice."-".ST_SALESINVOICE, null, 1);
 	set_focus('prtopt');
-	
-	$sql = "SELECT trans_type_from, trans_no_from FROM ".TB_PREF."cust_allocations
-			WHERE trans_type_to=".ST_SALESINVOICE." AND trans_no_to=".db_escape($invoice);
-	$result = db_query($sql, "could not retrieve customer allocation");
-	$row = db_fetch($result);
+
+	$row = db_fetch(get_allocatable_from_cust_transactions(null, $invoice, ST_SALESINVOICE));
 	if ($row !== false)
-		submenu_print(_("Print &Receipt"), $row['trans_type_from'], $row['trans_no_from']."-".$row['trans_type_from'], 'prtopt');
+		submenu_print(_("Print &Receipt"), $row['type'], $row['trans_no']."-".$row['type'], 'prtopt');
 
 	display_note(get_gl_view_str(ST_SALESINVOICE, $invoice, _("View the GL &Journal Entries for this Invoice")),0, 1);
 
@@ -244,7 +241,7 @@ if (isset($_GET['AddedID'])) {
 
 	display_footer_exit();
 } else
-	check_edit_conflicts();
+	check_edit_conflicts(get_post('cart_id'));
 //-----------------------------------------------------------------------------
 
 function copy_to_cart()
@@ -343,7 +340,10 @@ function line_start_focus() {
 
 //--------------------------------------------------------------------------------
 function can_process() {
-	global $Refs;
+
+	global $Refs, $SysPrefs;
+
+	copy_to_cart();
 
 	if (!get_post('customer_id')) 
 	{
@@ -374,6 +374,11 @@ function can_process() {
 		set_focus('AddItem');
 		return false;
 	}
+	if (!$SysPrefs->allow_negative_stock() && ($low_stock = $_SESSION['Items']->check_qoh()))
+	{
+		display_error(_("This document cannot be processed because there is insufficient quantity for items marked."));
+		return false;
+	}
 	if ($_SESSION['Items']->payment_terms['cash_sale'] == 0) {
 		if (!$_SESSION['Items']->is_started() && ($_SESSION['Items']->payment_terms['days_before_due'] < 0) && ((input_num('prep_amount')<=0) ||
 			input_num('prep_amount')>$_SESSION['Items']->get_trans_total())) {
@@ -386,7 +391,6 @@ function can_process() {
 			set_focus('deliver_to');
 			return false;
 		}
-
 
 		if ($_SESSION['Items']->trans_type != ST_SALESQUOTE && strlen($_POST['delivery_address']) <= 1) {
 			display_error( _("You should enter the street address in the box provided. Orders cannot be accepted without a valid street address."));
@@ -410,7 +414,6 @@ function can_process() {
 			set_focus('delivery_date');
 			return false;
 		}
-		//if (date1_greater_date2($_SESSION['Items']->document_date, $_POST['delivery_date'])) {
 		if (date1_greater_date2($_POST['OrderDate'], $_POST['delivery_date'])) {
 			if ($_SESSION['Items']->trans_type==ST_SALESQUOTE)
 				display_error(_("The requested valid date is before the date of the quotation."));
@@ -451,7 +454,7 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
-	copy_to_cart();
+
 	$modified = ($_SESSION['Items']->trans_no != 0);
 	$so_type = $_SESSION['Items']->so_type;
 
@@ -499,7 +502,7 @@ if (isset($_POST['ProcessOrder']) && can_process()) {
 
 function check_item_data()
 {
-	global $SysPrefs, $allow_negative_prices;
+	global $SysPrefs;
 	
 	$is_inventory_item = is_inventory_item(get_post('stock_id'));
 	if(!get_post('stock_id_text', true)) {
@@ -511,7 +514,7 @@ function check_item_data()
 		display_error( _("The item could not be updated because you are attempting to set the quantity ordered to less than 0, or the discount percent to more than 100."));
 		set_focus('qty');
 		return false;
-	} elseif (!check_num('price', 0) && (!$allow_negative_prices || $is_inventory_item)) {
+	} elseif (!check_num('price', 0) && (!$SysPrefs->allow_negative_prices() || $is_inventory_item)) {
 		display_error( _("Price for inventory item must be entered and can not be less than 0"));
 		set_focus('price');
 		return false;
@@ -521,21 +524,8 @@ function check_item_data()
 		set_focus('qty');
 		display_error(_("You attempting to make the quantity ordered a quantity less than has already been delivered. The quantity delivered cannot be modified retrospectively."));
 		return false;
-	} // Joe Hunt added 2008-09-22 -------------------------
-	elseif ($is_inventory_item && $_SESSION['Items']->trans_type!=ST_SALESORDER && $_SESSION['Items']->trans_type!=ST_SALESQUOTE 
-		&& !$SysPrefs->allow_negative_stock())
-	{
-		$qoh = get_qoh_on_date($_POST['stock_id'], $_POST['Location'], $_POST['OrderDate']);
-		if (input_num('qty') > $qoh)
-		{
-			$stock = get_item($_POST['stock_id']);
-			display_error(_("The delivery cannot be processed because there is an insufficient quantity for item:") .
-				" " . $stock['stock_id'] . " - " . $stock['description'] . " - " .
-				_("Quantity On Hand") . " = " . number_format2($qoh, get_qty_dec($_POST['stock_id'])));
-			return false;
-		}
-		return true;
 	}
+
 	$cost_home = get_standard_cost(get_post('stock_id')); // Added 2011-03-27 Joe Hunt
 	$cost = $cost_home / get_exchange_rate_from_home_currency($_SESSION['Items']->customer_currency, $_SESSION['Items']->document_date);
 	if (input_num('price') < $cost)
@@ -645,7 +635,7 @@ function create_cart($type, $trans_no)
 { 
 	global $Refs;
 
-	if (!$_SESSION['SysPrefs']->prefs['db_ok']) // create_cart is called before page() where the check is done
+	if (!$_SESSION['SysPrefs']->db_ok) // create_cart is called before page() where the check is done
 		return;
 
 	processing_start();
@@ -769,4 +759,3 @@ if ($customer_error == "") {
 
 end_form();
 end_page();
-?>

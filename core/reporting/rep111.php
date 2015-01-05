@@ -31,7 +31,7 @@ print_sales_quotations();
 
 function print_sales_quotations()
 {
-	global $path_to_root, $print_as_quote, $print_invoice_no, $no_zero_lines_amount;
+	global $path_to_root, $print_as_quote, $SysPrefs, $pic_height;
 
 	include_once($path_to_root . "/reporting/includes/pdf_report.inc");
 
@@ -47,6 +47,10 @@ function print_sales_quotations()
 	$orientation = ($orientation ? 'L' : 'P');
 	$dec = user_price_dec();
 
+	$pictures = $SysPrefs->print_item_images_on_quote();
+	// If you want a larger image, then increase $pic_height f.i.
+	// $pic_height += 25;
+	
 	$cols = array(4, 60, 225, 300, 325, 385, 450, 515);
 
 	// $headers in doctext.inc
@@ -70,7 +74,7 @@ function print_sales_quotations()
 		if ($email == 1)
 		{
 			$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
-			if ($print_invoice_no == 1)
+			if ($SysPrefs->print_invoice_no() == 1)
 				$rep->filename = "SalesQuotation" . $i . ".pdf";
 			else	
 				$rep->filename = "SalesQuotation" . $myrow['reference'] . ".pdf";
@@ -107,7 +111,7 @@ function print_sales_quotations()
 			$rep->TextColLines(1, 2, $myrow2['description'], -2);
 			$newrow = $rep->row;
 			$rep->row = $oldrow;
-			if ($Net != 0.0 || !is_service($myrow2['mb_flag']) || !isset($no_zero_lines_amount) || $no_zero_lines_amount == 0)
+			if ($Net != 0.0 || !is_service($myrow2['mb_flag']) || !$SysPrefs->no_zero_lines_amount())
 			{
 				$rep->TextCol(2, 3,	$DisplayQty, -2);
 				$rep->TextCol(3, 4,	$myrow2['units'], -2);
@@ -116,6 +120,20 @@ function print_sales_quotations()
 				$rep->TextCol(6, 7,	$DisplayNet, -2);
 			}
 			$rep->row = $newrow;
+			
+			if ($pictures)
+			{
+				$image = company_path(). "/images/" . item_img_name($myrow2['stk_code']) . ".jpg";
+				if (file_exists($image))
+				{
+					//$rep->NewLine();
+					if ($rep->row - $pic_height < $rep->bottomMargin)
+						$rep->NewPage();
+					$rep->AddImage($image, $rep->cols[1], $rep->row - $pic_height, 0, $pic_height);
+					$rep->row -= $pic_height;
+					$rep->NewLine();
+				}
+			}
 			//$rep->NewLine(1);
 			if ($rep->row < $rep->bottomMargin + (15 * $rep->lineHeight))
 				$rep->NewPage();
@@ -158,7 +176,7 @@ function print_sales_quotations()
 
 			if ($myrow['tax_included'])
 			{
-				if (isset($alternative_tax_include_on_docs) && $alternative_tax_include_on_docs == 1)
+				if ($SysPrefs->alternative_tax_include_on_docs() == 1)
 				{
 					if ($first)
 					{
@@ -197,7 +215,7 @@ function print_sales_quotations()
 		$rep->Font();
 		if ($email == 1)
 		{
-			if ($print_invoice_no == 1)
+			if ($SysPrefs->print_invoice_no() == 1)
 				$myrow['reference'] = $i;
 			$rep->End($email);
 		}
@@ -206,4 +224,3 @@ function print_sales_quotations()
 		$rep->End();
 }
 
-?>

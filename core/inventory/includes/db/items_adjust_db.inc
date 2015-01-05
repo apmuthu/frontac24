@@ -13,7 +13,7 @@
 
 function add_stock_adjustment($items, $location, $date_, $type, $increase, $reference, $memo_)
 {
-	global $loc_notification, $path_to_root, $Refs;
+	global $SysPrefs, $path_to_root, $Refs;
 
 	begin_transaction();
 	$args = func_get_args();
@@ -24,7 +24,7 @@ function add_stock_adjustment($items, $location, $date_, $type, $increase, $refe
 
 	$adj_id = get_next_trans_no(ST_INVADJUST);
 
-	if ($loc_notification == 1 && !$increase)
+	if ($SysPrefs->loc_notification() == 1 && !$increase)
 	{
 		include_once($path_to_root . "/inventory/includes/inventory_db.inc");
 		$st_ids = array();
@@ -35,7 +35,7 @@ function add_stock_adjustment($items, $location, $date_, $type, $increase, $refe
 	foreach ($items as $line_item)
 	{
 
-		if ($loc_notification == 1 && !$increase)
+		if ($SysPrefs->loc_notification() == 1 && !$increase)
 			$loc = calculate_reorder_level($location, $line_item, $st_ids, $st_names, $st_num, $st_reorder); 
 
 		if (!$increase)
@@ -53,7 +53,7 @@ function add_stock_adjustment($items, $location, $date_, $type, $increase, $refe
 	$args->trans_no = $adj_id;
 	hook_db_postwrite($args, ST_INVADJUST);
 	commit_transaction();
-	if ($loc_notification == 1 && !$increase && count($st_ids) > 0)
+	if ($SysPrefs->loc_notification() == 1 && !$increase && count($st_ids) > 0)
 		send_reorder_email($loc, $st_ids, $st_names, $st_num, $st_reorder);
 
 	return $adj_id;
@@ -130,7 +130,7 @@ function add_stock_adjustment_item($adj_id, $stock_id, $location, $date_, $type,
 	update_average_material_cost(null, $stock_id, $standard_cost, $quantity, $date_);
 
 	add_stock_move(ST_INVADJUST, $stock_id, $adj_id, $location,
-        $date_, $reference, $quantity, $standard_cost, $type);
+        $date_, $reference, $quantity, $standard_cost);
 
 	if ($standard_cost > 0)
 	{
@@ -146,4 +146,3 @@ function add_stock_adjustment_item($adj_id, $stock_id, $location, $date_, $type,
 
 //-------------------------------------------------------------------------------------------------------------
 
-?>

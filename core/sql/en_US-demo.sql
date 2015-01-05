@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 10, 2014 at 06:06 PM
+-- Generation Time: Sep 26, 2014 at 11:32 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6-1+lenny2
 
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `0_areas` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`area_code`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_areas`
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `0_attachments` (
   `filetype` varchar(60) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `type_no` (`type_no`,`trans_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_attachments`
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `0_audit_trail` (
   PRIMARY KEY  (`id`),
   KEY `Seq` (`fiscal_year`,`gl_date`,`gl_seq`),
   KEY `Type_and_Number` (`type`,`trans_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_audit_trail`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `0_bank_accounts` (
   KEY `bank_account_name` (`bank_account_name`),
   KEY `bank_account_number` (`bank_account_number`),
   KEY `account_code` (`account_code`)
-) ENGINE=MyISAM  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_bank_accounts`
@@ -144,23 +144,23 @@ CREATE TABLE IF NOT EXISTS `0_bank_trans` (
   KEY `type` (`type`,`trans_no`),
   KEY `bank_act_2` (`bank_act`,`reconciled`),
   KEY `bank_act_3` (`bank_act`,`trans_date`)
-) ENGINE=InnoDB  AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `0_bank_trans`
 --
 
-INSERT INTO `0_bank_trans` VALUES(1, 22, 4, '1', '1', '2009-06-21', -3465, 0, 0, 3, '2', NULL);
-INSERT INTO `0_bank_trans` VALUES(2, 26, 1, '1', '', '2009-06-21', -10, 0, 0, 1, '1', NULL);
-INSERT INTO `0_bank_trans` VALUES(3, 26, 1, '1', '', '2009-06-21', -20, 0, 0, 1, '0', NULL);
-INSERT INTO `0_bank_trans` VALUES(4, 0, 18, '1', '1', '2009-02-20', 1000, 0, 0, 0, '', NULL);
-INSERT INTO `0_bank_trans` VALUES(5, 0, 19, '1', '2', '2009-02-21', 4000, 0, 0, 0, '', NULL);
-INSERT INTO `0_bank_trans` VALUES(6, 2, 5, '1', '1', '2009-06-21', 100, 0, 0, 4, '3', NULL);
-INSERT INTO `0_bank_trans` VALUES(7, 1, 8, '1', '1', '2009-06-21', -50, 0, 0, 4, '1', NULL);
-INSERT INTO `0_bank_trans` VALUES(8, 26, 5, '1', '', '2009-06-21', -10, 0, 0, 1, '1', NULL);
-INSERT INTO `0_bank_trans` VALUES(9, 26, 5, '1', '', '2009-06-21', -20, 0, 0, 1, '0', NULL);
-INSERT INTO `0_bank_trans` VALUES(10, 26, 7, '1', '', '2009-06-21', -10, 0, 0, 1, '1', NULL);
-INSERT INTO `0_bank_trans` VALUES(11, 26, 7, '1', '', '2009-06-21', -20, 0, 0, 1, '0', NULL);
+INSERT INTO `0_bank_trans` VALUES(1, 22, 4, '1', '1', '2014-06-21', -3465, 0, 0, 3, '2', NULL);
+INSERT INTO `0_bank_trans` VALUES(2, 26, 1, '1', '', '2014-06-21', -10, 0, 0, 1, '1', NULL);
+INSERT INTO `0_bank_trans` VALUES(3, 26, 1, '1', '', '2014-06-21', -20, 0, 0, 1, '0', NULL);
+INSERT INTO `0_bank_trans` VALUES(4, 0, 18, '1', '1', '2014-02-20', 1000, 0, 0, 0, '', NULL);
+INSERT INTO `0_bank_trans` VALUES(5, 0, 19, '1', '2', '2014-02-21', 4000, 0, 0, 0, '', NULL);
+INSERT INTO `0_bank_trans` VALUES(6, 2, 5, '1', '1', '2014-06-21', 100, 0, 0, 4, '3', NULL);
+INSERT INTO `0_bank_trans` VALUES(7, 1, 8, '1', '1', '2014-06-21', -50, 0, 0, 4, '1', NULL);
+INSERT INTO `0_bank_trans` VALUES(8, 26, 5, '1', '', '2014-06-21', -10, 0, 0, 1, '1', NULL);
+INSERT INTO `0_bank_trans` VALUES(9, 26, 5, '1', '', '2014-06-21', -20, 0, 0, 1, '0', NULL);
+INSERT INTO `0_bank_trans` VALUES(10, 26, 7, '1', '', '2014-06-21', -10, 0, 0, 1, '1', NULL);
+INSERT INTO `0_bank_trans` VALUES(11, 26, 7, '1', '', '2014-06-21', -20, 0, 0, 1, '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `0_bom` (
   KEY `loc_code` (`loc_code`),
   KEY `parent` (`parent`,`loc_code`),
   KEY `workcentre_added` (`workcentre_added`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_bom`
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `0_budget_trans` (
   `dimension2_id` int(11) default '0',
   PRIMARY KEY  (`id`),
   KEY `Account` (`account`,`tran_date`,`dimension_id`,`dimension2_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_budget_trans`
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_class` (
   `ctype` tinyint(1) NOT NULL default '0',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`cid`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_chart_class`
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_master` (
   PRIMARY KEY  (`account_code`),
   KEY `account_name` (`account_name`),
   KEY `accounts_by_type` (`account_type`,`account_code`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_chart_master`
@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_types` (
   PRIMARY KEY  (`id`),
   KEY `name` (`name`),
   KEY `class_id` (`class_id`)
-) ENGINE=MyISAM ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 --
 -- Dumping data for table `0_chart_types`
@@ -389,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `0_comments` (
   `date_` date default '0000-00-00',
   `memo_` tinytext,
   KEY `type_and_id` (`type`,`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_comments`
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `0_credit_status` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `reason_description` (`reason_description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_credit_status`
@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_categories` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `type` (`type`,`action`),
   UNIQUE KEY `type_2` (`type`,`name`)
-) ENGINE=InnoDB  AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `0_crm_categories`
@@ -472,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_contacts` (
   `entity_id` varchar(11) default NULL COMMENT 'entity id in related class table',
   PRIMARY KEY  (`id`),
   KEY `type` (`type`,`action`)
-) ENGINE=InnoDB  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_crm_contacts`
@@ -510,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_persons` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `ref` (`ref`)
-) ENGINE=InnoDB  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_crm_persons`
@@ -542,7 +542,7 @@ CREATE TABLE IF NOT EXISTS `0_currencies` (
   `auto_update` tinyint(1) NOT NULL default '1',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`curr_abrev`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_currencies`
@@ -571,14 +571,15 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_cust_allocations`
 --
 
-INSERT INTO `0_cust_allocations` VALUES(1, 37.68, '2009-06-21', 3, 11, 18, 10);
+INSERT INTO `0_cust_allocations` VALUES(1, 37.68, '2014-06-21', 3, 11, 18, 10);
 
 -- --------------------------------------------------------
 
@@ -595,7 +596,6 @@ CREATE TABLE IF NOT EXISTS `0_cust_branch` (
   `br_address` tinytext NOT NULL,
   `area` int(11) default NULL,
   `salesman` int(11) NOT NULL default '0',
-  `contact_name` varchar(60) NOT NULL default '',
   `default_location` varchar(5) NOT NULL default '',
   `tax_group_id` int(11) default NULL,
   `sales_account` varchar(15) NOT NULL default '',
@@ -603,24 +603,24 @@ CREATE TABLE IF NOT EXISTS `0_cust_branch` (
   `receivables_account` varchar(15) NOT NULL default '',
   `payment_discount_account` varchar(15) NOT NULL default '',
   `default_ship_via` int(11) NOT NULL default '1',
-  `disable_trans` tinyint(4) NOT NULL default '0',
   `br_post_address` tinytext NOT NULL,
   `group_no` int(11) NOT NULL default '0',
   `notes` tinytext NOT NULL,
   `bank_account` varchar(60) DEFAULT NULL,
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`branch_code`,`debtor_no`),
+  KEY `branch_code` (`branch_code`),
   KEY `branch_ref` (`branch_ref`),
   KEY `group_no` (`group_no`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_cust_branch`
 --
 
-INSERT INTO `0_cust_branch` VALUES(1, 1, 'Beefeater Ltd.', 'Beefeater', '', 1, 1, 'Main Branch', 'DEF', 2, '', '4510', '1200', '4500', 1, 0, 'Address 1\nAddress 2\nAddress 3', 0, '', '', 0);
-INSERT INTO `0_cust_branch` VALUES(2, 2, 'Ghostbusters Corp.', 'Ghostbusters', 'Address 1\nAddress 2\nAddress 3', 1, 1, 'Main Branch', 'DEF', 1, '', '4510', '1200', '4500', 1, 0, 'Address 1\nAddress 2\nAddress 3', 0, '','', 0);
-INSERT INTO `0_cust_branch` VALUES(3, 3, 'Brezan', 'Brezan', 'Address 1\nAddress 2\nAddress 3', 1, 1, 'Main Branch', 'DEF', 1, '', '4510', '1200', '4500', 1, 0, 'Address 1\nAddress 2\nAddress 3', 0, '', '', 0);
+INSERT INTO `0_cust_branch` VALUES(1, 1, 'Beefeater Ltd.', 'Beefeater', '', 1, 1, 'DEF', 2, '', '4510', '1200', '4500', 1, 'Address 1\nAddress 2\nAddress 3', 0, '', '', 0);
+INSERT INTO `0_cust_branch` VALUES(2, 2, 'Ghostbusters Corp.', 'Ghostbusters', 'Address 1\nAddress 2\nAddress 3', 1, 1, 'DEF', 1, '', '4510', '1200', '4500', 1, 'Address 1\nAddress 2\nAddress 3', 0, '','', 0);
+INSERT INTO `0_cust_branch` VALUES(3, 3, 'Brezan', 'Brezan', 'Address 1\nAddress 2\nAddress 3', 1, 1, 'DEF', 1, '', '4510', '1200', '4500', 1, 'Address 1\nAddress 2\nAddress 3', 0, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -649,7 +649,7 @@ CREATE TABLE IF NOT EXISTS `0_debtors_master` (
   PRIMARY KEY  (`debtor_no`),
   KEY `name` (`name`),
   UNIQUE KEY `debtor_ref` (`debtor_ref`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_debtors_master`
@@ -694,20 +694,20 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans` (
   KEY `debtor_no` (`debtor_no`,`branch_code`),
   KEY `tran_date` (`tran_date`),
   KEY `order_` (`order_`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_debtor_trans`
 --
 
-INSERT INTO `0_debtor_trans` VALUES(17, 10, 0, 2, 2, '2009-06-21', '2009-06-22', '1', 1, 2, 50, 2.5, 0, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
-INSERT INTO `0_debtor_trans` VALUES(18, 10, 1, 3, 3, '2009-06-21', '2009-07-01', '2', 2, 3, 35.89, 1.79, 0, 0, 0, 37.68, 0, 1.3932, 1, 2, 0, 3, 0);
-INSERT INTO `0_debtor_trans` VALUES(19, 10, 0, 2, 2, '2009-06-21', '2009-06-22', '3', 1, 5, 50, 0, 5, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
-INSERT INTO `0_debtor_trans` VALUES(3, 11, 0, 3, 3, '2009-06-21', '0000-00-00', '1', 2, 3, 35.89, 1.79, 0, 0, 0, 37.68, 0, 1.3932, 1, 2, 0, 3, 0);
-INSERT INTO `0_debtor_trans` VALUES(2, 13, 0, 1, 1, '2009-06-21', '2009-06-22', '1', 2, 1, 60.8, 0, 10, 0, 0, 0, 0, 1.6445729799917, 1, 0, 0, 3, 0);
-INSERT INTO `0_debtor_trans` VALUES(3, 13, 1, 2, 2, '2009-06-21', '2009-06-22', 'auto', 1, 2, 50, 2.5, 0, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
-INSERT INTO `0_debtor_trans` VALUES(4, 13, 1, 3, 3, '2009-06-21', '2009-07-01', 'auto', 2, 3, 35.89, 1.79, 0, 0, 0, 0, 0, 1.3932, 1, 2, 0, 3, 0);
-INSERT INTO `0_debtor_trans` VALUES(5, 13, 1, 2, 2, '2009-06-21', '2009-06-22', 'auto', 1, 5, 50, 0, 5, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
+INSERT INTO `0_debtor_trans` VALUES(17, 10, 0, 2, 2, '2014-06-21', '2014-06-22', '1', 1, 2, 50, 2.5, 0, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
+INSERT INTO `0_debtor_trans` VALUES(18, 10, 1, 3, 3, '2014-06-21', '2014-07-01', '2', 2, 3, 35.89, 1.79, 0, 0, 0, 37.68, 0, 1.3932, 1, 2, 0, 3, 0);
+INSERT INTO `0_debtor_trans` VALUES(19, 10, 0, 2, 2, '2014-06-21', '2014-06-22', '3', 1, 5, 50, 0, 5, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
+INSERT INTO `0_debtor_trans` VALUES(3, 11, 0, 3, 3, '2014-06-21', '0000-00-00', '1', 2, 3, 35.89, 1.79, 0, 0, 0, 37.68, 0, 1.3932, 1, 2, 0, 3, 0);
+INSERT INTO `0_debtor_trans` VALUES(2, 13, 0, 1, 1, '2014-06-21', '2014-06-22', '1', 2, 1, 60.8, 0, 10, 0, 0, 0, 0, 1.6445729799917, 1, 0, 0, 3, 0);
+INSERT INTO `0_debtor_trans` VALUES(3, 13, 1, 2, 2, '2014-06-21', '2014-06-22', 'auto', 1, 2, 50, 2.5, 0, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
+INSERT INTO `0_debtor_trans` VALUES(4, 13, 1, 3, 3, '2014-06-21', '2014-07-01', 'auto', 2, 3, 35.89, 1.79, 0, 0, 0, 0, 0, 1.3932, 1, 2, 0, 3, 0);
+INSERT INTO `0_debtor_trans` VALUES(5, 13, 1, 2, 2, '2014-06-21', '2014-06-22', 'auto', 1, 5, 50, 0, 5, 0, 0, 0, 0, 1, 1, 0, 0, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -732,7 +732,7 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
   PRIMARY KEY  (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
   KEY (`src_id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `0_debtor_trans_details`
@@ -767,14 +767,14 @@ CREATE TABLE IF NOT EXISTS `0_dimensions` (
   KEY `date_` (`date_`),
   KEY `due_date` (`due_date`),
   KEY `type_` (`type_`)
-) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_dimensions`
 --
 
-INSERT INTO `0_dimensions` VALUES(1, '1', 'Support', 1, 0, '2009-06-21', '2015-07-11');
-INSERT INTO `0_dimensions` VALUES(2, '2', 'Development', 1, 0, '2009-06-21', '2015-07-11');
+INSERT INTO `0_dimensions` VALUES(1, '1', 'Support', 1, 0, '2014-06-21', '2020-07-11');
+INSERT INTO `0_dimensions` VALUES(2, '2', 'Development', 1, 0, '2014-06-21', '2020-07-11');
 
 -- --------------------------------------------------------
 
@@ -791,15 +791,15 @@ CREATE TABLE IF NOT EXISTS `0_exchange_rates` (
   `date_` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `curr_code` (`curr_code`,`date_`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_exchange_rates`
 --
 
-INSERT INTO `0_exchange_rates` VALUES(1, 'DKK', 0.18717252868313, 0.18717252868313, '2009-06-21');
-INSERT INTO `0_exchange_rates` VALUES(2, 'GBP', 1.6445729799917, 1.6445729799917, '2009-06-21');
-INSERT INTO `0_exchange_rates` VALUES(3, 'EUR', 1.3932, 1.3932, '2009-06-21');
+INSERT INTO `0_exchange_rates` VALUES(1, 'DKK', 0.18717252868313, 0.18717252868313, '2014-06-21');
+INSERT INTO `0_exchange_rates` VALUES(2, 'GBP', 1.6445729799917, 1.6445729799917, '2014-06-21');
+INSERT INTO `0_exchange_rates` VALUES(3, 'EUR', 1.3932, 1.3932, '2014-06-21');
 
 -- --------------------------------------------------------
 
@@ -816,18 +816,14 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
 --
 
-INSERT INTO `0_fiscal_year` VALUES(1, '2008-01-01', '2008-12-31', 1);
-INSERT INTO `0_fiscal_year` VALUES(2, '2009-01-01', '2009-12-31', 1);
-INSERT INTO `0_fiscal_year` VALUES(3, '2010-01-01', '2010-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(4, '2011-01-01', '2011-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(5, '2012-01-01', '2012-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(6, '2013-01-01', '2013-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(1, '2013-01-01', '2013-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(2, '2014-01-01', '2014-12-31', 0);
 
 --
 -- Table structure for table `0_gl_trans`
@@ -852,97 +848,95 @@ CREATE TABLE IF NOT EXISTS `0_gl_trans` (
   KEY `dimension2_id` (`dimension2_id`),
   KEY `tran_date` (`tran_date`),
   KEY `account_and_tran_date` (`account`,`tran_date`)
-) ENGINE=InnoDB  AUTO_INCREMENT=84 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `0_gl_trans`
 --
 
-INSERT INTO `0_gl_trans` VALUES(1, 20, 7, '2009-06-21', '2100', '', -3465, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(2, 20, 7, '2009-06-21', '1510', '', 1000, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(3, 20, 7, '2009-06-21', '1510', '', 1100, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(4, 20, 7, '2009-06-21', '1510', '', 1200, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(5, 20, 7, '2009-06-21', '2150', '', 165, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(6, 22, 4, '2009-06-21', '2100', '', 3465, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(7, 22, 4, '2009-06-21', '1060', '', -3465, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(8, 26, 1, '2009-06-21', '1510', '', -100, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(9, 26, 1, '2009-06-21', '1510', '', -110, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(10, 26, 1, '2009-06-21', '1510', '', -120, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(11, 26, 1, '2009-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(12, 26, 1, '2009-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(13, 26, 1, '2009-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(14, 26, 1, '2009-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(15, 26, 1, '2009-06-21', '1510', '', 330, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(16, 13, 2, '2009-06-21', '5010', '', 20, 0, 0, 2, '1');
-INSERT INTO `0_gl_trans` VALUES(17, 13, 2, '2009-06-21', '1510', '', -20, 0, 0, 2, '1');
-INSERT INTO `0_gl_trans` VALUES(18, 13, 3, '2009-06-21', '5010', '', 10, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(19, 13, 3, '2009-06-21', '1510', '', -10, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(20, 10, 17, '2009-06-21', '4010', '', -50, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(21, 10, 17, '2009-06-21', '1200', '', 52.5, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(22, 10, 17, '2009-06-21', '2150', '', -2.5, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(23, 13, 4, '2009-06-21', '5010', '', 10, 2, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(24, 13, 4, '2009-06-21', '1510', '', -10, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(25, 10, 18, '2009-06-21', '4010', '', -50, 2, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(26, 10, 18, '2009-06-21', '1200', '', 52.5, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(27, 10, 18, '2009-06-21', '2150', '', -2.5, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(28, 0, 18, '2009-02-20', '1060', '', 1000, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(29, 0, 18, '2009-02-20', '3350', '', -1000, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(30, 0, 19, '2009-02-21', '1060', '', 4000, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(31, 0, 19, '2009-02-21', '3350', '', -4000, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(32, 26, 3, '2009-06-21', '1510', '', -20, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(33, 26, 3, '2009-06-21', '1510', '', -22, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(34, 26, 3, '2009-06-21', '1510', '', -24, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(35, 26, 3, '2009-06-21', '1540', '', 66, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(36, 2, 5, '2009-06-21', '2150', 'Cash Sales', -4.76, 0, 0, 4, '3');
-INSERT INTO `0_gl_trans` VALUES(37, 2, 5, '2009-06-21', '4010', 'Cash Sales', -95.24, 0, 0, 4, '3');
-INSERT INTO `0_gl_trans` VALUES(38, 2, 5, '2009-06-21', '1060', '', 100, 0, 0, 4, '3');
-INSERT INTO `0_gl_trans` VALUES(39, 1, 8, '2009-06-21', '2150', 'Maintenance', 2.38, 0, 0, 4, '1');
-INSERT INTO `0_gl_trans` VALUES(40, 1, 8, '2009-06-21', '5765', 'Maintenance', 47.62, 0, 0, 4, '1');
-INSERT INTO `0_gl_trans` VALUES(41, 1, 8, '2009-06-21', '1060', '', -50, 0, 0, 4, '1');
-INSERT INTO `0_gl_trans` VALUES(42, 20, 8, '2009-06-21', '2100', '', -20, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(43, 20, 8, '2009-06-21', '2150', '', 0.95, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(44, 20, 8, '2009-06-21', '5780', '', 19.05, 0, 0, 3, '2');
-INSERT INTO `0_gl_trans` VALUES(45, 26, 4, '2009-06-21', '1510', '', -40, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(46, 26, 4, '2009-06-21', '1510', '', -44, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(47, 26, 4, '2009-06-21', '1510', '', -48, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(48, 26, 4, '2009-06-21', '1540', '', 132, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(49, 26, 2, '2009-06-21', '1510', '', -20, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(50, 26, 2, '2009-06-21', '1510', '', -22, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(51, 26, 2, '2009-06-21', '1510', '', -24, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(52, 26, 2, '2009-06-21', '1540', '', 66, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(53, 26, 5, '2009-06-21', '1510', '', -50, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(54, 26, 5, '2009-06-21', '1510', '', -55, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(55, 26, 5, '2009-06-21', '1510', '', -60, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(56, 26, 5, '2009-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(57, 26, 5, '2009-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(58, 26, 5, '2009-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(59, 26, 5, '2009-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(60, 26, 5, '2009-06-21', '1540', '', 165, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(61, 26, 6, '2009-06-21', '1510', '', 50, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(62, 26, 6, '2009-06-21', '1510', '', 55, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(63, 26, 6, '2009-06-21', '1510', '', 60, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(64, 26, 6, '2009-06-21', '1540', '', -165, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(65, 26, 7, '2009-06-21', '1510', '', 20, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(66, 26, 7, '2009-06-21', '1510', '', 22, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(67, 26, 7, '2009-06-21', '1510', '', 24, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(68, 26, 7, '2009-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(69, 26, 7, '2009-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
-INSERT INTO `0_gl_trans` VALUES(70, 26, 7, '2009-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(71, 26, 7, '2009-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
-INSERT INTO `0_gl_trans` VALUES(72, 26, 7, '2009-06-21', '1540', '', -66, 0, 0, NULL, '');
-INSERT INTO `0_gl_trans` VALUES(73, 13, 5, '2009-06-21', '5010', '', 10, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(74, 13, 5, '2009-06-21', '1510', '', -10, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(75, 10, 19, '2009-06-21', '4010', '', -47.62, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(76, 10, 19, '2009-06-21', '1200', '', 55, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(77, 10, 19, '2009-06-21', '4430', '', -5, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(78, 10, 19, '2009-06-21', '2150', '', -2.38, 0, 0, 2, '2');
-INSERT INTO `0_gl_trans` VALUES(79, 11, 3, '2009-06-21', '5010', '', -10, 2, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(80, 11, 3, '2009-06-21', '1510', '', 10, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(81, 11, 3, '2009-06-21', '4010', '', 50, 2, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(82, 11, 3, '2009-06-21', '1200', '', -52.5, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES(83, 11, 3, '2009-06-21', '2150', '', 2.5, 0, 0, 2, '3');
-INSERT INTO `0_gl_trans` VALUES ('84', '0', '20', '2009-12-31', '3590', 'Closing Year', '-91.19', '0', '0', NULL, NULL);
-INSERT INTO `0_gl_trans` VALUES ('85', '0', '20', '2009-12-31', '9990', 'Closing Year', '91.19', '0', '0', NULL, NULL);
+INSERT INTO `0_gl_trans` VALUES(1, 20, 7, '2014-06-21', '2100', '', -3465, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(2, 20, 7, '2014-06-21', '1510', '', 1000, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(3, 20, 7, '2014-06-21', '1510', '', 1100, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(4, 20, 7, '2014-06-21', '1510', '', 1200, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(5, 20, 7, '2014-06-21', '2150', '', 165, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(6, 22, 4, '2014-06-21', '2100', '', 3465, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(7, 22, 4, '2014-06-21', '1060', '', -3465, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(8, 26, 1, '2014-06-21', '1510', '', -100, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(9, 26, 1, '2014-06-21', '1510', '', -110, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(10, 26, 1, '2014-06-21', '1510', '', -120, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(11, 26, 1, '2014-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(12, 26, 1, '2014-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(13, 26, 1, '2014-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(14, 26, 1, '2014-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(15, 26, 1, '2014-06-21', '1510', '', 330, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(16, 13, 2, '2014-06-21', '5010', '', 20, 0, 0, 2, '1');
+INSERT INTO `0_gl_trans` VALUES(17, 13, 2, '2014-06-21', '1510', '', -20, 0, 0, 2, '1');
+INSERT INTO `0_gl_trans` VALUES(18, 13, 3, '2014-06-21', '5010', '', 10, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(19, 13, 3, '2014-06-21', '1510', '', -10, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(20, 10, 17, '2014-06-21', '4010', '', -50, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(21, 10, 17, '2014-06-21', '1200', '', 52.5, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(22, 10, 17, '2014-06-21', '2150', '', -2.5, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(23, 13, 4, '2014-06-21', '5010', '', 10, 2, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(24, 13, 4, '2014-06-21', '1510', '', -10, 0, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(25, 10, 18, '2014-06-21', '4010', '', -50, 2, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(26, 10, 18, '2014-06-21', '1200', '', 52.5, 0, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(27, 10, 18, '2014-06-21', '2150', '', -2.5, 0, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(28, 0, 18, '2014-02-20', '1060', '', 1000, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(29, 0, 18, '2014-02-20', '3350', '', -1000, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(30, 0, 19, '2014-02-21', '1060', '', 4000, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(31, 0, 19, '2014-02-21', '3350', '', -4000, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(32, 26, 3, '2014-06-21', '1510', '', -20, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(33, 26, 3, '2014-06-21', '1510', '', -22, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(34, 26, 3, '2014-06-21', '1510', '', -24, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(35, 26, 3, '2014-06-21', '1540', '', 66, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(36, 2, 5, '2014-06-21', '2150', 'Cash Sales', -4.76, 0, 0, 4, '3');
+INSERT INTO `0_gl_trans` VALUES(37, 2, 5, '2014-06-21', '4010', 'Cash Sales', -95.24, 0, 0, 4, '3');
+INSERT INTO `0_gl_trans` VALUES(38, 2, 5, '2014-06-21', '1060', '', 100, 0, 0, 4, '3');
+INSERT INTO `0_gl_trans` VALUES(39, 1, 8, '2014-06-21', '2150', 'Maintenance', 2.38, 0, 0, 4, '1');
+INSERT INTO `0_gl_trans` VALUES(40, 1, 8, '2014-06-21', '5765', 'Maintenance', 47.62, 0, 0, 4, '1');
+INSERT INTO `0_gl_trans` VALUES(41, 1, 8, '2014-06-21', '1060', '', -50, 0, 0, 4, '1');
+INSERT INTO `0_gl_trans` VALUES(42, 20, 8, '2014-06-21', '2100', '', -20, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(43, 20, 8, '2014-06-21', '2150', '', 0.95, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(44, 20, 8, '2014-06-21', '5780', '', 19.05, 0, 0, 3, '2');
+INSERT INTO `0_gl_trans` VALUES(45, 26, 4, '2014-06-21', '1510', '', -40, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(46, 26, 4, '2014-06-21', '1510', '', -44, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(47, 26, 4, '2014-06-21', '1510', '', -48, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(48, 26, 4, '2014-06-21', '1540', '', 132, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(49, 26, 2, '2014-06-21', '1510', '', -20, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(50, 26, 2, '2014-06-21', '1510', '', -22, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(51, 26, 2, '2014-06-21', '1510', '', -24, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(52, 26, 2, '2014-06-21', '1540', '', 66, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(53, 26, 5, '2014-06-21', '1510', '', -50, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(54, 26, 5, '2014-06-21', '1510', '', -55, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(55, 26, 5, '2014-06-21', '1510', '', -60, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(56, 26, 5, '2014-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(57, 26, 5, '2014-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(58, 26, 5, '2014-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(59, 26, 5, '2014-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(60, 26, 5, '2014-06-21', '1540', '', 165, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(61, 26, 6, '2014-06-21', '1510', '', 50, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(62, 26, 6, '2014-06-21', '1510', '', 55, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(63, 26, 6, '2014-06-21', '1510', '', 60, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(64, 26, 6, '2014-06-21', '1540', '', -165, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(65, 26, 7, '2014-06-21', '1510', '', 20, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(66, 26, 7, '2014-06-21', '1510', '', 22, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(67, 26, 7, '2014-06-21', '1510', '', 24, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(68, 26, 7, '2014-06-21', '1060', 'Overhead Cost', -10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(69, 26, 7, '2014-06-21', '1530', 'Overhead Cost', 10, 0, 0, 1, '1');
+INSERT INTO `0_gl_trans` VALUES(70, 26, 7, '2014-06-21', '1060', 'Labour Cost', -20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(71, 26, 7, '2014-06-21', '1530', 'Labour Cost', 20, 0, 0, 1, '0');
+INSERT INTO `0_gl_trans` VALUES(72, 26, 7, '2014-06-21', '1540', '', -66, 0, 0, NULL, '');
+INSERT INTO `0_gl_trans` VALUES(73, 13, 5, '2014-06-21', '5010', '', 10, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(74, 13, 5, '2014-06-21', '1510', '', -10, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(75, 10, 19, '2014-06-21', '4010', '', -47.62, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(76, 10, 19, '2014-06-21', '1200', '', 55, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(77, 10, 19, '2014-06-21', '4430', '', -5, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(78, 10, 19, '2014-06-21', '2150', '', -2.38, 0, 0, 2, '2');
+INSERT INTO `0_gl_trans` VALUES(79, 11, 3, '2014-06-21', '5010', '', -10, 2, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(80, 11, 3, '2014-06-21', '1510', '', 10, 0, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(81, 11, 3, '2014-06-21', '4010', '', 50, 2, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(82, 11, 3, '2014-06-21', '1200', '', -52.5, 0, 0, 2, '3');
+INSERT INTO `0_gl_trans` VALUES(83, 11, 3, '2014-06-21', '2150', '', 2.5, 0, 0, 2, '3');
 
 -- --------------------------------------------------------
 
@@ -958,17 +952,17 @@ CREATE TABLE IF NOT EXISTS `0_grn_batch` (
   `reference` varchar(60) NOT NULL default '',
   `delivery_date` date NOT NULL default '0000-00-00',
   `loc_code` varchar(5) default NULL,
-  `rate` double NOT NULL default '1',
+  `rate` double NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `delivery_date` (`delivery_date`),
   KEY `purch_order_no` (`purch_order_no`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_grn_batch`
 --
 
-INSERT INTO `0_grn_batch` VALUES(1, 2, 1, '1', '2009-06-21', 'DEF', '1');
+INSERT INTO `0_grn_batch` VALUES(1, 2, 1, '1', '2014-06-21', 'DEF', '1');
 
 -- --------------------------------------------------------
 
@@ -987,7 +981,7 @@ CREATE TABLE IF NOT EXISTS `0_grn_items` (
   `quantity_inv` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `grn_batch_id` (`grn_batch_id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_grn_items`
@@ -1010,7 +1004,7 @@ CREATE TABLE IF NOT EXISTS `0_groups` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_groups`
@@ -1039,7 +1033,7 @@ CREATE TABLE IF NOT EXISTS `0_item_codes` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `stock_id` (`stock_id`,`item_code`),
   KEY `item_code` (`item_code`)
-) ENGINE=MyISAM  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_item_codes`
@@ -1065,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `0_item_tax_types` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_item_tax_types`
@@ -1084,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `0_item_tax_type_exemptions` (
   `item_tax_type_id` int(11) NOT NULL default '0',
   `tax_type_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`item_tax_type_id`,`tax_type_id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_item_tax_type_exemptions`
@@ -1105,7 +1099,7 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`abbr`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_item_units`
@@ -1132,7 +1126,7 @@ CREATE TABLE IF NOT EXISTS `0_locations` (
   `contact` varchar(30) NOT NULL default '',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`loc_code`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_locations`
@@ -1153,7 +1147,7 @@ CREATE TABLE IF NOT EXISTS `0_loc_stock` (
   `reorder_level` bigint(20) NOT NULL default '0',
   PRIMARY KEY  (`loc_code`,`stock_id`),
   KEY `stock_id` (`stock_id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_loc_stock`
@@ -1178,7 +1172,7 @@ CREATE TABLE IF NOT EXISTS `0_movement_types` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_movement_types`
@@ -1201,7 +1195,7 @@ CREATE TABLE IF NOT EXISTS `0_payment_terms` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`terms_indicator`),
   UNIQUE KEY `terms` (`terms`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_payment_terms`
@@ -1227,7 +1221,7 @@ CREATE TABLE IF NOT EXISTS `0_prices` (
   `price` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `price` (`stock_id`,`sales_type_id`,`curr_abrev`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_prices`
@@ -1255,7 +1249,7 @@ CREATE TABLE IF NOT EXISTS `0_printers` (
   `timeout` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_printers`
@@ -1279,7 +1273,7 @@ CREATE TABLE IF NOT EXISTS `0_print_profiles` (
   `printer` tinyint(3) unsigned default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `profile` (`profile`,`report`)
-) ENGINE=MyISAM  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_print_profiles`
@@ -1310,7 +1304,7 @@ CREATE TABLE IF NOT EXISTS `0_purch_data` (
   `conversion_factor` double NOT NULL default '1',
   `supplier_description` char(50) NOT NULL default '',
   PRIMARY KEY  (`supplier_id`,`stock_id`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_purch_data`
@@ -1342,14 +1336,14 @@ CREATE TABLE IF NOT EXISTS `0_purch_orders` (
   `tax_included` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`order_no`),
   KEY `ord_date` (`ord_date`)
-) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_purch_orders`
 --
 
-INSERT INTO `0_purch_orders` VALUES(1, 2, '', '2009-06-01', '1', '', 'DEF', 'Delivery 1\nDelivery 2\nDelivery 3', 0, 0, 0, 0);
-INSERT INTO `0_purch_orders` VALUES(2, 3, '', '2009-06-21', '2', '', 'DEF', 'Delivery 1\nDelivery 2\nDelivery 3', 0, 0, 0, 0);
+INSERT INTO `0_purch_orders` VALUES(1, 2, '', '2014-06-01', '1', '', 'DEF', 'Delivery 1\nDelivery 2\nDelivery 3', 0, 0, 0, 0);
+INSERT INTO `0_purch_orders` VALUES(2, 3, '', '2014-06-21', '2', '', 'DEF', 'Delivery 1\nDelivery 2\nDelivery 3', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1373,17 +1367,17 @@ CREATE TABLE IF NOT EXISTS `0_purch_order_details` (
   PRIMARY KEY  (`po_detail_item`),
   KEY `order` (`order_no`,`po_detail_item`),
   KEY `itemcode` (`item_code`)
-) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_purch_order_details`
 --
 
-INSERT INTO `0_purch_order_details` VALUES(1, 1, '102', '17inch VGA Monitor', '2009-07-01', 100, 10, 10, 10, 100, 100);
-INSERT INTO `0_purch_order_details` VALUES(2, 1, '103', '32MB VGA Card', '2009-07-01', 100, 11, 11, 11, 100, 100);
-INSERT INTO `0_purch_order_details` VALUES(3, 1, '104', '52x CD Drive', '2009-07-01', 100, 12, 12, 12, 100, 100);
-INSERT INTO `0_purch_order_details` VALUES(4, 2, '102', '17inch VGA Monitor', '2009-07-01', 0, 5, 0, 0, 1, 0);
-INSERT INTO `0_purch_order_details` VALUES(5, 2, '103', '32MB VGA Card', '2009-07-01', 0, 5, 0, 0, 1, 0);
+INSERT INTO `0_purch_order_details` VALUES(1, 1, '102', '17inch VGA Monitor', '2014-07-01', 100, 10, 10, 10, 100, 100);
+INSERT INTO `0_purch_order_details` VALUES(2, 1, '103', '32MB VGA Card', '2014-07-01', 100, 11, 11, 11, 100, 100);
+INSERT INTO `0_purch_order_details` VALUES(3, 1, '104', '52x CD Drive', '2014-07-01', 100, 12, 12, 12, 100, 100);
+INSERT INTO `0_purch_order_details` VALUES(4, 2, '102', '17inch VGA Monitor', '2014-07-01', 0, 5, 0, 0, 1, 0);
+INSERT INTO `0_purch_order_details` VALUES(5, 2, '103', '32MB VGA Card', '2014-07-01', 0, 5, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1401,7 +1395,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
   `bal_type` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `description` (`description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_quick_entries`
@@ -1428,7 +1422,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
   `dimension2_id` smallint(6) unsigned default NULL,
   PRIMARY KEY  (`id`),
   KEY `qid` (`qid`)
-) ENGINE=MyISAM  AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `0_quick_entry_lines`
@@ -1461,7 +1455,7 @@ CREATE TABLE IF NOT EXISTS `0_recurrent_invoices` (
   `last_sent` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_recurrent_invoices`
@@ -1481,7 +1475,7 @@ CREATE TABLE IF NOT EXISTS `0_refs` (
   `reference` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`id`,`type`),
   KEY `Type_and_Reference` (`type`,`reference`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_refs`
@@ -1509,7 +1503,7 @@ CREATE TABLE IF NOT EXISTS `0_salesman` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`salesman_code`),
   UNIQUE KEY `salesman_name` (`salesman_name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_salesman`
@@ -1549,17 +1543,17 @@ CREATE TABLE IF NOT EXISTS `0_sales_orders` (
   `prep_amount` double NOT NULL DEFAULT '0',
   `alloc` double NOT NULL DEFAULT '0',
   PRIMARY KEY  (`trans_type`,`order_no`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_sales_orders`
 --
 
-INSERT INTO `0_sales_orders` VALUES(1, 30, 1, 0, 1, 1, '1', '', '', '2009-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Beefeater Ltd.', 10, 'DEF', '2009-06-22', 3, 0, 0, 0);
-INSERT INTO `0_sales_orders` VALUES(2, 30, 1, 0, 2, 2, '2', '', '', '2009-06-21', 1, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Ghostbusters Corp.', 0, 'DEF', '2009-06-22', 4, 0, 0, 0);
-INSERT INTO `0_sales_orders` VALUES(3, 30, 1, 0, 3, 3, '3', '', '', '2009-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Brezan', 0, 'DEF', '2009-07-01', 3, 0, 0, 0);
-INSERT INTO `0_sales_orders` VALUES(4, 30, 0, 0, 1, 1, '4', '', '', '2009-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Beefeater Ltd.', 0, 'DEF', '2009-06-22', 3, 0, 0, 0);
-INSERT INTO `0_sales_orders` VALUES(5, 30, 1, 0, 2, 2, '5', '', '', '2009-06-21', 1, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Ghostbusters Corp.', 5, 'DEF', '2009-06-22', 4, 0, 0, 0);
+INSERT INTO `0_sales_orders` VALUES(1, 30, 1, 0, 1, 1, '1', '', '', '2014-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Beefeater Ltd.', 10, 'DEF', '2014-06-22', 3, 0, 0, 0);
+INSERT INTO `0_sales_orders` VALUES(2, 30, 1, 0, 2, 2, '2', '', '', '2014-06-21', 1, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Ghostbusters Corp.', 0, 'DEF', '2014-06-22', 4, 0, 0, 0);
+INSERT INTO `0_sales_orders` VALUES(3, 30, 1, 0, 3, 3, '3', '', '', '2014-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Brezan', 0, 'DEF', '2014-07-01', 3, 0, 0, 0);
+INSERT INTO `0_sales_orders` VALUES(4, 30, 0, 0, 1, 1, '4', '', '', '2014-06-21', 2, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Beefeater Ltd.', 0, 'DEF', '2014-06-22', 3, 0, 0, 0);
+INSERT INTO `0_sales_orders` VALUES(5, 30, 1, 0, 2, 2, '5', '', '', '2014-06-21', 1, 1, 'Address 1\nAddress 2\nAddress 3', '', '', 'Ghostbusters Corp.', 5, 'DEF', '2014-06-22', 4, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1582,7 +1576,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_order_details` (
   PRIMARY KEY  (`id`),
   KEY `sorder` (`trans_type`,`order_no`),
   KEY `stkcode` (`stk_code`)
-) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_sales_order_details`
@@ -1611,7 +1605,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_pos` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `pos_name` (`pos_name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_sales_pos`
@@ -1634,7 +1628,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_types` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `sales_type` (`sales_type`)
-) ENGINE=MyISAM  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_sales_types`
@@ -1659,7 +1653,7 @@ CREATE TABLE IF NOT EXISTS `0_security_roles` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `role` (`role`)
-) ENGINE=MyISAM  AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `0_security_roles`
@@ -1693,7 +1687,7 @@ CREATE TABLE IF NOT EXISTS `0_shippers` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`shipper_id`),
   UNIQUE KEY `name` (`shipper_name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_shippers`
@@ -1714,7 +1708,7 @@ CREATE TABLE IF NOT EXISTS `0_sql_trail` (
   `result` tinyint(1) NOT NULL,
   `msg` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_sql_trail`
@@ -1746,7 +1740,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_no_purchase` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`category_id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_stock_category`
@@ -1789,17 +1783,17 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `no_purchase` tinyint(1) NOT NULL default '0',
   `editable` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`stock_id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_stock_master`
 --
 
-INSERT INTO `0_stock_master` VALUES('102', 1, 1, '17inch VGA Monitor', '', 'ea.', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_master` VALUES('103', 1, 1, '32MB VGA Card', '', 'ea.', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_master` VALUES('104', 1, 1, '52x CD Drive', '', 'ea.', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_master` VALUES('201', 4, 1, 'Assembly Labour', '', 'hrs', 'D', '4010', '5010', '5010', '5040', '1530', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `0_stock_master` VALUES('3400', 3, 1, 'P4 Business System', '', 'ea.', 'M', '4010', '5010', '1540', '5040', '1530', 0, 0, 0, 0, 33, 3.9999999999999, 2, 0, 0, 0, 0);
+INSERT INTO `0_stock_master` VALUES('102', 1, 1, '17inch VGA Monitor', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_master` VALUES('103', 1, 1, '32MB VGA Card', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_master` VALUES('104', 1, 1, '52x CD Drive', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_master` VALUES('201', 4, 1, 'Assembly Labour', '', 'hr', 'D', '4010', '5010', '5010', '5040', '1530', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `0_stock_master` VALUES('3400', 3, 1, 'P4 Business System', '', 'each', 'M', '4010', '5010', '1540', '5040', '1530', 0, 0, 0, 0, 33, 3.9999999999999, 2, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1825,48 +1819,48 @@ CREATE TABLE IF NOT EXISTS `0_stock_moves` (
   PRIMARY KEY  (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
-) ENGINE=InnoDB  AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `0_stock_moves`
 --
 
-INSERT INTO `0_stock_moves` VALUES(1, 1, '102', 25, 'DEF', '2009-06-21', 2, 10, '', 100, 0, 10, 1);
-INSERT INTO `0_stock_moves` VALUES(2, 1, '103', 25, 'DEF', '2009-06-21', 2, 11, '', 100, 0, 11, 1);
-INSERT INTO `0_stock_moves` VALUES(3, 1, '104', 25, 'DEF', '2009-06-21', 2, 12, '', 100, 0, 12, 1);
-INSERT INTO `0_stock_moves` VALUES(4, 1, '102', 26, 'DEF', '2009-06-21', 0, 0, '1', -10, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(5, 1, '103', 26, 'DEF', '2009-06-21', 0, 0, '1', -10, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(6, 1, '104', 26, 'DEF', '2009-06-21', 0, 0, '1', -10, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(7, 1, '3400', 26, 'DEF', '2009-06-21', 0, 0, '1', 10, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(8, 2, '102', 13, 'DEF', '2009-06-21', 0, 30.4, '1', -2, 0, 10, 1);
-INSERT INTO `0_stock_moves` VALUES(9, 3, '102', 13, 'DEF', '2009-06-21', 0, 50, 'auto', -1, 0, 10, 1);
-INSERT INTO `0_stock_moves` VALUES(10, 4, '102', 13, 'DEF', '2009-06-21', 0, 35.89, 'auto', -1, 0, 10, 1);
-INSERT INTO `0_stock_moves` VALUES(11, 3, '102', 26, 'DEF', '2009-06-21', 0, 0, '3', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(12, 3, '103', 26, 'DEF', '2009-06-21', 0, 0, '3', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(13, 3, '104', 26, 'DEF', '2009-06-21', 0, 0, '3', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(14, 3, '3400', 26, 'DEF', '2009-06-21', 0, 0, '3', 2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(15, 4, '102', 26, 'DEF', '2009-06-21', 0, 0, '4', -4, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(16, 4, '103', 26, 'DEF', '2009-06-21', 0, 0, '4', -4, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(17, 4, '104', 26, 'DEF', '2009-06-21', 0, 0, '4', -4, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(18, 4, '3400', 26, 'DEF', '2009-06-21', 0, 0, '4', 4, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(19, 2, '102', 26, 'DEF', '2009-06-21', 0, 0, '', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(20, 2, '103', 26, 'DEF', '2009-06-21', 0, 0, '', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(21, 2, '104', 26, 'DEF', '2009-06-21', 0, 0, '', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(22, 1, '3400', 29, 'DEF', '2009-06-21', 0, 0, '', 2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(23, 5, '102', 26, 'DEF', '2009-06-21', 0, 0, '5', -5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(24, 5, '103', 26, 'DEF', '2009-06-21', 0, 0, '5', -5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(25, 5, '104', 26, 'DEF', '2009-06-21', 0, 0, '5', -5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(26, 5, '3400', 26, 'DEF', '2009-06-21', 0, 0, '5', 5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(27, 6, '102', 26, 'DEF', '2009-06-21', 0, 0, '6', 5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(28, 6, '103', 26, 'DEF', '2009-06-21', 0, 0, '6', 5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(29, 6, '104', 26, 'DEF', '2009-06-21', 0, 0, '6', 5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(30, 6, '3400', 26, 'DEF', '2009-06-21', 0, 0, '6', -5, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(31, 7, '102', 26, 'DEF', '2009-06-21', 0, 0, '7', 2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(32, 7, '103', 26, 'DEF', '2009-06-21', 0, 0, '7', 2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(33, 7, '104', 26, 'DEF', '2009-06-21', 0, 0, '7', 2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(34, 7, '3400', 26, 'DEF', '2009-06-21', 0, 0, '7', -2, 0, 0, 1);
-INSERT INTO `0_stock_moves` VALUES(35, 5, '102', 13, 'DEF', '2009-06-21', 0, 50, 'auto', -1, 0, 10, 1);
-INSERT INTO `0_stock_moves` VALUES(36, 3, '102', 11, 'DEF', '2009-06-21', 0, 37.68, 'Return Ex Inv: 18', 1, 0, 10, 0);
+INSERT INTO `0_stock_moves` VALUES(1, 1, '102', 25, 'DEF', '2014-06-21', 2, 10, '', 100, 0, 10, 1);
+INSERT INTO `0_stock_moves` VALUES(2, 1, '103', 25, 'DEF', '2014-06-21', 2, 11, '', 100, 0, 11, 1);
+INSERT INTO `0_stock_moves` VALUES(3, 1, '104', 25, 'DEF', '2014-06-21', 2, 12, '', 100, 0, 12, 1);
+INSERT INTO `0_stock_moves` VALUES(4, 1, '102', 26, 'DEF', '2014-06-21', 0, 0, '1', -10, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(5, 1, '103', 26, 'DEF', '2014-06-21', 0, 0, '1', -10, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(6, 1, '104', 26, 'DEF', '2014-06-21', 0, 0, '1', -10, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(7, 1, '3400', 26, 'DEF', '2014-06-21', 0, 0, '1', 10, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(8, 2, '102', 13, 'DEF', '2014-06-21', 0, 30.4, '1', -2, 0, 10, 1);
+INSERT INTO `0_stock_moves` VALUES(9, 3, '102', 13, 'DEF', '2014-06-21', 0, 50, 'auto', -1, 0, 10, 1);
+INSERT INTO `0_stock_moves` VALUES(10, 4, '102', 13, 'DEF', '2014-06-21', 0, 35.89, 'auto', -1, 0, 10, 1);
+INSERT INTO `0_stock_moves` VALUES(11, 3, '102', 26, 'DEF', '2014-06-21', 0, 0, '3', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(12, 3, '103', 26, 'DEF', '2014-06-21', 0, 0, '3', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(13, 3, '104', 26, 'DEF', '2014-06-21', 0, 0, '3', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(14, 3, '3400', 26, 'DEF', '2014-06-21', 0, 0, '3', 2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(15, 4, '102', 26, 'DEF', '2014-06-21', 0, 0, '4', -4, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(16, 4, '103', 26, 'DEF', '2014-06-21', 0, 0, '4', -4, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(17, 4, '104', 26, 'DEF', '2014-06-21', 0, 0, '4', -4, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(18, 4, '3400', 26, 'DEF', '2014-06-21', 0, 0, '4', 4, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(19, 2, '102', 26, 'DEF', '2014-06-21', 0, 0, '', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(20, 2, '103', 26, 'DEF', '2014-06-21', 0, 0, '', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(21, 2, '104', 26, 'DEF', '2014-06-21', 0, 0, '', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(22, 1, '3400', 29, 'DEF', '2014-06-21', 0, 0, '', 2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(23, 5, '102', 26, 'DEF', '2014-06-21', 0, 0, '5', -5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(24, 5, '103', 26, 'DEF', '2014-06-21', 0, 0, '5', -5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(25, 5, '104', 26, 'DEF', '2014-06-21', 0, 0, '5', -5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(26, 5, '3400', 26, 'DEF', '2014-06-21', 0, 0, '5', 5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(27, 6, '102', 26, 'DEF', '2014-06-21', 0, 0, '6', 5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(28, 6, '103', 26, 'DEF', '2014-06-21', 0, 0, '6', 5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(29, 6, '104', 26, 'DEF', '2014-06-21', 0, 0, '6', 5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(30, 6, '3400', 26, 'DEF', '2014-06-21', 0, 0, '6', -5, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(31, 7, '102', 26, 'DEF', '2014-06-21', 0, 0, '7', 2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(32, 7, '103', 26, 'DEF', '2014-06-21', 0, 0, '7', 2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(33, 7, '104', 26, 'DEF', '2014-06-21', 0, 0, '7', 2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(34, 7, '3400', 26, 'DEF', '2014-06-21', 0, 0, '7', -2, 0, 0, 1);
+INSERT INTO `0_stock_moves` VALUES(35, 5, '102', 13, 'DEF', '2014-06-21', 0, 50, 'auto', -1, 0, 10, 1);
+INSERT INTO `0_stock_moves` VALUES(36, 3, '102', 11, 'DEF', '2014-06-21', 0, 37.68, 'Return Ex Inv: 18', 1, 0, 10, 0);
 
 -- --------------------------------------------------------
 
@@ -1901,7 +1895,7 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`supplier_id`),
   KEY `supp_ref` (`supp_ref`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_suppliers`
@@ -1928,14 +1922,15 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_supp_allocations`
 --
 
-INSERT INTO `0_supp_allocations` VALUES(1, 3465, '2009-06-21', 4, 22, 7, 20);
+INSERT INTO `0_supp_allocations` VALUES(1, 3465, '2014-06-21', 4, 22, 7, 20);
 
 -- --------------------------------------------------------
 
@@ -1959,7 +1954,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_invoice_items` (
   `memo_` tinytext,
   PRIMARY KEY  (`id`),
   KEY `Transaction` (`supp_trans_type`,`supp_trans_no`,`stock_id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_supp_invoice_items`
@@ -1994,17 +1989,19 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
   `tax_included` tinyint(1) NOT NULL default '0',
   `tax_algorithm` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`type`,`trans_no`),
+  KEY `supplier_id` (`supplier_id`),
   KEY `SupplierID_2` (`supplier_id`,`supp_reference`),
+  KEY `type` (`type`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_supp_trans`
 --
 
-INSERT INTO `0_supp_trans` VALUES(7, 20, 2, '1', '5t', '2009-06-21', '2009-07-01', 3300, 0, 165, 1, 3465, 0, 1);
-INSERT INTO `0_supp_trans` VALUES(8, 20, 2, '2', 'cc', '2009-06-21', '2009-07-01', 20, 0, 0, 1, 0, 0, 1);
-INSERT INTO `0_supp_trans` VALUES(4, 22, 2, '1', '', '2009-06-21', '2009-06-21', -3465, 0, 0, 1, 3465, 0, 1);
+INSERT INTO `0_supp_trans` VALUES(7, 20, 2, '1', '5t', '2014-06-21', '2014-07-01', 3300, 0, 165, 1, 3465, 0, 1);
+INSERT INTO `0_supp_trans` VALUES(8, 20, 2, '2', 'cc', '2014-06-21', '2014-07-01', 20, 0, 0, 1, 0, 0, 1);
+INSERT INTO `0_supp_trans` VALUES(4, 22, 2, '1', '', '2014-06-21', '2014-06-21', -3465, 0, 0, 1, 3465, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2021,7 +2018,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
   `value` text NOT NULL,
   PRIMARY KEY  (`name`),
   KEY `category` (`category`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_sys_prefs`
@@ -2040,7 +2037,7 @@ INSERT INTO `0_sys_prefs` VALUES('coy_logo', 'setup.company', 'varchar', 100, 'l
 INSERT INTO `0_sys_prefs` VALUES('domicile', 'setup.company', 'varchar', 55, '');
 INSERT INTO `0_sys_prefs` VALUES('curr_default', 'setup.company', 'char', 3, 'USD');
 INSERT INTO `0_sys_prefs` VALUES('use_dimension', 'setup.company', 'tinyint', 1, '1');
-INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '6');
+INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '2');
 INSERT INTO `0_sys_prefs` VALUES('no_item_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_customer_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_supplier_list', 'setup.company', 'tinyint', 1, '0');
@@ -2065,6 +2062,7 @@ INSERT INTO `0_sys_prefs` VALUES('default_sales_discount_act', 'glsetup.sales', 
 INSERT INTO `0_sys_prefs` VALUES('default_prompt_payment_act', 'glsetup.sales', 'varchar', 15, '4500');
 INSERT INTO `0_sys_prefs` VALUES('default_delivery_required', 'glsetup.sales', 'smallint', 6, '1');
 INSERT INTO `0_sys_prefs` VALUES('default_receival_required', 'glsetup.purchase', 'smallint', 6, '10');
+INSERT INTO `0_sys_prefs` VALUES('default_quote_valid_days', 'glsetup.sales', 'smallint', 6, '30');
 INSERT INTO `0_sys_prefs` VALUES('default_dim_required', 'glsetup.dims', 'int', 11, '20');
 INSERT INTO `0_sys_prefs` VALUES('pyt_discount_act', 'glsetup.purchase', 'varchar', 15, '5060');
 INSERT INTO `0_sys_prefs` VALUES('creditors_act', 'glsetup.purchase', 'varchar', 15, '2100');
@@ -2077,13 +2075,22 @@ INSERT INTO `0_sys_prefs` VALUES('default_adj_act', 'glsetup.items', 'varchar', 
 INSERT INTO `0_sys_prefs` VALUES('default_inv_sales_act', 'glsetup.items', 'varchar', 15, '4010');
 INSERT INTO `0_sys_prefs` VALUES('default_assembly_act', 'glsetup.items', 'varchar', 15, '1530');
 INSERT INTO `0_sys_prefs` VALUES('default_workorder_required', 'glsetup.manuf', 'int', 11, '20');
-INSERT INTO `0_sys_prefs` VALUES('version_id', 'system', 'varchar', 11, '2.3rc');
+INSERT INTO `0_sys_prefs` VALUES('version_id', 'system', 'varchar', 11, '2.4.0');
 INSERT INTO `0_sys_prefs` VALUES('auto_curr_reval', 'setup.company', 'smallint', 6, '1');
 INSERT INTO `0_sys_prefs` VALUES('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, '1550');
 INSERT INTO `0_sys_prefs` VALUES('bcc_email', 'setup.company', 'varchar', 100, '');
 INSERT INTO `0_sys_prefs` VALUES('deferred_income_act', 'glsetup.sales', 'varchar', '15', '');
 INSERT INTO `0_sys_prefs` VALUES('gl_closing_date','setup.closing_date', 'date', 8, '');
-INSERT INTO `0_sys_prefs` VALUES('db_ok', 'system', 'varchar', 11, '2.4');
+INSERT INTO `0_sys_prefs` VALUES('no_zero_lines_amount','glsetup.sales', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES('show_po_item_codes','glsetup.purchase', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('accounts_alpha','glsetup.general', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('loc_notification','glsetup.inventory', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('print_invoice_no','glsetup.sales', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('allow_negative_prices','glsetup.inventory', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES('print_item_images_on_quote','glsetup.inventory', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('alternative_tax_include_on_docs','setup.company', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('suppress_tax_rates','setup.company', 'tinyint', 1, '0');
+
 
 -- --------------------------------------------------------
 
@@ -2097,7 +2104,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_types` (
   `type_no` int(11) NOT NULL default '1',
   `next_reference` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`type_id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_sys_types`
@@ -2141,7 +2148,7 @@ CREATE TABLE IF NOT EXISTS `0_tags` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `type` (`type`,`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_tags`
@@ -2159,7 +2166,7 @@ CREATE TABLE IF NOT EXISTS `0_tag_associations` (
   `record_id` varchar(15) NOT NULL,
   `tag_id` int(11) NOT NULL,
   UNIQUE KEY `record_id` (`record_id`,`tag_id`)
-) ENGINE=MyISAM;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_tag_associations`
@@ -2179,7 +2186,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_groups` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_tax_groups`
@@ -2200,7 +2207,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_group_items` (
   `tax_type_id` int(11) NOT NULL default '0',
   `tax_shipping` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`tax_group_id`,`tax_type_id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_tax_group_items`
@@ -2223,7 +2230,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_types` (
   `name` varchar(60) NOT NULL default '',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_tax_types`
@@ -2253,23 +2260,23 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
   PRIMARY KEY  (`id`),
   KEY `Type_and_Number` (`trans_type`,`trans_no`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB  AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `0_trans_tax_details`
 --
 
-INSERT INTO `0_trans_tax_details` VALUES(1, 20, 7, '2009-06-21', 1, 5, 1, 0, 3300, 165, '5t');
-INSERT INTO `0_trans_tax_details` VALUES(2, 13, 3, '2009-06-21', 1, 5, 1, 0, 50, 2.5, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(3, 10, 17, '2009-06-21', 1, 5, 1, 0, 50, 2.5, '1');
-INSERT INTO `0_trans_tax_details` VALUES(4, 13, 4, '2009-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(5, 10, 18, '2009-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '2');
-INSERT INTO `0_trans_tax_details` VALUES(6, 2, 5, '2009-06-21', 1, 5, 1, 0, 95.2, 4.76, '');
-INSERT INTO `0_trans_tax_details` VALUES(7, 1, 8, '2009-06-21', 1, 5, 1, 0, -47.6, -2.38, '');
-INSERT INTO `0_trans_tax_details` VALUES(8, 20, 8, '2009-06-21', 1, 5, 1, 0, -19, -0.95, 'cc');
-INSERT INTO `0_trans_tax_details` VALUES(9, 13, 5, '2009-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(10, 10, 19, '2009-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, '3');
-INSERT INTO `0_trans_tax_details` VALUES(11, 11, 3, '2009-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '1');
+INSERT INTO `0_trans_tax_details` VALUES(1, 20, 7, '2014-06-21', 1, 5, 1, 0, 3300, 165, '5t');
+INSERT INTO `0_trans_tax_details` VALUES(2, 13, 3, '2014-06-21', 1, 5, 1, 0, 50, 2.5, 'auto');
+INSERT INTO `0_trans_tax_details` VALUES(3, 10, 17, '2014-06-21', 1, 5, 1, 0, 50, 2.5, '1');
+INSERT INTO `0_trans_tax_details` VALUES(4, 13, 4, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, 'auto');
+INSERT INTO `0_trans_tax_details` VALUES(5, 10, 18, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '2');
+INSERT INTO `0_trans_tax_details` VALUES(6, 2, 5, '2014-06-21', 1, 5, 1, 0, 95.2, 4.76, '');
+INSERT INTO `0_trans_tax_details` VALUES(7, 1, 8, '2014-06-21', 1, 5, 1, 0, -47.6, -2.38, '');
+INSERT INTO `0_trans_tax_details` VALUES(8, 20, 8, '2014-06-21', 1, 5, 1, 0, -19, -0.95, 'cc');
+INSERT INTO `0_trans_tax_details` VALUES(9, 13, 5, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, 'auto');
+INSERT INTO `0_trans_tax_details` VALUES(10, 10, 19, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, '3');
+INSERT INTO `0_trans_tax_details` VALUES(11, 11, 3, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '1');
 
 -- --------------------------------------------------------
 
@@ -2286,7 +2293,7 @@ CREATE TABLE IF NOT EXISTS `0_useronline` (
   PRIMARY KEY  (`id`),
   KEY `timestamp` (`timestamp`),
   KEY `ip` (`ip`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_useronline`
@@ -2323,25 +2330,29 @@ CREATE TABLE IF NOT EXISTS `0_users` (
   `show_codes` tinyint(1) NOT NULL default '0',
   `show_hints` tinyint(1) NOT NULL default '0',
   `last_visit_date` datetime default NULL,
-  `query_size` tinyint(1) unsigned default '10',
+  `query_size` tinyint(1) unsigned NOT NULL default '10',
   `graphic_links` tinyint(1) default '1',
   `pos` smallint(6) default '1',
-  `print_profile` varchar(30) NOT NULL default '1',
+  `print_profile` varchar(30) NOT NULL default '',
   `rep_popup` tinyint(1) default '1',
   `sticky_doc_date` tinyint(1) default '0',
   `startup_tab` varchar(20) NOT NULL default '',
   `transaction_days` smallint(6) NOT NULL default '30',
+  `save_report_selections` smallint(6) NOT NULL default '0',
+  `use_date_picker` tinyint(1) NOT NULL default '1',
+  `def_print_destination` tinyint(1) NOT NULL default '0',
+  `def_print_orientation` tinyint(1) NOT NULL default '0',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_users`
 --
 
-INSERT INTO `0_users` VALUES(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Administrator', 2, '', 'adm@adm.com', 'en_US', 0, 0, 0, 0, 'default', 'Letter', 2, 2, 4, 1, 1, 0, 0, '2010-05-11 23:27:46', 10, 1, 1, '1', 1, 0, 'orders', 30, 0);
-INSERT INTO `0_users` VALUES(2, 'demouser', '5f4dcc3b5aa765d61d8327deb882cf99', 'Demo User', 9, '999-999-999', 'demo@demo.nu', 'en_US', 0, 0, 0, 0, 'default', 'Letter', 2, 2, 3, 1, 1, 0, 0, '2008-02-06 19:02:35', 10, 1, 1, '1', 1, 0, 'orders', 30, 0);
+INSERT INTO `0_users` VALUES(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Administrator', 2, '', 'adm@adm.com', 'en_US', 0, 0, 0, 0, 'default', 'Letter', 2, 2, 4, 1, 1, 0, 0, '2014-05-11 23:27:46', 10, 1, 1, '1', 1, 0, 'orders', 30, 0, 1, 0, 0, 0);
+INSERT INTO `0_users` VALUES(2, 'demouser', '5f4dcc3b5aa765d61d8327deb882cf99', 'Demo User', 9, '999-999-999', 'demo@demo.nu', 'en_US', 0, 0, 0, 0, 'default', 'Letter', 2, 2, 3, 1, 1, 0, 0, '2014-02-06 19:02:35', 10, 1, 1, '1', 1, 0, 'orders', 30, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2356,7 +2367,7 @@ CREATE TABLE IF NOT EXISTS `0_voided` (
   `date_` date NOT NULL default '0000-00-00',
   `memo_` tinytext NOT NULL,
   UNIQUE KEY `id` (`type`,`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_voided`
@@ -2377,7 +2388,7 @@ CREATE TABLE IF NOT EXISTS `0_workcentres` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_workcentres`
@@ -2408,19 +2419,19 @@ CREATE TABLE IF NOT EXISTS `0_workorders` (
   `additional_costs` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `wo_ref` (`wo_ref`)
-) ENGINE=InnoDB  AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `0_workorders`
 --
 
-INSERT INTO `0_workorders` VALUES(1, '1', 'DEF', 10, '3400', '2009-06-21', 0, '2009-06-21', '2009-06-21', 10, 1, 1, 10);
-INSERT INTO `0_workorders` VALUES(2, '2', 'DEF', 3, '3400', '2009-06-21', 2, '2009-07-11', '2009-06-21', 2, 0, 1, 0);
-INSERT INTO `0_workorders` VALUES(3, '3', 'DEF', 2, '3400', '2009-06-21', 0, '2009-06-21', '2009-06-21', 2, 1, 1, 0);
-INSERT INTO `0_workorders` VALUES(4, '4', 'DEF', 4, '3400', '2009-06-21', 0, '2009-06-21', '2009-06-21', 4, 1, 1, 0);
-INSERT INTO `0_workorders` VALUES(5, '5', 'DEF', 5, '3400', '2009-06-21', 0, '2009-06-21', '2009-06-21', 5, 1, 1, 10);
-INSERT INTO `0_workorders` VALUES(6, '6', 'DEF', -5, '3400', '2009-06-21', 1, '2009-06-21', '2009-06-21', -5, 1, 1, 0);
-INSERT INTO `0_workorders` VALUES(7, '7', 'DEF', -2, '3400', '2009-06-21', 1, '2009-06-21', '2009-06-21', -2, 1, 1, 10);
+INSERT INTO `0_workorders` VALUES(1, '1', 'DEF', 10, '3400', '2014-06-21', 0, '2014-06-21', '2014-06-21', 10, 1, 1, 10);
+INSERT INTO `0_workorders` VALUES(2, '2', 'DEF', 3, '3400', '2014-06-21', 2, '2014-07-11', '2014-06-21', 2, 0, 1, 0);
+INSERT INTO `0_workorders` VALUES(3, '3', 'DEF', 2, '3400', '2014-06-21', 0, '2014-06-21', '2014-06-21', 2, 1, 1, 0);
+INSERT INTO `0_workorders` VALUES(4, '4', 'DEF', 4, '3400', '2014-06-21', 0, '2014-06-21', '2014-06-21', 4, 1, 1, 0);
+INSERT INTO `0_workorders` VALUES(5, '5', 'DEF', 5, '3400', '2014-06-21', 0, '2014-06-21', '2014-06-21', 5, 1, 1, 10);
+INSERT INTO `0_workorders` VALUES(6, '6', 'DEF', -5, '3400', '2014-06-21', 1, '2014-06-21', '2014-06-21', -5, 1, 1, 0);
+INSERT INTO `0_workorders` VALUES(7, '7', 'DEF', -2, '3400', '2014-06-21', 1, '2014-06-21', '2014-06-21', -2, 1, 1, 10);
 
 -- --------------------------------------------------------
 
@@ -2437,7 +2448,7 @@ CREATE TABLE `0_wo_costing` (
   `trans_no` int(11) NOT NULL default '0',
   `factor` double NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `0_wo_costing`
@@ -2460,7 +2471,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issues` (
   `workcentre_id` int(11) default NULL,
   PRIMARY KEY  (`issue_no`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_wo_issues`
@@ -2480,7 +2491,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issue_items` (
   `issue_id` int(11) default NULL,
   `qty_issued` double default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_wo_issue_items`
@@ -2502,13 +2513,13 @@ CREATE TABLE IF NOT EXISTS `0_wo_manufacture` (
   `date_` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_wo_manufacture`
 --
 
-INSERT INTO `0_wo_manufacture` VALUES(1, '1', 2, 2, '2009-06-21');
+INSERT INTO `0_wo_manufacture` VALUES(1, '1', 2, 2, '2014-06-21');
 
 -- --------------------------------------------------------
 
@@ -2528,7 +2539,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
   `units_issued` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB  AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `0_wo_requirements`

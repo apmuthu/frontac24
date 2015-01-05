@@ -43,6 +43,7 @@ function defaultCompany()
 	    	document.getElementById('log_msg').innerHTML='$demo_text'}, 1000*$login_delay);</script>";
 	    $demo_text = $blocked_msg;
 	}
+	flush_dir(user_js_cache());
 	if (!isset($def_coy))
 		$def_coy = 0;
 	$def_theme = "default";
@@ -125,7 +126,11 @@ function defaultCompany()
 		// add all request variables to be resend together with login data
 		if (!in_array($p, array('ui_mode', 'user_name_entry_field', 
 			'password', 'SubmitUser', 'company_login_name'))) 
-			echo "<input type='hidden' name='$p' value='$val'>";
+			if (!is_array($val))
+				echo "<input type='hidden' name='$p' value='$val'>";
+			else
+				foreach($val as $i => $v)
+					echo "<input type='hidden' name='{$p}[$i]' value='$v'>";
 	}
 	end_form(1);
 	$Ajax->addScript(true, "document.forms[0].password.focus();");
@@ -157,4 +162,3 @@ function defaultCompany()
 	echo "</table><br><br>\n";
 	echo "</body></html>\n";
 
-?>

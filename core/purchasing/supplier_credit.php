@@ -23,7 +23,7 @@ include_once($path_to_root . "/purchasing/includes/purchasing_ui.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
 //----------------------------------------------------------------------------------------
@@ -220,8 +220,7 @@ function check_data()
 		foreach ($_SESSION['supp_trans']->grn_items as $n => $item) {
 			if (is_inventory_item($item->item_code))
 			{
-				$qoh = get_qoh_on_date($item->item_code, null, $_SESSION['supp_trans']->tran_date);
-				if ($item->this_quantity_inv > $qoh)
+				if (check_negative_stock($item->item_code, -$item->this_quantity_inv, null, $_SESSION['supp_trans']->tran_date))
 				{
 					$stock = get_item($item->item_code);
 					display_error(_("The return cannot be processed because there is an insufficient quantity for item:") .
@@ -381,4 +380,3 @@ br();
 
 end_form();
 end_page();
-?>

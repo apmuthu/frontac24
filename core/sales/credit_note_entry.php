@@ -29,7 +29,7 @@ $js = "";
 if ($use_popup_windows) {
 	$js .= get_js_open_window(900, 500);
 }
-if ($use_date_picker) {
+if (user_use_date_picker()) {
 	$js .= get_js_date_picker();
 }
 
@@ -78,7 +78,7 @@ if (isset($_GET['AddedID'])) {
 
 	display_footer_exit();
 } else
-	check_edit_conflicts();
+	check_edit_conflicts(get_post('cart_id'));
 
 //--------------------------------------------------------------------------------
 
@@ -288,4 +288,3 @@ echo "</tr></table></center>";
 end_form();
 end_page();
 
-?>

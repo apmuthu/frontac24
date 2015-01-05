@@ -15,7 +15,7 @@ $path_to_root = "../..";
 include_once($path_to_root . "/includes/session.inc");
 
 $js = "";
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "View Dimension"), true, false, "", $js);
 
@@ -98,4 +98,3 @@ br(1);
 
 end_page(true, false, false, ST_DIMENSION, $id);
 
-?>

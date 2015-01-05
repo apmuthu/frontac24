@@ -24,7 +24,7 @@ include_once($path_to_root . "/manufacturing/includes/manufacturing_ui.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Work Order Entry"), false, false, "", $js);
 
@@ -63,7 +63,7 @@ if (isset($_GET['AddedID']))
 		submenu_print(_("&Email This Work Order"), ST_WORKORDER, $id, null, 1);
     	display_note(get_gl_view_str($stype, $id, _("View the GL Journal Entries for this Work Order")), 1);
     	$ar = array('PARAM_0' => $_GET['date'], 'PARAM_1' => $_GET['date'], 'PARAM_2' => $stype, 'PARAM_3' => '',
-    		'PARAM_4' => (isset($def_print_orientation) && $def_print_orientation == 1 ? 1 : 0)); 
+    		'PARAM_4' => (user_def_print_orientation() == 1 ? 1 : 0)); 
     	display_note(print_link(_("Print the GL Journal Entries for this Work Order"), 702, $ar), 1);
 		hyperlink_params("$path_to_root/admin/attachments.php", _("Add an Attachment"), "filterType=$stype&trans_no=$id");
 	}
@@ -203,8 +203,7 @@ function can_process()
 
                 		$quantity = $bom_item["quantity"] * input_num('quantity');
 
-                        $qoh = get_qoh_on_date($bom_item["component"], $bom_item["loc_code"], $_POST['date_']);
-                		if (-$quantity + $qoh < 0)
+                        if (check_negative_stock($bom_item["component"], -$quantity, $bom_item["loc_code"], $_POST['date_']))
                 		{
                 			display_error(_("The work order cannot be processed because there is an insufficient quantity for component:") .
                 				" " . $bom_item["component"] . " - " .  $bom_item["description"] . ".  " . _("Location:") . " " . $bom_item["location_name"]);
@@ -217,8 +216,7 @@ function can_process()
         	elseif ($_POST['type'] == WO_UNASSEMBLY)
         	{
         		// if unassembling, check item to unassemble
-				$qoh = get_qoh_on_date($_POST['stock_id'], $_POST['StockLocation'], $_POST['date_']);
-        		if (-input_num('quantity') + $qoh < 0)
+                if (check_negative_stock($_POST['stock_id'], -input_num('quantity'), $_POST['StockLocation'], $_POST['date_']))
         		{
         			display_error(_("The selected item cannot be unassembled because there is insufficient stock."));
 					return false;
@@ -277,7 +275,8 @@ if (isset($_POST['UPDATE_ITEM']) && can_process())
 {
 
 	update_work_order($selected_id, $_POST['StockLocation'], input_num('quantity'),
-		$_POST['stock_id'],  $_POST['date_'], $_POST['RequDate'], $_POST['memo_']);
+		$_POST['stock_id'],  $_POST['date_'], $_POST['RequDate'], $_POST['memo_'],
+		$_POST['old_stk_id'], $_POST['old_qty']);
 	new_doc_date($_POST['date_']);
 	meta_forward($_SERVER['PHP_SELF'], "UpdatedID=$selected_id");
 }
@@ -303,7 +302,7 @@ if (isset($_POST['delete']))
 	{ //ie not cancelled the delete as a result of above tests
 
 		// delete the actual work order
-		delete_work_order($selected_id);
+		delete_work_order($selected_id, $_POST['stock_id'], $_POST['quantity'], $_POST['date_']);
 		meta_forward($_SERVER['PHP_SELF'], "DeletedID=$selected_id");
 	}
 }
@@ -425,24 +424,23 @@ else
     date_row(_("Date") . ":", 'date_', '', true);
 	hidden('RequDate', '');
 
-	$sql = "SELECT DISTINCT account_code FROM ".TB_PREF."bank_accounts";
-	$rs = db_query($sql,"could not get bank accounts");
-	$r = db_fetch_row($rs);
+	$bank_act = get_default_bank_account();
 	if (!isset($_POST['Labour']))
 	{
 		$_POST['Labour'] = price_format(0);
-		$_POST['cr_lab_acc'] = $r[0];
+		$_POST['cr_lab_acc'] = $bank_act['account_code'];
 	}
+
 	amount_row($wo_cost_types[WO_LABOUR], 'Labour');
 	gl_all_accounts_list_row(_("Credit Labour Account"), 'cr_lab_acc', null);
 	if (!isset($_POST['Costs']))
 	{
 		$_POST['Costs'] = price_format(0);
-		$_POST['cr_acc'] = $r[0];
+		$_POST['cr_acc'] = $bank_act['account_code'];
 	}
 	amount_row($wo_cost_types[WO_OVERHEAD], 'Costs');
 	gl_all_accounts_list_row(_("Credit Overhead Account"), 'cr_acc', null);
-	
+
 }
 
 if (get_post('released'))
@@ -473,4 +471,3 @@ else
 end_form();
 end_page();
 
-?>

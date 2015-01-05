@@ -13,7 +13,7 @@
 if (isset($_GET['path_to_root']) || isset($_POST['path_to_root']))
 	die("Restricted access");
 @include_once($path_to_root . "/lang/installed_languages.inc");
-include_once($path_to_root . "/includes/lang/gettext.php");
+include_once($path_to_root . "/includes/lang/gettext.inc");
 
 class language 
 {
@@ -55,9 +55,6 @@ class language
 
 		if ($lang && $changed)
 		{
-		// flush cache as we can use several languages in one account
-			flush_dir(company_path().'/js_cache');
-
 			$this->name = $lang['name'];
 			$this->code = $lang['code'];
 			$this->encoding = $lang['encoding'];
@@ -93,4 +90,3 @@ if (!function_exists("_"))
 		return $retVal;
 	}
 }
-?>

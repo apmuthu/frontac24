@@ -21,7 +21,7 @@ include_once($path_to_root . "/reporting/includes/reporting.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Customer Transactions"), isset($_GET['customer_id']), false, "", $js);
 
@@ -191,7 +191,8 @@ function check_overdue($row)
 		&& floatcmp($row["TotalAmount"], $row["Allocated"]) != 0;
 }
 //------------------------------------------------------------------------------------------------
-$sql = get_sql_for_customer_inquiry();
+$sql = get_sql_for_customer_inquiry(get_post('TransAfterDate'), get_post('TransToDate'),
+	get_post('customer_id'), get_post('filterType'));
 
 //------------------------------------------------------------------------------------------------
 db_query("set @bal:=0");
@@ -232,4 +233,3 @@ display_db_pager($table);
 
 end_form();
 end_page();
-?>

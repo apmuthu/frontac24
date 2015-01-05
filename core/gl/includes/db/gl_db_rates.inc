@@ -33,6 +33,25 @@ function get_date_exchange_rate($curr_code, $date_)
 		return $row[0];
 }
 
+/*
+	Return last exchange rate of $currency not later than $date.
+*/
+function get_last_exchange_rate($curr_code, $date_)
+{
+	$date = date2sql($date_);
+
+	$sql = "SELECT rate_buy, max(date_) as date_ FROM ".TB_PREF."exchange_rates WHERE curr_code = ".db_escape($curr_code)."
+				AND date_ <= '$date' GROUP BY rate_buy ORDER BY date_ Desc LIMIT 1";
+
+	$result = db_query($sql, "could not query exchange rates");
+
+
+	if (db_num_rows($result) == 0)
+		return false;
+
+	return db_fetch_assoc($result);
+}
+
 //---------------------------------------------------------------------------------------------
 
 function update_exchange_rate($curr_code, $date_, $buy_rate, $sell_rate)
@@ -112,7 +131,7 @@ function get_extern_rate($curr_b, $provider = 'ECB', $date)
 	if ($provider == 'ECB')
 	{
 		$filename = "/stats/eurofxref/eurofxref-daily.xml";
-		$site = "www.ecb.int";
+		$site = "www.ecb.europa.eu";
 	}
 	elseif ($provider == 'YAHOO')
 	{
@@ -141,15 +160,15 @@ function get_extern_rate($curr_b, $provider = 'ECB', $date)
 	       curl_setopt ($ch, CURLOPT_COOKIEJAR, "$path_to_root/tmp/cookie.txt");
     	   curl_setopt ($ch, CURLOPT_HEADER, 0);
 	       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-	       // prevent warning while save_mode/open_basedir on (redireciton doesn't occur at least on ECB page)
-		   if (!ini_get('save_mode') && !ini_get('open_basedir'))
+	       // prevent warning while safe_mode/open_basedir on (redireciton doesn't occur at least on ECB page)
+		   if (!ini_get('safe_mode') && !ini_get('open_basedir'))
     	   	curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 1);
 	       curl_setopt ($ch, CURLOPT_TIMEOUT, 3);
     	   $contents = curl_exec ($ch);
 	       curl_close($ch);
 			// due to resolver bug in some curl versions (e.g. 7.15.5) 
 			// try again for constant IP.
-		   $site="195.128.2.97";
+		   $site="172.230.157.137";
 	   } while( ($contents == '') && $retry--);
 	   
 	} else {
@@ -218,12 +237,11 @@ function get_extern_rate($curr_b, $provider = 'ECB', $date)
 
 //-----------------------------------------------------------------------------
 
-function get_sql_for_exchange_rates()
+function get_sql_for_exchange_rates($curr)
 {
 	$sql = "SELECT date_, rate_buy, id FROM "
 		.TB_PREF."exchange_rates "
-		."WHERE curr_code=".db_escape($_POST['curr_abrev'])."
+		."WHERE curr_code=".db_escape($curr)."
 		 ORDER BY date_ DESC";
 	return $sql;	 
 }
-?>

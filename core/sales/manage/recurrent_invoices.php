@@ -18,7 +18,7 @@ include_once($path_to_root . "/sales/includes/sales_db.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 600);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
 page(_($help_context = "Recurrent Invoices"), false, false, "", $js);
@@ -30,6 +30,12 @@ if ($Mode=='ADD_ITEM' || $Mode=='UPDATE_ITEM')
 
 	$input_error = 0;
 
+	if (strlen($_POST['order_no']) == 0) 
+	{
+		$input_error = 1;
+		display_error(_("No order has been selected as a template for recurrent invoicing."));
+		set_focus('order_no');
+	}
 	if (strlen($_POST['description']) == 0) 
 	{
 		$input_error = 1;
@@ -191,4 +197,3 @@ submit_add_or_update_center($selected_id == -1, '', 'both');
 end_form();
 
 end_page();
-?>

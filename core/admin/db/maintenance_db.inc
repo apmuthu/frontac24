@@ -86,7 +86,7 @@ function write_config_db($new = false)
 	$msg .= "\$def_coy = " . $def_coy . ";\n\n";
 	$msg .= "\$tb_pref_counter = " . $tb_pref_counter . ";\n\n";
 	$msg .= "\$db_connections = " .var_export($db_connections, true);
-	$msg .= ";\n?>";
+	$msg .= ";\n";
 
 	$filename = $path_to_root . "/config_db.php";
 	// Check if the file exists and is writable first.
@@ -142,7 +142,7 @@ function write_extensions($extensions=null, $company = -1)
 */\n\n";
 
 	$msg .= "\$installed_extensions = ". var_export($extensions, true);
-	$msg .= ";\n?>";
+	$msg .= ";\n";
 	$filename = $path_to_root . ($company==-1 ? '' : '/company/'.$company)
 		.'/installed_extensions.php';
 
@@ -221,7 +221,7 @@ function write_lang()
 
 	$msg .= "\$installed_languages = " . var_export($installed_languages, true);
 	$msg .= ";\n";
-	$msg .= "\n\$dflt_lang = '$dflt_lang';\n?>\n";
+	$msg .= "\n\$dflt_lang = '$dflt_lang';\n";
 
 	$path = $path_to_root . "/lang";
 	$filename = $path.'/installed_languages.inc';
@@ -303,10 +303,12 @@ function db_import($filename, $connection, $force=true, $init=true, $protect=fal
 
 	ini_set("max_execution_time", "180");
 	db_query("SET foreign_key_checks=0");
+	$check_line_len = false;
 	// uncrompress gziped backup files
 	if (strpos($filename, ".gz") || strpos($filename, ".GZ"))
-		$lines = db_ungzip("lines", $filename);
-	elseif (strpos($filename, ".zip") || strpos($filename, ".ZIP"))
+	{	$lines = db_ungzip("lines", $filename);
+		$check_line_len = true;
+	} elseif (strpos($filename, ".zip") || strpos($filename, ".ZIP"))
 		$lines = db_unzip("lines", $filename);
 	else
 		$lines = file("". $filename);
@@ -317,8 +319,9 @@ function db_import($filename, $connection, $force=true, $init=true, $protect=fal
 
 	foreach($lines as $line_no => $line)
 	{
+		$gzfile_bug = $check_line_len && (strlen($line) == 8190); // there is a bug in php (at least 4.1.1-5.5.9) gzfile which limits line length to 8190 bytes!
+
 		$line = trim($line);
-		
 		if ($init)
 			$line = str_replace("0_", $connection["tbpref"], $line);
 
@@ -351,8 +354,7 @@ function db_import($filename, $connection, $force=true, $init=true, $protect=fal
 		 if($query_table != '')  // inside allowed query
 		 {
 		 	$table = $query_table;
-
-			if (substr($line, -strlen($delimiter)) == $delimiter) // end of query found
+			if (!$gzfile_bug && substr($line, -strlen($delimiter)) == $delimiter) // end of query found 
 			{
 				$line = substr($line, 0, strlen($line) - strlen($delimiter)); // strip delimiter
 				$query_table = '';
@@ -920,7 +922,7 @@ function save_to_file($path, $zip, $fileData)
 
 function create_comp_dirs($comp_path, $comp_subdirs)
 {
-		$index = "<?php\nheader(\"Location: ../index.php\");\n?>";
+		$index = "<?php\nheader(\"Location: ../index.php\");\n";
 	    $cdir = $comp_path;
 	    @mkdir($cdir);
 		$f = @fopen("$cdir/index.php", "wb");
@@ -993,4 +995,3 @@ function update_config_var($file, $variable, $value, $comment='')
 }
 
 
-?>

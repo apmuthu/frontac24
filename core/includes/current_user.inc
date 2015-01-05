@@ -136,6 +136,7 @@ class current_user
 		    	$this->logged = true;
 				$this->last_act = time();
 				$this->timeout = session_timeout();
+				flush_dir(user_js_cache()); // refresh cache on login
 			}
 		}
 		return $this->logged;
@@ -547,6 +548,25 @@ function user_transaction_days()
     return $_SESSION["wa_current_user"]->prefs->transaction_days();
 }
 
+function user_save_report_selections()
+{
+    return $_SESSION["wa_current_user"]->prefs->save_report_selections();
+}
+
+function user_use_date_picker()
+{
+    return $_SESSION["wa_current_user"]->prefs->use_date_picker();
+}
+
+function user_def_print_destination()
+{
+    return $_SESSION["wa_current_user"]->prefs->def_print_destination();
+}
+
+function user_def_print_orientation()
+{
+    return $_SESSION["wa_current_user"]->prefs->def_print_orientation();
+}
 
 function user_check_access($sec_area)
 {
@@ -577,6 +597,18 @@ function add_user_js_data() {
 	  . "pdec : " . user_price_dec() . "}\n";
 
   add_js_source($js);
+}
+
+function user_js_cache($id=null)
+{
+	global $path_to_root;
+
+	if (!$id)
+		$id = @$_SESSION['wa_current_user']->user;
+
+	if (!$id)
+		$id = 0; // before login
+	return $path_to_root.'/company/'.user_company().'/js_cache/'.$id;
 }
 
 //--------------------------------------------------------------------------
@@ -669,7 +701,7 @@ function recalculate_cols(&$cols)
 
 function flush_dir($path, $wipe = false) 
 {
-	$dir = opendir($path);
+	$dir = @opendir($path);
 	if(!$dir)
 		return;
 
@@ -703,4 +735,3 @@ function is_admin_company()
 	return $this->company == 0;
 }
 
-?>

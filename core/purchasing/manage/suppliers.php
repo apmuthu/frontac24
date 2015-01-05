@@ -16,7 +16,7 @@ include_once($path_to_root . "/includes/session.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
 page(_($help_context = "Suppliers"), @$_REQUEST['popup'], false, "", $js);
@@ -141,6 +141,8 @@ function supplier_settings(&$supplier_id)
 		email_row(_("E-mail:"), 'email', null, 35, 55);
 		languages_list_row(_("Document Language:"), 'rep_lang', null, _('System default'));
 	}
+	else
+		table_section(2);
 	$dim = get_company_pref('use_dimension');
 	if ($dim >= 1)
 	{
@@ -153,8 +155,8 @@ function supplier_settings(&$supplier_id)
 		hidden('dimension_id', 0);
 	if ($dim < 2)
 		hidden('dimension2_id', 0);
-	table_section(2);
-
+	if (!$supplier_id)	
+		table_section(2);
 
 	table_section_title(_("Addresses"));
 	textarea_row(_("Mailing Address:"), 'address', null, 35, 5);
@@ -340,4 +342,3 @@ end_form();
 
 end_page(@$_REQUEST['popup']);
 
-?>

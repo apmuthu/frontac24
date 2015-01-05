@@ -18,7 +18,7 @@ include($path_to_root . "/purchasing/includes/purchasing_ui.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Supplier Allocation Inquiry"), false, false, "", $js);
 
@@ -120,7 +120,8 @@ function fmt_credit($row)
 }
 //------------------------------------------------------------------------------------------------
 
-$sql = get_sql_for_supplier_allocation_inquiry();
+$sql = get_sql_for_supplier_allocation_inquiry($_POST['TransAfterDate'],$_POST['TransToDate'],
+	$_POST['filterType'], $_POST['supplier_id'], check_value('showSettled'));
 
 $cols = array(
 	_("Type") => array('fun'=>'systype_name'),
@@ -153,4 +154,3 @@ display_db_pager($table);
 
 end_form();
 end_page();
-?>

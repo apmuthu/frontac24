@@ -73,10 +73,10 @@ else
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 600);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page($_SESSION['page_title'], false, false, "", $js);
-
+/*
 if (isset($_GET['selected_customer']))
 {
 	$selected_customer = $_GET['selected_customer'];
@@ -87,7 +87,7 @@ elseif (isset($_POST['selected_customer']))
 }
 else
 	$selected_customer = -1;
-
+*/
 //---------------------------------------------------------------------------------------------
 
 if (isset($_POST['SelectStockFromList']) && ($_POST['SelectStockFromList'] != "") &&
@@ -201,27 +201,17 @@ function invoice_prep_link($row)
 		"/sales/customer_invoice.php?InvoicePrepayments=" .$row['order_no'], ICON_DOC) : '';
 }
 
-//---------------------------------------------------------------------------------------------
-// Update db record if respective checkbox value has changed.
-//
-function change_tpl_flag($id)
-{
-	global	$Ajax;
-	
-  	$sql = "UPDATE ".TB_PREF."sales_orders SET type = !type WHERE order_no=$id";
-
-  	db_query($sql, "Can't change sales order type");
-	$Ajax->activate('orders_tbl');
-}
-
 $id = find_submit('_chgtpl');
 if ($id != -1)
-	change_tpl_flag($id);
+{
+	sales_order_set_template($id, check_value('chgtpl'.$id));
+	$Ajax->activate('orders_tbl');
+}
 
 if (isset($_POST['Update']) && isset($_POST['last'])) {
 	foreach($_POST['last'] as $id => $value)
 		if ($value != check_value('chgtpl'.$id))
-			change_tpl_flag($id);
+			sales_order_set_template($id, !check_value('chgtpl'.$id));
 }
 
 $show_dates = !in_array($_POST['order_view_mode'], array('OutstandingOnly', 'InvoiceTemplates', 'DeliveryTemplates'));
@@ -262,7 +252,7 @@ if($show_dates) {
 }
 stock_items_list_cells(_("Item:"), 'SelectStockFromList', null, true, true);
 
-if (!@$_GET['popup'])
+if (!$page_nested)
 	customer_list_cells(_("Select a customer: "), 'customer_id', null, true, true);
 if ($trans_type == ST_SALESQUOTE)
 	check_cells(_("Show All:"), 'show_all');
@@ -277,8 +267,9 @@ end_table(1);
 //---------------------------------------------------------------------------------------------
 //	Orders inquiry table
 //
-$sql = get_sql_for_sales_orders_view($selected_customer, $trans_type, $_POST['OrderNumber'], $_POST['order_view_mode'],
-	@$selected_stock_item, @$_POST['OrdersAfterDate'], @$_POST['OrdersToDate'], @$_POST['OrderReference'], $_POST['StockLocation'], $_POST['customer_id']);
+$sql = get_sql_for_sales_orders_view($trans_type, $_POST['OrderNumber'], $_POST['order_view_mode'],
+	@$selected_stock_item, @$_POST['OrdersAfterDate'], @$_POST['OrdersToDate'], @$_POST['OrderReference'], $_POST['StockLocation'],
+	get_post('customer_id') !== '' ? get_post('customer_id') : ALL_TEXT);
 
 if ($trans_type == ST_SALESORDER)
 	$cols = array(

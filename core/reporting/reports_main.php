@@ -18,7 +18,7 @@ include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/includes/ui.inc");
 include_once($path_to_root . "/reporting/includes/reports_classes.inc");
 $js = "";
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
 add_js_file('reports.js');
@@ -285,6 +285,13 @@ $reports->addReport(RC_MANUFACTURE, 401, _('&Bill of Material Listing'),
 			_('Comments') => 'TEXTBOX',
 			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));
+$reports->addReport(RC_MANUFACTURE, 402, _('Work Order &Listing'),
+	array(	_('Items') => 'ITEMS_ALL',
+			_('Location') => 'LOCATIONS',
+			_('Outstanding Only') => 'YES_NO',
+			_('Comments') => 'TEXTBOX',
+			_('Orientation') => 'ORIENTATION',
+			_('Destination') => 'DESTINATION'));
 $reports->addReport(RC_MANUFACTURE, 409, _('Print &Work Orders'),
 	array(	_('From') => 'WORKORDER',
 			_('To') => 'WORKORDER',
@@ -505,4 +512,3 @@ add_custom_reports($reports);
 echo $reports->getDisplay();
 
 end_page();
-?>

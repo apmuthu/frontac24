@@ -450,6 +450,7 @@ function supplier_list($name, $selected_id=null, $spec_option=false, $submit_on_
 	    'order' => array('supp_ref'),
 		'search_box' => $mode!=0,
 		'type' => 1,
+        'search' => array("supp_ref","supp_name","gst_no"),        
 		'spec_option' => $spec_option === true ? _("All Suppliers") : $spec_option,
 		'spec_id' => $all_items,
 		'select_submit'=> $submit_on_change,
@@ -502,6 +503,7 @@ function customer_list($name, $selected_id=null, $spec_option=false, $submit_on_
 		'search_box' => $mode!=0,
 		'type' => 1,
 		'size' => 20,
+        'search' => array("debtor_ref","name","tax_id"),        
 		'spec_option' => $spec_option === true ? _("All Customers") : $spec_option,
 		'spec_id' => $all_items,
 		'select_submit'=> $submit_on_change,
@@ -549,7 +551,7 @@ function customer_branches_list($customer_id, $name, $selected_id=null,
 	if ($editkey)
 		set_editor('branch', $name, $editkey);
 
-	$where = $enabled ? array("disable_trans = 0") : array();
+	$where = $enabled ? array("inactive = 0") : array();
 	$ret = combo_input($name, $selected_id, $sql, 'branch_code', 'branch_ref',
 	array(
 		'where' => $where,
@@ -2449,3 +2451,15 @@ function subledger_list_row($label, $name, $selected_id=null, $all_option = fals
 	echo subledger_list($name, $account, $selected_id);
 	echo "</td>\n</tr>\n";
 }
+
+function accounts_type_list_row($label, $name, $selected_id=null)
+{
+	echo "<tr>";
+	if ($label != null)
+		echo "<td class='label'>$label</td>\n";
+	echo "<td>";
+	$sel = array(_("Numeric"), _("Alpha Numeric"), _("ALPHA NUMERIC"));
+	echo array_selector($name, $selected_id, $sel); 
+	echo "</td></tr>\n";
+}
+

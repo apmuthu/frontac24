@@ -20,7 +20,7 @@ include_once($path_to_root . "/reporting/includes/reporting.inc");
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Search Outstanding Purchase Orders"), false, false, "", $js);
 
@@ -73,6 +73,8 @@ start_row();
 
 stock_items_list_cells(_("Item:"), 'SelectStockFromList', null, true);
 
+supplier_list_cells(_("Select a supplier: "), 'supplier_id', null, true, true);
+
 submit_cells('SearchOrders', _("Search"),'',_('Select documents'), 'default');
 end_row();
 end_table(1);
@@ -110,18 +112,9 @@ if (isset($_POST['order_number']) && ($_POST['order_number'] != ""))
 	$order_number = $_POST['order_number'];
 }
 
-if (isset($_POST['SelectStockFromList']) && ($_POST['SelectStockFromList'] != "") &&
-	($_POST['SelectStockFromList'] != $all_items))
-{
- 	$selected_stock_item = $_POST['SelectStockFromList'];
-}
-else
-{
-	unset($selected_stock_item);
-}
-
 //figure out the sql required from the inputs available
-$sql = get_sql_for_po_search();
+$sql = get_sql_for_po_search($_POST['OrdersAfterDate'], $_POST['OrdersToDate'], $_POST['supplier_id'],
+	$_POST['StockLocation']);
 
 //$result = db_query($sql,"No orders were returned");
 
@@ -153,4 +146,3 @@ display_db_pager($table);
 
 end_form();
 end_page();
-?>

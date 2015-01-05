@@ -32,13 +32,37 @@ class fa2_4 {
 		if (get_company_pref('grn_clearing_act') === null) { // available form 2.3.1, can be not defined on pre-2.4 installations
 			set_company_pref('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, 0);
 		}
-		if (get_company_pref('default_receival_required') === null) { // new in 2.4 installations
-			set_company_pref('default_receival_required', 'glsetup.purchase', 'smallint', 6, 10);
+		if (get_company_pref('default_quote_valid_days') === null) { // new in 2.3.23 installations
+			set_company_pref('default_quote_valid_days', 'glsetup.sales', 'smallint', 6, 30);
 		}
+		if (get_company_pref('bcc_email') === null) { // available from 2.3.14, can be not defined on pre-2.4 installations
+			set_company_pref('bcc_email', 'setup.company', 'varchar', 100, '');
+		}
+		if (get_company_pref('alternative_tax_include_on_docs') === null) { // available from 2.3.14, can be not defined on pre-2.4 installations
+			set_company_pref('alternative_tax_include_on_docs', 'setup.company', 'tinyint', 1, '0');
+		}
+		if (get_company_pref('suppress_tax_rates') === null) { // available from 2.3.14, can be not defined on pre-2.4 installations
+			set_company_pref('suppress_tax_rates', 'setup.company', 'tinyint', 1, '0');
+		}
+
 		$result = $this->update_workorders()  && $this->update_grn_rates() && $this->switch_database_to_utf($pref);
 
 		if ($result)
 			$result = $this->do_cleanup();
+
+		//remove obsolete and temporary columns.
+		// this have to be done here as db_import rearranges alter query order
+		$dropcol = array(
+				'cust_branch' => array('contact_name', 'disable_trans'),
+		);
+
+		foreach($dropcol as $table => $columns)
+			foreach($columns as $col) {
+				if (db_query("ALTER TABLE `".TB_PREF."{$table}` DROP `$col`")==false) {
+					display_error("Cannot drop {$table}.{$col} column:<br>".db_error_msg($db));
+					return false;
+				}
+			}
 
 		return  update_company_prefs(array('version_id'=>$db_version));
 	}

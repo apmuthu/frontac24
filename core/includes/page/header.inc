@@ -52,7 +52,8 @@ function send_scripts()
 	$js ='';
 	foreach($js_static as $jsfile)
 	{
-	    $fpath = company_path().'/js_cache/'.$jsfile;
+		$cached_name = basename($jsfile);
+		$fpath = user_js_cache().'/'.$cached_name;
 	    // compress also static files
 	  	if (!file_exists($fpath) || $go_debug)
 			cache_js_file($fpath, file_get_contents($js_path.$jsfile));
@@ -146,4 +147,3 @@ function page_header($title, $no_menu=false, $is_index=false, $onload="", $js=""
 	error_box();
 }
 
-?>

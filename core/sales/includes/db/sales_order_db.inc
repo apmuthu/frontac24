@@ -12,7 +12,7 @@
 //----------------------------------------------------------------------------------------
 function add_sales_order(&$order)
 {
-	global $loc_notification, $path_to_root, $Refs;
+	global $SysPrefs, $path_to_root, $Refs;
 
 	begin_transaction();
 	hook_db_prewrite($order, $order->trans_type);
@@ -45,7 +45,7 @@ function add_sales_order(&$order)
 
 	$order->trans_no = array($order_no=>0);
 
-	if ($loc_notification == 1)
+	if ($SysPrefs->loc_notification() == 1)
 	{
 		include_once($path_to_root . "/inventory/includes/inventory_db.inc");
 		$st_ids = array();
@@ -55,7 +55,7 @@ function add_sales_order(&$order)
 	}
 	foreach ($order->line_items as $line)
 	{
-		if ($loc_notification == 1 && is_inventory_item($line->stock_id))
+		if ($SysPrefs->loc_notification() == 1 && is_inventory_item($line->stock_id))
 			$loc = calculate_reorder_level($order->Location, $line, $st_ids, $st_names, $st_num, $st_reorder); 
 
 		$sql = "INSERT INTO ".TB_PREF."sales_order_details (order_no, trans_type, stk_code, description, unit_price, quantity, discount_percent) VALUES (";
@@ -77,7 +77,7 @@ function add_sales_order(&$order)
 	hook_db_postwrite($order, $order->trans_type);
 	commit_transaction();
 
-	if ($loc_notification == 1 && count($st_ids) > 0)
+	if ($SysPrefs->loc_notification() == 1 && count($st_ids) > 0)
 		send_reorder_email($loc, $st_ids, $st_names, $st_num, $st_reorder);
 	return $order_no;
 }
@@ -120,7 +120,7 @@ function update_sales_order_version($order)
 
 function update_sales_order($order)
 {
-	global $loc_notification, $path_to_root, $Refs;
+	global $SysPrefs, $path_to_root, $Refs;
 
 	$del_date = date2sql($order->due_date);
 	$ord_date = date2sql($order->document_date);
@@ -168,7 +168,7 @@ function update_sales_order($order)
 
 	db_query($sql, "Old order Cannot be Deleted");
 
-	if ($loc_notification == 1)
+	if ($SysPrefs->loc_notification() == 1)
 	{
 		include_once($path_to_root . "/inventory/includes/inventory_db.inc");
 		$st_ids = array();
@@ -178,7 +178,7 @@ function update_sales_order($order)
 	}
 	foreach ($order->line_items as $line)
 	{
-		if ($loc_notification == 1 && is_inventory_item($line->stock_id))
+		if ($SysPrefs->loc_notification() == 1 && is_inventory_item($line->stock_id))
 			$loc = calculate_reorder_level($order->Location, $line, $st_ids, $st_names, $st_num, $st_reorder); 
 
 		if (!$line->id) //new line
@@ -215,7 +215,7 @@ function update_sales_order($order)
 
 	hook_db_postwrite($order, $order->trans_type);
 	commit_transaction();
-	if ($loc_notification == 1 && count($st_ids) > 0)
+	if ($SysPrefs->loc_notification() == 1 && count($st_ids) > 0)
 		send_reorder_email($loc, $st_ids, $st_names, $st_num, $st_reorder);
 }
 
@@ -464,7 +464,7 @@ function get_branch_to_order($customer_id, $branch_id) {
 	OutstandingOnly
 	PrepaidOrders
 */
-function get_sql_for_sales_orders_view($selected_customer, $trans_type, $trans_no, $filter, 
+function get_sql_for_sales_orders_view($trans_type, $trans_no, $filter, 
 	$stock_item=null, $from='', $to='', $ref='', $location='', $customer_id=ALL_TEXT)
 {
 
@@ -533,8 +533,8 @@ function get_sql_for_sales_orders_view($selected_customer, $trans_type, $trans_n
 		if ($trans_type == ST_SALESQUOTE && !check_value('show_all'))
 			$sql .= " AND sorder.delivery_date >= '".date2sql(Today())."' AND line.qty_sent=0"; // show only outstanding, not realized quotes
 
-		if ($selected_customer != -1)
-			$sql .= " AND sorder.debtor_no=".db_escape($selected_customer);
+		//if ($selected_customer != -1)
+		//	$sql .= " AND sorder.debtor_no=".db_escape($selected_customer);
 
 		if (isset($stock_item))
 			$sql .= " AND line.stk_code=".db_escape($stock_item);
@@ -595,4 +595,14 @@ function is_sales_order_started($order_no)
 
 	$result = db_fetch(db_query($sql, "cannot retrieve sales invoices for sales order"));
 	return $result[0];
+}
+
+//---------------------------------------------------------------------------------------------
+//
+// Mark/unmark sales order as template.
+//
+function sales_order_set_template($id, $status)
+{
+  	$sql = "UPDATE ".TB_PREF."sales_orders SET type = ".db_escape($status)." WHERE order_no=".db_escape($id);
+  	db_query($sql, "Can't change sales order type");
 }

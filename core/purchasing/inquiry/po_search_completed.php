@@ -16,10 +16,11 @@ include_once($path_to_root . "/includes/session.inc");
 
 include_once($path_to_root . "/purchasing/includes/purchasing_ui.inc");
 include_once($path_to_root . "/reporting/includes/reporting.inc");
+
 $js = "";
 if ($use_popup_windows)
 	$js .= get_js_open_window(900, 500);
-if ($use_date_picker)
+if (user_use_date_picker())
 	$js .= get_js_date_picker();
 page(_($help_context = "Search Purchase Orders"), false, false, "", $js);
 
@@ -71,6 +72,9 @@ start_row();
 
 stock_items_list_cells(_("for item:"), 'SelectStockFromList', null, true);
 
+if (!$page_nested)
+	supplier_list_cells(_("Select a supplier: "), 'supplier_id', null, true, true);
+
 submit_cells('SearchOrders', _("Search"),'',_('Select documents'), 'default');
 end_row();
 end_table(1);
@@ -89,8 +93,8 @@ else
 {
 	unset($selected_stock_item);
 }
-
 //---------------------------------------------------------------------------------------------
+
 function trans_view($trans)
 {
 	return get_trans_view_str(ST_PURCHORDER, $trans["order_no"]);
@@ -114,7 +118,9 @@ function prt_link($row)
 
 //---------------------------------------------------------------------------------------------
 
-$sql = get_sql_for_po_search_completed();
+$sql = get_sql_for_po_search_completed(get_post('OrdersAfterDate'), get_post('OrdersToDate'),
+	get_post('supplier_id') !== '' ? get_post('supplier_id') : ALL_TEXT,
+	get_post('StockLocation'), get_post('order_number'), get_post('SelectStockFromList'));
 
 $cols = array(
 		_("#") => array('fun'=>'trans_view', 'ord'=>''), 
@@ -142,4 +148,3 @@ display_db_pager($table);
 
 end_form();
 end_page();
-?>

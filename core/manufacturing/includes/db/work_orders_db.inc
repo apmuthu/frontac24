@@ -53,7 +53,7 @@ function add_work_order($wo_ref, $loc_code, $units_reqd, $stock_id,
 //--------------------------------------------------------------------------------------
 
 function update_work_order($woid, $loc_code, $units_reqd, $stock_id,
-					$date_, $required_by, $memo_)
+					$date_, $required_by, $memo_, $old_stock_id, $old_qty)
 {
 	begin_transaction();
 	$args = func_get_args();
@@ -61,7 +61,7 @@ function update_work_order($woid, $loc_code, $units_reqd, $stock_id,
 		'date_', 'required_by', 'memo_'), $args);
 	hook_db_prewrite($args, ST_WORKORDER);
 
-	add_material_cost($_POST['old_stk_id'], -$_POST['old_qty'], $date_);
+	add_material_cost($old_stock_id, -$old_qty, $date_);
 	add_material_cost($stock_id, $units_reqd, $date_);
 
 	$date = date2sql($date_);
@@ -82,12 +82,12 @@ function update_work_order($woid, $loc_code, $units_reqd, $stock_id,
 	commit_transaction();
 }
 
-function delete_work_order($woid)
+function delete_work_order($woid, $stock_id, $qty, $date)
 {
 	begin_transaction();
 	hook_db_prevoid(ST_WORKORDER, $woid);
 
-	add_material_cost($_POST['stock_id'], -$_POST['quantity'], $_POST['date_']);
+	add_material_cost($stock_id, -$qty, $date);
 
 	// delete the work order requirements
 	delete_wo_requirements($woid);
@@ -97,7 +97,7 @@ function delete_work_order($woid)
 	db_query($sql,"The work order could not be deleted");
 
 	delete_comments(ST_WORKORDER, $woid);
-	add_audit_trail(ST_WORKORDER, $woid, $_POST['date_'], _("Canceled."));
+	add_audit_trail(ST_WORKORDER, $woid, $date, _("Canceled."));
 
 	commit_transaction();
 }
@@ -255,8 +255,7 @@ function void_work_order($woid)
 
 			void_stock_move(ST_MANURECEIVE, $row['id']); // and void the stock moves; 
 		}
-
-		$result = get_work_order_issues($woid);
+		$result = get_additional_issues($woid); // check the issued quantities
 		$cost = 0;
 		$issue_no = 0;
 		while ($row = db_fetch($result))
@@ -276,13 +275,10 @@ function void_work_order($woid)
 		if ($cost != 0)
 			add_issue_cost($work_order['stock_id'], -$qty, $date, $cost);
 
-		//Adust avg labour cost
-		$cost = get_gl_wo_cost($woid, WO_LABOUR); 
+		$cost = get_gl_wo_cost($woid, WO_LABOUR); // get the labour cost and reduce avg cost
 		if ($cost != 0)
-			add_labour_cost($work_order['stock_id'], 1, $date, -$cost, true);
-			
-		//Adust avg overhead cost
-		$cost = get_gl_wo_cost($woid, WO_OVERHEAD); 
+			add_labour_cost($work_order['stock_id'], -$qty, $date, $cost);
+		$cost = get_gl_wo_cost($woid, WO_OVERHEAD); // get the overhead cost and reduce avg cost
 		if ($cost != 0)
 			add_overhead_cost($work_order['stock_id'], -$qty, $date, $cost);
 		
@@ -301,7 +297,7 @@ function void_work_order($woid)
 	commit_transaction();
 }
 
-function get_sql_for_work_orders($outstanding_only, $all_items)
+function get_sql_for_work_orders($outstanding_only, $stock_id, $location = ALL_TEXT, $order = '', $overdue = false)
 {
 	$sql = "SELECT
 		workorder.id,
@@ -331,22 +327,22 @@ function get_sql_for_work_orders($outstanding_only, $all_items)
 		$sql .= " AND workorder.closed=0";
 	}
 
-	if (isset($_POST['StockLocation']) && $_POST['StockLocation'] != $all_items)
+	if ($location != ALL_TEXT)
 	{
-		$sql .= " AND workorder.loc_code=".db_escape($_POST['StockLocation']);
+		$sql .= " AND workorder.loc_code=".db_escape($location);
 	}
 
-	if (isset($_POST['OrderNumber']) && $_POST['OrderNumber'] != "")
+	if ($order != '')
 	{
-		$sql .= " AND workorder.wo_ref LIKE ".db_escape('%'.$_POST['OrderNumber'].'%');
+		$sql .= " AND workorder.wo_ref LIKE ".db_escape('%'.$order.'%');
 	}
 
-	if (isset($_POST['SelectedStockItem']) && $_POST['SelectedStockItem'] != $all_items)
+	if ($stock_id != '')
 	{
-		$sql .= " AND workorder.stock_id=".db_escape($_POST['SelectedStockItem']);
+		$sql .= " AND workorder.stock_id=".db_escape($stock_id);
 	}
 
-	if (check_value('OverdueOnly'))
+	if ($overdue)
 	{
 		$Today = date2sql(Today());
 
@@ -355,7 +351,7 @@ function get_sql_for_work_orders($outstanding_only, $all_items)
 	return $sql;
 }
 
-function get_sql_for_where_used()
+function get_sql_for_where_used($stock_id)
 {
 	$sql = "SELECT 
 			bom.parent,
@@ -370,8 +366,8 @@ function get_sql_for_where_used()
 			WHERE bom.parent = parent.stock_id 
 				AND bom.workcentre_added = workcentre.id
 				AND bom.loc_code = location.loc_code
-				AND bom.component=".db_escape($_POST['stock_id']);
-	return $sql;			
+				AND bom.component=".db_escape($stock_id);
+	return $sql;
 }
 //--------------------------------------------------------------------------------------
 function get_gl_wo_cost($woid, $cost_type)
@@ -383,4 +379,3 @@ function get_gl_wo_cost($woid, $cost_type)
 	return $cost;	
 }
 
-?>

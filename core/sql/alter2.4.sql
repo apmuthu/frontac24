@@ -83,3 +83,57 @@ ALTER TABLE `0_stock_category` ADD COLUMN `dflt_no_purchase` tinyint(1) NOT NULL
 # added exchange rate field in grn_batch
 ALTER TABLE `0_grn_batch` ADD COLUMN `rate` double NULL default '1' AFTER `loc_code`;
 ALTER TABLE `0_users` CHANGE `query_size` `query_size` TINYINT(1) UNSIGNED NOT NULL DEFAULT 10; 
+
+ALTER TABLE `0_users` ADD `save_report_selections` SMALLINT( 6 ) NOT NULL default '0' COMMENT 'Save Report Selection Days' AFTER `transaction_days`;
+ALTER TABLE `0_users` ADD `use_date_picker` TINYINT(1) NOT NULL default '1' COMMENT 'Use Date Picker for all Date Values' AFTER `save_report_selections`;
+ALTER TABLE `0_users` ADD `def_print_destination` TINYINT(1) NOT NULL default '0' COMMENT 'Default Report Destination' AFTER `use_date_picker`;
+ALTER TABLE `0_users` ADD `def_print_orientation` TINYINT(1) NOT NULL default '0' COMMENT 'Default Report Orientation' AFTER `def_print_destination`;
+
+INSERT INTO `0_sys_prefs` VALUES('no_zero_lines_amount', 'glsetup.sales', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES('show_po_item_codes', 'glsetup.purchase', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('accounts_alpha', 'glsetup.general', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('loc_notification', 'glsetup.inventory', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('print_invoice_no', 'glsetup.sales', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('allow_negative_prices', 'glsetup.inventory', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES('print_item_images_on_quote', 'glsetup.inventory', 'tinyint', 1, '0');
+INSERT INTO `0_sys_prefs` VALUES('default_receival_required', 'glsetup.purchase', 'smallint', 6, '10');
+
+# switching all MyISAM tables to InnoDB
+ALTER TABLE `0_areas` ENGINE=InnoDB;
+ALTER TABLE `0_attachments` ENGINE=InnoDB;
+ALTER TABLE `0_bank_accounts` ENGINE=InnoDB;
+ALTER TABLE `0_bom` ENGINE=InnoDB;
+ALTER TABLE `0_chart_class` ENGINE=InnoDB;
+ALTER TABLE `0_chart_master` ENGINE=InnoDB;
+ALTER TABLE `0_chart_types` ENGINE=InnoDB;
+ALTER TABLE `0_credit_status` ENGINE=InnoDB;
+ALTER TABLE `0_currencies` ENGINE=InnoDB;
+ALTER TABLE `0_cust_branch` ENGINE=InnoDB;
+ALTER TABLE `0_debtors_master` ENGINE=InnoDB;
+ALTER TABLE `0_exchange_rates` ENGINE=InnoDB;
+ALTER TABLE `0_groups` ENGINE=InnoDB;
+ALTER TABLE `0_item_codes` ENGINE=InnoDB;
+ALTER TABLE `0_item_units` ENGINE=InnoDB;
+ALTER TABLE `0_locations` ENGINE=InnoDB;
+ALTER TABLE `0_movement_types` ENGINE=InnoDB;
+ALTER TABLE `0_payment_terms` ENGINE=InnoDB;
+ALTER TABLE `0_prices` ENGINE=InnoDB;
+ALTER TABLE `0_printers` ENGINE=InnoDB;
+ALTER TABLE `0_print_profiles` ENGINE=InnoDB;
+ALTER TABLE `0_purch_data` ENGINE=InnoDB;
+ALTER TABLE `0_quick_entries` ENGINE=InnoDB;
+ALTER TABLE `0_quick_entry_lines` ENGINE=InnoDB;
+ALTER TABLE `0_salesman` ENGINE=InnoDB;
+ALTER TABLE `0_sales_pos` ENGINE=InnoDB;
+ALTER TABLE `0_sales_types` ENGINE=InnoDB;
+ALTER TABLE `0_security_roles` ENGINE=InnoDB;
+ALTER TABLE `0_shippers` ENGINE=InnoDB;
+ALTER TABLE `0_sql_trail` ENGINE=InnoDB;
+ALTER TABLE `0_stock_category` ENGINE=InnoDB;
+ALTER TABLE `0_suppliers` ENGINE=InnoDB;
+ALTER TABLE `0_sys_prefs` ENGINE=InnoDB;
+ALTER TABLE `0_tags` ENGINE=InnoDB;
+ALTER TABLE `0_tag_associations` ENGINE=InnoDB;
+ALTER TABLE `0_useronline` ENGINE=InnoDB;
+ALTER TABLE `0_users` ENGINE=InnoDB;
+ALTER TABLE `0_workcentres` ENGINE=InnoDB;

@@ -62,7 +62,8 @@ function error_handler($errno, $errstr, $file, $line) {
 	// Please use restrainedly to not risk loss of important messages
 	$excluded_warnings = array(
 		'html_entity_decode', 'htmlspecialchars',	// nevermind encodings, special chars are processed anyway
-		'should be compatible with that'			// ignore cpdf/frontreport wrapper warnings
+		'should be compatible with that',			// ignore cpdf/frontreport wrapper warnings
+		'mysql extension is deprecated'				// ignore strict warning in 5.4
 	);
 	foreach($excluded_warnings as $ref) {
 		if (strpos($errstr, $ref) !== false) {
@@ -70,9 +71,7 @@ function error_handler($errno, $errstr, $file, $line) {
 		}
 	}
 
-	if ($go_debug>1) {
-		$bt = get_backtrace(true, 1);
-	}
+	$bt = $go_debug>1 ? get_backtrace(true, 1) : array();
 
 	// error_reporting==0 when messages are set off with @ 
 	if ($errno & error_reporting()) {
@@ -195,7 +194,7 @@ function display_db_error($msg, $sql_statement=null, $exit=true)
 	}
 	
 	$str .= "<br><br>";
-	if ($go_debug)
+	if (!$go_debug)
 		error_log($str);
 	else {
 		if($msg)
@@ -245,4 +244,3 @@ function check_db_error($msg, $sql_statement, $exit_if_error=true, $rollback_if_
 	return $db_error;		
 }
 
-?>
