@@ -19,7 +19,7 @@ include_once($path_to_root . "/sales/includes/sales_db.inc");
 include_once($path_to_root . "/reporting/includes/reporting.inc");
 
 $js = "";
-if ($use_popup_windows)
+if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
@@ -43,7 +43,7 @@ start_row();
 if (!$page_nested)
 	customer_list_cells(_("Select a customer: "), 'customer_id', null, true, false, false, !@$_GET['popup']);
 
-date_cells(_("From:"), 'TransAfterDate', '', null, -$_SESSION["wa_current_user"]->prefs->transaction_days());
+date_cells(_("From:"), 'TransAfterDate', '', null, -user_transaction_days());
 date_cells(_("To:"), 'TransToDate', '', null, 1);
 
 if (!isset($_POST['filterType']))

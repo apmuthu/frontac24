@@ -253,12 +253,12 @@ class FrontReport extends Cpdf
 		$cols2 = null, $headers2 = null, $aligns2 = null,
 		$companylogoenable = false, $footerenable = false, $footertext = '')
 	{
-		global $app_title, $version, $power_by, $power_url;
+		global $SysPrefs, $version;
 
 		$this->addInfo('Title', $this->title);
 		$this->addInfo('Subject', $this->title);
-		$this->addInfo('Author', $app_title . ' ' . $version);
-		$this->addInfo('Creator',$power_by . ' - ' . $power_url);
+		$this->addInfo('Author', $SysPrefs->app_title . ' ' . $version);
+		$this->addInfo('Creator',$SysPrefs->power_by . ' - ' . $SysPrefs->power_url);
 		$year = get_current_fiscalyear();
 		if ($year['closed'] == 0)
 			$how = _("Active");
@@ -423,14 +423,15 @@ class FrontReport extends Cpdf
 	*/
 	function Header2()
 	{
-		global $path_to_root, $print_as_quote,
-			$SysPrefs, $packing_slip, $dflt_lang; // FIXME should be passed as params
+		global $dflt_lang; // FIXME should be passed as params
 
+		$this->SetLang(@$this->formData['rep_lang'] ? $this->formData['rep_lang'] : $dflt_lang);
 		$doctype = $this->formData['doctype'];
 		$header2type = true;
 
+		$lang = user_language();
 		$this->SetLang(@$this->formData['rep_lang'] ? $this->formData['rep_lang']
- 			: ($_SESSION["wa_current_user"]->prefs->language ? $_SESSION["wa_current_user"]->prefs->language : $dflt_lang));
+ 			: ( $lang ? $lang : $dflt_lang));
 
  		 // leave layout files names without path to enable including
  		 // modified versions from company/x/reporting directory
@@ -947,12 +948,12 @@ class FrontReport extends Cpdf
 
 	function End($email=0, $subject='')
 	{
-		global $pdf_debug, $path_to_root;
+		global $SysPrefs, $path_to_root;
 
-		if ($pdf_debug == 1)
+		if ($SysPrefs->pdf_debug == 1)
 		{
 			$pdfcode = $this->Output('','S');
-			$pdfcode = str_replace("\n", "\n<br>", htmlspecialchars($pdfcode));
+			$pdfcode = str_replace("\n", "\n<br>", html_specials_encode($pdfcode));
 			echo '<html><body>';
 			echo trim($pdfcode);
 			echo '</body></html>';

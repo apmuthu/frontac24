@@ -18,7 +18,7 @@ include_once($path_to_root . "/sales/includes/sales_ui.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
 
 $js = "";
-if ($use_popup_windows)
+if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
@@ -41,7 +41,7 @@ start_row();
 
 customer_list_cells(_("Select a customer: "), 'customer_id', $_POST['customer_id'], true);
 
-date_cells(_("from:"), 'TransAfterDate', '', null, -$_SESSION["wa_current_user"]->prefs->transaction_days());
+date_cells(_("from:"), 'TransAfterDate', '', null, -user_transaction_days());
 date_cells(_("to:"), 'TransToDate', '', null, 1);
 
 cust_allocations_list_cells(_("Type:"), 'filterType', null);

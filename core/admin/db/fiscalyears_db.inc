@@ -48,8 +48,6 @@ function get_fiscalyear($id)
 
 function get_current_fiscalyear()
 {
-	global $path_to_root;
-	include_once($path_to_root . "/admin/db/company_db.inc");
 	$year = get_company_pref('f_year');
 
 	$sql = "SELECT * FROM ".TB_PREF."fiscal_year WHERE id=".db_escape($year);
@@ -214,7 +212,7 @@ function delete_this_fiscalyear($selected_id)
 {
 	global $db_connections;
 	
-	db_backup($db_connections[$_SESSION["wa_current_user"]->company], 'Security backup before Fiscal Year Removal');
+	db_backup($db_connections[user_company()], 'Security backup before Fiscal Year Removal');
 	begin_transaction();
 	$ref = _("Open Balance");
 	$myrow = get_fiscalyear($selected_id);

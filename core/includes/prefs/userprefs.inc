@@ -45,10 +45,10 @@ class user_prefs
 	{
 		if ($user == null) { 
 			// set default values, used before login
-			global $dflt_lang, $dflt_date_sep, $dflt_date_fmt;
-			
-			$this->date_sep = $dflt_date_sep;
-			$this->date_format = $dflt_date_fmt;
+			global $dflt_lang, $SysPrefs;
+
+			$this->date_sep = $SysPrefs->dflt_date_sep;
+			$this->date_format = $SysPrefs->dflt_date_fmt;
 			$this->tho_sep = 0;
 			$this->dec_sep = 0;
 			$this->price_dec = 2;
@@ -93,11 +93,11 @@ class user_prefs
 				$this->sticky_date = 0;
 				$this->startup_tab = "orders";
 			}
-			$this->transaction_days = $user['transaction_days'];
-			$this->save_report_selections = $user['save_report_selections'];
-			$this->use_date_picker = $user['use_date_picker'];
-			$this->def_print_destination = $user['def_print_destination'];
-			$this->def_print_orientation = $user['def_print_orientation'];
+			$this->transaction_days = @$user['transaction_days'];
+			$this->save_report_selections = @$user['save_report_selections'];
+			$this->use_date_picker = @$user['use_date_picker'];
+			$this->def_print_destination = @$user['def_print_destination'];
+			$this->def_print_orientation = @$user['def_print_orientation'];
 
 			if (!file_exists("$path_to_root/themes/$this->theme"))
 				$this->theme = "default";
@@ -180,8 +180,8 @@ class user_prefs
 
 	function date_display() 
 	{
-		global $dateseps;
-		$sep = $dateseps[$this->date_sep];
+		global $SysPrefs;
+		$sep = $SysPrefs->dateseps[$this->date_sep];
 		if ($this->date_format == 0)
 			return "m".$sep."d".$sep."Y";
 		elseif ($this->date_format == 1)

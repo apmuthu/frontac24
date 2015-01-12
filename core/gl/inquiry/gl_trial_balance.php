@@ -50,7 +50,7 @@ function gl_inquiry_controls()
 	if (!isset($_POST['TransToDate']))
 		$_POST['TransToDate'] = end_month($date);
 	if (!isset($_POST['TransFromDate']))
-		$_POST['TransFromDate'] = add_days(end_month($date), -$_SESSION["wa_current_user"]->prefs->transaction_days());
+		$_POST['TransFromDate'] = add_days(end_month($date), -user_transaction_days());
     date_cells(_("From:"), 'TransFromDate');
 	date_cells(_("To:"), 'TransToDate');
 	if ($dim >= 1)
@@ -69,7 +69,7 @@ function gl_inquiry_controls()
 
 function display_trial_balance($type, $typename)
 {
-	global $path_to_root, $clear_trial_balance_opening,
+	global $path_to_root, $SysPrefs,
 		 $k, $pdeb, $pcre, $cdeb, $ccre, $tdeb, $tcre, $pbal, $cbal, $tbal;
 
 	$printtitle = 0; //Flag for printing type name
@@ -97,7 +97,7 @@ function display_trial_balance($type, $typename)
 
 		// FA doesn't really clear the closed year, therefore the brought forward balance includes all the transactions from the past, even though the balance is null.
 		// If we want to remove the balanced part for the past years, this option removes the common part from from the prev and tot figures.
-		if (@$clear_trial_balance_opening)
+		if (@$SysPrefs->clear_trial_balance_opening)
 		{
 			$open = get_balance($account["account_code"], $_POST['Dimension'], $_POST['Dimension2'], $begin,  $begin, false, true);
 			$offset = min($open['debit'], $open['credit']);

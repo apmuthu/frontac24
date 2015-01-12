@@ -18,7 +18,7 @@ include($path_to_root . "/sales/includes/sales_ui.inc");
 include_once($path_to_root . "/reporting/includes/reporting.inc");
 
 $js = "";
-if ($use_popup_windows)
+if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 600);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
@@ -99,7 +99,7 @@ start_form(false, false, $_SERVER['PHP_SELF'] ."?OutstandingOnly=".$_POST['Outst
 start_table(TABLESTYLE_NOBORDER);
 start_row();
 ref_cells(_("#:"), 'DeliveryNumber', '',null, '', true);
-date_cells(_("from:"), 'DeliveryAfterDate', '', null, -$_SESSION["wa_current_user"]->prefs->transaction_days());
+date_cells(_("from:"), 'DeliveryAfterDate', '', null, -user_transaction_days());
 date_cells(_("to:"), 'DeliveryToDate', '', null, 1);
 
 locations_list_cells(_("Location:"), 'StockLocation', null, true);

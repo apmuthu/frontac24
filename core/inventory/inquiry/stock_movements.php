@@ -19,7 +19,7 @@ include_once($path_to_root . "/sales/includes/sales_db.inc");
 
 include_once($path_to_root . "/includes/ui.inc");
 $js = "";
-if ($use_popup_windows)
+if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(800, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
@@ -55,7 +55,7 @@ start_row();
 
 locations_list_cells(_("From Location:"), 'StockLocation', null, true);
 
-date_cells(_("From:"), 'AfterDate', '', null, -$_SESSION["wa_current_user"]->prefs->transaction_days());
+date_cells(_("From:"), 'AfterDate', '', null, -user_transaction_days());
 date_cells(_("To:"), 'BeforeDate');
 
 submit_cells('ShowMoves',_("Show Movements"),'',_('Refresh Inquiry'), 'default');

@@ -21,14 +21,15 @@
 if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_to_root']))
 	die("Restricted access");
 
-	if (!ini_get('date.timezone'))
-       ini_set('date.timezone', 'Europe/Berlin');
+	// Server time zone. If leaved empty the time zone set in php init file will be used.
+	// If timezone is not set in this file nor in php.ini, Europe/Berlin' is used as defualt.
+	$server_time_zone = '';
 
 	// Log file for error/warning messages. Should be set to any location
 	// writable by www server. When set to empty string logging is switched off. 
 	// Special value 'syslog' can be used for system logger usage (see php manual).
 	//$error_logfile = '';
-	$error_logfile = dirname(__FILE__).'/tmp/errors.log';
+	$error_logfile = $path_to_root.'/tmp/errors.log';
 	$debug 			= 1;	// show sql on database errors
 
 	$show_sql 		= 0;	// show all sql queries in page footer for debugging purposes
@@ -41,23 +42,7 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 	//
 	$sql_trail 		= 0; // save all sql queries in sql_trail
 	$select_trail 	= 0; // track also SELECT queries
-	if ($go_debug > 0)
-	{
-		error_reporting(-1);
-		ini_set("display_errors", "On");
-	}
-	else
-	{
-		error_reporting(E_USER_WARNING|E_USER_ERROR|E_USER_NOTICE);
-		// ini_alter("error_reporting","E_COMPILE_ERROR|E_ERROR|E_CORE_ERROR|E_PARSE");
-		ini_set("display_errors", "On");
-	}
 
-	if($error_logfile != '') {
-		ini_set("error_log", $error_logfile);
-		ini_set("ignore_repeated_errors", "On");
-		ini_set("log_errors", "On");
-	}		
 	// Main Title
 	$app_title = "FrontAccounting";
 
@@ -170,47 +155,12 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 	/* UTF-8 font for Business Graphics. Copy it to /reporting/fonts/ folder. */
 	$UTF8_fontfile	= "FreeSans.ttf";
 
-/*	
-	Before upgrade from pre-2.2 FA you have to move here your customized
-	security roles definitions. If you have used standard roles, you
-	can simply uncomment following two arrays. After upgrade both arrays need 
-	to be deleted or commented out. You may wish to change user roles to
-	new better defined in Users Setup. Old not used roles can be set inactive 
-	or deleted.
-*/
-/* Standard FA2.1 Security Group definitions
-
-	$security_headings = array(
-			_("Inquiries"),
-			_("Accountant"),
-			_("System Administrator"),
-	);
-
-	$security_groups = array(
-			array(1,2),
-			array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,16),
-			array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,20),
-	);
-*/
-
-	//MySQL Backup and Restore Settings
-
-if(isset($_SESSION["wa_current_user"])) {
-	define("BACKUP_PATH", $comp_path.'/'.user_company()."/backup/");
-}
-	// static js files path
-	$js_path = $path_to_root.'/js/';
-	// standard external js scripts included in all files
-	$js_static = array('JsHttpRequest.js', 'behaviour.js', 'utils.js', 'inserts.js');
-	// additional js source included in header
-	$js_lib = $js_userlib = array();
-
 /* 
 	Display a dropdown select box for choosing Company to login if false.
 	Show a blank editbox only if true where the Company NickName
 	will have to be manually entered. This is when privacy is needed.
 */
-$text_company_selection  = false;
+	$text_company_selection  = false;
 
 /*  Should FA hide menu items (Applications, Modules, and Actions) from the user if they don't have access to them? 
     0 for no       1 for yes
@@ -223,30 +173,30 @@ $text_company_selection  = false;
 	$login_delay seconds delay is required between login attempts after $login_max_attemps failed logins.
 	Set $login_delay to 0 to disable the feature (not recommended)
 */
-$login_delay = 30;
-$login_max_attempts = 10;
+	$login_delay = 30;
+	$login_max_attempts = 10;
 
 /*
 	Choose Exchange Rate Provider
 	Default is ECB for backwards compatibility
 */
-$xr_providers = array("ECB", "YAHOO", "GOOGLE", "BLOOMBERG");
-$dflt_xr_provider = 0;
+	$xr_providers = array("ECB", "YAHOO", "GOOGLE", "BLOOMBERG");
+	$dflt_xr_provider = 0;
 
 /*
 	Set to true when remote service is authoritative source of exchange rates, and can be stored automatically without
 	manual edition. Otherwise exrate is stored on first new currency transaction of the day.
 */
-$xr_provider_authoritative = false;
+	$xr_provider_authoritative = false;
 
 /*
 	Optional sorting sales documents lines during edition according to item code
 */
-$sort_sales_items = false;
+	$sort_sales_items = false;
 
 /*
 	Trial Balance opening balance presentation option.
 	When set to true past years part of opening balance is cleared.
 */
-$clear_trial_balance_opening = false;
+	$clear_trial_balance_opening = false;
 
