@@ -448,17 +448,23 @@ function user_qty_dec()
 
 function user_price_dec()
 {
-	return $_SESSION["wa_current_user"]->prefs->price_dec();
+	global $SysPrefs;
+
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->price_dec() : $SysPrefs->prices_dec;
 }
 
 function user_exrate_dec()
 {
-	return $_SESSION["wa_current_user"]->prefs->exrate_dec();
+	global $SysPrefs;
+
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->exrate_dec() : $SysPrefs->rates_dec;
 }
 
 function user_percent_dec()
 {
-	return $_SESSION["wa_current_user"]->prefs->percent_dec();
+	global $SysPrefs;
+
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->percent_dec() : $SysPrefs->percent_dec;
 }
 
 function user_show_gl_info()
@@ -473,41 +479,56 @@ function user_show_codes()
 
 function user_date_format()
 {
-  global $SysPrefs;
+	global $SysPrefs;
 
-	return isset($_SESSION["wa_current_user"]) ?
-	  $_SESSION["wa_current_user"]->prefs->date_format() : $SysPrefs->dflt_date_fmt;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->date_format() : $SysPrefs->dflt_date_fmt;
 }
 
 function user_date_display()
 {
-  global $SysPrefs;
-
-	return isset($_SESSION["wa_current_user"]) ?
-	  $_SESSION["wa_current_user"]->prefs->date_display() : $SysPres->dflt_date_sep;
+ 	$fmt ='m/d/Y';
+ 	if (isset($_SESSION["wa_current_user"])) {
+  		$fmt = $_SESSION["wa_current_user"]->prefs->date_display();
+ 	} else {
+  		$sep = user_date_sep();
+  		$user_date_fmt = user_date_format();
+  		switch ($user_date_fmt) {
+   			case 0:
+    			$fmt = "m".$sep."d".$sep."Y"; break;
+   			case 1:
+    			$fmt = "d".$sep."m".$sep."Y"; break;
+   			case 2:
+    			$fmt = "Y".$sep."m".$sep."d"; break;
+   			case 3:
+    			$fmt = "M".$sep."j".$sep."Y"; break;
+   			case 4:
+    			$fmt = "j".$sep."M".$sep."Y"; break;
+   			default:
+    			$fmt = "Y".$sep."M".$sep."j";
+  		}
+  	}
 }
 
 function user_date_sep()
 {
-	return $_SESSION["wa_current_user"]->prefs->date_sep();
+	global $SysPrefs;
+
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->date_sep() : $SysPrefs->dflt_date_sep;
 }
 
 function user_tho_sep()
 {
-	return isset($_SESSION["wa_current_user"]) ?
-		$_SESSION["wa_current_user"]->prefs->tho_sep() : 0;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->tho_sep() : 0;
 }
 
 function user_dec_sep()
 {
-	return isset($_SESSION["wa_current_user"]) ?
-		$_SESSION["wa_current_user"]->prefs->dec_sep() : 0;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->dec_sep() : 0;
 }
 
 function user_theme()
 {
-	return isset($_SESSION["wa_current_user"]) ?
-		$_SESSION["wa_current_user"]->prefs->get_theme() : 'default';
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->get_theme() : 'default';
 }
 
 function user_pagesize()
