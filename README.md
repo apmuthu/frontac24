@@ -21,3 +21,5 @@ URL to clone this repo in Git:
 ````
 https://github.com/apmuthu/frontac24.git
 ````
+
+FA 2.4 Development is [discussed in the Forum](http://frontaccounting.com/punbb/viewtopic.php?id=5380)

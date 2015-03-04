@@ -10,6 +10,7 @@
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
 include_once($path_to_root . "/purchasing/includes/db/invoice_items_db.inc");
+include_once($path_to_root . "/admin/db/attachments_db.inc");
 
 //--------------------------------------------------------------------------------------------------
 
@@ -126,7 +127,8 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 	//$company_currency = get_company_currency();
 	$trans_no = $supp_trans->trans_no;
 	$trans_type = $supp_trans->trans_type;
-	/*Start an sql transaction */
+	$supplier = get_supplier($supp_trans->supplier_id);
+
 	begin_transaction();
 	hook_db_prewrite($supp_trans, $trans_type);
 	$tax_total = 0;
@@ -137,8 +139,6 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 		$Refs->restore_last($trans_type, $trans_no);
 	} else
 		$allocs = get_po_prepayments($supp_trans);
-
-	$supplier = get_supplier($supp_trans->supplier_id);
 
 	add_new_exchange_rate($supplier['curr_code'], $supp_trans->tran_date, $supp_trans->ex_rate);
 
@@ -176,6 +176,8 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 		$invoice_items_total, $item_added_tax, $supp_trans->ov_discount, "", 0, $supp_trans->tax_included,
 		$supp_trans->tax_algorithm);
 
+	if ($trans_no)
+		move_trans_attachments($trans_type, $trans_no, $invoice_id);
 
 	$supp_trans->trans_no = $invoice_id;
 
@@ -234,8 +236,8 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 		$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $entered_gl_code->gl_code,
 			$entered_gl_code->gl_dim, $entered_gl_code->gl_dim2, $entered_gl_code->amount, $supp_trans->supplier_id, "", 0, $memo_);
 
-		add_supp_invoice_gl_item($trans_type, $invoice_id, $entered_gl_code->gl_code,
-			$entered_gl_code->amount, $memo_);
+		add_supp_invoice_gl_item($trans_type, $invoice_id, $entered_gl_code->gl_code, $entered_gl_code->amount, $memo_,
+			$entered_gl_code->gl_dim, $entered_gl_code->gl_dim2);
 
 		// store tax details if the gl account is a tax account
 		if ($trans_type == ST_SUPPCREDIT)
@@ -270,8 +272,10 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 
 		$stock_gl_code = get_stock_gl_code($entered_grn->item_code);
 
-		$dim = $supplier['dimension_id'] ? $supplier['dimension_id'] : $stock_gl_code['dimension_id'];
-		$dim2 = $supplier['dimension2_id'] ? $supplier['dimension2_id'] : $stock_gl_code['dimension2_id'];
+		$dim = !empty($supp_trans->dimension) ? $supp_trans->dimension :
+			($supplier['dimension_id'] ? $supplier['dimension_id'] : $stock_gl_code['dimension_id']);
+		$dim2 = !empty($supp_trans->dimension2) ? $supp_trans->dimension2 :
+			($supplier['dimension2_id'] ? $supplier['dimension2_id'] : $stock_gl_code['dimension2_id']);
     	if ($trans_type == ST_SUPPCREDIT)
 		{
 			$iv_act = (is_inventory_item($entered_grn->item_code) ? $stock_gl_code["inventory_account"] : 
@@ -490,7 +494,7 @@ function read_supp_invoice($trans_no, $trans_type, &$supp_trans)
              	else
              	{
              		$supp_trans->add_gl_codes_to_trans($details_row["gl_code"], get_gl_account_name($details_row["gl_code"]), 0, 0,
-           				$details_row["FullUnitPrice"], $details_row["memo_"]);
+           				$details_row["FullUnitPrice"], $details_row["memo_"], $details_row["dimension_id"], $details_row["dimension2_id"]);
              	}
             }
 			$supp_trans->tax_overrides = get_tax_overrides($trans_type, $trans_no);
@@ -610,16 +614,9 @@ function void_supp_invoice($type, $type_no)
 						
 						add_audit_trail(ST_JOURNAL, $id, $old_date);
 						add_comments(ST_JOURNAL, $id, $old_date, $memo);
-						$Refs->save(ST_JOURNAL, $id, $ref);						
-					}	
+						$Refs->save(ST_JOURNAL, $id, $ref);
+					}
 				}
-				/*$deliveries = get_deliveries_between($details_row["stock_id"], $old_date, $date_);
-				if ($deliveries[0] != 0) // have deliveries been done during the period?
-				{
-					update_stock_move_pid(ST_CUSTDELIVERY, $details_row["stock_id"], $old_date, $date_, 0, $mat_cost);
-				}
-				update_stock_move_pid(ST_SUPPRECEIVE, $details_row["stock_id"], $old_date, $old_date, $grn['supplier_id'], $mat_cost);
-				*/
          	}
         }
 	}

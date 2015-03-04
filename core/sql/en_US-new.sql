@@ -771,7 +771,7 @@ DROP TABLE IF EXISTS `0_gl_trans`;
 CREATE TABLE IF NOT EXISTS `0_gl_trans` (
   `counter` int(11) NOT NULL auto_increment,
   `type` smallint(6) NOT NULL default '0',
-  `type_no` bigint(16) NOT NULL default '1',
+  `type_no` int(11) NOT NULL default '0',
   `tran_date` date NOT NULL default '0000-00-00',
   `account` varchar(15) NOT NULL default '',
   `memo_` tinytext NOT NULL,
@@ -990,7 +990,7 @@ DROP TABLE IF EXISTS `0_loc_stock`;
 CREATE TABLE IF NOT EXISTS `0_loc_stock` (
   `loc_code` char(5) NOT NULL default '',
   `stock_id` char(20) NOT NULL default '',
-  `reorder_level` bigint(20) NOT NULL default '0',
+  `reorder_level` double NOT NULL default '0',
   PRIMARY KEY  (`loc_code`,`stock_id`),
   KEY `stock_id` (`stock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1721,6 +1721,8 @@ CREATE TABLE IF NOT EXISTS `0_supp_invoice_items` (
   `unit_price` double NOT NULL default '0',
   `unit_tax` double NOT NULL default '0',
   `memo_` tinytext,
+  `dimension_id` int(11) NOT NULL DEFAULT '0',
+  `dimension2_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY  (`id`),
   KEY `Transaction` (`supp_trans_type`,`supp_trans_no`,`stock_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
