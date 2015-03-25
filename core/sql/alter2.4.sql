@@ -1,5 +1,3 @@
-ALTER TABLE `0_suppliers` ADD COLUMN  `tax_algorithm` tinyint(1) NOT NULL default '1' AFTER `tax_included`;
-ALTER TABLE `0_supp_trans` ADD COLUMN `tax_algorithm` tinyint(1) NULL default '1' AFTER `tax_included`;
 INSERT INTO `0_sys_prefs` VALUES('tax_algorithm','glsetup.customer', 'tinyint', 1, '1');
 INSERT INTO `0_sys_prefs` VALUES('gl_closing_date','setup.closing_date', 'date', 8, '');
 ALTER TABLE `0_audit_trail` CHANGE `fiscal_year` `fiscal_year` int(11) NOT NULL default 0;
@@ -150,4 +148,77 @@ ALTER TABLE `0_supp_invoice_items` ADD COLUMN `dimension2_id` int(11) NOT NULL D
 UPDATE `0_supp_invoice_items` si
 	LEFT JOIN `0_gl_trans` gl ON si.supp_trans_type=gl.`type` AND si.supp_trans_no=gl.type_no AND si.gl_code=gl.account
 	SET si.dimension_id=gl.dimension_id, si.dimension2_id=gl.dimension2_id
-WHERE si.grn_item_id=-1 AND (gl.dimension_id OR gl.dimension2_id)
+WHERE si.grn_item_id=-1 AND (gl.dimension_id OR gl.dimension2_id);
+
+ALTER TABLE `0_quick_entries` ADD COLUMN `usage` varchar(120) NULL AFTER `description`;
+ALTER TABLE `0_quick_entry_lines` ADD COLUMN `memo` tinytext NOT NULL AFTER `amount`;
+
+# multiply allocations to single jiurnal transaction
+ALTER TABLE `0_cust_allocations` ADD COLUMN `person_id` int(11) DEFAULT NULL AFTER `id`;
+UPDATE `0_cust_allocations` alloc LEFT JOIN `0_debtor_trans` trans ON alloc.trans_no_to=trans.trans_no AND alloc.trans_type_to=trans.type
+	SET alloc.person_id = trans.debtor_no;
+
+ALTER TABLE `0_supp_allocations` ADD COLUMN `person_id` int(11) DEFAULT NULL AFTER `id`;
+UPDATE `0_supp_allocations` alloc LEFT JOIN `0_supp_trans` trans ON alloc.trans_no_to=trans.trans_no AND alloc.trans_type_to=trans.type
+	SET alloc.person_id = trans.supplier_id;
+
+ALTER TABLE `0_cust_allocations` DROP KEY `trans_type_from`;
+ALTER TABLE `0_cust_allocations` ADD  UNIQUE KEY(`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`);
+ALTER TABLE `0_supp_allocations` DROP KEY `trans_type_from`;
+ALTER TABLE `0_supp_allocations` ADD  UNIQUE KEY(`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`);
+
+# full support for any journal transaction
+DROP TABLE IF EXISTS `0_journal`;
+CREATE TABLE `0_journal` (
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `tran_date` date DEFAULT '0000-00-00',
+  `reference` varchar(60) NOT NULL DEFAULT '',
+  `source_ref` varchar(60) NOT NULL DEFAULT '',
+  `event_date` date DEFAULT '0000-00-00',
+  `doc_date` date NOT NULL DEFAULT '0000-00-00',
+  `currency` char(3) NOT NULL DEFAULT '',
+  `amount` double NOT NULL DEFAULT '0',
+  `rate` double NOT NULL DEFAULT '1',
+  PRIMARY KEY `Type_and_Number` (`type`,`trans_no`),
+  KEY `tran_date` (`tran_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+INSERT INTO `0_journal` (`type`, `trans_no`, `tran_date`, `reference`, `event_date`,`doc_date`,`currency`,`amount`)
+ SELECT `gl`.`type`, `gl`.`type_no`, `gl`.`tran_date`, `ref`.`reference`, `gl`.`tran_date`,
+ 		`gl`.`tran_date`, `sys_curr`.`value`, SUM(IF(`gl`.`amount`>0,`gl`.`amount`,0))
+ FROM `0_gl_trans` gl LEFT JOIN `0_refs` ref ON gl.type = ref.type AND gl.type_no=ref.id
+ LEFT JOIN `0_sys_prefs` sys_curr ON `sys_curr`.`name`='curr_default'
+ WHERE `gl`.`type` IN(0, 35)
+ GROUP BY `type`,`type_no`;
+
+# allow multiply customers.suppliers in single journal transaction
+ALTER TABLE `0_debtor_trans` DROP PRIMARY KEY;
+ALTER TABLE `0_debtor_trans` ADD  PRIMARY KEY (`type`,`trans_no`, `debtor_no`);
+ALTER TABLE `0_supp_trans` DROP PRIMARY KEY;
+ALTER TABLE `0_supp_trans` ADD  PRIMARY KEY (`type`,`trans_no`, `supplier_id`);
+
+ALTER TABLE  `0_trans_tax_details` ADD COLUMN `reg_type` tinyint(1) DEFAULT NULL AFTER `memo`;
+
+UPDATE `0_trans_tax_details` reg
+	SET reg.reg_type=1
+	WHERE reg.trans_type IN(20, 21);
+
+UPDATE `0_trans_tax_details` reg
+	SET reg.reg_type=0
+	WHERE reg.trans_type IN(10, 11);
+
+INSERT IGNORE INTO `0_sys_prefs` VALUES
+	('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, 0),
+	('default_receival_required', 'glsetup.purchase', 'smallint', 6, '10'),
+	('default_quote_valid_days', 'glsetup.sales', 'smallint', 6, 30),
+	('no_zero_lines_amount', 'glsetup.sales', 'tinyint', 1, '1'),
+	('show_po_item_codes', 'glsetup.purchase', 'tinyint', 1, '0'),
+	('accounts_alpha', 'glsetup.general', 'tinyint', 1, '0'),
+	('loc_notification', 'glsetup.inventory', 'tinyint', 1, '0'),
+	('print_invoice_no', 'glsetup.sales', 'tinyint', 1, '0'),
+	('allow_negative_prices', 'glsetup.inventory', 'tinyint', 1, '1'),
+	('print_item_images_on_quote', 'glsetup.inventory', 'tinyint', 1, '0'),
+	('bcc_email', 'setup.company', 'varchar', 100, ''),
+	('alternative_tax_include_on_docs', 'setup.company', 'tinyint', 1, '0'),
+	('suppress_tax_rates', 'setup.company', 'tinyint', 1, '0');

@@ -212,11 +212,15 @@ $opts = array(		// default options
 			}
 			$cat = $contact_row[$opts['category']];
 			if ($opts['category'] !== false && $cat != $lastcat){
+				if ($lastcat!==null)
+					$selector .= "</optgroup>";
 				$selector .= "<optgroup label='".$cat."'>\n";
 				$lastcat = $cat;
 			}
 			$selector .= "<option $sel $optclass value='$value'>$descr</option>\n";
 		}
+		if ($lastcat!==null)
+			$selector .= "</optgroup>";
 		db_free_result($result);
 	}
 
@@ -364,7 +368,6 @@ $opts = array(		// default options
 
 	if ($first_id!==false) {
 		$sel = ($found===$first_id) || ($found===false && ($spec_option===false)) ? "selected='selected'" : '';
-		$selector = sprintf($first_opt, $sel).$selector;
 	}
 	// Prepend special option.
 	if ($spec_option !== false) { // if special option used - add it
@@ -2442,5 +2445,26 @@ function accounts_type_list_row($label, $name, $selected_id=null)
 	$sel = array(_("Numeric"), _("Alpha Numeric"), _("ALPHA NUMERIC"));
 	echo array_selector($name, $selected_id, $sel); 
 	echo "</td></tr>\n";
+}
+
+function users_list_cells($label, $name, $selected_id=null, $submit_on_change=false, $spec_opt=true)
+{
+    $where = false;
+    $sql = " SELECT user_id, real_name FROM ".TB_PREF."users";
+
+    if ($label != null)
+        echo "<td>$label</td>\n";
+    echo "<td>";
+
+    echo combo_input($name, $selected_id, $sql, 'user_id', 'real_name',
+        array(
+            'spec_option' => $spec_opt===true ?_("All users") : $spec_opt,
+            'spec_id' => '',
+            'order' => 'real_name',
+            'select_submit'=> $submit_on_change,
+            'async' => false
+        ) );
+    echo "</td>";
+
 }
 

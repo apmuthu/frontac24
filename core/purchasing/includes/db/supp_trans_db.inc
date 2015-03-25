@@ -14,7 +14,7 @@
 //	FIXME - this should be revised for transaction update case.
 //
 function write_supp_trans($type, $trans_no, $supplier_id, $date_, $due_date, $reference, $supp_reference,
-	$amount, $amount_tax, $discount, $err_msg="", $rate=0, $included=0, $tax_algorithm = null)
+	$amount, $amount_tax, $discount, $err_msg="", $rate=0, $included=0)
 {
 	$new = $trans_no==0;
 	$date = date2sql($date_);
@@ -33,12 +33,11 @@ function write_supp_trans($type, $trans_no, $supplier_id, $date_, $due_date, $re
 
 
 	$sql = "INSERT INTO ".TB_PREF."supp_trans (trans_no, type, supplier_id, tran_date, due_date,
-		reference, supp_reference, ov_amount, ov_gst, rate, ov_discount, tax_included, tax_algorithm) ";
+		reference, supp_reference, ov_amount, ov_gst, rate, ov_discount, tax_included) ";
 	$sql .= "VALUES (".db_escape($trans_no).", ".db_escape($type)
 	.", ".db_escape($supplier_id).", '$date', '$due_date',
 		".db_escape($reference).", ".db_escape($supp_reference).", ".db_escape($amount)
-		.", ".db_escape($amount_tax).", ".db_escape($rate).", ".db_escape($discount).", ".db_escape($included).
-		", ".db_escape($tax_algorithm, true).")";
+		.", ".db_escape($amount_tax).", ".db_escape($rate).", ".db_escape($discount).", ".db_escape($included).")";
 
 	if ($err_msg == "")
 		$err_msg = "Cannot insert a supplier transaction record";
@@ -51,7 +50,7 @@ function write_supp_trans($type, $trans_no, $supplier_id, $date_, $due_date, $re
 
 //-------------------------------------------------------------------------------------------------------------
 
-function get_supp_trans($trans_no, $trans_type=-1)
+function get_supp_trans($trans_no, $trans_type=-1, $supplier_id=null)
 {
 	$sql = "SELECT ".TB_PREF."supp_trans.*, (".TB_PREF."supp_trans.ov_amount+".TB_PREF."supp_trans.ov_gst+".TB_PREF."supp_trans.ov_discount) AS Total,
 		".TB_PREF."suppliers.supp_name AS supplier_name, ".TB_PREF."suppliers.curr_code AS curr_code ";
@@ -75,7 +74,10 @@ function get_supp_trans($trans_no, $trans_type=-1)
 	$sql .= " WHERE ".TB_PREF."supp_trans.trans_no=".db_escape($trans_no)."
 		AND ".TB_PREF."supp_trans.supplier_id=".TB_PREF."suppliers.supplier_id";
 
-	if ($trans_type > 0)
+	if (isset($supplier_id))
+		$sql .= " AND ".TB_PREF."supp_trans.supplier_id=".db_escape($supplier_id);
+
+	if ($trans_type > -1)
 		$sql .= " AND ".TB_PREF."supp_trans.type=".db_escape($trans_type);
 
 	if ($trans_type == ST_SUPPAYMENT || $trans_type == ST_BANKPAYMENT)
@@ -101,9 +103,9 @@ function get_supp_trans($trans_no, $trans_type=-1)
        display_db_error("duplicate supplier transactions found for given params", $sql, true);
        exit;
     }
-
     return db_fetch($result);
 }
+
 
 //----------------------------------------------------------------------------------------
 

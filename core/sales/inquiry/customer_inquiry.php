@@ -44,7 +44,7 @@ if (!$page_nested)
 	customer_list_cells(_("Select a customer: "), 'customer_id', null, true, false, false, !@$_GET['popup']);
 
 date_cells(_("From:"), 'TransAfterDate', '', null, -user_transaction_days());
-date_cells(_("To:"), 'TransToDate', '', null, 1);
+date_cells(_("To:"), 'TransToDate', '', null);
 
 if (!isset($_POST['filterType']))
 	$_POST['filterType'] = 0;
@@ -72,7 +72,7 @@ function display_customer_summary($customer_record)
 	$pastdue1 = $past1 + 1 . "-" . $past2 . " " . _('Days');
 	$pastdue2 = _('Over') . " " . $past2 . " " . _('Days');
 
-    start_table(TABLESTYLE, "width=80%");
+    start_table(TABLESTYLE, "width='80%'");
     $th = array(_("Currency"), _("Terms"), _("Current"), $nowdue,
     	$pastdue1, $pastdue2, _("Total Balance"));
     table_header($th);
@@ -138,7 +138,7 @@ function gl_view($row)
 function fmt_debit($row)
 {
 	$value =
-	    $row['type']==ST_CUSTCREDIT || $row['type']==ST_CUSTPAYMENT || $row['type']==ST_BANKDEPOSIT ?
+	    $row['type']==ST_CUSTCREDIT || $row['type']==ST_CUSTPAYMENT || $row['type']==ST_BANKDEPOSIT || $row['type']==ST_JOURNAL ?
 		-$row["TotalAmount"] : $row["TotalAmount"];
 	return $value>=0 ? price_format($value) : '';
 
@@ -147,10 +147,11 @@ function fmt_debit($row)
 function fmt_credit($row)
 {
 	$value =
-	    !($row['type']==ST_CUSTCREDIT || $row['type']==ST_CUSTPAYMENT || $row['type']==ST_BANKDEPOSIT) ?
+	    !($row['type']==ST_CUSTCREDIT || $row['type']==ST_CUSTPAYMENT || $row['type']==ST_BANKDEPOSIT || $row['type']==ST_JOURNAL) ?
 		-$row["TotalAmount"] : $row["TotalAmount"];
 	return $value>0 ? price_format($value) : '';
 }
+
 
 function credit_link($row)
 {

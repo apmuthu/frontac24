@@ -529,6 +529,7 @@ INSERT INTO `0_currencies` VALUES('Pounds', 'GBP', '?', 'England', 'Pence', 1, 0
 DROP TABLE IF EXISTS `0_cust_allocations`;
 CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `id` int(11) NOT NULL auto_increment,
+  `person_id` int(11) DEFAULT NULL,
   `amt` double unsigned default NULL,
   `date_alloc` date NOT NULL default '0000-00-00',
   `trans_no_from` int(11) default NULL,
@@ -536,7 +537,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `trans_no_to` int(11) default NULL,
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=1 ;
@@ -954,6 +955,27 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
 INSERT INTO `0_item_units` VALUES('each', 'Each', 0, 0);
 INSERT INTO `0_item_units` VALUES('hr', 'Hours', 0, 0);
 
+--- Structure of table `0_journal`
+
+DROP TABLE IF EXISTS `0_journal`;
+CREATE TABLE `0_journal` (
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `tran_date` date DEFAULT '0000-00-00',
+  `reference` varchar(60) NOT NULL DEFAULT '',
+  `source_ref` varchar(60) NOT NULL DEFAULT '',
+  `event_date` date DEFAULT '0000-00-00',
+  `doc_date` date NOT NULL DEFAULT '0000-00-00',
+  `currency` char(3) NOT NULL DEFAULT '',
+  `amount` double NOT NULL DEFAULT '0',
+  `rate` double NOT NULL DEFAULT '1',
+  PRIMARY KEY (`type`,`trans_no`),
+  KEY `tran_date` (`tran_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+--- Data of table `0_journal`
+
+
 -- --------------------------------------------------------
 
 --
@@ -1217,6 +1239,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
   `id` smallint(6) unsigned NOT NULL auto_increment,
   `type` tinyint(1) NOT NULL default '0',
   `description` varchar(60) NOT NULL,
+  `usage` varchar(120) NULL,
   `base_amount` double NOT NULL default '0',
   `base_desc` varchar(60) default NULL,
   `bal_type` tinyint(1) NOT NULL default '0',
@@ -1228,9 +1251,9 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
 -- Dumping data for table `0_quick_entries`
 --
 
-INSERT INTO `0_quick_entries` VALUES(1, 1, 'Maintenance', 0, 'Amount', 0);
-INSERT INTO `0_quick_entries` VALUES(2, 4, 'Phone', 0, 'Amount', 0);
-INSERT INTO `0_quick_entries` VALUES(3, 2, 'Cash Sales', 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(1, 1, 'Maintenance', NULL, 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(2, 4, 'Phone', NULL, 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(3, 2, 'Cash Sales', 'Retail sales without invoice', 0, 'Amount', 0);
 
 -- --------------------------------------------------------
 
@@ -1243,6 +1266,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
   `id` smallint(6) unsigned NOT NULL auto_increment,
   `qid` smallint(6) unsigned NOT NULL,
   `amount` double default '0',
+  `memo` tinytext NOT NULL,
   `action` varchar(2) NOT NULL,
   `dest_id` varchar(15) NOT NULL default '',
   `dimension_id` smallint(6) unsigned default NULL,
@@ -1255,12 +1279,12 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
 -- Dumping data for table `0_quick_entry_lines`
 --
 
-INSERT INTO `0_quick_entry_lines` VALUES(1, 1, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(2, 2, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(3, 3, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(4, 3, 0, '=', '4010', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(5, 1, 0, '=', '5765', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(6, 2, 0, '=', '5780', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(1, 1, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(2, 2, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(3, 3, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(4, 3, 0, '', '=', '4010', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(5, 1, 0, '', '=', '5765', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(6, 2, 0, '', '=', '5780', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1656,7 +1680,6 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
   `curr_code` char(3) default NULL,
   `payment_terms` int(11) default NULL,
   `tax_included` tinyint(1) NOT NULL default '0',
-  `tax_algorithm` tinyint(1) NOT NULL default '1',
   `dimension_id` int(11) default '0',
   `dimension2_id` int(11) default '0',
   `tax_group_id` int(11) default NULL,
@@ -1684,6 +1707,7 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
 DROP TABLE IF EXISTS `0_supp_allocations`;
 CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `id` int(11) NOT NULL auto_increment,
+  `person_id` int(11) DEFAULT NULL,
   `amt` double unsigned default NULL,
   `date_alloc` date NOT NULL default '0000-00-00',
   `trans_no_from` int(11) default NULL,
@@ -1691,7 +1715,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_no_to` int(11) default NULL,
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=1 ;
@@ -1753,7 +1777,6 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
   `rate` double NOT NULL default '1',
   `alloc` double NOT NULL default '0',
   `tax_included` tinyint(1) NOT NULL default '0',
-  `tax_algorithm` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`type`,`trans_no`),
   KEY `supplier_id` (`supplier_id`),
   KEY `SupplierID_2` (`supplier_id`,`supp_reference`),
@@ -2019,6 +2042,7 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
   `net_amount` double NOT NULL default '0',
   `amount` double NOT NULL default '0',
   `memo` tinytext,
+  `reg_type` tinyint(1) default NULL,
   PRIMARY KEY  (`id`),
   KEY `Type_and_Number` (`trans_type`,`trans_no`),
   KEY `tran_date` (`tran_date`)

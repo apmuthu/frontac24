@@ -26,7 +26,6 @@ function copy_from_cart()
 	$_POST['Comments'] = $cart->Comments;
     $_POST['StkLocation'] = $cart->Location;
     $_POST['delivery_address'] = $cart->delivery_address;
-    $_POST['tax_algorithm'] = $cart->tax_algorithm;
 	$_POST['prep_amount'] = price_format($cart->prep_amount);
 	$_POST['_ex_rate'] = $cart->ex_rate;
 	$_POST['cash_account'] = $cart->cash_account;
@@ -54,8 +53,6 @@ function copy_to_cart()
 	$cart->delivery_address = $_POST['delivery_address'];
    	$cart->dimension = @$_POST['dimension'];
 	$cart->dimension2 =  @$_POST['dimension2'];
-	if (isset($_POST['tax_algorithm']))
-	    $cart->tax_algorithm = $_POST['tax_algorithm'];
 	$cart->prep_amount = input_num('prep_amount', 0);
 	$cart->ex_rate = input_num('_ex_rate', null);
 
@@ -99,7 +96,7 @@ function display_po_header(&$order)
 
 	$editable = ($order->order_no == 0);
 
-	start_outer_table(TABLESTYLE2, 'width=80%');
+	start_outer_table(TABLESTYLE2, "width='80%'");
 
 	table_section(1);
     if ($editable)
@@ -120,7 +117,6 @@ function display_po_header(&$order)
 		get_supplier_details_to_order($order, $_POST['supplier_id']); 
 	    get_duedate_from_terms($order);
 		$_POST['due_date'] = $order->due_date;
-		$_POST['tax_algorithm'] = $order->tax_algorithm;
 
 		// supplier default price update
 		foreach ($order->line_items as $line_no=>$item) {
@@ -132,7 +128,6 @@ function display_po_header(&$order)
 		}
 	    $Ajax->activate('items_table');
 	    $Ajax->activate('due_date');
-	    $Ajax->activate('tax_algorithm');
 	}
 	set_global_supplier($_POST['supplier_id']);
 
@@ -213,7 +208,7 @@ function display_po_items(&$order, $editable=true)
     display_heading(_("Order Items"));
 
     div_start('items_table');
-    start_table(TABLESTYLE, "width=80%");
+    start_table(TABLESTYLE, "width='80%'");
 
    	$th = array(_("Item Code"), _("Item Description"), _("Quantity"),
 		_("Received"), _("Unit"),
@@ -290,7 +285,7 @@ function display_po_items(&$order, $editable=true)
 
 function display_po_summary(&$po, $is_self=false, $editable=false)
 {
-    start_table(TABLESTYLE, "width=90%");
+    start_table(TABLESTYLE, "width='90%'");
 
     start_row();
     label_cells(_("Reference"), $po->reference, "class='tableheader2'");
@@ -453,13 +448,7 @@ function display_po_footer(&$trans)
 
 start_table(TABLESTYLE2);
 
-if (list_updated('tax_algorithm')) {
-	$trans->tax_algorithm = $_POST['tax_algorithm'];
-    $Ajax->activate('items_table');
-}
-
 if ($trans->trans_type == ST_SUPPINVOICE) {
-	tax_algorithm_list_row(_("Tax algorithm:"), 'tax_algorithm', null, true);
 	cash_accounts_list_row(_("Payment:"), 'cash_account', null, false, _('Delayed'));
 } elseif ($trans->trans_type == ST_PURCHORDER)
 	amount_row(_("Pre-Payment Required:"), 'prep_amount');

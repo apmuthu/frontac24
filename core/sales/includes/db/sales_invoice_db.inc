@@ -169,8 +169,8 @@ function write_sales_invoice(&$invoice)
 		if ($taxitem['Net'] != 0) {
 			$ex_rate = get_exchange_rate_from_home_currency(get_customer_currency($invoice->customer_id), $date_);
 			add_trans_tax_details(ST_SALESINVOICE, $invoice_no, $taxitem['tax_type_id'],
-				$taxitem['rate'], $invoice->tax_included, $taxitem['Value'],
-				 $taxitem['Net'], $ex_rate, $date_, $invoice->reference, $date_, $prepaid_factor*$taxitem['Value']);
+				$taxitem['rate'], $invoice->tax_included, $prepaid_factor*$taxitem['Value'],
+				 $taxitem['Net'], $ex_rate, $date_, $invoice->reference, TR_OUTPUT);
 			if (isset($taxitem['sales_gl_code']))
 				$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $taxitem['sales_gl_code'], 0, 0,
 					(-$taxitem['Value'])*$prepaid_factor, $invoice->customer_id,
@@ -197,10 +197,10 @@ function write_sales_invoice(&$invoice)
 				$invoice->Branch, $invoice->pos['pos_account'], $date_,
 				$Refs->get_next(ST_CUSTPAYMENT), $amount-$discount, $discount,
 				_('Cash invoice').' '.$invoice_no);
-			add_cust_allocation($amount, ST_CUSTPAYMENT, $pmtno, ST_SALESINVOICE, $invoice_no);
+			add_cust_allocation($amount, ST_CUSTPAYMENT, $pmtno, ST_SALESINVOICE, $invoice_no, $invoice->customer_id, $date_);
 
-			update_debtor_trans_allocation(ST_SALESINVOICE, $invoice_no);
-			update_debtor_trans_allocation(ST_CUSTPAYMENT, $pmtno);
+			update_debtor_trans_allocation(ST_SALESINVOICE, $invoice_no, $invoice->customer_id);
+			update_debtor_trans_allocation(ST_CUSTPAYMENT, $pmtno, $invoice->customer_id);
 		}
 	}
 //_vd($allocs);
@@ -275,6 +275,11 @@ function void_sales_invoice($type, $type_no)
 	void_customer_trans($type, $type_no);
 
 	commit_transaction();
+}
+
+function is_cust_invoice_credited($trans_no)
+{
+	return db_num_rows(get_sales_child_lines(ST_SALESINVOICE, $trans_no));
 }
 
 function get_cust_prepayment_invoice_factor($trans_no)

@@ -17,7 +17,7 @@ include_once($path_to_root . "/admin/db/attachments_db.inc");
 function read_supplier_details_to_trans(&$supp_trans, $supplier_id)
 {
 	$sql = "SELECT supp.supp_name, terms.terms, terms.days_before_due,
-		terms.day_in_following_month, supp.tax_included, supp.tax_algorithm,
+		terms.day_in_following_month, supp.tax_included,
 		supp.tax_group_id, tax_group.name AS tax_group_name,
 		supp.credit_limit - Sum(IFNULL(IF(trans.type=".ST_SUPPCREDIT.", -1, 1) 
 			* (ov_amount + ov_gst + ov_discount),0)) as cur_credit
@@ -45,7 +45,6 @@ function read_supplier_details_to_trans(&$supp_trans, $supplier_id)
 
     $supp_trans->supplier_id = $supplier_id;
     $supp_trans->tax_included = $myrow['tax_included'];
-    $supp_trans->tax_algorithm = $supp_trans->stored_algorithm = $myrow['tax_algorithm'];
     $supp_trans->supplier_name = $myrow['supp_name'];
 	$supp_trans->terms = array( 
 		'description' => $myrow['terms'],
@@ -120,7 +119,7 @@ function get_diff_in_home_currency($supplier, $old_date, $date, $amount1, $amoun
 }
 //----------------------------------------------------------------------------------------
 
-function add_supp_invoice(&$supp_trans) // do not receive as ref because we change locally
+function add_supp_invoice(&$supp_trans)
 {
 	global $Refs;
 
@@ -173,8 +172,7 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
     /*First insert the invoice into the supp_trans table*/
 	$invoice_id = write_supp_trans($trans_type, 0, $supp_trans->supplier_id, $date_, $supp_trans->due_date,
 		$supp_trans->reference, $supp_trans->supp_reference,
-		$invoice_items_total, $item_added_tax, $supp_trans->ov_discount, "", 0, $supp_trans->tax_included,
-		$supp_trans->tax_algorithm);
+		$invoice_items_total, $item_added_tax, $supp_trans->ov_discount, "", 0, $supp_trans->tax_included);
 
 	if ($trans_no)
 		move_trans_attachments($trans_type, $trans_no, $invoice_id);
@@ -200,7 +198,7 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 			}
 			add_trans_tax_details($trans_type, $invoice_id, 
 				$taxitem['tax_type_id'], $taxitem['rate'], $supp_trans->tax_included, $taxitem['Value'],
-				$taxitem['Net'], $ex_rate, $date_, $supp_trans->supp_reference);
+				$taxitem['Net'], $ex_rate, $date_, $supp_trans->supp_reference, TR_INPUT);
 
 			if (isset($taxitem['purchasing_gl_code']))
 			{
@@ -310,7 +308,7 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 				$currency = get_supplier_currency($supp_trans->supplier_id);
 
 				$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $iv_act,
-					$dim, $dim2, $entered_grn->this_quantity_inv * $old_price, $supp_trans->supplier_id, "", $ex_rate);
+					$dim, $dim2, $old_value, $supp_trans->supplier_id, "", $ex_rate);
 				$diff = get_diff_in_home_currency($supp_trans->supplier_id, $old_date, $date_, $old_value, 
 					$taxfree_line);
 
@@ -332,7 +330,8 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 						global $Refs;
 
 						$id = get_next_trans_no(ST_JOURNAL);
-						$ref = $Refs->get_next(ST_JOURNAL);
+						$ref = $Refs->get_next(ST_JOURNAL, null, $date_);
+						add_journal(ST_JOURNAL, $id, $diff, $date_, get_company_currency(), $ref);
 						$stock_id = $entered_grn->item_code;
 						$stock_gl_code = get_stock_gl_code($stock_id);
 						$memo = _("Supplier invoice adjustment for zero inventory of ").$stock_id." "._("Invoice")." ".$supp_trans->reference;
@@ -381,9 +380,9 @@ function add_supp_invoice(&$supp_trans) // do not receive as ref because we chan
 			if ($allocate_amount != 0) 
 			{
 				add_supp_allocation($allocate_amount, ST_SUPPCREDIT, $invoice_id, ST_SUPPINVOICE, $invoice_no,
-					$date_);
-				update_supp_trans_allocation(ST_SUPPINVOICE, $invoice_no);
-				update_supp_trans_allocation(ST_SUPPCREDIT, $invoice_id);
+					$supp_trans->supplier_id, $date_);
+				update_supp_trans_allocation(ST_SUPPINVOICE, $invoice_no, $supp_trans->supplier_id);
+				update_supp_trans_allocation(ST_SUPPCREDIT, $invoice_id, $supp_trans->supplier_id);
 
 				exchange_variation(ST_SUPPCREDIT, $invoice_id, ST_SUPPINVOICE, $supp_trans->src_docs, $date_,
 					$allocate_amount, PT_SUPPLIER);
@@ -470,7 +469,6 @@ function read_supp_invoice($trans_no, $trans_type, &$supp_trans)
 		$supp_trans->ov_discount = $trans_row["ov_discount"];
 		$supp_trans->ov_gst = $trans_row["ov_gst"];
 		$supp_trans->tax_included = $trans_row["tax_included"];
-		$supp_trans->stored_algorithm = $supp_trans->tax_algorithm = $trans_row["tax_algorithm"];
 
 		$id = $trans_row["trans_no"];
 
@@ -600,6 +598,7 @@ function void_supp_invoice($type, $type_no)
 						//Chaitanya : Post a journal entry
 						$id = get_next_trans_no(ST_JOURNAL);
 						$ref = $Refs->get_next(ST_JOURNAL);
+						add_journal(ST_JOURNAL, $id, $details_row["quantity"] * $diff, $old_date, get_company_currency(), $ref);
 						$stock_id = $details_row["stock_id"];
 						$stock_gl_code = get_stock_gl_code($stock_id);
 						$memo = "Reversing Supplier invoice adjustment for zero inventory of ".$stock_id." Invoice: ".$trans['reference'];

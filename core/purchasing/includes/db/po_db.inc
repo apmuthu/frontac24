@@ -13,7 +13,7 @@
 
 function get_supplier_details_to_order(&$order, $supplier_id)
 {
-	$sql = "SELECT curr_code, supp_name, tax_group_id, supp.tax_included, supp.tax_algorithm,
+	$sql = "SELECT curr_code, supp_name, tax_group_id, supp.tax_included,
 			supp.credit_limit - Sum(IFNULL(IF(trans.type=".ST_SUPPCREDIT.", -1, 1) 
 				* (ov_amount + ov_gst + ov_discount),0)) as cur_credit,
 				terms.terms, terms.days_before_due, terms.day_in_following_month
@@ -38,19 +38,25 @@ function get_supplier_details_to_order(&$order, $supplier_id)
 	$_POST['curr_code'] = $myrow["curr_code"];
 
 	$order->set_supplier($supplier_id, $myrow["supp_name"], $myrow["curr_code"], 
-		$myrow["tax_group_id"], $myrow["tax_included"], $myrow["tax_algorithm"]);
+		$myrow["tax_group_id"], $myrow["tax_included"]);
 }
 
 //----------------------------------------------------------------------------------------
 
 function delete_po($po)
 {
+	global $Refs;
+
+	begin_transaction();
 	hook_db_prevoid($po, ST_PURCHORDER);
 	$sql = "DELETE FROM ".TB_PREF."purch_orders WHERE order_no=".db_escape($po);
 	db_query($sql, "The order header could not be deleted");
 
 	$sql = "DELETE FROM ".TB_PREF."purch_order_details WHERE order_no =".db_escape($po);
 	db_query($sql, "The order detail lines could not be deleted");
+
+	$Refs->restore_last(ST_PURCHORDER, $po);
+	commit_transaction();
 }
 
 //----------------------------------------------------------------------------------------
@@ -182,7 +188,7 @@ function read_po_header($order_no, &$order)
       	$order->order_no = $order_no;
 
       	$order->set_supplier($myrow["supplier_id"], $myrow["supp_name"], $myrow["curr_code"],
-      		$myrow['tax_group_id'], $myrow["tax_included"], @$myrow["tax_algorithm"]);
+      		$myrow['tax_group_id'], $myrow["tax_included"]);
 
 		$order->credit = get_current_supp_credit($order->supplier_id);
 

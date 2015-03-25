@@ -563,6 +563,7 @@ INSERT INTO `0_currencies` VALUES('DK Kroner', 'DKK', 'kr', 'Denmark', 'Ore', 1,
 DROP TABLE IF EXISTS `0_cust_allocations`;
 CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `id` int(11) NOT NULL auto_increment,
+  `person_id` int(11) DEFAULT NULL,
   `amt` double unsigned default NULL,
   `date_alloc` date NOT NULL default '0000-00-00',
   `trans_no_from` int(11) default NULL,
@@ -570,7 +571,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `trans_no_to` int(11) default NULL,
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
@@ -579,7 +580,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
 -- Dumping data for table `0_cust_allocations`
 --
 
-INSERT INTO `0_cust_allocations` VALUES(1, 37.68, '2014-06-21', 3, 11, 18, 10);
+INSERT INTO `0_cust_allocations` VALUES(1, 3, 37.68, '2014-06-21', 3, 11, 18, 10);
 
 -- --------------------------------------------------------
 
@@ -833,7 +834,7 @@ DROP TABLE IF EXISTS `0_gl_trans`;
 CREATE TABLE IF NOT EXISTS `0_gl_trans` (
   `counter` int(11) NOT NULL auto_increment,
   `type` smallint(6) NOT NULL default '0',
-  `type_no` `type_no` int(11) NOT NULL default '0',
+  `type_no` int(11) NOT NULL default '0',
   `tran_date` date NOT NULL default '0000-00-00',
   `account` varchar(15) NOT NULL default '',
   `memo_` tinytext NOT NULL,
@@ -1107,6 +1108,27 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
 
 INSERT INTO `0_item_units` VALUES('each', 'Each', 0, 0);
 INSERT INTO `0_item_units` VALUES('hr', 'Hours', 1, 0);
+
+--- Structure of table `0_journal`
+
+DROP TABLE IF EXISTS `0_journal`;
+CREATE TABLE `0_journal` (
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `tran_date` date DEFAULT '0000-00-00',
+  `reference` varchar(60) NOT NULL DEFAULT '',
+  `source_ref` varchar(60) NOT NULL DEFAULT '',
+  `event_date` date DEFAULT '0000-00-00',
+  `doc_date` date NOT NULL DEFAULT '0000-00-00',
+  `currency` char(3) NOT NULL DEFAULT '',
+  `amount` double NOT NULL DEFAULT '0',
+  `rate` double NOT NULL DEFAULT '1',
+  PRIMARY KEY (`type`,`trans_no`),
+  KEY `tran_date` (`tran_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+--- Data of table `0_journal`
+
 
 -- --------------------------------------------------------
 
@@ -1390,6 +1412,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
   `id` smallint(6) unsigned NOT NULL auto_increment,
   `type` tinyint(1) NOT NULL default '0',
   `description` varchar(60) NOT NULL,
+  `usage` varchar(120) NULL,
   `base_amount` double NOT NULL default '0',
   `base_desc` varchar(60) default NULL,
   `bal_type` tinyint(1) NOT NULL default '0',
@@ -1401,9 +1424,9 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
 -- Dumping data for table `0_quick_entries`
 --
 
-INSERT INTO `0_quick_entries` VALUES(1, 1, 'Maintenance', 0, 'Amount', 0);
-INSERT INTO `0_quick_entries` VALUES(2, 4, 'Phone', 0, 'Amount', 0);
-INSERT INTO `0_quick_entries` VALUES(3, 2, 'Cash Sales', 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(1, 1, 'Maintenance', NULL, 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(2, 4, 'Phone', NULL, 0, 'Amount', 0);
+INSERT INTO `0_quick_entries` VALUES(3, 2, 'Cash Sales', 'Retail sales without invoice', 0, 'Amount', 0);
 
 -- --------------------------------------------------------
 
@@ -1416,6 +1439,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
   `id` smallint(6) unsigned NOT NULL auto_increment,
   `qid` smallint(6) unsigned NOT NULL,
   `amount` double default '0',
+  `memo` tinytext NOT NULL,
   `action` varchar(2) NOT NULL,
   `dest_id` varchar(15) NOT NULL default '',
   `dimension_id` smallint(6) unsigned default NULL,
@@ -1428,12 +1452,12 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
 -- Dumping data for table `0_quick_entry_lines`
 --
 
-INSERT INTO `0_quick_entry_lines` VALUES(1, 1, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(2, 2, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(3, 3, 0, 't-', '1', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(4, 3, 0, '=', '4010', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(5, 1, 0, '=', '5765', 0, 0);
-INSERT INTO `0_quick_entry_lines` VALUES(6, 2, 0, '=', '5780', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(1, 1, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(2, 2, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(3, 3, 0, '', 't-', '1', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(4, 3, 0, '', '=', '4010', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(5, 1, 0, '', '=', '5765', 0, 0);
+INSERT INTO `0_quick_entry_lines` VALUES(6, 2, 0, '', '=', '5780', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1883,7 +1907,6 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
   `curr_code` char(3) default NULL,
   `payment_terms` int(11) default NULL,
   `tax_included` tinyint(1) NOT NULL default '0',
-  `tax_algorithm` tinyint(1) NOT NULL default '1',
   `dimension_id` int(11) default '0',
   `dimension2_id` int(11) default '0',
   `tax_group_id` int(11) default NULL,
@@ -1901,9 +1924,9 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
 -- Dumping data for table `0_suppliers`
 --
 
-INSERT INTO `0_suppliers` VALUES(1, 'Junk Beer ApS', 'Junk Beer', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '123456', 'Contact', '111', '', '', 'DKK', 3, 0, 1, 1, 0, 2, 1000, '', '2100', '5060', 'A supplier with junk beers.', 0);
-INSERT INTO `0_suppliers` VALUES(2, 'Lucky Luke Inc.', 'Lucky Luke', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '654321', 'Luke', '333', '', '', 'USD', 3, 0, 1, 0, 0, 1, 500, '', '2100', '5060', '', 0);
-INSERT INTO `0_suppliers` VALUES(3, 'Money Makers Ltd.', 'Money Makers', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '987654', 'Makers', '222', '', '', 'GBP', 3, 0, 1, 0, 0, 2, 300, '', '2100', '5060', '', 0);
+INSERT INTO `0_suppliers` VALUES(1, 'Junk Beer ApS', 'Junk Beer', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '123456', 'Contact', '111', '', '', 'DKK', 3, 0, 1, 0, 2, 1000, '', '2100', '5060', 'A supplier with junk beers.', 0);
+INSERT INTO `0_suppliers` VALUES(2, 'Lucky Luke Inc.', 'Lucky Luke', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '654321', 'Luke', '333', '', '', 'USD', 3, 0, 0, 0, 1, 500, '', '2100', '5060', '', 0);
+INSERT INTO `0_suppliers` VALUES(3, 'Money Makers Ltd.', 'Money Makers', 'Mailing 1\nMailing 2\nMailing 3', 'Address 1\nAddress 2\nAddress 3', '987654', 'Makers', '222', '', '', 'GBP', 3, 0, 0, 0, 2, 300, '', '2100', '5060', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1914,6 +1937,7 @@ INSERT INTO `0_suppliers` VALUES(3, 'Money Makers Ltd.', 'Money Makers', 'Mailin
 DROP TABLE IF EXISTS `0_supp_allocations`;
 CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `id` int(11) NOT NULL auto_increment,
+  `person_id` int(11) DEFAULT NULL,
   `amt` double unsigned default NULL,
   `date_alloc` date NOT NULL default '0000-00-00',
   `trans_no_from` int(11) default NULL,
@@ -1921,7 +1945,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_no_to` int(11) default NULL,
   `trans_type_to` int(11) default NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
@@ -1930,7 +1954,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
 -- Dumping data for table `0_supp_allocations`
 --
 
-INSERT INTO `0_supp_allocations` VALUES(1, 3465, '2014-06-21', 4, 22, 7, 20);
+INSERT INTO `0_supp_allocations` VALUES(1, 2, 3465, '2014-06-21', 4, 22, 7, 20);
 
 -- --------------------------------------------------------
 
@@ -1989,7 +2013,6 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
   `rate` double NOT NULL default '1',
   `alloc` double NOT NULL default '0',
   `tax_included` tinyint(1) NOT NULL default '0',
-  `tax_algorithm` tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (`type`,`trans_no`),
   KEY `supplier_id` (`supplier_id`),
   KEY `SupplierID_2` (`supplier_id`,`supp_reference`),
@@ -2001,9 +2024,9 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
 -- Dumping data for table `0_supp_trans`
 --
 
-INSERT INTO `0_supp_trans` VALUES(7, 20, 2, '1', '5t', '2014-06-21', '2014-07-01', 3300, 0, 165, 1, 3465, 0, 1);
-INSERT INTO `0_supp_trans` VALUES(8, 20, 2, '2', 'cc', '2014-06-21', '2014-07-01', 20, 0, 0, 1, 0, 0, 1);
-INSERT INTO `0_supp_trans` VALUES(4, 22, 2, '1', '', '2014-06-21', '2014-06-21', -3465, 0, 0, 1, 3465, 0, 1);
+INSERT INTO `0_supp_trans` VALUES(7, 20, 2, '1', '5t', '2014-06-21', '2014-07-01', 3300, 0, 165, 1, 3465, 0);
+INSERT INTO `0_supp_trans` VALUES(8, 20, 2, '2', 'cc', '2014-06-21', '2014-07-01', 20, 0, 0, 1, 0, 0);
+INSERT INTO `0_supp_trans` VALUES(4, 22, 2, '1', '', '2014-06-21', '2014-06-21', -3465, 0, 0, 1, 3465, 0);
 
 -- --------------------------------------------------------
 
@@ -2259,6 +2282,7 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
   `net_amount` double NOT NULL default '0',
   `amount` double NOT NULL default '0',
   `memo` tinytext,
+  `reg_type` tinyint(1) default NULL,
   PRIMARY KEY  (`id`),
   KEY `Type_and_Number` (`trans_type`,`trans_no`),
   KEY `tran_date` (`tran_date`)
@@ -2268,17 +2292,17 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
 -- Dumping data for table `0_trans_tax_details`
 --
 
-INSERT INTO `0_trans_tax_details` VALUES(1, 20, 7, '2014-06-21', 1, 5, 1, 0, 3300, 165, '5t');
-INSERT INTO `0_trans_tax_details` VALUES(2, 13, 3, '2014-06-21', 1, 5, 1, 0, 50, 2.5, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(3, 10, 17, '2014-06-21', 1, 5, 1, 0, 50, 2.5, '1');
-INSERT INTO `0_trans_tax_details` VALUES(4, 13, 4, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(5, 10, 18, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '2');
-INSERT INTO `0_trans_tax_details` VALUES(6, 2, 5, '2014-06-21', 1, 5, 1, 0, 95.2, 4.76, '');
-INSERT INTO `0_trans_tax_details` VALUES(7, 1, 8, '2014-06-21', 1, 5, 1, 0, -47.6, -2.38, '');
-INSERT INTO `0_trans_tax_details` VALUES(8, 20, 8, '2014-06-21', 1, 5, 1, 0, -19, -0.95, 'cc');
-INSERT INTO `0_trans_tax_details` VALUES(9, 13, 5, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, 'auto');
-INSERT INTO `0_trans_tax_details` VALUES(10, 10, 19, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, '3');
-INSERT INTO `0_trans_tax_details` VALUES(11, 11, 3, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '1');
+INSERT INTO `0_trans_tax_details` VALUES(1, 20, 7, '2014-06-21', 1, 5, 1, 0, 3300, 165, '5t', 1);
+INSERT INTO `0_trans_tax_details` VALUES(2, 13, 3, '2014-06-21', 1, 5, 1, 0, 50, 2.5, 'auto', NULL);
+INSERT INTO `0_trans_tax_details` VALUES(3, 10, 17, '2014-06-21', 1, 5, 1, 0, 50, 2.5, '1', 0);
+INSERT INTO `0_trans_tax_details` VALUES(4, 13, 4, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, 'auto', NULL);
+INSERT INTO `0_trans_tax_details` VALUES(5, 10, 18, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '2', 0);
+INSERT INTO `0_trans_tax_details` VALUES(6, 2, 5, '2014-06-21', 1, 5, 1, 0, 95.2, 4.76, '', NULL);
+INSERT INTO `0_trans_tax_details` VALUES(7, 1, 8, '2014-06-21', 1, 5, 1, 0, -47.6, -2.38, '', NULL);
+INSERT INTO `0_trans_tax_details` VALUES(8, 20, 8, '2014-06-21', 1, 5, 1, 0, -19, -0.95, 'cc', 1);
+INSERT INTO `0_trans_tax_details` VALUES(9, 13, 5, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, 'auto', NULL);
+INSERT INTO `0_trans_tax_details` VALUES(10, 10, 19, '2014-06-21', 1, 5, 1, 1, 47.619047619048, 2.3809523809524, '3', 0);
+INSERT INTO `0_trans_tax_details` VALUES(11, 11, 3, '2014-06-21', 1, 5, 1.3932, 0, 35.89, 1.7945, '1', 0);
 
 -- --------------------------------------------------------
 
