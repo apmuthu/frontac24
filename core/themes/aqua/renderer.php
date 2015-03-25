@@ -122,16 +122,17 @@
 			{
 				echo "<table align='center' id='footer'>\n";
 				echo "<tr>\n";
-				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."' tabindex='-1'><font color='#ffffff'>"
+				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."'><font color='#ffffff'>"
 					.$SysPrefs->app_title." $version - " . _("Theme:") . " " . user_theme() . " - ".show_users_online()."</font></a></td>\n";
 				echo "</tr>\n";
 				echo "<tr>\n";
-				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."' tabindex='-1'><font color='#ffff00'>"
+				echo "<td align='center' class='footer'><a target='_blank' href='".$SysPrefs->power_url."'><font color='#ffff00'>"
 					.$SysPrefs->power_by."</font></a></td>\n";
 				echo "</tr>\n";
-				if ($SysPrefs->allow_demo_mode==true)
+				if ($SysPrefs->allow_demo_mode)
 				{
 					echo "<tr>\n";
+					//echo "<td><br><div align='center'><a href='http://sourceforge.net'><img src='http://sourceforge.net/sflogo.php?group_id=89967&amp;type=5' alt='SourceForge.net Logo' width='210' height='62' border='0' align='center' /></a></div></td>\n";
 					echo "</tr>\n";
 				}
 				echo "</table><br><br>\n";
