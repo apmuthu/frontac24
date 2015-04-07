@@ -179,19 +179,6 @@ function get_on_worder_qty($stock_id, $location)
 	return $qoo;
 }
 
-function get_mb_flag($stock_id)
-{
-	$sql = "SELECT mb_flag FROM ".TB_PREF."stock_master WHERE stock_id = "
-		.db_escape($stock_id);
-	$result = db_query($sql, "retreive mb_flag from item");
-	
-	if (db_num_rows($result) == 0)
-		return -1;
-
-	$myrow = db_fetch_row($result);
-	return $myrow[0];
-}
-
 //--------------------------------------------------------------------------------------
 
 function add_bom($selected_parent, $component, $workcentre_added, $loc_code, $quantity)
@@ -283,7 +270,7 @@ function check_for_recursive_bom($ultimate_parent, $component_to_check)
 	$sql = "SELECT component FROM ".TB_PREF."bom WHERE parent=".db_escape($component_to_check);
 	$result = db_query($sql,"could not check recursive bom");
 
-	if ($result != 0)
+	if ($result)
 	{
 		while ($myrow = db_fetch_row($result))
 		{
@@ -296,9 +283,9 @@ function check_for_recursive_bom($ultimate_parent, $component_to_check)
 			{
 				return 1;
 			}
-		} //(while loop)
-	} //end if $result is true
+		}
+	}
 
 	return 0;
-} //end of function check_for_recursive_bom
+}
 

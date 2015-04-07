@@ -64,7 +64,7 @@ start_form(false, false, $_SERVER['PHP_SELF'] ."?outstanding_only=$outstanding_o
 
 start_table(TABLESTYLE_NOBORDER);
 start_row();
-ref_cells(_("#:"), 'OrderId', '', null, '', true);
+ref_cells(_("#:"), 'OrderId', '',null, '', true);
 ref_cells(_("Reference:"), 'OrderNumber', '',null, '', true);
 
 locations_list_cells(_("at Location:"), 'StockLocation', null, true);
@@ -158,8 +158,8 @@ function dec_amount($row, $amount)
 	return number_format2($amount, $row['decimals']);
 }
 
-$sql = get_sql_for_work_orders($outstanding_only, get_post('SelectedStockItem'), get_post('StockLocation'), get_post('OrderId'), 
-	get_post('OrderNumber'), check_value('OverdueOnly'));
+$sql = get_sql_for_work_orders($outstanding_only, get_post('SelectedStockItem'), get_post('StockLocation'),
+	get_post('OrderId'), get_post('OrderNumber'), check_value('OverdueOnly'));
 
 $cols = array(
 	_("#") => array('fun'=>'view_link', 'ord'=>''), 

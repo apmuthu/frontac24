@@ -19,7 +19,6 @@ $path_to_root = "..";
 include_once($path_to_root . "/sales/includes/cart_class.inc");
 include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
-include_once($path_to_root . "/includes/manufacturing.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
 include_once($path_to_root . "/sales/includes/sales_ui.inc");
 include_once($path_to_root . "/reporting/includes/reporting.inc");
@@ -203,7 +202,7 @@ function check_data()
 
 	if (!$SysPrefs->allow_negative_stock() && ($low_stock = $_SESSION['Items']->check_qoh()))
 	{
-		display_error(_("This document cannot be processed because there is insufficient quantity for: ").implode(',', $low_stock));
+		display_error(_("This document cannot be processed because there is insufficient quantity for items marked."));
 		return false;
 	}
 

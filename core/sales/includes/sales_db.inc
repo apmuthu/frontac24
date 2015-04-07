@@ -10,7 +10,7 @@
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
 include_once($path_to_root . "/includes/banking.inc");
-include_once($path_to_root . "/includes/db/inventory_db.inc");
+include_once($path_to_root . "/includes/inventory.inc");
 include_once($path_to_root . "/includes/db/allocations_db.inc");
 include_once($path_to_root . "/sales/includes/db/sales_order_db.inc");
 include_once($path_to_root . "/sales/includes/db/sales_credit_db.inc");
@@ -26,21 +26,6 @@ include_once($path_to_root . "/sales/includes/db/cust_trans_details_db.inc");
 include_once($path_to_root . "/sales/includes/db/payment_db.inc");
 include_once($path_to_root . "/sales/includes/db/branches_db.inc");
 include_once($path_to_root . "/sales/includes/db/customers_db.inc");
-
-//----------------------------------------------------------------------------------------
-// $price in customer's currency
-// $quantity is used as is (if it's neg it's neg, if it's pos it's pos)
-// $std_cost is in home currency
-// $show_or_hide 1 show this item in invoice/credit views, 0 to hide it (used for write-off items)
-// $type is 10 (invoice) or 11 (credit)
-
-function add_stock_move_customer($type, $stock_id, $trans_id, $location, $date_, $reference,
-	$quantity, $std_cost, $show_or_hide=1, $price=0, $discount_percent=0)
-{
-	return add_stock_move($type, $stock_id, $trans_id, $location, $date_, $reference,
-		$quantity, $std_cost, 0, $show_or_hide, $price, $discount_percent,
-		"The customer stock movement record cannot be inserted");
-}
 
 //----------------------------------------------------------------------------------------
 // add a debtor-related gl transaction

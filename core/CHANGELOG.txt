@@ -10,6 +10,17 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
+2015-04-06: Janusz Dobrowolski  Partial (inventory related) include files cleanup. function get_mb_flag($stock_id) moved from  includes/db/manufacturing_db.inc to includes/db/inventory_db.inc 
+2015-04-06: Janusz Dobrowolski  Fixed regression in Sales Kits. 3rd parameter in function update_component($kit_code, $selected_item) dropped 
+2015-04-06: Janusz Dobrowolski  Fixed mysqli related warnings. 
+2015-04-06: Janusz Dobrowolski  Fixed typo in get_sql_for_work_orders. $oredr_no => $order_no
+2015-04-06: Janusz Dobrowolski  Fixed items_cart.check_qoh method (returned value, direct call to inventory checking function).
+2015-04-06: Janusz Dobrowolski  Cleanup (unexisting field reference removed). stock.parallel_qe
+2015-04-04: Janusz Dobrowolski  Removed obsolete stock_move.discount_percent field 
+2015-04-03: Janusz Dobrowolski  Removed obsolete stock_moves.visible field; changed add_stock_move() prototype.
+2015-04-03: Janusz Dobrowolski  Fixed initial en_US-*.sql files (fiscal years setup, default value set for sys_prefs.value field).
+2015-03-31: Janusz Dobrowolski  [0002781] Improved error diagnostic during files upload. 
+2015-03-31: Janusz Dobrowolski  [0003084] Database password with special chars was stored distorted in config_db.
 2015-03-25: Janusz Dobrowolski  Fixed hidden fields output. Fields are displayed after following table end (if any).
 2015-03-25: Janusz Dobrowolski  Additional fix to merged stable branch changes.
 

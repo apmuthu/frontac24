@@ -761,8 +761,7 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
 -- Dumping data for table `0_fiscal_year`
 --
 
-INSERT INTO `0_fiscal_year` VALUES(1, '2013-01-01', '2013-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(2, '2014-01-01', '2014-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(1, '2015-01-01', '2015-12-31', 0);
 
 --
 -- Table structure for table `0_gl_trans`
@@ -955,7 +954,7 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
 INSERT INTO `0_item_units` VALUES('each', 'Each', 0, 0);
 INSERT INTO `0_item_units` VALUES('hr', 'Hours', 0, 0);
 
---- Structure of table `0_journal`
+-- Table structure for table `0_journal`
 
 DROP TABLE IF EXISTS `0_journal`;
 CREATE TABLE `0_journal` (
@@ -973,7 +972,7 @@ CREATE TABLE `0_journal` (
   KEY `tran_date` (`tran_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
---- Data of table `0_journal`
+-- Data of table `0_journal`
 
 
 -- --------------------------------------------------------
@@ -1634,26 +1633,22 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
 -- Table structure for table `0_stock_moves`
 --
 
-DROP TABLE IF EXISTS `0_stock_moves`;
-CREATE TABLE IF NOT EXISTS `0_stock_moves` (
-  `trans_id` int(11) NOT NULL auto_increment,
-  `trans_no` int(11) NOT NULL default '0',
-  `stock_id` char(20) NOT NULL default '',
-  `type` smallint(6) NOT NULL default '0',
-  `loc_code` char(5) NOT NULL default '',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `person_id` int(11) default NULL,
-  `price` double NOT NULL default '0',
-  `reference` char(40) NOT NULL default '',
-  `qty` double NOT NULL default '1',
-  `discount_percent` double NOT NULL default '0',
-  `standard_cost` double NOT NULL default '0',
-  `visible` tinyint(1) NOT NULL default '1',
-  PRIMARY KEY  (`trans_id`),
+CREATE TABLE `0_stock_moves` (
+  `trans_id` int(11) NOT NULL AUTO_INCREMENT,
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `stock_id` char(20) NOT NULL DEFAULT '',
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `loc_code` char(5) NOT NULL DEFAULT '',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `person_id` int(11) DEFAULT NULL,
+  `price` double NOT NULL DEFAULT '0',
+  `reference` char(40) NOT NULL DEFAULT '',
+  `qty` double NOT NULL DEFAULT '1',
+  `standard_cost` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 --
 -- Dumping data for table `0_stock_moves`
 --
@@ -1801,7 +1796,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
   `category` varchar(30) default NULL,
   `type` varchar(20) NOT NULL default '',
   `length` smallint(6) default NULL,
-  `value` text NOT NULL,
+  `value` TEXT NOT NULL DEFAULT '',
   PRIMARY KEY  (`name`),
   KEY `category` (`category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1823,7 +1818,7 @@ INSERT INTO `0_sys_prefs` VALUES('coy_logo', 'setup.company', 'varchar', 100, ''
 INSERT INTO `0_sys_prefs` VALUES('domicile', 'setup.company', 'varchar', 55, '');
 INSERT INTO `0_sys_prefs` VALUES('curr_default', 'setup.company', 'char', 3, 'USD');
 INSERT INTO `0_sys_prefs` VALUES('use_dimension', 'setup.company', 'tinyint', 1, '1');
-INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '2');
+INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '1');
 INSERT INTO `0_sys_prefs` VALUES('no_item_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_customer_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_supplier_list', 'setup.company', 'tinyint', 1, '0');

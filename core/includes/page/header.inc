@@ -42,7 +42,7 @@ function help_url($context=null)
 
 	return htmlspecialchars($SysPrefs->help_base_url
 		.urlencode(strtr(ucwords($help_page_url), array(' '=>'', '/'=>'', '&'=>'And')))
-		.'&ctxhelp=1&lang='.$country);
+		.'&ctxhelp=1&lang='.$country, ENT_QUOTES);
 }
 
 function send_scripts()

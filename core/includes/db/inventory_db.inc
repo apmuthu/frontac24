@@ -354,29 +354,21 @@ function handle_negative_inventory($stock_id, $quantity, $standard_cost, $date_)
 
 // $date_ - display / non-sql date
 // $std_cost - in HOME currency
-// $show_or_hide - wil this move be visible in reports, etc
 // $price - in $person_id's currency
 
 function add_stock_move($type, $stock_id, $trans_no, $location,
-    $date_, $reference, $quantity, $std_cost, $person_id=0, $show_or_hide=1,
-    $price=0, $discount_percent=0, $error_msg="")
+    $date_, $reference, $quantity, $std_cost, $person_id=0, $price=0)
 {
 	$date = date2sql($date_);
 
 	$sql = "INSERT INTO ".TB_PREF."stock_moves (stock_id, trans_no, type, loc_code,
-		tran_date, person_id, reference, qty, standard_cost, visible, price,
-		discount_percent) VALUES (".db_escape($stock_id)
-		.", ".db_escape($trans_no).", ".db_escape($type)
-		.",	".db_escape($location).", '$date', "
+		tran_date, person_id, reference, qty, standard_cost, price) VALUES ("
+		.db_escape($stock_id).", ".db_escape($trans_no).", "
+		.db_escape($type).", ".db_escape($location).", '$date', "
 		.db_escape($person_id).", ".db_escape($reference).", "
-		.db_escape($quantity).", ".db_escape($std_cost).","
-		.db_escape($show_or_hide).", "
-		.db_escape($price).", ".db_escape($discount_percent).")";
+		.db_escape($quantity).", ".db_escape($std_cost)."," .db_escape($price).")";
 
-	if ($error_msg == "")
-		$error_msg = "The stock movement record cannot be inserted";
-
-	db_query($sql, $error_msg);
+	db_query($sql, "The stock movement record cannot be inserted");
 
 	return db_insert_id();
 }
@@ -392,7 +384,7 @@ function update_stock_move($type, $trans_no, $stock_id, $cost)
 
 //--------------------------------------------------------------------------------------------------
 
-function get_stock_moves($type, $type_no, $visible=false)
+function get_stock_moves($type, $type_no)
 {
 	$sql = "SELECT ".TB_PREF."stock_moves.*, ".TB_PREF."stock_master.description, "
 		.TB_PREF."stock_master.units,".TB_PREF."locations.location_name,"
@@ -403,8 +395,6 @@ function get_stock_moves($type, $type_no, $visible=false)
 		WHERE ".TB_PREF."stock_moves.stock_id = ".TB_PREF."stock_master.stock_id
 		AND ".TB_PREF."locations.loc_code=".TB_PREF."stock_moves.loc_code
 		AND type=".db_escape($type)." AND trans_no=".db_escape($type_no)." ORDER BY trans_id";
-	if ($visible)
-		$sql .= " AND ".TB_PREF."stock_moves.visible=1";
 
 	return db_query($sql, "Could not get stock moves");
 }
@@ -432,7 +422,6 @@ function void_stock_move($type, $type_no)
 			update_average_material_cost($row["person_id"], $row["stock_id"],
 				$unit_cost, -$row["qty"], sql2date($row["tran_date"]));
 		}
-
     }
 	$sql = "DELETE FROM ".TB_PREF."stock_moves WHERE type=".db_escape($type)
 		."	AND trans_no=".db_escape($type_no);
@@ -456,3 +445,17 @@ function get_location_name($loc_code)
 
 	display_db_error("could not retreive the location name for $loc_code", $sql, true);
 }
+
+function get_mb_flag($stock_id)
+{
+	$sql = "SELECT mb_flag FROM ".TB_PREF."stock_master WHERE stock_id = "
+		.db_escape($stock_id);
+	$result = db_query($sql, "retreive mb_flag from item");
+	
+	if (db_num_rows($result) == 0)
+		return -1;
+
+	$myrow = db_fetch_row($result);
+	return $myrow[0];
+}
+

@@ -36,7 +36,7 @@ ALTER TABLE `0_tax_groups` DROP COLUMN `tax_shipping`;
 
 ALTER TABLE `0_sales_order_details` ADD KEY `stkcode` (`stk_code`);
 ALTER TABLE `0_purch_order_details` ADD KEY `itemcode` (`item_code`);
-ALTER TABLE `0_sys_prefs` CHANGE `value` `value` TEXT NOT NULL;
+ALTER TABLE `0_sys_prefs` CHANGE `value` `value` TEXT NOT NULL DEFAULT '';
 ALTER TABLE `0_cust_branch` ADD COLUMN `bank_account` varchar(60) DEFAULT NULL AFTER `notes`;
 
 ALTER TABLE `0_debtor_trans` ADD COLUMN `tax_included` tinyint(1) unsigned NOT NULL default '0' AFTER `payment_terms`;
@@ -222,3 +222,17 @@ INSERT IGNORE INTO `0_sys_prefs` VALUES
 	('bcc_email', 'setup.company', 'varchar', 100, ''),
 	('alternative_tax_include_on_docs', 'setup.company', 'tinyint', 1, '0'),
 	('suppress_tax_rates', 'setup.company', 'tinyint', 1, '0');
+
+# stock_moves.visible field is obsolete
+# removing obsolete moves for writeoffs
+DELETE moves
+	FROM `0_stock_moves` moves 
+	INNER JOIN (SELECT * FROM `0_stock_moves` WHERE `type`=11 AND `qty`<0) writeoffs ON writeoffs.`trans_no`=moves.`trans_no` AND writeoffs.`type`=11
+	WHERE moves.`type`=11;
+
+ALTER TABLE `0_stock_moves` DROP COLUMN `visible`;
+# stock_moves.discount_percent field are obsolete
+
+UPDATE `0_stock_moves` SET
+	price = price*(1-discount_percent);
+ALTER TABLE `0_stock_moves` DROP COLUMN `discount_percent`;
