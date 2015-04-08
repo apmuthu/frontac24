@@ -32,20 +32,10 @@ function display_order_header(&$order)
 	table_section(1);
 
 	locations_list_row(_("Location:"), 'StockLocation', null);
-	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_INVADJUST));
-
-	table_section(2, "33%");
-
     date_row(_("Date:"), 'AdjDate', '', true);
 
-	table_section(3, "33%");
-
-    movement_types_list_row(_("Detail:"), 'type', null);
-
-    if (!isset($_POST['Increase']))
-    	$_POST['Increase'] = 1;
-    yesno_list_row(_("Type:"), 'Increase', $_POST['Increase'],
-    	_("Positive Adjustment"), _("Negative Adjustment"));
+	table_section(2, "50%");
+	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_INVADJUST));
 
 	end_outer_table(1); // outer table
 }
@@ -67,7 +57,7 @@ function display_adjustment_items($title, &$order)
 	$total = 0;
 	$k = 0;  //row colour counter
 
-	$low_stock = $order->check_qoh($_POST['StockLocation'], $_POST['AdjDate'], !$_POST['Increase']);
+	$low_stock = $order->check_qoh($_POST['StockLocation'], $_POST['AdjDate']);
 	$id = find_submit('Edit');
 	foreach ($order->line_items as $line_no=>$stock_item)
 	{

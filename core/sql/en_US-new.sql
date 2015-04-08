@@ -1020,28 +1020,6 @@ CREATE TABLE IF NOT EXISTS `0_loc_stock` (
 -- Dumping data for table `0_loc_stock`
 --
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `0_movement_types`
---
-
-DROP TABLE IF EXISTS `0_movement_types`;
-CREATE TABLE IF NOT EXISTS `0_movement_types` (
-  `id` int(11) NOT NULL auto_increment,
-  `name` varchar(60) NOT NULL default '',
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `0_movement_types`
---
-
-INSERT INTO `0_movement_types` VALUES(1, 'Adjustment', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -1640,7 +1618,6 @@ CREATE TABLE `0_stock_moves` (
   `type` smallint(6) NOT NULL DEFAULT '0',
   `loc_code` char(5) NOT NULL DEFAULT '',
   `tran_date` date NOT NULL DEFAULT '0000-00-00',
-  `person_id` int(11) DEFAULT NULL,
   `price` double NOT NULL DEFAULT '0',
   `reference` char(40) NOT NULL DEFAULT '',
   `qty` double NOT NULL DEFAULT '1',

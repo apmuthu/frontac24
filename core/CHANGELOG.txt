@@ -10,6 +10,15 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
+2015-04-08 Janusz Dobrowolski  Fixed value returned by items_cart's check_qoh method.
+2015-04-08 Janusz Dobrowolski  Removed obsolete stock_move.person_id field and related handling.
+2015-04-08 Janusz Dobrowolski  Removed obsolete Movement Types handling.
+2015-04-08 Janusz Dobrowolski  Removed stock_move.person_id references from stock movements inquiry.
+2015-04-08 Janusz Dobrowolski  Removed stock_move.person_id references from inventory reports.
+2015-04-08 Janusz Dobrowolski  Inventory Adjustment: removed obsolete increase/descrease selector from entry form (negative quantities can now be entered just with minus sign).
+2015-04-08 Janusz Dobrowolski  Inventory Adjustment: removed movement type, cleanups.
+2015-04-08 Janusz Dobrowolski  Inventory Transfer: removed movement type from transfer form, cleanups.
+
 2015-04-06: Janusz Dobrowolski  Partial (inventory related) include files cleanup. function get_mb_flag($stock_id) moved from  includes/db/manufacturing_db.inc to includes/db/inventory_db.inc 
 2015-04-06: Janusz Dobrowolski  Fixed regression in Sales Kits. 3rd parameter in function update_component($kit_code, $selected_item) dropped 
 2015-04-06: Janusz Dobrowolski  Fixed mysqli related warnings. 
