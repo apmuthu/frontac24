@@ -10,6 +10,7 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
+2015-04-09 Janusz Dobrowolski  Cleanup in inventory transfer view.
 2015-04-08 Janusz Dobrowolski  Fixed value returned by items_cart's check_qoh method.
 2015-04-08 Janusz Dobrowolski  Removed obsolete stock_move.person_id field and related handling.
 2015-04-08 Janusz Dobrowolski  Removed obsolete Movement Types handling.
