@@ -45,7 +45,7 @@ function display_credit_header(&$order)
 		($order->Branch != $_POST['branch_id']))
 	  {
 
-				$old_order = (PHP_VERSION<5) ? $order : clone( $order );
+				$old_order = (PHP_VERSION<5) ? $order : clone $order;
 				$customer_error = get_customer_details_to_order($order, $_POST['customer_id'], $_POST['branch_id']);
 
 				$_POST['Location'] = $order->Location;
@@ -80,7 +80,8 @@ function display_credit_header(&$order)
 	set_global_customer($_POST['customer_id']);
 
 	if (!isset($_POST['ref']))
-		$_POST['ref'] = $Refs->get_next(ST_CUSTCREDIT);
+		$_POST['ref'] = $Refs->get_next(ST_CUSTCREDIT, null, array('customer' => get_post('customer_id'),
+			'branch' => get_post('branch_id'), 'date' => get_post('OrderDate'));
 	if ($order->trans_no==0)
 	    ref_row(_("Reference").':', 'ref');
 	else

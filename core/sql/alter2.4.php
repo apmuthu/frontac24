@@ -9,40 +9,6 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
-function collations_list_row($label, $name, $selected_id=null)
-{
-
-$mysql_collations = array(
-  'xx' => 'Unicode (multilanguage)',
-  'is' => 'Icelandic',
-  'lv' => 'Latvian',
-  'ro' => 'Romanian',
-  'sl' => 'Slovenian',
-  'pl' => 'Polish',
-  'et' => 'Estonian',
-  'es' => 'Spanish', // or 'spanish2',
-  'sw' => 'Swedish',
-  'tr' => 'Turkish',
-  'cs' => 'Czech',
-  'da' => 'Danish',
-  'lt' => 'Lithuanian',
-  'sk' => 'Slovak',
-  'sp' => 'Spanish (alternative)',
-  'fa' => 'Persian',
-  'hu' => 'Hungarian',
-  'fr' => 'French',
-  'it' => 'Italian',
-);
-
-	echo "<tr>";
-	if ($label != null)
-		echo "<td class='label'>$label</td>\n";
-	echo "<td>";
-
-	echo array_selector($name, $selected_id, $mysql_collations, 
-		array('select_submit'=> false) );
-	echo "</td></tr>\n";
-}
 
 class fa2_4 extends fa_patch {
 	var $previous = '2.3rc';		// applicable database version
@@ -249,9 +215,11 @@ class fa2_4 extends fa_patch {
 		//remove obsolete and temporary columns.
 		// this have to be done here as db_import rearranges alter query order
 		$dropcol = array(
+				'tax_groups' => array('tax_shipping'),
 				'tax_group_items' => array('rate'),
 				'budget_trans' => array('type', 'type_no', 'person_id', 'person_type_id', 'memo_'),
 				'cust_branch' => array('contact_name', 'disable_trans'),
+				'stock_moves' => array('discount_percent', 'visible', 'person_id'),
 		);
 
 		foreach($dropcol as $table => $columns)

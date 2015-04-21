@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `0_areas` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`area_code`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_areas`
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `0_attachments` (
   `filetype` varchar(60) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `type_no` (`type_no`,`trans_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_attachments`
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `0_audit_trail` (
   PRIMARY KEY  (`id`),
   KEY `Seq` (`fiscal_year`,`gl_date`,`gl_seq`),
   KEY `Type_and_Number` (`type`,`trans_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_audit_trail`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `0_bank_accounts` (
   KEY `bank_account_name` (`bank_account_name`),
   KEY `bank_account_number` (`bank_account_number`),
   KEY `account_code` (`account_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_bank_accounts`
@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `0_bank_trans` (
   KEY `type` (`type`,`trans_no`),
   KEY `bank_act_2` (`bank_act`,`reconciled`),
   KEY `bank_act_3` (`bank_act`,`trans_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `0_bank_trans`
@@ -182,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `0_bom` (
   KEY `loc_code` (`loc_code`),
   KEY `parent` (`parent`,`loc_code`),
   KEY `workcentre_added` (`workcentre_added`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_bom`
@@ -209,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `0_budget_trans` (
   `dimension2_id` int(11) default '0',
   PRIMARY KEY  (`id`),
   KEY `Account` (`account`,`tran_date`,`dimension_id`,`dimension2_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_budget_trans`
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_class` (
   `ctype` tinyint(1) NOT NULL default '0',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_chart_class`
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_master` (
   PRIMARY KEY  (`account_code`),
   KEY `account_name` (`account_name`),
   KEY `accounts_by_type` (`account_type`,`account_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_chart_master`
@@ -357,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `0_chart_types` (
   PRIMARY KEY  (`id`),
   KEY `name` (`name`),
   KEY `class_id` (`class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB ;
 
 --
 -- Dumping data for table `0_chart_types`
@@ -389,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `0_comments` (
   `date_` date default '0000-00-00',
   `memo_` tinytext,
   KEY `type_and_id` (`type`,`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_comments`
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS `0_credit_status` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `reason_description` (`reason_description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_credit_status`
@@ -438,7 +438,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_categories` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `type` (`type`,`action`),
   UNIQUE KEY `type_2` (`type`,`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `0_crm_categories`
@@ -472,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_contacts` (
   `entity_id` varchar(11) default NULL COMMENT 'entity id in related class table',
   PRIMARY KEY  (`id`),
   KEY `type` (`type`,`action`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_crm_contacts`
@@ -510,7 +510,7 @@ CREATE TABLE IF NOT EXISTS `0_crm_persons` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `ref` (`ref`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_crm_persons`
@@ -542,7 +542,7 @@ CREATE TABLE IF NOT EXISTS `0_currencies` (
   `auto_update` tinyint(1) NOT NULL default '1',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`curr_abrev`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_currencies`
@@ -574,7 +574,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_cust_allocations`
@@ -610,10 +610,9 @@ CREATE TABLE IF NOT EXISTS `0_cust_branch` (
   `bank_account` varchar(60) DEFAULT NULL,
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`branch_code`,`debtor_no`),
-  KEY `branch_code` (`branch_code`),
   KEY `branch_ref` (`branch_ref`),
   KEY `group_no` (`group_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_cust_branch`
@@ -650,7 +649,7 @@ CREATE TABLE IF NOT EXISTS `0_debtors_master` (
   PRIMARY KEY  (`debtor_no`),
   KEY `name` (`name`),
   UNIQUE KEY `debtor_ref` (`debtor_ref`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_debtors_master`
@@ -695,7 +694,7 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans` (
   KEY `debtor_no` (`debtor_no`,`branch_code`),
   KEY `tran_date` (`tran_date`),
   KEY `order_` (`order_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_debtor_trans`
@@ -733,7 +732,7 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
   PRIMARY KEY  (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
   KEY (`src_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `0_debtor_trans_details`
@@ -768,7 +767,7 @@ CREATE TABLE IF NOT EXISTS `0_dimensions` (
   KEY `date_` (`date_`),
   KEY `due_date` (`due_date`),
   KEY `type_` (`type_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_dimensions`
@@ -792,7 +791,7 @@ CREATE TABLE IF NOT EXISTS `0_exchange_rates` (
   `date_` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `curr_code` (`curr_code`,`date_`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_exchange_rates`
@@ -817,7 +816,7 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
@@ -849,7 +848,7 @@ CREATE TABLE IF NOT EXISTS `0_gl_trans` (
   KEY `dimension2_id` (`dimension2_id`),
   KEY `tran_date` (`tran_date`),
   KEY `account_and_tran_date` (`account`,`tran_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=84 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=84 ;
 
 --
 -- Dumping data for table `0_gl_trans`
@@ -957,7 +956,7 @@ CREATE TABLE IF NOT EXISTS `0_grn_batch` (
   PRIMARY KEY  (`id`),
   KEY `delivery_date` (`delivery_date`),
   KEY `purch_order_no` (`purch_order_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_grn_batch`
@@ -982,7 +981,7 @@ CREATE TABLE IF NOT EXISTS `0_grn_items` (
   `quantity_inv` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `grn_batch_id` (`grn_batch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_grn_items`
@@ -1005,7 +1004,7 @@ CREATE TABLE IF NOT EXISTS `0_groups` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_groups`
@@ -1034,7 +1033,7 @@ CREATE TABLE IF NOT EXISTS `0_item_codes` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `stock_id` (`stock_id`,`item_code`),
   KEY `item_code` (`item_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_item_codes`
@@ -1060,7 +1059,7 @@ CREATE TABLE IF NOT EXISTS `0_item_tax_types` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_item_tax_types`
@@ -1079,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `0_item_tax_type_exemptions` (
   `item_tax_type_id` int(11) NOT NULL default '0',
   `tax_type_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`item_tax_type_id`,`tax_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_item_tax_type_exemptions`
@@ -1100,7 +1099,7 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`abbr`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_item_units`
@@ -1125,7 +1124,7 @@ CREATE TABLE `0_journal` (
   `rate` double NOT NULL DEFAULT '1',
   PRIMARY KEY (`type`,`trans_no`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB ;
 
 -- Data of table `0_journal`
 
@@ -1148,7 +1147,7 @@ CREATE TABLE IF NOT EXISTS `0_locations` (
   `contact` varchar(30) NOT NULL default '',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`loc_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_locations`
@@ -1169,7 +1168,7 @@ CREATE TABLE IF NOT EXISTS `0_loc_stock` (
   `reorder_level` double NOT NULL default '0',
   PRIMARY KEY  (`loc_code`,`stock_id`),
   KEY `stock_id` (`stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_loc_stock`
@@ -1196,7 +1195,7 @@ CREATE TABLE IF NOT EXISTS `0_payment_terms` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`terms_indicator`),
   UNIQUE KEY `terms` (`terms`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_payment_terms`
@@ -1222,7 +1221,7 @@ CREATE TABLE IF NOT EXISTS `0_prices` (
   `price` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `price` (`stock_id`,`sales_type_id`,`curr_abrev`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_prices`
@@ -1250,7 +1249,7 @@ CREATE TABLE IF NOT EXISTS `0_printers` (
   `timeout` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_printers`
@@ -1274,7 +1273,7 @@ CREATE TABLE IF NOT EXISTS `0_print_profiles` (
   `printer` tinyint(3) unsigned default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `profile` (`profile`,`report`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `0_print_profiles`
@@ -1305,7 +1304,7 @@ CREATE TABLE IF NOT EXISTS `0_purch_data` (
   `conversion_factor` double NOT NULL default '1',
   `supplier_description` char(50) NOT NULL default '',
   PRIMARY KEY  (`supplier_id`,`stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_purch_data`
@@ -1337,7 +1336,7 @@ CREATE TABLE IF NOT EXISTS `0_purch_orders` (
   `tax_included` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`order_no`),
   KEY `ord_date` (`ord_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_purch_orders`
@@ -1368,7 +1367,7 @@ CREATE TABLE IF NOT EXISTS `0_purch_order_details` (
   PRIMARY KEY  (`po_detail_item`),
   KEY `order` (`order_no`,`po_detail_item`),
   KEY `itemcode` (`item_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_purch_order_details`
@@ -1397,7 +1396,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entries` (
   `bal_type` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_quick_entries`
@@ -1425,7 +1424,7 @@ CREATE TABLE IF NOT EXISTS `0_quick_entry_lines` (
   `dimension2_id` smallint(6) unsigned default NULL,
   PRIMARY KEY  (`id`),
   KEY `qid` (`qid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `0_quick_entry_lines`
@@ -1458,12 +1457,54 @@ CREATE TABLE IF NOT EXISTS `0_recurrent_invoices` (
   `last_sent` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_recurrent_invoices`
 --
 
+
+--- Structure of table `0_reflines`
+
+DROP TABLE IF EXISTS `0_reflines`;
+
+CREATE TABLE `0_reflines` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `trans_type` int(11) NOT NULL,
+  `prefix` char(5) NOT NULL DEFAULT '',
+  `pattern` varchar(35) NOT NULL DEFAULT '1',
+  `description` varchar(60) NOT NULL DEFAULT '',
+  `default` tinyint(1) NOT NULL DEFAULT '0',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`trans_type`, `prefix`)
+) ENGINE=InnoDB AUTO_INCREMENT=23;
+
+--- Data of table `0_reflines`
+
+INSERT INTO `0_reflines` VALUES
+('1', '0', '', '{001}/{YYYY}', '', '1', '0'),
+('2', '1', '', '{001}/{YYYY}', '', '1', '0'),
+('3', '2', '', '{001}/{YYYY}', '', '1', '0'),
+('4', '4', '', '{001}/{YYYY}', '', '1', '0'),
+('5', '10', '', '{001}/{YYYY}', '', '1', '0'),
+('6', '11', '', '{001}/{YYYY}', '', '1', '0'),
+('7', '12', '', '{001}/{YYYY}', '', '1', '0'),
+('8', '13', '', '{001}/{YYYY}', '', '1', '0'),
+('9', '16', '', '{001}/{YYYY}', '', '1', '0'),
+('10', '17', '', '{001}/{YYYY}', '', '1', '0'),
+('11', '18', '', '{001}/{YYYY}', '', '1', '0'),
+('12', '20', '', '{001}/{YYYY}', '', '1', '0'),
+('13', '21', '', '{001}/{YYYY}', '', '1', '0'),
+('14', '22', '', '{001}/{YYYY}', '', '1', '0'),
+('15', '25', '', '{001}/{YYYY}', '', '1', '0'),
+('16', '26', '', '{001}/{YYYY}', '', '1', '0'),
+('17', '28', '', '{001}/{YYYY}', '', '1', '0'),
+('18', '29', '', '{001}/{YYYY}', '', '1', '0'),
+('19', '30', '', '{001}/{YYYY}', '', '1', '0'),
+('20', '32', '', '{001}/{YYYY}', '', '1', '0'),
+('21', '35', '', '{001}/{YYYY}', '', '1', '0'),
+('22', '40', '', '{001}/{YYYY}', '', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -1478,7 +1519,7 @@ CREATE TABLE IF NOT EXISTS `0_refs` (
   `reference` varchar(100) NOT NULL default '',
   PRIMARY KEY  (`id`,`type`),
   KEY `Type_and_Reference` (`type`,`reference`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_refs`
@@ -1506,7 +1547,7 @@ CREATE TABLE IF NOT EXISTS `0_salesman` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`salesman_code`),
   UNIQUE KEY `salesman_name` (`salesman_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_salesman`
@@ -1546,7 +1587,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_orders` (
   `prep_amount` double NOT NULL DEFAULT '0',
   `alloc` double NOT NULL DEFAULT '0',
   PRIMARY KEY  (`trans_type`,`order_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_sales_orders`
@@ -1579,7 +1620,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_order_details` (
   PRIMARY KEY  (`id`),
   KEY `sorder` (`trans_type`,`order_no`),
   KEY `stkcode` (`stk_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_sales_order_details`
@@ -1608,7 +1649,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_pos` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `pos_name` (`pos_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_sales_pos`
@@ -1631,7 +1672,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_types` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `sales_type` (`sales_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_sales_types`
@@ -1656,7 +1697,7 @@ CREATE TABLE IF NOT EXISTS `0_security_roles` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `role` (`role`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `0_security_roles`
@@ -1690,7 +1731,7 @@ CREATE TABLE IF NOT EXISTS `0_shippers` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`shipper_id`),
   UNIQUE KEY `name` (`shipper_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_shippers`
@@ -1711,7 +1752,7 @@ CREATE TABLE IF NOT EXISTS `0_sql_trail` (
   `result` tinyint(1) NOT NULL,
   `msg` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_sql_trail`
@@ -1743,7 +1784,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_no_purchase` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`category_id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `0_stock_category`
@@ -1786,7 +1827,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `no_purchase` tinyint(1) NOT NULL default '0',
   `editable` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_stock_master`
@@ -1819,7 +1860,7 @@ CREATE TABLE `0_stock_moves` (
   PRIMARY KEY (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=37 ;
 
 --
 -- Dumping data for table `0_stock_moves`
@@ -1897,7 +1938,7 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`supplier_id`),
   KEY `supp_ref` (`supp_ref`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `0_suppliers`
@@ -1927,7 +1968,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_supp_allocations`
@@ -1959,7 +2000,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_invoice_items` (
   `dimension2_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY  (`id`),
   KEY `Transaction` (`supp_trans_type`,`supp_trans_no`,`stock_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `0_supp_invoice_items`
@@ -1994,10 +2035,8 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
   `tax_included` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`type`,`trans_no`),
   KEY `supplier_id` (`supplier_id`),
-  KEY `SupplierID_2` (`supplier_id`,`supp_reference`),
-  KEY `type` (`type`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_supp_trans`
@@ -2022,7 +2061,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
   `value` TEXT NOT NULL DEFAULT '',
   PRIMARY KEY  (`name`),
   KEY `category` (`category`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_sys_prefs`
@@ -2095,48 +2134,6 @@ INSERT INTO `0_sys_prefs` VALUES('print_item_images_on_quote','glsetup.inventory
 INSERT INTO `0_sys_prefs` VALUES('alternative_tax_include_on_docs','setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('suppress_tax_rates','setup.company', 'tinyint', 1, '0');
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `0_sys_types`
---
-
-DROP TABLE IF EXISTS `0_sys_types`;
-CREATE TABLE IF NOT EXISTS `0_sys_types` (
-  `type_id` smallint(6) NOT NULL default '0',
-  `type_no` int(11) NOT NULL default '1',
-  `next_reference` varchar(100) NOT NULL default '',
-  PRIMARY KEY  (`type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `0_sys_types`
---
-
-INSERT INTO `0_sys_types` VALUES(0, 19, '3');
-INSERT INTO `0_sys_types` VALUES(1, 8, '2');
-INSERT INTO `0_sys_types` VALUES(2, 5, '2');
-INSERT INTO `0_sys_types` VALUES(4, 3, '1');
-INSERT INTO `0_sys_types` VALUES(10, 19, '4');
-INSERT INTO `0_sys_types` VALUES(11, 3, '2');
-INSERT INTO `0_sys_types` VALUES(12, 6, '1');
-INSERT INTO `0_sys_types` VALUES(13, 5, '2');
-INSERT INTO `0_sys_types` VALUES(16, 2, '1');
-INSERT INTO `0_sys_types` VALUES(17, 2, '1');
-INSERT INTO `0_sys_types` VALUES(18, 1, '3');
-INSERT INTO `0_sys_types` VALUES(20, 8, '3');
-INSERT INTO `0_sys_types` VALUES(21, 1, '1');
-INSERT INTO `0_sys_types` VALUES(22, 4, '2');
-INSERT INTO `0_sys_types` VALUES(25, 1, '2');
-INSERT INTO `0_sys_types` VALUES(26, 1, '8');
-INSERT INTO `0_sys_types` VALUES(28, 1, '1');
-INSERT INTO `0_sys_types` VALUES(29, 1, '2');
-INSERT INTO `0_sys_types` VALUES(30, 5, '6');
-INSERT INTO `0_sys_types` VALUES(32, 0, '1');
-INSERT INTO `0_sys_types` VALUES(35, 1, '1');
-INSERT INTO `0_sys_types` VALUES(40, 1, '3');
-
 -- --------------------------------------------------------
 
 --
@@ -2152,7 +2149,7 @@ CREATE TABLE IF NOT EXISTS `0_tags` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `type` (`type`,`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_tags`
@@ -2170,7 +2167,7 @@ CREATE TABLE IF NOT EXISTS `0_tag_associations` (
   `record_id` varchar(15) NOT NULL,
   `tag_id` int(11) NOT NULL,
   UNIQUE KEY `record_id` (`record_id`,`tag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_tag_associations`
@@ -2190,7 +2187,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_groups` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_tax_groups`
@@ -2211,7 +2208,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_group_items` (
   `tax_type_id` int(11) NOT NULL default '0',
   `tax_shipping` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`tax_group_id`,`tax_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_tax_group_items`
@@ -2234,7 +2231,7 @@ CREATE TABLE IF NOT EXISTS `0_tax_types` (
   `name` varchar(60) NOT NULL default '',
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_tax_types`
@@ -2265,7 +2262,7 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
   PRIMARY KEY  (`id`),
   KEY `Type_and_Number` (`trans_type`,`trans_no`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `0_trans_tax_details`
@@ -2298,7 +2295,7 @@ CREATE TABLE IF NOT EXISTS `0_useronline` (
   PRIMARY KEY  (`id`),
   KEY `timestamp` (`timestamp`),
   KEY `ip` (`ip`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_useronline`
@@ -2350,7 +2347,7 @@ CREATE TABLE IF NOT EXISTS `0_users` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_users`
@@ -2372,7 +2369,7 @@ CREATE TABLE IF NOT EXISTS `0_voided` (
   `date_` date NOT NULL default '0000-00-00',
   `memo_` tinytext NOT NULL,
   UNIQUE KEY `id` (`type`,`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_voided`
@@ -2393,7 +2390,7 @@ CREATE TABLE IF NOT EXISTS `0_workcentres` (
   `inactive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_workcentres`
@@ -2424,7 +2421,7 @@ CREATE TABLE IF NOT EXISTS `0_workorders` (
   `additional_costs` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `wo_ref` (`wo_ref`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `0_workorders`
@@ -2453,7 +2450,7 @@ CREATE TABLE `0_wo_costing` (
   `trans_no` int(11) NOT NULL default '0',
   `factor` double NOT NULL default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `0_wo_costing`
@@ -2476,7 +2473,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issues` (
   `workcentre_id` int(11) default NULL,
   PRIMARY KEY  (`issue_no`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_wo_issues`
@@ -2496,7 +2493,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issue_items` (
   `issue_id` int(11) default NULL,
   `qty_issued` double default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_wo_issue_items`
@@ -2518,7 +2515,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_manufacture` (
   `date_` date NOT NULL default '0000-00-00',
   PRIMARY KEY  (`id`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_wo_manufacture`
@@ -2544,7 +2541,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
   `units_issued` double NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `workorder_id` (`workorder_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8  AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `0_wo_requirements`

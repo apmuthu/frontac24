@@ -2365,6 +2365,40 @@ function tax_algorithm_list_row($label, $name, $value=null, $submit_on_change=fa
 	tax_algorithm_list_cells(null, $name, $value, $submit_on_change);
 	echo "</tr>\n";
 }
+
+function refline_list($name, $type, $value=null, $spec_option=false)
+{
+	$sql = "SELECT id, prefix, inactive FROM ".TB_PREF."reflines";
+
+	$where = array();
+
+	if (isset($type))
+		$where = array('`trans_type`='.db_escape($type));
+
+	return combo_input($name, $value, $sql, 'id', 'prefix',
+		array(
+			'order'=>array('prefix'),
+			'spec_option' => $spec_option,
+			'spec_id' => '',
+			'type' => 2,
+			'where' => $where,
+			'select_submit' => true,
+			)
+		);
+}
+
+function refline_list_row($label, $name, $type, $selected_id=null, $spec_option=false)
+{
+	echo "<tr>";
+	if ($label != null)
+		echo "<td class='label'>$label</td>\n";
+	echo "<td>";
+
+	echo refline_list($name, $type, $selected_id, $spec_option);
+	echo "</td></tr>\n";
+}
+
+
 //----------------------------------------------------------------------------------------------
 
 function subledger_list($name, $account, $selected_id=null)
@@ -2445,3 +2479,16 @@ function users_list_cells($label, $name, $selected_id=null, $submit_on_change=fa
 
 }
 
+function collations_list_row($label, $name, $selected_id=null)
+{
+	global $supported_collations;
+
+	echo "<tr>";
+	if ($label != null)
+		echo "<td class='label'>$label</td>\n";
+	echo "<td>";
+
+	echo array_selector($name, $selected_id, $supported_collations, 
+		array('select_submit'=> false) );
+	echo "</td></tr>\n";
+}

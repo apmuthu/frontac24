@@ -150,18 +150,16 @@ class current_user
 
 		set_global_connection();
 
-		$myrow = get_user_by_email($email);
+		$user = get_user_by_email($email);
 
-		if ($myrow['id'] != "") {
+		if ($user != false) {
 
-			$bytes = openssl_random_pseudo_bytes(8, $cstrong);
-			$password   = base64_encode($bytes);
-
+			$password = generate_password();
 			$hash = md5($password);
 
-			update_user_password($myrow['id'], $myrow['user_id'], $hash);
+			update_user_password($user['id'], $user['user_id'], $hash);
 
-			mail($myrow['email'], _("New password for")." ".$SysPrefs->app_title, $password);
+			mail($email, _("New password for")." ".$SysPrefs->app_title, $password);
 
 			return true;
 		}
@@ -450,21 +448,21 @@ function user_price_dec()
 {
 	global $SysPrefs;
 
-	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->price_dec() : $SysPrefs->prices_dec;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->price_dec() : 2;
 }
 
 function user_exrate_dec()
 {
 	global $SysPrefs;
 
-	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->exrate_dec() : $SysPrefs->rates_dec;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->exrate_dec() : 4;
 }
 
 function user_percent_dec()
 {
 	global $SysPrefs;
 
-	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->percent_dec() : $SysPrefs->percent_dec;
+	return isset($_SESSION["wa_current_user"]) ? $_SESSION["wa_current_user"]->prefs->percent_dec() : 1;
 }
 
 function user_show_gl_info()

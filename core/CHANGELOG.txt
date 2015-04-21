@@ -10,6 +10,31 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
+2015-04-21 Janusz Dobrowolski  Removed obsolete keys on supp_trans and cust_branch tables.
+2015-04-20 Janusz Dobrowolski  After timeout UI was always switched into fallback mode.
+2015-04-20 Janusz Dobrowolski  Fixed source compatibility to PHP 5.0, fixed bug in the password reset feature.
+2015-04-20 Janusz Dobrowolski  Transaction references extended with parametrized patterns, added che
+2015-04-19 Janusz Dobrowolski  Added text_input() helper.
+2015-04-19 Janusz Dobrowolski  Fixed journal view and journal inquiry (regression).
+2015-04-19 Janusz Dobrowolski  Backup/Restore: added option to preserve security settings during dat
+2015-04-19 Joe Hunt            Collation selection in installer and company creation, rewritten Create Companies page; fixed pre-login decimal settings.
+2015-04-19 Joe Hunt            Cleanup in inventory reports after merge.
+2015-04-18 Janusz Dobrowolski  Merging latest changes from stable branch up to 2.3.24
+2015-04-18 Janusz Dobrowolski  Fixed upgrade procedures (obsolete columns dropped in post_install phase), restored lost line in initial demo sql file.
+2015-04-17 Janusz Dobrowolski  Upgrade process started as non-ajax request to avoid UI timeout.
+2015-04-17 Janusz Dobrowolski  Fixed small issues in upgrade procedures.
+2015-04-16 Janusz Dobrowolski  Added extensions compatibility checks during site upgrade and per company activation.
+2015-04-16 Janusz Dobrowolski  Backup and Restore: system settings has not been refreshed after restore (typo).
+2015-04-16 Janusz Dobrowolski  Salesman Report: fixed bug in provision calculation, Sales Persons: changed break point definition to turnover level.
+2015-04-16 Janusz Dobrowolski  Purchase Order Inquire: finalized orders are hidden by default.
+2015-04-16 Janusz Dobrowolski  Item Tax Types: fixed inactive item tax types display switching.
+2015-04-15 Janusz Dobrowolski  Fixed typo in Suppliers Report.
+2015-04-15 Janusz Dobrowolski  Fixed db_import to allow select/delete queries in upgrade files.
+2015-04-15 Janusz Dobrowolski  Small warning cleanup in bank payment/deposit edition.
+2015-04-11 Janusz Dobrowolski  Additional syntax cleanup to previous patch.
+2015-04-11 Janusz Dobrowolski  Fixed problem with counting number of rows for some SQL queries displayed in db pager.
+2015-04-11 Joe Hunt            Included option for Show Service Items in Inventory Sales Report
+
 2015-04-09 Janusz Dobrowolski  Cleanup in inventory transfer view.
 2015-04-08 Janusz Dobrowolski  Fixed value returned by items_cart's check_qoh method.
 2015-04-08 Janusz Dobrowolski  Removed obsolete stock_move.person_id field and related handling.
@@ -20,19 +45,19 @@ This is a changelog for FrontAccounting All releases.
 2015-04-08 Janusz Dobrowolski  Inventory Adjustment: removed movement type, cleanups.
 2015-04-08 Janusz Dobrowolski  Inventory Transfer: removed movement type from transfer form, cleanups.
 
-2015-04-06: Janusz Dobrowolski  Partial (inventory related) include files cleanup. function get_mb_flag($stock_id) moved from  includes/db/manufacturing_db.inc to includes/db/inventory_db.inc 
-2015-04-06: Janusz Dobrowolski  Fixed regression in Sales Kits. 3rd parameter in function update_component($kit_code, $selected_item) dropped 
-2015-04-06: Janusz Dobrowolski  Fixed mysqli related warnings. 
-2015-04-06: Janusz Dobrowolski  Fixed typo in get_sql_for_work_orders. $oredr_no => $order_no
-2015-04-06: Janusz Dobrowolski  Fixed items_cart.check_qoh method (returned value, direct call to inventory checking function).
-2015-04-06: Janusz Dobrowolski  Cleanup (unexisting field reference removed). stock.parallel_qe
-2015-04-04: Janusz Dobrowolski  Removed obsolete stock_move.discount_percent field 
-2015-04-03: Janusz Dobrowolski  Removed obsolete stock_moves.visible field; changed add_stock_move() prototype.
-2015-04-03: Janusz Dobrowolski  Fixed initial en_US-*.sql files (fiscal years setup, default value set for sys_prefs.value field).
-2015-03-31: Janusz Dobrowolski  [0002781] Improved error diagnostic during files upload. 
-2015-03-31: Janusz Dobrowolski  [0003084] Database password with special chars was stored distorted in config_db.
-2015-03-25: Janusz Dobrowolski  Fixed hidden fields output. Fields are displayed after following table end (if any).
-2015-03-25: Janusz Dobrowolski  Additional fix to merged stable branch changes.
+2015-04-06 Janusz Dobrowolski  Partial (inventory related) include files cleanup. function get_mb_flag($stock_id) moved from  includes/db/manufacturing_db.inc to includes/db/inventory_db.inc 
+2015-04-06 Janusz Dobrowolski  Fixed regression in Sales Kits. 3rd parameter in function update_component($kit_code, $selected_item) dropped 
+2015-04-06 Janusz Dobrowolski  Fixed mysqli related warnings. 
+2015-04-06 Janusz Dobrowolski  Fixed typo in get_sql_for_work_orders. $oredr_no => $order_no
+2015-04-06 Janusz Dobrowolski  Fixed items_cart.check_qoh method (returned value, direct call to inventory checking function).
+2015-04-06 Janusz Dobrowolski  Cleanup (unexisting field reference removed). stock.parallel_qe
+2015-04-04 Janusz Dobrowolski  Removed obsolete stock_move.discount_percent field 
+2015-04-03 Janusz Dobrowolski  Removed obsolete stock_moves.visible field; changed add_stock_move() prototype.
+2015-04-03 Janusz Dobrowolski  Fixed initial en_US-*.sql files (fiscal years setup, default value set for sys_prefs.value field).
+2015-03-31 Janusz Dobrowolski  [0002781] Improved error diagnostic during files upload. 
+2015-03-31 Janusz Dobrowolski  [0003084] Database password with special chars was stored distorted in config_db.
+2015-03-25 Janusz Dobrowolski  Fixed hidden fields output. Fields are displayed after following table end (if any).
+2015-03-25 Janusz Dobrowolski  Additional fix to merged stable branch changes.
 
 
 2015-03-23 16:27 +0100 Joe

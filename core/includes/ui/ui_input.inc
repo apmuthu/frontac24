@@ -202,6 +202,7 @@ function submit_center_last($name, $value, $title=false, $async=false, $icon=fal
 /*
 	For following controls:
 	'both' - use both Ctrl-Enter and Escape hotkeys 
+	'upgrade' - use Ctrl-Enter with progress ajax indicator and Escape hotkeys. Nonajax request for OK option is performed.
 	'cancel' - apply to 'RESET' button
 */
 function submit_add_or_update($add=true, $title=false, $async=false, $clone=false)
@@ -210,7 +211,10 @@ function submit_add_or_update($add=true, $title=false, $async=false, $clone=fals
 
 	if ($async === 'both') {
 		$async = 'default'; $cancel = 'cancel';
-	} 
+	}
+	elseif ($async === 'upgrade') {
+		$async = 'default nonajax process'; $cancel = 'cancel';
+	}
 	else if ($async === 'default')
 		$cancel = true;
 	else if ($async === 'cancel')
@@ -500,6 +504,16 @@ function label_row($label, $value, $params="", $params2="", $leftfill=0, $id=nul
 	echo "</tr>\n";
 }
 
+function text_input($name, $value=null, $size='', $max='', $title='', $params='')
+{
+	if ($value === null)
+		$value = get_post($name);
+
+	return "<input $params type=\"text\" name=\"$name\" size=\"$size\" maxlength=\"$max\" value=\"$value\""
+	    .($title ? " title='$title'" : '')
+	    .">";
+}
+
 //-----------------------------------------------------------------------------------
 
 function text_cells($label, $name, $value=null, $size="", $max="", $title=false, 
@@ -512,11 +526,7 @@ function text_cells($label, $name, $value=null, $size="", $max="", $title=false,
 		label_cell($label, $labparams);
 	echo "<td>";
 
-	if ($value === null)
-		$value = get_post($name);
-	echo "<input $inparams type=\"text\" name=\"$name\" size=\"$size\" maxlength=\"$max\" value=\"$value\""
-	    .($title ? " title='$title'" : '')
-	    .">";
+	echo text_input($name, $value, $size, $max, $title, $inparams);
 
 	if ($post_label != "")
 		echo " " . $post_label;
@@ -699,19 +709,70 @@ function file_row($label, $name, $id = "")
 	echo "</tr>\n";
 }	
 
-//-----------------------------------------------------------------------------------
+/*-----------------------------------------------------------------------------------
 
-function ref_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false)
+ Reference number input.
+
+ Optional  $context array contains transaction data used in number parsing:
+ 	'data' - data used for month/year codes
+	'location' - location code
+ 	'customer' - debtor_no
+ 	'supplier' - supplier id
+ 	'branch' - branch_code
+*/
+function ref_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false, $type=null, $context=null)
 {
-	text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change);
+	global $Ajax, $Refs;
+
+	if (isset($type)) {
+		if (empty($_POST[$name.'_list'])) // restore refline id
+			$_POST[$name.'_list'] = $Refs->reflines->find_refline_id(empty($_POST[$name]) ? $init : $_POST[$name], $type);
+
+		if (empty($_POST[$name]) || ($_SERVER['REQUEST_METHOD'] == 'GET')) // initialization
+		{
+			if (isset($init))
+			{
+				$_POST[$name] = $init;
+			} else {
+				$_POST[$name] = $Refs->get_next($type, $_POST[$name.'_list'], $context); // set default
+			}
+			$Ajax->addUpdate(true, $name, $_POST[$name]);
+		}
+
+		if (check_ui_refresh($name)) { // call context changed
+			$_POST[$name] = $Refs->normalize($init, $type, $context, $_POST[$name.'_list']);
+			$Ajax->addUpdate(true, $name, $_POST[$name]);
+		}
+
+		if ($Refs->reflines->count($type)>1) {
+			if (list_updated($name.'_list')) {
+				$_POST[$name] = $Refs->get_next($type, $_POST[$name.'_list'], $context);
+				$Ajax->addUpdate(true, $name, $_POST[$name]);
+			}
+			$list = refline_list($name.'_list', $type);
+		} else {
+			$list = '';
+		}
+
+		if (isset($label))
+			label_cell($label, $params);
+
+		label_cell($list."<input name='".$name."' "
+			.(check_edit_access($name) ? '' : 'disabled ')
+			."value='".@$_POST[$name]."' size=10 maxlength=35>");
+	}
+	else // just wildcard ref field (e.g. for global inquires)
+	{
+		text_cells_ex($label, $name, 16, 35, $init, $title, $params, null, $submit_on_change);
+	}
 }
 
 //-----------------------------------------------------------------------------------
 
-function ref_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+function ref_row($label, $name, $title=null, $init=null, $submit_on_change=false, $type=null, $context = null)
 {
 	echo "<tr><td class='label'>$label</td>";
-	ref_cells(null, $name, $title, $init, null, $submit_on_change);
+	ref_cells(null, $name, $title, $init, null, $submit_on_change, $type, $context);
 	echo "</tr>\n";
 }
 

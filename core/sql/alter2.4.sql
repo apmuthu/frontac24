@@ -32,7 +32,6 @@ UPDATE `0_tax_group_items` tgi
 	SET tgi.tax_shipping=1
 	WHERE tgi.rate=(SELECT 0_tax_types.rate FROM 0_tax_types, 0_tax_groups 
 		WHERE tax_shipping=1 AND tgi.tax_group_id=0_tax_groups.id AND tgi.tax_type_id=0_tax_types.id);
-ALTER TABLE `0_tax_groups` DROP COLUMN `tax_shipping`;
 
 ALTER TABLE `0_sales_order_details` ADD KEY `stkcode` (`stk_code`);
 ALTER TABLE `0_purch_order_details` ADD KEY `itemcode` (`item_code`);
@@ -229,13 +228,36 @@ DELETE moves
 	INNER JOIN (SELECT * FROM `0_stock_moves` WHERE `type`=11 AND `qty`<0) writeoffs ON writeoffs.`trans_no`=moves.`trans_no` AND writeoffs.`type`=11
 	WHERE moves.`type`=11;
 
-ALTER TABLE `0_stock_moves` DROP COLUMN `visible`;
 # stock_moves.discount_percent field are obsolete
 
 UPDATE `0_stock_moves` SET
 	price = price*(1-discount_percent);
-ALTER TABLE `0_stock_moves` DROP COLUMN `discount_percent`;
-
-ALTER TABLE `0_stock_moves` DROP COLUMN `person_id`;
 
 DROP TABLE IF EXISTS `0_movement_types`;
+
+# change salesman breakpoint meaning to turnover level
+UPDATE `0_salesman`
+	SET `break_pt` = `break_pt`*100.0/`provision`
+WHERE `provision` != 0;
+
+# reference lines
+DROP TABLE IF EXISTS `0_reflines`;
+CREATE TABLE `0_reflines` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `trans_type` int(11) NOT NULL,
+  `prefix` char(5) NOT NULL DEFAULT '',
+  `pattern` varchar(35) NOT NULL DEFAULT '1',
+  `description` varchar(60) NOT NULL DEFAULT '',
+  `default` tinyint(1) NOT NULL DEFAULT '0',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `prefix` (`trans_type`, `prefix`)
+) ENGINE=InnoDB;
+
+INSERT INTO `0_reflines` (`trans_type`, `pattern`, `default`) SELECT `type_id`, `next_reference`, 1 FROM `0_sys_types`;
+
+DROP TABLE `0_sys_types`;
+
+ALTER TABLE `0_cust_branch` DROP KEY `branch_code`;
+ALTER TABLE `0_supp_trans` DROP KEY `SupplierID_2`;
+ALTER TABLE `0_supp_trans` DROP KEY `type`;

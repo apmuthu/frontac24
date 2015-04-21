@@ -178,8 +178,8 @@ function get_gl_transactions($from_date, $to_date, $trans_no=0,
 
 function get_gl_trans($type, $trans_id)
 {
-	$sql = "SELECT gl.*, cm.account_name, IF(ISNULL(refs.reference), '', refs.reference) AS reference, user.real_name, 
-			IFNULL(st.tran_date, IFNULL(dt.tran_date, IFNULL(bt.trans_date, IFNULL(grn.delivery_date, gl.tran_date)))) as doc_date,
+	$sql = "SELECT gl.*, cm.account_name, IFNULL(refs.reference, '') AS reference, user.real_name, 
+			COALESCE(st.tran_date, dt.tran_date, bt.trans_date, grn.delivery_date, gl.tran_date) as doc_date,
 			IF(ISNULL(st.supp_reference), '', st.supp_reference) AS supp_reference
 	FROM ".TB_PREF."gl_trans as gl
 		LEFT JOIN ".TB_PREF."chart_master as cm ON gl.account = cm.account_code
@@ -515,6 +515,7 @@ function get_tax_summary($from, $to, $also_zero_purchases=false)
 		// display_error($sql);
     return db_query($sql,"Cannot retrieve tax summary");
 }
+
 //--------------------------------------------------------------------------------------------------
 
 function exists_gl_trans($type, $trans_id)
@@ -562,7 +563,7 @@ function get_sql_for_journal_inquiry($filter, $from, $to, $ref='', $memo='', $al
 		 $user_id=null, $contractor_id=null, $dimension=null)
 {
 
-	$sql = "SELECT	IF(ISNULL(a.gl_seq),0,a.gl_seq) as gl_seq,
+	$sql = "SELECT	IFNULL(a.gl_seq,0) as gl_seq,
 		gl.tran_date,
 		gl.type as trans_type,
 		gl.type_no as trans_no,
@@ -622,7 +623,7 @@ function get_sql_for_journal_inquiry($filter, $from, $to, $ref='', $memo='', $al
 	if ($dimension != null)
 		$sql .= " AND dim.dimension = ".db_escape($dimension);
 
-	$sql .= " GROUP BY gl.tran_date, a.gl_seq, gl_seq, gl.type, gl.type_no";
+	$sql .= " GROUP BY gl.tran_date, a.gl_seq, gl.type, gl.type_no";
 
 	return $sql;
 }

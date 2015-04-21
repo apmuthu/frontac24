@@ -156,7 +156,7 @@ function add_exchange_variation_all($date=null, $ref="", $memo)
 	{
 		add_comments(ST_JOURNAL, $trans_no, $date, $memo);
 		if ($ref == "")
-			$ref = $Refs->get_next(ST_JOURNAL);
+			$ref = $Refs->get_next(ST_JOURNAL, null, $date);
 		$Refs->save(ST_JOURNAL, $trans_no, $ref);
 		add_audit_trail(ST_JOURNAL, $trans_no, $date);
 	}	
@@ -288,7 +288,7 @@ function add_bank_transfer($from_account, $to_account, $date_,
 	}
 	if ($exchanged == true)
 	{
-		$ref1 = $Refs->get_next(ST_JOURNAL);
+		$ref1 = $Refs->get_next(ST_JOURNAL, null, $date_);
 		$Refs->save(ST_JOURNAL, $trans_no1, $ref1);
 		add_audit_trail(ST_JOURNAL, $trans_no1, $date_);
 	}
@@ -416,7 +416,8 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 		$old_trans = $trans_no;
 		$Refs->restore_last($trans_type, $trans_no);
 		$aid = has_attachment($trans_type, $trans_no);
-	}
+	} else
+		$old_trans = false;
 
 	$currency = get_bank_account_currency($from_account);
 	$bank_gl_account = get_bank_gl_account($from_account);
@@ -438,7 +439,8 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 
 		$trans_no = write_customer_trans($trans_type, 0, $person_id, $person_detail_id, $date_,
         	$ref, $cust_amount);
-		move_trans_attachments($trans_type, $old_trans, $trans_no);
+		if ($old_trans)
+			move_trans_attachments($trans_type, $old_trans, $trans_no);
     }
     elseif ($person_type_id == PT_SUPPLIER)
     {
@@ -454,7 +456,8 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 
 		$trans_no = write_supp_trans($trans_type, 0, $person_id, $date_, '',
 			$ref, "", $supp_amount, 0, 0);
-		move_trans_attachments($trans_type, $old_trans, $trans_no);
+		if ($old_trans)
+			move_trans_attachments($trans_type, $old_trans, $trans_no);
     }
     else
     {
@@ -522,7 +525,7 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
     	if ($exchanged || add_exchange_variation($trans_no1, $date_, $from_account, $bank_gl_account, 
     		$currency, $person_type_id, $person_id))
     	{
-   			$ref1 = $Refs->get_next(ST_JOURNAL);
+   			$ref1 = $Refs->get_next(ST_JOURNAL, null, $date_);
 			$Refs->save(ST_JOURNAL, $trans_no1, $ref1);
 			add_audit_trail(ST_JOURNAL, $trans_no1, $date_);
 		}
@@ -535,7 +538,7 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 
 	// old transaction can be voided only after new transaction is entered,
 	//  otherwise the operation could fail for cash accounts due to temporary negative balance
-	if (@$old_trans) 
+	if ($old_trans) 
 	{
 		$msg = void_transaction($trans_type, $old_trans, Today(), _("Document reentered."));
 		if ($msg)
