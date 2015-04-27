@@ -10,6 +10,8 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
+2015-04-27 Joe Hunt            Fixed empty(trim)) error in versions prior to php 5.5 
+2015-04-27 Joe Hunt            Fixed wrong company path in config.default.php
 2015-04-21 Janusz Dobrowolski  Removed obsolete keys on supp_trans and cust_branch tables.
 2015-04-20 Janusz Dobrowolski  After timeout UI was always switched into fallback mode.
 2015-04-20 Janusz Dobrowolski  Fixed source compatibility to PHP 5.0, fixed bug in the password reset feature.
