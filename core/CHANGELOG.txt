@@ -10,7 +10,16 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
-2015-04-27 Joe Hunt            Fixed empty(trim)) error in versions prior to php 5.5 
+2015-05-06 Janusz Dobrowolski  Fixed amibiguity in few text messages to make translations easier, updated gettext templates.
+2015-05-06 Janusz Dobrowolski  Fixed text typos in installer and item codes editor.
+2015-05-06 Janusz Dobrowolski  Costed Inventory Movement Report: fixed regression after changes in stock_moves.
+2015-05-06 Janusz Dobrowolski  Supplier Invoice: removed obsolete column from displayed delivery lines containing internal line id.
+2015-05-06 Janusz Dobrowolski  Fixed backward compatibility for extensions repository settings in config.php, cleanups in extensions related screens.
+2015-05-05 Janusz Dobrowolski  Help links switched on for new FA installations.
+2015-05-05 Janusz Dobrowolski  Purchases/Direct Invoice: added Update button for refreshing tax summary on demand.
+2015-05-05 Janusz Dobrowolski  Foreign Item Codes: fixed message displayed for invalid quantity entered.
+
+2015-04-27 Joe Hunt            Fixed empty(trim)) error in versions prior to php 5.5
 2015-04-27 Joe Hunt            Fixed wrong company path in config.default.php
 2015-04-21 Janusz Dobrowolski  Removed obsolete keys on supp_trans and cust_branch tables.
 2015-04-20 Janusz Dobrowolski  After timeout UI was always switched into fallback mode.
