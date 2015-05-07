@@ -10,7 +10,10 @@
 ------------
 This is a changelog for FrontAccounting All releases.
 
-2015-05-06 Janusz Dobrowolski  Fixed amibiguity in few text messages to make translations easier, updated gettext templates.
+2015-05-07 Joe Hunt            Finished Swedish and Danish translations for install wizard.
+2015-05-07 Janusz Dobrowolski  Cleanups in gettext files.
+2015-05-07 Janusz Dobrowolski  Fixed sales kits edition (false validation errors during new kit entry).
+2015-05-07 Janusz Dobrowolski  Fixed amibiguity in few text messages to make translations easier, updated gettext templates.
 2015-05-06 Janusz Dobrowolski  Fixed text typos in installer and item codes editor.
 2015-05-06 Janusz Dobrowolski  Costed Inventory Movement Report: fixed regression after changes in stock_moves.
 2015-05-06 Janusz Dobrowolski  Supplier Invoice: removed obsolete column from displayed delivery lines containing internal line id.
