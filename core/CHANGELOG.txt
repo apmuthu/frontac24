@@ -1,4 +1,7 @@
 
+2015-08-29 Janusz Dobrowolski Fixed sparse js dialog when canceling sales document entry.
+2015-08-29 Janusz Dobrowolski Void a Transaction: fixed GRN voiding.
+2015-08-29 Janusz Dobrowolski PDF documents sent by email have now meaningful names.
 2015-08-25 Janusz Dobrowolski Small warning cleanup in purchase order report.
 2015-07-28 Joe Hunt           Added undefined function cache_invalidate() in install/isession.inc
 2015-07-27 Joe Hunt           en_US-demo.sql and en_US-new.sql cleanup
