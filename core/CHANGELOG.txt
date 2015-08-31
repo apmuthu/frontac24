@@ -1,4 +1,5 @@
 
+2015-08-31 Janusz Dobrowolski Small cleanups in mail class.
 2015-08-29 Janusz Dobrowolski Fixed sparse js dialog when canceling sales document entry.
 2015-08-29 Janusz Dobrowolski Void a Transaction: fixed GRN voiding.
 2015-08-29 Janusz Dobrowolski PDF documents sent by email have now meaningful names.
