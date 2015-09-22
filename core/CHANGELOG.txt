@@ -1,4 +1,6 @@
 
+2015-09-23 Janusz Dobrowolski [0003305] Direct Purchase Invoice: added link to payment entry on final page.
+2015-09-23 Janusz Dobrowolski [0003304] Purchase Order Entry: fixed support for editable items description.
 2015-08-31 Janusz Dobrowolski Small cleanups in mail class.
 2015-08-29 Janusz Dobrowolski Fixed sparse js dialog when canceling sales document entry.
 2015-08-29 Janusz Dobrowolski Void a Transaction: fixed GRN voiding.
