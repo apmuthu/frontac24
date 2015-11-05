@@ -55,7 +55,7 @@ function add_work_order_issue($woid, $ref, $to_work_order, $items, $location, $w
 		if ($to_work_order)
 			$item->quantity = -$item->quantity;
 
-		//Chaitanya: Stamp the standard_cost
+		// Stamp the standard_cost
 		$standard_cost = get_standard_cost($item->stock_id);
 		// insert a -ve stock move for each item
 		add_stock_move(ST_MANUISSUE, $item->stock_id, $number,
@@ -71,7 +71,7 @@ function add_work_order_issue($woid, $ref, $to_work_order, $items, $location, $w
 		$issue = get_stock_gl_code($item->stock_id);
         $stockitem = get_item($item->stock_id);
 
-		//Chaitanya : Compatibility for Service Items
+		// Compatibility for Service Items
 		if (!is_service($issue["mb_flag"]))
 			$ivaccount = $issue["inventory_account"];
 		else
@@ -82,7 +82,7 @@ function add_work_order_issue($woid, $ref, $to_work_order, $items, $location, $w
 		$issue_total += $issue_cost;
 	}	
 	if ($issue_total != 0)
-		//Chaitanya : Apply cost to QOH as adjustment only
+		// Apply cost to QOH as adjustment only
 		add_issue_cost($details['stock_id'], $details['units_reqd'], $date_, $issue_total, true);
 	$issue = get_stock_gl_code($details['stock_id']);
     $stockitem = get_item($details['stock_id']);
@@ -111,27 +111,30 @@ function get_work_order_issues($woid)
 
 function get_additional_issues($woid)
 {
-	$sql = "SELECT ".TB_PREF."wo_issues.*, ".TB_PREF."wo_issue_items.*
-		FROM ".TB_PREF."wo_issues, ".TB_PREF."wo_issue_items
-		WHERE ".TB_PREF."wo_issues.issue_no=".TB_PREF."wo_issue_items.issue_id
-		AND ".TB_PREF."wo_issues.workorder_id=".db_escape($woid)
-		." ORDER BY ".TB_PREF."wo_issue_items.id";
+	$sql = "SELECT issue.*, item.*
+		FROM ".TB_PREF."wo_issues issue, "
+			.TB_PREF."wo_issue_items item
+		WHERE issue.issue_no=item.issue_id
+		AND issue.workorder_id=".db_escape($woid)
+		." ORDER BY item.id";
     return db_query($sql, "The work order issues could not be retrieved");
 }
 //--------------------------------------------------------------------------------------
 
 function get_work_order_issue($issue_no)
 {
-	$sql = "SELECT DISTINCT ".TB_PREF."wo_issues.*, ".TB_PREF."workorders.stock_id,
-		".TB_PREF."stock_master.description, ".TB_PREF."locations.location_name, "
-		.TB_PREF."workcentres.name AS WorkCentreName
-		FROM ".TB_PREF."wo_issues, ".TB_PREF."workorders, ".TB_PREF."stock_master, "
-		.TB_PREF."locations, ".TB_PREF."workcentres
+	$sql = "SELECT DISTINCT issue.*, wo.stock_id,
+		item.description, loc.location_name, center.name AS WorkCentreName
+		FROM ".TB_PREF."wo_issues issue,"
+			.TB_PREF."workorders wo,"
+			.TB_PREF."stock_master item,"
+			.TB_PREF."locations loc,"
+			.TB_PREF."workcentres center
 		WHERE issue_no=".db_escape($issue_no)."
-		AND ".TB_PREF."workorders.id = ".TB_PREF."wo_issues.workorder_id
-		AND ".TB_PREF."locations.loc_code = ".TB_PREF."wo_issues.loc_code
-		AND ".TB_PREF."workcentres.id = ".TB_PREF."wo_issues.workcentre_id
-		AND ".TB_PREF."stock_master.stock_id = ".TB_PREF."workorders.stock_id";
+		AND wo.id = issue.workorder_id
+		AND loc.loc_code = issue.loc_code
+		AND center.id = issue.workcentre_id
+		AND item.stock_id = wo.stock_id";
     $result = db_query($sql, "A work order issue could not be retrieved");
 
     return db_fetch($result);
@@ -141,12 +144,12 @@ function get_work_order_issue($issue_no)
 
 function get_work_order_issue_details($issue_no)
 {
-	$sql = "SELECT ".TB_PREF."wo_issue_items.*,"
-	.TB_PREF."stock_master.description, ".TB_PREF."stock_master.units
-		FROM ".TB_PREF."wo_issue_items, ".TB_PREF."stock_master
+	$sql = "SELECT issue.*, item.description, item.units
+		FROM ".TB_PREF."wo_issue_items issue,"
+			.TB_PREF."stock_master item
 		WHERE issue_id=".db_escape($issue_no)."
-		AND ".TB_PREF."stock_master.stock_id=".TB_PREF."wo_issue_items.stock_id
-		ORDER BY ".TB_PREF."wo_issue_items.id";
+		AND item.stock_id=issue.stock_id
+		ORDER BY issue.id";
     return db_query($sql, "The work order issue items could not be retrieved");
 }
 
@@ -177,11 +180,7 @@ function void_work_order_issue($type_no)
 		.db_escape($type_no);
 	db_query($sql,"A work order issue item could not be voided");
 
-	// void any related gl trans
-	//Chaitanya : Nothing happens due to next statement as all gl postings are done against WO
-	//void_gl_trans(ST_MANUISSUE, $type_no, true);
-	
-	//Chaitanya : Reverse the gl posting
+	// Reverse the gl posting
 	$issue = get_work_order_issue($type_no);
 	$manf_stock_id = $issue["stock_id"];
 	$date_ = sql2date($issue["issue_date"]);
@@ -196,7 +195,7 @@ function void_work_order_issue($type_no)
 		$issue = get_stock_gl_code($myrow["stock_id"]);
         $stockitem = get_item($myrow["stock_id"]);
 
-		//Chaitanya : Compatibility for Service Items
+		// Compatibility for Service Items
 		if (!is_service($issue["mb_flag"]))
 			$ivaccount = $issue["inventory_account"];
 		else
@@ -211,16 +210,16 @@ function void_work_order_issue($type_no)
 		}
 	}
 	if ($issue_total != 0)
-		//Chaitanya : Revese cost effect on manfactured stock item as adjustment only
+		// Revese cost effect on manfactured stock item as adjustment only
 		add_issue_cost($manf_stock_id, 0, $date_, $issue_total, true);
 	$issue = get_stock_gl_code($manf_stock_id);
     $stockitem = get_item($manf_stock_id);
 	if ($total_cost != 0)
 		add_gl_trans_std_cost(ST_WORKORDER, $woid, $date_, $issue["inventory_account"],
 			0, 0, $date_.": "._("Reversed the issue to")." ".$stockitem["description"], 
-			-$total_cost);	
+			-$total_cost);
 
-	//Chaitanya : Shifted below void all related stock moves
+	// Shifted below void all related stock moves
 	void_stock_move(ST_MANUISSUE, $type_no);
 
 	commit_transaction();
