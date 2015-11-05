@@ -1,4 +1,5 @@
 
+2015-11-05 Janusz Dobrowolski Tax Inquiry: fixed refrences to non-existing database fields.
 2015-11-05 Janusz Dobrowolski Produce/Unassemble Finished Items from WorkOrder: fixed syntax error.
 2015-11-05 Janusz Dobrowolski Receive Purchase Order Items: invalid date was passed to reference number provider.
 2015-11-05 Joe Hunt           faulty escape in empty.po - Problem Source
