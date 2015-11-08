@@ -1,4 +1,5 @@
 
+2015-11-5/8 Joe Hunt          Cleanup Comments and small bugfixes
 2015-11-05 Janusz Dobrowolski Global fixes in SQL queries formatted for readability - TBPREF replaced with table alias.
 2015-11-05 Janusz Dobrowolski Print Deliveries: Fixed not working print as packing slip option.
 2015-11-05 Janusz Dobrowolski Print Remittances: fixed usage of sys_prefs 'print_invoice_no' option.
