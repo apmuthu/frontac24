@@ -1,4 +1,5 @@
 
+2015-11-09 Janusz Dobrowolski Fixed bug in price_format() helper leading to problems in various entry forms (e.g. Supplier/Customer Allocation)
 2015-11-09 Janusz Dobrowolski Customer Transaction Inquiry, Supplier Inquiry: fixed icons for closed transactions.
 2015-11-09 Janusz Dobrowolski Supplier Invoices, Supplier Credit Notes: fixed edit form bugs, fixed reference to missing $invoice_no variable in add_supp_invoice().
 2015-11-08 Janusz Dobrowolski Tax Report: not taxable sales printed as Exempt in separate summary line.
