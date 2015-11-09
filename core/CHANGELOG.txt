@@ -1,4 +1,5 @@
 
+2015-11-09 Janusz Dobrowolski Supplier Invoices, Supplier Credit Notes: fixed edit form bugs, fixed reference to missing $invoice_no variable in add_supp_invoice().
 2015-11-08 Janusz Dobrowolski Tax Report: not taxable sales printed as Exempt in separate summary line.
 2015-11-5/8 Joe Hunt          Cleanup Comments and small bugfixes
 2015-11-05 Janusz Dobrowolski Global fixes in SQL queries formatted for readability - TBPREF replaced with table alias.

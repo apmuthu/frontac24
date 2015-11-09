@@ -47,7 +47,7 @@ if (isset($_GET['New']))
 	if (isset($_GET['invoice_no']))
 	{
 		$_SESSION['supp_trans'] = new supp_trans(ST_SUPPINVOICE, $_GET['invoice_no']);
-		$_SESSION['supp_trans']->src_doc = $_GET['invoice_no'];
+		$_SESSION['supp_trans']->src_docs = array( $_GET['invoice_no'] => $_SESSION['supp_trans']->supp_reference);
 
 
 		$_SESSION['supp_trans']->trans_type = ST_SUPPCREDIT;
@@ -191,6 +191,20 @@ function check_data()
 	{
 		display_error(_("The invoice as entered cannot be processed because the due date is in an incorrect format."));
 		set_focus('due_date');
+		return false;
+	}
+
+	if (trim(get_post('supp_reference')) == false)
+	{
+		display_error(_("You must enter a supplier's invoice reference."));
+		set_focus('supp_reference');
+		return false;
+	}
+
+	if (is_reference_already_there($_SESSION['supp_trans']->supplier_id, $_POST['supp_reference'], $_SESSION['supp_trans']->trans_no))
+	{ 	/*Transaction reference already entered */
+		display_error(_("This invoice number has already been entered. It cannot be entered again.") . " (" . $_POST['supp_reference'] . ")");
+		set_focus('supp_reference');
 		return false;
 	}
 
