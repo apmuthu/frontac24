@@ -19,7 +19,7 @@ if ($SysPrefs->use_popup_windows)
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
 
-page(_($help_context = "Suppliers"), @$_REQUEST['popup'], false, "", $js);
+page(_($help_context = "Suppliers"), false, false, "", $js);
 
 include_once($path_to_root . "/includes/ui.inc");
 include_once($path_to_root . "/includes/ui/contacts_view.inc");
@@ -35,7 +35,8 @@ $supplier_id = get_post('supplier_id');
 //--------------------------------------------------------------------------------------------
 function supplier_settings(&$supplier_id)
 {
-
+	global $page_nested;
+	
 	start_outer_table(TABLESTYLE2);
 
 	table_section(1);
@@ -169,7 +170,7 @@ function supplier_settings(&$supplier_id)
 	if ($supplier_id) 
 	{
 		submit_center_first('submit', _("Update Supplier"), 
-		  _('Update supplier data'), @$_REQUEST['popup'] ? true : 'default');
+		  _('Update supplier data'), $page_nested ? true : 'default');
 		submit_return('select', get_post('supplier_id'), _("Select this supplier and return to document entry."));
 		submit_center_last('delete', _("Delete Supplier"), 
 		  _('Delete supplier data if have been never used'), true);
@@ -322,19 +323,15 @@ tabbed_content_start('tabs', array(
 			break;
 		case 'transactions':
 			$_GET['supplier_id'] = $supplier_id;
-			$_GET['popup'] = 1;
 			include_once($path_to_root."/purchasing/inquiry/supplier_inquiry.php");
 			break;
 		case 'orders':
 			$_GET['supplier_id'] = $supplier_id;
-			$_GET['popup'] = 1;
 			include_once($path_to_root."/purchasing/inquiry/po_search_completed.php");
 			break;
 	};
 br();
 tabbed_content_end();
-hidden('popup', @$_REQUEST['popup']);
 end_form();
-
-end_page(@$_REQUEST['popup']);
+end_page();
 

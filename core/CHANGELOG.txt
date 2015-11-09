@@ -1,4 +1,5 @@
 
+2015-11-09 Joe Hunt           Transaction Inquiry inside Supplier fixed.
 2015-11-09 Joe Hunt           Supplier Invoice/Credit Note. Moved Dimensions entry from left section to middle section for better layout.
 2015-11-09 Janusz Dobrowolski Fixed bug in price_format() helper leading to problems in various entry forms (e.g. Supplier/Customer Allocation)
 2015-11-09 Janusz Dobrowolski Customer Transaction Inquiry, Supplier Inquiry: fixed icons for closed transactions.
