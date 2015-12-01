@@ -1,4 +1,5 @@
 
+2015-12-01 Janusz Dobrowolski Fixed Assets application added with fixes by Joe Hunt.
 2015-12-01 Janusz Dobrowolski Fixed es_MX installer translation files
 2015-11-16 Janusz Dobrowolski Fixed regression in Sales Invoice.
 2015-11-12 Janusz Dobrowolski Transaction type number => type name referneces fixed.

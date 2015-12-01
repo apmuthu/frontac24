@@ -653,7 +653,7 @@ function date_cells($label, $name, $title = null, $check=null, $inc_days=0,
 		$calc_image = (file_exists("$path_to_root/themes/".user_theme()."/images/cal.gif")) ? 
 			"$path_to_root/themes/".user_theme()."/images/cal.gif" : "$path_to_root/themes/default/images/cal.gif";
 		$post_label = "<a tabindex='-1' href=\"javascript:date_picker(document.getElementsByName('$name')[0]);\">"
-		. "	<img src='$calc_image' width='16' height='16' border='0' alt='"._('Click Here to Pick up the date')."'></a>\n";
+		. "	<img src='$calc_image' style='vertical-align:middle;padding-bottom:4px;width:16px;height:16px;border:0;' alt='"._('Click Here to Pick up the date')."'></a>\n";
 	}	
 	else
 		$post_label = "";
@@ -734,7 +734,7 @@ function ref_cells($label, $name, $title=null, $init=null, $params=null, $submit
 			{
 				$_POST[$name] = $init;
 			} else {
-				$_POST[$name] = $Refs->get_next($type, $_POST[$name.'_list'], $context); // set default
+				$_POST[$name] = $Refs->get_next($type, $_POST[$name.'_list'], $context);
 			}
 			$Ajax->addUpdate(true, $name, $_POST[$name]);
 		}

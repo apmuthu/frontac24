@@ -18,6 +18,7 @@ define('RC_MANUFACTURE', 3);
 define('RC_DIMENSIONS', 4);
 define('RC_BANKING', 5);
 define('RC_GL', 6);
+define('RC_FIXEDASSETS', 7);
 
 class BoxReports
 {
@@ -219,7 +220,7 @@ class BoxReports
 						$calc_image = (file_exists("$path_to_root/themes/".user_theme()."/images/cal.gif")) ? 
 							"$path_to_root/themes/".user_theme()."/images/cal.gif" : "$path_to_root/themes/default/images/cal.gif";
 						$st .= "<a href=\"javascript:date_picker(document.forms[0].$name);\">"
-						. "	<img src='$calc_image' width='16' height='16' border='0' alt='"._('Click Here to Pick up the date')."'></a>\n";
+						. "	<img src='$calc_image' style='vertical-align:middle;padding-bottom:4px;width:16px;height:16px;border:0;' alt='"._('Click Here to Pick up the date')."'></a>\n";
 					}	
 					return $st;
 					break;
@@ -416,10 +417,15 @@ class BoxReports
 
 				case 'LOCATIONS':
 					return  locations_list($name, null, _("No Location Filter"));
+				case 'FLOCATIONS':
+					return  locations_list($name, null, _("No Location Filter"), false, true);
 
 				case 'CATEGORIES':
 					return stock_categories_list($name, null, _("No Category Filter"));
-
+				case 'FCATEGORIES':
+					return stock_categories_list($name, null, _("No Category Filter"), false, true);
+				case 'FCLASS':
+					return fixed_asset_classes_list($name, null, _("No Class Filter"), false);
 				case 'SALESTYPES':
 					return sales_types_list($name);
 
