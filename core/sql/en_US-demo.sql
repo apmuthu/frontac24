@@ -1848,9 +1848,7 @@ CREATE TABLE `0_stock_fa_class` (
   `parent_id` varchar(20) NOT NULL DEFAULT '',
   `description` varchar(200) NOT NULL DEFAULT '',
   `long_description` tinytext NOT NULL,
-  `depreciation_method` char(1) NOT NULL DEFAULT 'D',
   `depreciation_rate` double NOT NULL DEFAULT '0',
-  `depreciation_period` tinyint(1) NOT NULL DEFAULT '0',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`fa_class_id`)
 ) ENGINE=InnoDB;
@@ -1886,8 +1884,9 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `no_sale` tinyint(1) NOT NULL DEFAULT '0',
   `no_purchase` tinyint(1) NOT NULL DEFAULT '0',
   `editable` tinyint(1) NOT NULL DEFAULT '0',
-  `depreciation_method` char(1) NOT NULL DEFAULT 'D',
+  `depreciation_method` char(1) NOT NULL DEFAULT 'S',
   `depreciation_rate` double NOT NULL DEFAULT '0',
+  `depreciation_factor` double NOT NULL DEFAULT '1',
   `depreciation_start` date NOT NULL DEFAULT '0000-00-00',
   `depreciation_date` date NOT NULL DEFAULT '0000-00-00',
   `fa_class_id` varchar(20) NOT NULL DEFAULT '',
@@ -1899,12 +1898,12 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
 --
 
 INSERT INTO `0_stock_master` VALUES
-('101', '1', '1', 'iPad Air 2 16GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '200', '0', '0', '0', '0', '0', '0', 'D', '0', '0000-00-00', '0000-00-00', ''),
-('102', '1', '1', 'iPhone 6 64GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '150', '0', '0', '0', '0', '0', '0', 'D', '0', '0000-00-00', '0000-00-00', ''),
-('103', '1', '1', 'iPhone Cover Case', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '10', '0', '0', '0', '0', '0', '0', 'D', '0', '0000-00-00', '0000-00-00', ''),
-('201', '3', '1', 'AP Surf Set', '', 'each', 'M', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '360', '0', '0', '0', '0', '0', '0', 'D', '0', '0000-00-00', '0000-00-00', ''),
-('202', '4', '1', 'Maintenance', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', 'D', '0', '0000-00-00', '0000-00-00', ''),
-('301', '4', '1', 'Support', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'D', '0', '0000-00-00', '0000-00-00', '');
+('101', '1', '1', 'iPad Air 2 16GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '200', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('102', '1', '1', 'iPhone 6 64GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '150', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('103', '1', '1', 'iPhone Cover Case', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '10', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('201', '3', '1', 'AP Surf Set', '', 'each', 'M', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '360', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('202', '4', '1', 'Maintenance', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('301', '4', '1', 'Support', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -2172,6 +2171,8 @@ INSERT INTO `0_sys_prefs` VALUES ('print_item_images_on_quote','glsetup.inventor
 INSERT INTO `0_sys_prefs` VALUES ('suppress_tax_rates','setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES ('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', '15', '5660');
 INSERT INTO `0_sys_prefs` VALUES ('depreciation_period', 'glsetup.company', 'tinyint', '1', '1');
+INSERT INTO `0_sys_prefs` VALUES ('use_manufacturing','setup.company', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES ('use_fixed_assets','setup.company', 'tinyint', 1, '1');
 
 
 -- --------------------------------------------------------

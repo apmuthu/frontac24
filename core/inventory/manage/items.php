@@ -21,7 +21,7 @@ if (user_use_date_picker())
 
 if (isset($_GET['FixedAsset'])) {
   $page_security = 'SA_ASSET';
-  $_SESSION['page_title'] = _($help_context = "FA Items");
+  $_SESSION['page_title'] = _($help_context = "Fixed Assets");
   $_POST['mb_flag'] = 'F';
   $_POST['fixed_asset']  = 1;
 }
@@ -155,6 +155,7 @@ function clear_data()
 	unset($_POST['no_purchase']);
 	unset($_POST['depreciation_method']);
 	unset($_POST['depreciation_rate']);
+	unset($_POST['depreciation_factor']);
 	unset($_POST['depreciation_start']);
 }
 
@@ -226,7 +227,7 @@ if (isset($_POST['addupdate']))
 				$_POST['adjustment_account'], $_POST['assembly_account'], 
 				$_POST['dimension_id'], $_POST['dimension2_id'],
 				check_value('no_sale'), check_value('editable'), check_value('no_purchase'),
-				get_post('depreciation_method'), get_post('depreciation_rate'), get_post('depreciation_start'),
+				get_post('depreciation_method'), input_num('depreciation_rate'), input_num('depreciation_factor'), get_post('depreciation_start'),
 				get_post('fa_class_id'));
 
 			update_record_status($_POST['NewStockID'], $_POST['inactive'],
@@ -247,7 +248,7 @@ if (isset($_POST['addupdate']))
 				$_POST['adjustment_account'], $_POST['assembly_account'], 
 				$_POST['dimension_id'], $_POST['dimension2_id'],
 				check_value('no_sale'), check_value('editable'), check_value('no_purchase'),
-				get_post('depreciation_method'), get_post('depreciation_rate'), get_post('depreciation_start'),
+				get_post('depreciation_method'), input_num('depreciation_rate'), input_num('depreciation_factor'), get_post('depreciation_start'),
 				get_post('fa_class_id'));
 
 			display_notification(_("A new item has been added."));
@@ -335,12 +336,13 @@ function item_settings(&$stock_id, $new_item)
 			$_POST['mb_flag']  = $myrow["mb_flag"];
 
 			$_POST['depreciation_method'] = $myrow['depreciation_method'];
-			$_POST['depreciation_rate'] = $myrow['depreciation_rate'];
+			$_POST['depreciation_rate'] = number_format2($myrow['depreciation_rate'], 1);
+			$_POST['depreciation_factor'] = number_format2($myrow['depreciation_factor'], 1);
 			$_POST['depreciation_start'] = sql2date($myrow['depreciation_start']);
 			$_POST['depreciation_date'] = sql2date($myrow['depreciation_date']);
 			$_POST['fa_class_id'] = $myrow['fa_class_id'];
 			$_POST['material_cost'] = $myrow['material_cost'];
-			$_POST['last_cost'] = $myrow['last_cost'];
+			$_POST['purchase_cost'] = $myrow['purchase_cost'];
 			
 			$_POST['sales_account'] =  $myrow['sales_account'];
 			$_POST['inventory_account'] = $myrow['inventory_account'];
@@ -414,36 +416,36 @@ function item_settings(&$stock_id, $new_item)
 
 		if (!isset($_POST['depreciation_rate']) || (list_updated('fa_class_id') || list_updated('depreciation_method'))) {
 			$class_row = get_fixed_asset_class($_POST['fa_class_id']);
+			$_POST['depreciation_rate'] = get_post('depreciation_method') == 'N' ? ceil(100/$class_row['depreciation_rate'])
+				: $class_row['depreciation_rate'];
+		}
 
-			if ($_POST['depreciation_method'] == 'S')
-				$_POST['depreciation_rate'] = $class_row['depreciation_period'];
-			else
-				$_POST['depreciation_rate'] = $class_row['depreciation_rate'];
-			}
+		if ($_POST['depreciation_method'] == 'O')
+		{
+			hidden('depreciation_rate', 100);
+			label_row(_("Depreciation Rate").':', "100 %");
+		}
+		elseif ($_POST['depreciation_method'] == 'N')
+		{
+			small_amount_row(_("Depreciation Years").':', 'depreciation_rate', null, null, _('years'), 0);
+		}
+		elseif ($_POST['depreciation_method'] == 'D')
+			small_amount_row(_("Base Rate").':', 'depreciation_rate', null, null, '%', user_percent_dec());
+		else
+			small_amount_row(_("Depreciation Rate").':', 'depreciation_rate', null, null, '%', user_percent_dec());
 
-			switch ($_POST['depreciation_method']) {
-				case 'D':
-					small_amount_row(_("Depreciation Rate").':', 'depreciation_rate', null, null, '%', user_percent_dec());
-					break;
-				case 'S':
-					text_row_ex(_("Depreciation Period").':', 'depreciation_rate', 3, 3, '', null, null, _("years"));
-					break;
-				case 'O':
-					hidden('depreciation_rate', 100);
-					label_row(_("Depreciation Rate").':', "100 %");
-					break;
-			}
+		if ($_POST['depreciation_method'] == 'D')
+			small_amount_row(_("Rate multiplier").':', 'depreciation_factor', null, null, '', 2);
 
-			// do not allow to change the depreciation start after this item has been depreciated
-			if ($new_item || $_POST['depreciation_start'] == $_POST['depreciation_date'])
-				date_row(_("Depreciation Start").':', 'depreciation_start', null, null, 1 - date('j'));
-			else {
-				hidden('depreciation_start');
-				label_row(_("Depreciation Start").':', $_POST['depreciation_start']);
-				label_row(_("Last Depreciation").':', $_POST['depreciation_date']);
-			}
-			hidden('depreciation_date');
-
+		// do not allow to change the depreciation start after this item has been depreciated
+		if ($new_item || $_POST['depreciation_start'] == $_POST['depreciation_date'])
+			date_row(_("Depreciation Start").':', 'depreciation_start', null, null, 1 - date('j'));
+		else {
+			hidden('depreciation_start');
+			label_row(_("Depreciation Start").':', $_POST['depreciation_start']);
+			label_row(_("Last Depreciation").':', $_POST['depreciation_date']==$_POST['depreciation_start'] ? _("None") :  $_POST['depreciation_date']);
+		}
+		hidden('depreciation_date');
 	}
 	table_section(2);
 
@@ -519,9 +521,9 @@ function item_settings(&$stock_id, $new_item)
 		table_section_title(_("Values"));
 		if (!$new_item) {
 			hidden('material_cost');
-			hidden('last_cost');
-			label_row(_("Amount").":", price_format($_POST['last_cost']), "", "align='right'");
-			label_row(_("Depreciations").":", price_format($_POST['last_cost'] - $_POST['material_cost']), "", "align='right'");
+			hidden('purchase_cost');
+			label_row(_("Initial Value").":", price_format($_POST['purchase_cost']), "", "align='right'");
+			label_row(_("Depreciations").":", price_format($_POST['purchase_cost'] - $_POST['material_cost']), "", "align='right'");
 			label_row(_("Current Value").':', price_format($_POST['material_cost']), "", "align='right'");
 		}
 	}

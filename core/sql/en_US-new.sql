@@ -1606,9 +1606,7 @@ CREATE TABLE `0_stock_fa_class` (
   `parent_id` varchar(20) NOT NULL DEFAULT '',
   `description` varchar(200) NOT NULL DEFAULT '',
   `long_description` tinytext NOT NULL,
-  `depreciation_method` char(1) NOT NULL DEFAULT 'D',
   `depreciation_rate` double NOT NULL DEFAULT '0',
-  `depreciation_period` tinyint(1) NOT NULL DEFAULT '0',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`fa_class_id`)
 ) ENGINE=InnoDB;
@@ -1644,8 +1642,9 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `no_sale` tinyint(1) NOT NULL default '0',
   `no_purchase` tinyint(1) NOT NULL default '0',
   `editable` tinyint(1) NOT NULL default '0',
-  `depreciation_method` char(1) NOT NULL DEFAULT 'D',
+  `depreciation_method` char(1) NOT NULL DEFAULT 'S',
   `depreciation_rate` double NOT NULL DEFAULT '0',
+  `depreciation_factor` double NOT NULL DEFAULT '1',
   `depreciation_start` date NOT NULL DEFAULT '0000-00-00',
   `depreciation_date` date NOT NULL DEFAULT '0000-00-00',
   `fa_class_id` varchar(20) NOT NULL DEFAULT '',
@@ -1896,6 +1895,8 @@ INSERT INTO `0_sys_prefs` VALUES ('print_item_images_on_quote','glsetup.inventor
 INSERT INTO `0_sys_prefs` VALUES ('suppress_tax_rates','setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES ('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', '15', '5660');
 INSERT INTO `0_sys_prefs` VALUES ('depreciation_period', 'glsetup.company', 'tinyint', '1', '1');
+INSERT INTO `0_sys_prefs` VALUES ('use_manufacturing','setup.company', 'tinyint', 1, '1');
+INSERT INTO `0_sys_prefs` VALUES ('use_fixed_assets','setup.company', 'tinyint', 1, '1');
 
 -- --------------------------------------------------------
 

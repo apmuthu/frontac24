@@ -1,4 +1,5 @@
 
+2015-12-7/9 Janusz Dobrowolski Fixed Assets application fixes
 2015-12-02 Ap.Muthu           Fixed typo in en_US-new.sql: Finsihed => Finished
 2015-12-01 Janusz Dobrowolski Fixed Assets application added with fixes by Joe Hunt.
 2015-12-01 Janusz Dobrowolski Fixed es_MX installer translation files

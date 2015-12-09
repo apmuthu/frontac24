@@ -44,8 +44,8 @@ $systypes_array = array (
 	);
 
 $fa_systypes_array = array (
-	ST_INVADJUST => _("FA Disposal"),
-	ST_COSTUPDATE => _("FA Revaluation"),
+	ST_INVADJUST => _("Fixed Assets Disposal"),
+	ST_COSTUPDATE => _("Fixed Assets Revaluation"),
 	);
 
 $type_shortcuts = array(
@@ -161,6 +161,7 @@ $quick_entry_types = array(
 $depreciation_methods = array(
   'D' => _("Declining balance"),
   'S' => _("Straight line"),
+  'N' => _("Sum of the Year Digits"),
   'O' => _("One-time"),
 );
 
