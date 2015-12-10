@@ -1,6 +1,7 @@
 
+2015-12-10 Joe Hunt           Fixed popup search
 2015-12-09 Janusz Dobrowolski Further Fixed Assets application fixes and search pop-ups.
-2015-12-09 Joe Hunt           Fixed a hardcoded amount_row with fixed 2 decimals. Removed and the default user_price_dec() is used
+2015-12-09 Joe Hunt           Fixed a hardcoded amount_row with fixed 2 decimals. Removed it for the default user_price_dec() is used
 2015-12-09 Ap.Muthu           Synched default value of depreciation_method in upgrade script to that in standard charts
 2015-12-7/9 Janusz Dobrowolski Fixed Assets application fixes
 2015-12-02 Ap.Muthu           Fixed typo in en_US-new.sql: Finsihed => Finished
