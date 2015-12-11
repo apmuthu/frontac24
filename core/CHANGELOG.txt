@@ -1,4 +1,5 @@
 
+2015-12-11 Joe Hunt           Removed popup search for Fixed Assets and rerun
 2015-12-10 Joe Hunt           Fixed popup search
 2015-12-09 Janusz Dobrowolski Further Fixed Assets application fixes and search pop-ups.
 2015-12-09 Joe Hunt           Fixed a hardcoded amount_row with fixed 2 decimals. Removed it for the default user_price_dec() is used
