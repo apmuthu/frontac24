@@ -1,4 +1,5 @@
 
+2015-12-11 Janusz Dobrowolski Exchange Rates: removed sparse home currency from selector.
 2015-12-11 Joe Hunt           stock_master table field actual_cost => purchase_cost in standard charts
 2015-12-11 Joe Hunt           Removed popup search for Fixed Assets and rerun
 2015-12-10 Joe Hunt           Fixed popup search
