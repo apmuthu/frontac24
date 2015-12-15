@@ -1,4 +1,5 @@
 
+2015-12-15 Joe Hunt           New standard themes, default, canvas and dropdown.
 2015-12-15 Joe Hunt           Credited forum user bogeyman2007 for popup search lists and making it GPL3
 2015-12-12 Joe Hunt           Fixed WorkOrder bugfixes from 2.3 to 2.4
 2015-12-12 Joe Hunt           Moved bugfixes from 2.3 to 2.4
