@@ -1,4 +1,5 @@
 
+2015-12-16 Joe Hunt           Matched whitespace with upstream for previous commit
 2015-12-15 Ap.Muthu           Fixed canvas theme image path
 2015-12-15 Joe Hunt           New standard dashboard routines to be used by all themes and rerun
 2015-12-15 Joe Hunt           New standard themes, default, canvas and dropdown.
