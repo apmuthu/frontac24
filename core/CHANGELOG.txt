@@ -1,4 +1,5 @@
 
+2015-12-21 Ap.Muthu           Dashboard. When empty data in company, suppress graphics.
 2015-12-20 Joe Hunt           Added GL Performance Chart in Dashboard and Rerun
 2015-12-16 Joe Hunt           Matched whitespace with upstream for previous commit
 2015-12-15 Ap.Muthu           Fixed canvas theme image path
