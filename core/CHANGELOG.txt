@@ -1,4 +1,5 @@
 
+2015-12-23 Joe Hunt           Fine tuning of Standard themes and dashboard. 
 2015-12-22 Joe Hunt           All dashboard titles placed outside the tables/graphics for better layout.
 2015-12-22 Joe Hunt           Fixed shrinking screen problem in canvas theme
 2015-12-21 Ap.Muthu           Dashboard. When empty data in company, suppress graphics.
