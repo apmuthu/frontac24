@@ -208,15 +208,9 @@ UPDATE `0_trans_tax_details` reg
 
 INSERT IGNORE INTO `0_sys_prefs` VALUES
 	('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, 0),
-	('default_receival_required', 'glsetup.purchase', 'smallint', 6, '10'),
 	('default_quote_valid_days', 'glsetup.sales', 'smallint', 6, 30),
 	('no_zero_lines_amount', 'glsetup.sales', 'tinyint', 1, '1'),
-	('show_po_item_codes', 'glsetup.purchase', 'tinyint', 1, '0'),
 	('accounts_alpha', 'glsetup.general', 'tinyint', 1, '0'),
-	('loc_notification', 'glsetup.inventory', 'tinyint', 1, '0'),
-	('print_invoice_no', 'glsetup.sales', 'tinyint', 1, '0'),
-	('allow_negative_prices', 'glsetup.inventory', 'tinyint', 1, '1'),
-	('print_item_images_on_quote', 'glsetup.inventory', 'tinyint', 1, '0'),
 	('bcc_email', 'setup.company', 'varchar', 100, ''),
 	('alternative_tax_include_on_docs', 'setup.company', 'tinyint', 1, '0'),
 	('suppress_tax_rates', 'setup.company', 'tinyint', 1, '0');
@@ -262,7 +256,7 @@ ALTER TABLE `0_cust_branch` DROP KEY `branch_code`;
 ALTER TABLE `0_supp_trans` DROP KEY `SupplierID_2`;
 ALTER TABLE `0_supp_trans` DROP KEY `type`;
 
-# RC1
+# new fixed assets module
 ALTER TABLE `0_locations` ADD COLUMN `fixed_asset` tinyint(1) NOT NULL DEFAULT '0' after `contact`;
 
 DROP TABLE IF EXISTS `0_stock_fa_class`;
@@ -284,8 +278,32 @@ ALTER TABLE `0_stock_master` ADD COLUMN `depreciation_date` date NOT NULL DEFAUL
 ALTER TABLE `0_stock_master` ADD COLUMN `fa_class_id` varchar(20) NOT NULL DEFAULT '' AFTER `depreciation_date`;
 ALTER TABLE `0_stock_master` CHANGE `actual_cost` `purchase_cost` double NOT NULL default 0;
 
-INSERT INTO `0_sys_prefs` VALUES ('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', '15', '5660');
-INSERT INTO `0_sys_prefs` VALUES ('depreciation_period', 'glsetup.company', 'tinyint', '1', '1');
+INSERT IGNORE INTO `0_sys_prefs` VALUES
+	('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', '15', '5660'),
+	('depreciation_period', 'glsetup.company', 'tinyint', '1', '1'),
+	('use_manufacturing','setup.company', 'tinyint', 1, '1'),
+	('use_fixed_assets','setup.company', 'tinyint', 1, '1');
 
-INSERT INTO `0_sys_prefs` VALUES ('use_manufacturing','setup.company', 'tinyint', 1, '1');
-INSERT INTO `0_sys_prefs` VALUES ('use_fixed_assets','setup.company', 'tinyint', 1, '1');
+# manufacturing rewrite
+ALTER TABLE `0_wo_issue_items` ADD COLUMN  `unit_cost` double NOT NULL default '0' AFTER `qty_issued`;
+ALTER TABLE `0_wo_requirements` CHANGE COLUMN `std_cost` `unit_cost` double NOT NULL default '0';
+
+ALTER TABLE `0_stock_master` DROP COLUMN `last_cost`;
+UPDATE `0_stock_master` SET `material_cost`=`material_cost`+`labour_cost`+`overhead_cost`;
+
+ALTER TABLE `0_stock_master` CHANGE COLUMN `assembly_account` `wip_account` VARCHAR(15) NOT NULL default '';
+ALTER TABLE `0_stock_category` CHANGE COLUMN `dflt_assembly_act` `dflt_wip_act` VARCHAR(15) NOT NULL default '';
+UPDATE `0_sys_prefs` SET `name`='default_wip_act' WHERE `name`='default_assembly_act';
+
+UPDATE `0_wo_issue_items` i, `0_stock_moves` m
+	SET i.unit_cost=m.standard_cost
+	WHERE i.unit_cost=0 AND i.stock_id=m.stock_id AND m.trans_no=i.issue_id AND m.`type`=28 AND m.qty=-i.qty_issued;
+
+UPDATE `0_wo_requirements` r, `0_stock_moves` m
+	SET r.unit_cost=m.standard_cost
+	WHERE r.unit_cost=0 AND r.stock_id=m.stock_id AND m.trans_no=r.workorder_id AND m.`type`=26 AND m.qty=-r.units_issued;
+
+UPDATE `0_bank_trans` SET person_id=trans_no WHERE person_type_id=26;
+
+ALTER TABLE `0_budget_trans` CHANGE `counter` `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `0_sys_prefs` CHANGE `value` `value` text NOT NULL default '';

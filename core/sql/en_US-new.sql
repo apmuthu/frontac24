@@ -1276,7 +1276,7 @@ CREATE TABLE IF NOT EXISTS `0_recurrent_invoices` (
 -- --------------------------------------------------------
 
 --
---- Table structure for table `0_reflines`
+-- Table structure for table `0_reflines`
 --
 
 DROP TABLE IF EXISTS `0_reflines`;
@@ -1294,7 +1294,7 @@ CREATE TABLE `0_reflines` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23;
 
 --
---- Dumping data for table `0_reflines`
+-- Dumping data for table `0_reflines`
 --
 
 INSERT INTO `0_reflines` VALUES
@@ -1575,7 +1575,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_cogs_act` varchar(15) NOT NULL default '',
   `dflt_inventory_act` varchar(15) NOT NULL default '',
   `dflt_adjustment_act` varchar(15) NOT NULL default '',
-  `dflt_assembly_act` varchar(15) NOT NULL default '',
+  `dflt_wip_act` varchar(15) NOT NULL default '',
   `dflt_dim1` int(11) default NULL,
   `dflt_dim2` int(11) default NULL,
   `inactive` tinyint(1) NOT NULL default '0',
@@ -1630,11 +1630,10 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `cogs_account` varchar(15) NOT NULL default '',
   `inventory_account` varchar(15) NOT NULL default '',
   `adjustment_account` varchar(15) NOT NULL default '',
-  `assembly_account` varchar(15) NOT NULL default '',
+  `wip_account` varchar(15) NOT NULL default '',
   `dimension_id` int(11) default NULL,
   `dimension2_id` int(11) default NULL,
   `purchase_cost` double NOT NULL default '0',
-  `last_cost` double NOT NULL default '0',
   `material_cost` double NOT NULL default '0',
   `labour_cost` double NOT NULL default '0',
   `overhead_cost` double NOT NULL default '0',
@@ -1876,7 +1875,7 @@ INSERT INTO `0_sys_prefs` VALUES ('default_inventory_act', 'glsetup.items', 'var
 INSERT INTO `0_sys_prefs` VALUES ('default_cogs_act', 'glsetup.items', 'varchar', 15, '5010');
 INSERT INTO `0_sys_prefs` VALUES ('default_adj_act', 'glsetup.items', 'varchar', 15, '5040');
 INSERT INTO `0_sys_prefs` VALUES ('default_inv_sales_act', 'glsetup.items', 'varchar', 15, '4010');
-INSERT INTO `0_sys_prefs` VALUES ('default_assembly_act', 'glsetup.items', 'varchar', 15, '1530');
+INSERT INTO `0_sys_prefs` VALUES ('default_wip_act', 'glsetup.items', 'varchar', 15, '1530');
 INSERT INTO `0_sys_prefs` VALUES ('default_workorder_required', 'glsetup.manuf', 'int', 11, '20');
 INSERT INTO `0_sys_prefs` VALUES ('version_id', 'system', 'varchar', 11, '2.4.1');
 INSERT INTO `0_sys_prefs` VALUES ('auto_curr_reval', 'setup.company', 'smallint', 6, '1');
@@ -2227,6 +2226,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issue_items` (
   `stock_id` varchar(40) default NULL,
   `issue_id` int(11) default NULL,
   `qty_issued` double default NULL,
+  `unit_cost` double NOT NULL default '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -2268,7 +2268,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
   `stock_id` char(20) NOT NULL default '',
   `workcentre` int(11) NOT NULL default '0',
   `units_req` double NOT NULL default '1',
-  `std_cost` double NOT NULL default '0',
+  `unit_cost` double NOT NULL default '0',
   `loc_code` char(5) NOT NULL default '',
   `units_issued` double NOT NULL default '0',
   PRIMARY KEY (`id`),

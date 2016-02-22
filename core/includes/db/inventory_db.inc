@@ -86,10 +86,11 @@ function check_negative_stock($stock_id, $delta_qty, $location=null, $date=null)
 
 function get_item_edit_info($stock_id)
 {
-	$sql = "SELECT material_cost + labour_cost + overhead_cost AS standard_cost, units, decimals
-		FROM ".TB_PREF."stock_master,".TB_PREF."item_units
+	$sql = "SELECT item.material_cost, item.units, unit.decimals
+		FROM ".TB_PREF."stock_master item,"
+			.TB_PREF."item_units unit
 		WHERE stock_id=".db_escape($stock_id)
-		." AND ".TB_PREF."stock_master.units=".TB_PREF."item_units.abbr";
+		." AND item.units=unit.abbr";
 	$result = db_query($sql, "The standard cost cannot be retrieved");
 
 	return db_fetch($result);
@@ -97,10 +98,11 @@ function get_item_edit_info($stock_id)
 
 //--------------------------------------------------------------------------------------
 
-function get_standard_cost($stock_id)
+function get_unit_cost($stock_id)
 {
-	$sql = "SELECT (material_cost + labour_cost + overhead_cost) AS std_cost
-		FROM ".TB_PREF."stock_master s WHERE stock_id=".db_escape($stock_id);
+	$sql = "SELECT material_cost
+		FROM ".TB_PREF."stock_master
+		WHERE stock_id=".db_escape($stock_id);
 	$result = db_query($sql, "The standard cost cannot be retrieved");
 
 	$myrow = db_fetch_row($result);
@@ -112,7 +114,8 @@ function get_standard_cost($stock_id)
 
 function is_inventory_item($stock_id)
 {
-	$sql = "SELECT stock_id FROM ".TB_PREF."stock_master
+	$sql = "SELECT stock_id FROM "
+		.TB_PREF."stock_master
 		WHERE stock_id=".db_escape($stock_id)." AND mb_flag <> 'D'";
 	$result = db_query($sql, "Cannot query is inventory item or not");
 
@@ -152,7 +155,10 @@ function get_already_delivered($stock_id, $location, $trans_no)
 	$row = db_fetch_row($result);
 	return $row[0];
 }
-
+/*
+	Returns start move_id in latest negative status period for $stock_id
+	FIXME: $to ? 
+*/
 function last_negative_stock_trans_id($stock_id, $to)
 {
 	$sql = "SELECT * from ".TB_PREF."stock_moves
@@ -197,21 +203,24 @@ function get_deliveries_between($stock_id, $from, $to)
 	return db_fetch_row($result);
 }
 
-function get_deliveries_from_trans($stock_id, $from)
+/*
+	Returns quantity and total cost of $stock_id sales, entered after record with $move_id
+*/
+function get_deliveries_from_trans($stock_id, $move_id)
 {
 	// -ve qty is delivery either by ST_CUSTDELIVERY or inventory adjustment
     //Price for GRN and SUPPCREDIT and std_cost for other trans_types
     $sql = "SELECT SUM(-qty), SUM(-qty*IF(type=".ST_SUPPRECEIVE." OR type=".ST_SUPPCREDIT.", price, standard_cost))
         FROM ".TB_PREF."stock_moves
         WHERE stock_id=".db_escape($stock_id)." AND qty < 0 AND
-            trans_id>='$from' GROUP BY stock_id";
+            trans_id>='$move_id' GROUP BY stock_id";
 	$result = db_query($sql, "The deliveries could not be updated");
 	$row = db_fetch_row($result);
 	
     $sql = "SELECT IF(type=".ST_SUPPRECEIVE." OR type=".ST_SUPPCREDIT.", price, standard_cost)
         FROM ".TB_PREF."stock_moves
         WHERE stock_id=".db_escape($stock_id)
-            ." AND trans_id ='$from'";
+            ." AND trans_id ='$move_id'";
     $result = db_query($sql, "The deliveries could not be updated");
     $cost = db_fetch_row($result);
 
@@ -219,7 +228,7 @@ function get_deliveries_from_trans($stock_id, $from)
 	$sql = "SELECT SUM(qty)
 		FROM ".TB_PREF."stock_moves
 		WHERE stock_id=".db_escape($stock_id)." AND
-			trans_id<'$from' GROUP BY stock_id";
+			trans_id<'$move_id' GROUP BY stock_id";
 	$result = db_query($sql, "The deliveries could not be updated");
 	$qoh = db_fetch_row($result);
 
@@ -229,13 +238,16 @@ function get_deliveries_from_trans($stock_id, $from)
 	return array($qty,$final_cost); 
 }
 
-function get_purchases_from_trans($stock_id, $from)
+/*
+	Returns quantity and total cost of $stock_id purchases, entered after record with $move_id
+*/
+function get_purchases_from_trans($stock_id, $move_id)
 {
 	// Calculate All inward stock moves i.e. qty > 0
 	$sql = "SELECT SUM(qty), SUM(qty*standard_cost)
 		FROM ".TB_PREF."stock_moves
 		WHERE stock_id=".db_escape($stock_id)." AND qty > 0 AND 
-			trans_id>'$from' GROUP BY stock_id";
+			trans_id>'$move_id' GROUP BY stock_id";
 	$result = db_query($sql, "Could not get get_purchases_from_trans");
 	$row = db_fetch_row($result);
 	
@@ -243,7 +255,10 @@ function get_purchases_from_trans($stock_id, $from)
 }
 
 //-------------------------------------------------------------------
-
+/*
+	This routine fixes stock and COGS balances for all $stock_id sales made during negative inventory status.
+	This is called when delivery is received causing inventory status to be positive again.
+*/
 function adjust_deliveries($stock_id, $material_cost, $to)
 {
 	global $Refs;
@@ -251,19 +266,19 @@ function adjust_deliveries($stock_id, $material_cost, $to)
 	if (!is_inventory_item($stock_id))
 		return;
 	
-	$from = last_negative_stock_trans_id($stock_id, $to);
-	if ($from == false || $from == -1)
+	$move_id = last_negative_stock_trans_id($stock_id, $to);
+	if ($move_id == false || $move_id == -1)
 		return;
 
-	$row = get_deliveries_from_trans($stock_id, $from);
-		
+	$row = get_deliveries_from_trans($stock_id, $move_id);
+
 	if ($row == false)
 		return;	
 	$old_sales_cost = $row[1];
 	$new_sales_cost = $row[0] * $material_cost;
 	$sales_diff = $new_sales_cost - $old_sales_cost;
 	
-	$row = get_purchases_from_trans($stock_id, $from);
+	$row = get_purchases_from_trans($stock_id, $move_id);
 	$purchase_diff = 0;
 	$old_purchase_cost = $new_purchase_cost = 0;
 	if ($row != false)
@@ -302,7 +317,7 @@ function get_stock_gl_code($stock_id)
 {
 	/*Gets the GL Codes relevant to the item account  */
 	$sql = "SELECT mb_flag, inventory_account, cogs_account,
-		adjustment_account, sales_account, assembly_account, dimension_id, dimension2_id FROM
+		adjustment_account, sales_account, wip_account, dimension_id, dimension2_id FROM
 		".TB_PREF."stock_master WHERE stock_id = ".db_escape($stock_id);
 
 	$get = db_query($sql,"retreive stock gl code");
@@ -340,7 +355,7 @@ function handle_negative_inventory($stock_id, $quantity, $standard_cost, $date_)
 
 		$id = get_next_trans_no(ST_JOURNAL);
 		$ref = $Refs->get_next(ST_JOURNAL, null, $date_);
-		$diff = round($qoh*get_standard_cost($stock_id) + $quantity*$standard_cost, user_price_dec());
+		$diff = round($qoh*get_unit_cost($stock_id) + $quantity*$standard_cost, user_price_dec());
 
 		if ($diff != 0)
 		{
@@ -405,8 +420,7 @@ function update_stock_move($type, $trans_no, $stock_id, $cost)
 
 function get_stock_moves($type, $type_no)
 {
-	$sql = "SELECT move.*, item.description, item.mb_flag, item.units, stock.location_name,
-		item.material_cost + item.labour_cost + item.overhead_cost AS FixedStandardCost
+	$sql = "SELECT move.*, item.description, item.mb_flag, item.units, stock.location_name
 		FROM ".TB_PREF."stock_moves move,"
 			.TB_PREF."locations stock,"
 			.TB_PREF."stock_master item

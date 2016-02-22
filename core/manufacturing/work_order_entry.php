@@ -259,8 +259,7 @@ if (isset($_POST['UPDATE_ITEM']) && can_process())
 {
 
 	update_work_order($selected_id, $_POST['StockLocation'], input_num('quantity'),
-		$_POST['stock_id'],  $_POST['date_'], $_POST['RequDate'], $_POST['memo_'],
-		$_POST['old_stk_id'], $_POST['old_qty']);
+		$_POST['stock_id'],  $_POST['date_'], $_POST['RequDate'], $_POST['memo_']);
 	new_doc_date($_POST['date_']);
 	meta_forward($_SERVER['PHP_SELF'], "UpdatedID=$selected_id");
 }
@@ -344,7 +343,6 @@ if (isset($selected_id))
 	$_POST['date_'] = sql2date($myrow["date_"]);
 	$_POST['RequDate'] = sql2date($myrow["required_by"]);
 	$_POST['released_date'] = sql2date($myrow["released_date"]);
-	$_POST['memo_'] = "";
 	$_POST['units_issued'] = $myrow["units_issued"];
 	$_POST['Costs'] = price_format($myrow["additional_costs"]);
 
@@ -355,8 +353,6 @@ if (isset($selected_id))
 	hidden('released', $_POST['released']);
 	hidden('released_date', $_POST['released_date']);
 	hidden('selected_id',  $selected_id);
-	hidden('old_qty', $myrow["units_reqd"]);
-	hidden('old_stk_id', $myrow["stock_id"]);
 
 	label_row(_("Reference:"), $_POST['wo_ref']);
 	label_row(_("Type:"), $wo_types_array[$_POST['type']]);
@@ -365,6 +361,7 @@ if (isset($selected_id))
 else
 {
 	$_POST['units_issued'] = $_POST['released'] = 0;
+
 	ref_row(_("Reference:"), 'wo_ref', '', $Refs->get_next(ST_WORKORDER, null, get_post('date_')), false, ST_WORKORDER);
 
 	wo_types_list_row(_("Type:"), 'type', null);
@@ -408,20 +405,19 @@ else
     date_row(_("Date") . ":", 'date_', '', true);
 	hidden('RequDate', '');
 
-	$bank_act = get_default_bank_account();
-	if (!isset($_POST['Labour']))
+	if (!isset($_POST['Labour']) || list_updated('stock_id') || list_updated('type'))
 	{
-		$_POST['Labour'] = price_format(0);
+		$bank_act = get_default_bank_account();
+		$item = get_item(get_post('stock_id'));
+		$_POST['Labour'] = price_format(get_post('type') == WO_ASSEMBLY ? $item['labour_cost'] : 0);
 		$_POST['cr_lab_acc'] = $bank_act['account_code'];
+		$_POST['Costs'] = price_format(get_post('type') == WO_ASSEMBLY ? $item['overhead_cost'] : 0);
+		$_POST['cr_acc'] = $bank_act['account_code'];
+		$Ajax->activate('_page_body');
 	}
 
 	amount_row($wo_cost_types[WO_LABOUR], 'Labour');
 	gl_all_accounts_list_row(_("Credit Labour Account"), 'cr_lab_acc', null);
-	if (!isset($_POST['Costs']))
-	{
-		$_POST['Costs'] = price_format(0);
-		$_POST['cr_acc'] = $bank_act['account_code'];
-	}
 	amount_row($wo_cost_types[WO_OVERHEAD], 'Costs');
 	gl_all_accounts_list_row(_("Credit Overhead Account"), 'cr_acc', null);
 

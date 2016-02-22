@@ -23,7 +23,12 @@ function add_wo_costing($workorder_id, $cost_type, $trans_type, $trans_no, $fact
 
 function get_wo_costing($workorder_id)
 {
-	$sql="SELECT * FROM ".TB_PREF."wo_costing WHERE workorder_id=".db_escape($workorder_id);
+	$sql="SELECT * 
+		FROM ".TB_PREF."wo_costing cost,
+			".TB_PREF."journal gl
+		WHERE
+			cost.trans_type=gl.type AND cost.trans_no=gl.trans_no
+			AND workorder_id=".db_escape($workorder_id);
 
 	return db_query($sql, "could not get work order costing");
 }
@@ -35,244 +40,81 @@ function delete_wo_costing($trans_type, $trans_no)
 
 	db_query($sql, "could not delete work order costing");
 }
-//--------------------------------------------------------------------------------------
 
-function add_material_cost($stock_id, $qty, $date_, $advanced=false, $woid=0)
+/*
+	Updates average material cost for item.
+*/
+function update_material_cost($stock_id, $qty, $unit_cost, $date)
 {
-	$m_cost = 0;
-    $result = get_bom($stock_id);
-	while ($bom_item = db_fetch($result))
+	global $Refs;
+
+	$product = get_item($stock_id);
+	$avg_cost =  $product['material_cost'];
+
+	$qoh = get_qoh_on_date($stock_id, null, $date);
+
+	// unit_cost*qty is already posted on inventory GL
+/* 
+	if ($qoh > 0)
 	{
-		$standard_cost = get_standard_cost($bom_item['component']);
-		$m_cost += ($bom_item['quantity'] * $standard_cost);
-	}
-	$bom_cost = $m_cost;
-	// new 2015.10.15	
-	// additilnal costs.
-	$i_cost = 0;
-	if ($woid != 0 && work_order_has_issues($woid))
-	{
-		$res = get_additional_issues($woid);
-		while ($issue = db_fetch($res))
-		{
-			$standard_cost = get_standard_cost($issue['stock_id']);
-			$i_cost += ($issue['qty_issued'] * $standard_cost) / $qty;
-		}
-	}
-	$sql = "SELECT material_cost, labour_cost, overhead_cost FROM ".TB_PREF."stock_master WHERE stock_id = "
-		.db_escape($stock_id);
-	$result = db_query($sql);
-	$myrow = db_fetch($result);
-	$material_cost =  $myrow['material_cost'];
-	$m_cost += $i_cost;
-	/*	
-	if ($advanced)
-	{
-		//reduce overhead_cost and labour_cost from price as those will remain as is
-		$m_cost = $m_cost - $myrow['labour_cost'] - $myrow['overhead_cost'];
-	}
-	*/	
-	$qoh = get_qoh_on_date($stock_id);
-	$cost_adjust = false;
-	if ($qoh < 0)
-	{
-		if ($qoh + $qty >= 0)
-			$cost_adjust = true;
-		$qoh = 0;
-	}
-	if ($qoh + $qty != 0)
-	{
-		if ($qoh == 0)
-			$material_cost = $m_cost; // corrected 27.10.2014
+		 if ($qty<0)
+			$qty_done = max(-$qoh, $qty);
+		 else
+			$qty_done = $qty;
+	} else {
+		if ($qty>0)
+			$qty_done = max($qoh+$qty, 0);
 		else
-			$material_cost = ($qoh * $material_cost + $qty * $m_cost) /	($qoh + $qty);
+			$qty_done = 0;
 	}
-	
-	if ($advanced && $cost_adjust) // new 2010-02-10
-		adjust_deliveries($stock_id, $bom_cost, $date_);	
-	
-	$sql = "UPDATE ".TB_PREF."stock_master SET material_cost=".db_escape($material_cost)."
+	$qty_delayed = $qty-$qty_done;
+*/
+	if ($qoh < 0)
+	{
+			$qty_delayed = min(-$qoh, $qty);
+	} else {
+			$qty_delayed = 0;
+	}
+	$qty_new = $qty - $qty_delayed;
+
+	if ($qty_delayed > 0 && ($unit_cost != $avg_cost))
+	{
+		// post	$qty_delayed*($avg_cost-$unit_cost)
+		$diff = $qty_delayed*($unit_cost-$avg_cost);
+		$stock_gl_code = get_item($stock_id);
+
+		$dec = user_price_dec();
+		$old_cost = -round2($avg_cost, $dec);
+		$new_cost = -round2($unit_cost, $dec);
+
+		$cart = new items_cart(ST_COSTUPDATE);
+		$cart->tran_date = $cart->doc_date = $cart->event_date = $date;
+
+		if (!is_date_in_fiscalyear($cart->tran_date))
+			$cart->tran_date = end_fiscalyear();
+
+		$cart->reference = $Refs->get_next(ST_COSTUPDATE, null, $cart->tran_date);
+
+		$cart->memo_ = sprintf(_("COGS changed from %s to %s for %d %s of '%s'"), $avg_cost, $unit_cost, $qty_delayed, $item['units'], $stock_id);
+
+		$cart->add_gl_item($item["cogs_account"], $item["dimension_id"], $item["dimension2_id"], -$diff);
+		$cart->add_gl_item($item["inventory_account"], 0, 0, $diff);
+
+		write_journal_entries($cart);
+	}
+
+	if ($qty > 0 && ($qoh != -$qty))
+		$avg_cost = ($avg_cost*($qoh+$qty_delayed)+$unit_cost*$qty_new)/($qoh+$qty);
+
+	$sql = "UPDATE ".TB_PREF."stock_master SET material_cost=".db_escape($avg_cost)."
 		    WHERE stock_id=".db_escape($stock_id);
-	db_query($sql,"The cost details for the inventory item could not be updated");
-}
-
-function add_overhead_cost($stock_id, $qty, $date_, $costs, $adj_only=false)
-{
-	if ($qty != 0)
-		$costs /= $qty;
-	$sql = "SELECT overhead_cost FROM ".TB_PREF."stock_master WHERE stock_id = "
-		.db_escape($stock_id);
-	$result = db_query($sql);
-	$myrow = db_fetch($result);
-	$overhead_cost =  $myrow['overhead_cost'];
-	$qoh = get_qoh_on_date($stock_id);
-	if ($qoh < 0)
-		$qoh = 0;
-	if ($adj_only)
-	{
-		if ($qoh>0)
-		{
-			if ($qoh + $qty != 0)	
-				$overhead_cost = ($qoh * $overhead_cost + $qty * $costs) /	($qoh + $qty);
-			elseif ($qty == 0)
-				$overhead_cost = ($qoh * $overhead_cost + $costs) / $qoh;
-		}			
-		else // Journal Entry if QOH is 0/negative 
-		{
-			global $Refs;
-
-			$id = get_next_trans_no(ST_JOURNAL);
-			$ref = $Refs->get_next(ST_JOURNAL, null, $date_);
-
-			$stock_gl_code = get_stock_gl_code($stock_id);
-			add_journal(ST_JOURNAL, $id, $costs, $date_, get_company_currency(), $ref);
-			$memo = "WO Overhead cost settlement JV for zero/negative respository of ".$stock_id;
-			//Reverse the inventory effect if $qoh <=0
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["inventory_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo, 
-				-$costs);
-			//GL Posting to inventory adjustment account
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["assembly_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo,
-				$costs);
-				
-			add_audit_trail(ST_JOURNAL, $id, $date_);
-			add_comments(ST_JOURNAL, $id, $date_, $memo);
-			$Refs->save(ST_JOURNAL, $id, $ref);	
-			if ($qty != 0)
-				$overhead_cost = ($qoh * $overhead_cost + $costs) / $qty;
-		}
-	}
-	else
-	{		
-		if ($qoh + $qty != 0)	
-			$overhead_cost = ($qoh * $overhead_cost + $qty * $costs) /	($qoh + $qty);
-	}
-	$sql = "UPDATE ".TB_PREF."stock_master SET overhead_cost=".db_escape($overhead_cost)."
-		WHERE stock_id=".db_escape($stock_id);
-	db_query($sql,"The cost details for the inventory item could not be updated");
-}
-
-function add_labour_cost($stock_id, $qty, $date_, $costs, $adj_only=false)
-{
-	if ($qty != 0)
-		$costs /= $qty;
-	$sql = "SELECT labour_cost FROM ".TB_PREF."stock_master WHERE stock_id = "
-		.db_escape($stock_id);
-	$result = db_query($sql);
-	$myrow = db_fetch($result);
-	$labour_cost =  $myrow['labour_cost'];
-	$qoh = get_qoh_on_date($stock_id);
-	if ($qoh < 0)
-		$qoh = 0;
-	if ($adj_only)
-	{
-		if ($qoh>0)
-		{
-			if ($qoh + $qty != 0)	
-				$labour_cost = ($qoh * $labour_cost + $qty * $costs) /	($qoh + $qty);
-			elseif ($qty == 0)
-				$labour_cost = ($qoh * $labour_cost + $costs) / $qoh;
-		}		
-		else // Journal Entry if QOH is 0/negative 
-		{
-			global $Refs;
-
-			$id = get_next_trans_no(ST_JOURNAL);
-			$ref = $Refs->get_next(ST_JOURNAL, null, $date_);
-			add_journal(ST_JOURNAL, $id, $costs, $date_, get_company_currency(), $ref);
-
-			$stock_gl_code = get_stock_gl_code($stock_id);
-			$memo = "WO labour cost settlement JV for zero/negative respository of ".$stock_id;
-			//Reverse the inventory effect if $qoh <=0
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["inventory_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo, 
-				-$costs);
-			//GL Posting to inventory adjustment account
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["assembly_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo,
-				$costs);
-
-			add_audit_trail(ST_JOURNAL, $id, $date_);
-			add_comments(ST_JOURNAL, $id, $date_, $memo);
-			$Refs->save(ST_JOURNAL, $id, $ref);	
-			if ($qty != 0)
-				$labour_cost = ($qoh * $labour_cost + $costs) / $qty;
-		}
-	}
-	else
-	{
-		if ($qoh + $qty != 0)
-			$labour_cost = ($qoh * $labour_cost + $qty * $costs) /	($qoh + $qty);
-	}	
-	$sql = "UPDATE ".TB_PREF."stock_master SET labour_cost=".db_escape($labour_cost)."
-		WHERE stock_id=".db_escape($stock_id);
-	db_query($sql,"The cost details for the inventory item could not be updated");
-}
-
-function add_issue_cost($stock_id, $qty, $date_, $costs, $adj_only=false)
-{
-	if ($qty != 0)
-		$costs /= $qty;
-	$sql = "SELECT material_cost FROM ".TB_PREF."stock_master WHERE stock_id = "
-		.db_escape($stock_id);
-	$result = db_query($sql);
-	$myrow = db_fetch($result);
-	$material_cost =  $myrow['material_cost'];
-	$qoh = get_qoh_on_date($stock_id);
-	if ($qoh < 0)
-		$qoh = 0;
-	if ($adj_only)
-	{
-		if ($qoh>0)
-			$material_cost = ($qoh * $material_cost + $costs) / $qoh;
-		else // Journal Entry if QOH is 0/negative
-		{
-			global $Refs;
-
-			$id = get_next_trans_no(ST_JOURNAL);
-			$ref = $Refs->get_next(ST_JOURNAL, null, $date_);
-			add_journal(ST_JOURNAL, $id, $costs, $date_, get_company_currency(), $ref);
-			
-			$stock_gl_code = get_stock_gl_code($stock_id);
-			$memo = "WO Issue settlement JV for zero/negative respository of ".$stock_id;
-			//Reverse the inventory effect if $qoh <=0
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["inventory_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo, 
-				-$costs);
-			//GL Posting to inventory adjustment account
-			add_gl_trans_std_cost(ST_JOURNAL, $id, $date_, 
-				$stock_gl_code["assembly_account"],
-				$stock_gl_code['dimension_id'], $stock_gl_code['dimension2_id'], $memo,
-				$costs);
-				
-			add_audit_trail(ST_JOURNAL, $id, $date_);
-			add_comments(ST_JOURNAL, $id, $date_, $memo);
-			$Refs->save(ST_JOURNAL, $id, $ref);	
-			if ($qty != 0)
-			 	$material_cost = $costs / $qty; 
-		}
-	}
-	else
-	{
-		if ($qoh + $qty != 0)	
-			$material_cost = ($qoh * $material_cost + $qty * $costs) /	($qoh + $qty);
-	}	
-	$sql = "UPDATE ".TB_PREF."stock_master SET material_cost=material_cost+"
-		.db_escape($material_cost)
-		." WHERE stock_id=".db_escape($stock_id);
 	db_query($sql,"The cost details for the inventory item could not be updated");
 }
 
 /*
 	Create journal entry for WO related costs.
 */
-function add_wo_costs_journal($wo_id, $amount, $cost_type, $cr_acc, $db_acc, $date, $dim1=0, $dim2=0, $memo = null, $ref= null)
+function add_wo_costs_journal($wo_id, $amount, $cost_type, $cr_acc, $date, $dim1=0, $dim2=0, $memo = null, $ref= null)
 {
 //-------- this should be done by single call to write_journal_entries() using items_cart()
 //
@@ -282,21 +124,27 @@ function add_wo_costs_journal($wo_id, $amount, $cost_type, $cr_acc, $db_acc, $da
 
     $journal_id = get_next_trans_no(ST_JOURNAL);
 
+	$wo = get_work_order($wo_id);
+
     if (!$ref) $ref = $Refs->get_next(ST_JOURNAL, null, $date);
 
 	add_gl_trans_std_cost(ST_JOURNAL, $journal_id, $date, $cr_acc,
 		0, 0, $wo_cost_types[$cost_type], -$amount);
+
 	$is_bank_to = is_bank_account($cr_acc);
 	if ($is_bank_to)
 	{
 		add_bank_trans(ST_JOURNAL, $journal_id, $is_bank_to, "",
 			$date, -$amount, PT_WORKORDER, $wo_id, get_company_currency(),
 			"Cannot insert a destination bank transaction");
-	} 
-	add_journal(ST_JOURNAL, $journal_id, $amount, $date, get_company_currency(), $ref);
+	}
+	add_journal(ST_JOURNAL, $journal_id, $amount, $date, get_company_currency(), $ref, '', 1, $date, $date);
 
-	add_gl_trans_std_cost(ST_JOURNAL, $journal_id, $date, $db_acc,
+	add_gl_trans_std_cost(ST_JOURNAL, $journal_id, $date, $wo['wip_account'],
 		$dim1, $dim2,  $wo_cost_types[$cost_type], $amount);
+
+	$wo = get_work_order($wo_id);
+	$wip = $wo['wip_account'];
 
 	$Refs->save(ST_JOURNAL, $journal_id, $ref);
 
@@ -308,14 +156,69 @@ function add_wo_costs_journal($wo_id, $amount, $cost_type, $cr_acc, $db_acc, $da
 	commit_transaction();
 }
 
+/*
+	Process component usage: generate and post stock move, update average component cost.
+*/
+function work_order_production_gl($woid, $stock_id, $quantity, $date_, $rcv_no)
+{
+	$result = get_wo_requirements($woid);
+
+	// credit all the components
+	$total_cost = 0;
+	while ($bom_item = db_fetch($result))
+	{
+
+		update_wo_requirement_issued($bom_item['id'], $bom_item["units_req"] * $quantity, $bom_item["ComponentCost"]);
+
+		// insert a -ve stock move for each item
+		add_stock_move(ST_MANURECEIVE, $bom_item["stock_id"], $rcv_no,
+			$bom_item["loc_code"], $date_, "", -$bom_item["units_req"] * $quantity, $bom_item["ComponentCost"], 0);
+
+		if (!is_service($bom_item["mb_flag"]))
+			$ivaccount = $bom_item["inventory_account"];
+		else
+			$ivaccount = $bom_item["cogs_account"];
+
+		$memo = $date_.": ".$bom_item["units_req"] ." * ".$bom_item["description"];
+
+		$total_cost += add_gl_trans_std_cost(ST_MANURECEIVE, $rcv_no, $date_, $ivaccount, 0, 0,
+			$memo, -$bom_item["ComponentCost"] * $bom_item["units_req"] * $quantity);
+	}
+
+	$wo = get_work_order($woid);
+    add_gl_trans_std_cost(ST_MANURECEIVE, $rcv_no, $date_, $wo['wip_account'],
+        0, 0, $memo, -$total_cost);
+}
+
+function check_wo_costing($type, $trans_no)
+{
+	$sql = "SELECT workorder_id FROM ".TB_PREF."wo_costing WHERE trans_type= ".db_escape($type)." AND trans_no=".db_escape($trans_no);
+	$costs = db_query($sql, 'cannot check WO costing');
+
+	if (!db_num_rows($costs))
+		return 0;
+
+	$wo = db_fetch($costs);
+	return $wo['workorder_id'];
+}
+
 function void_wo_costing($wo_id)
 {
+	global $Refs;
+
 	$res = get_wo_costing($wo_id);
 
 	while($row = db_fetch($res))
 	{
 		// void any related gl trans
-		void_gl_trans($row['trans_type'], $row['trans_no'], true);
+		$date = Today();
+		$type = $row['trans_type'];
+		$trans_no = $row['trans_no'];
+		$memo = sprintf(_("Voided WO #%s"), $wo_id);
+		void_gl_trans($type, $trans_no, true);
+		add_audit_trail($type, $trans_no, $date, $memo);
+		add_voided_entry($type, $trans_no, $date, $memo);
+		$Refs->restore_last($type, $trans_no);
 	}
 
 	$sql = "DELETE FROM ".TB_PREF."wo_costing WHERE workorder_id=".db_escape($wo_id);

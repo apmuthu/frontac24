@@ -111,7 +111,7 @@ function gl_account_in_company_defaults($acc)
 		OR name='default_cogs_act'
 		OR name='default_adj_act'
 		OR name='default_inv_sales_act'
-		OR name='default_assembly_act') AND value=".db_escape($acc);
+		OR name='default_wip_act') AND value=".db_escape($acc);
 	$result = db_query($sql,"Couldn't test for default company GL codes");
 
 	$myrow = db_fetch_row($result);
@@ -287,4 +287,25 @@ function is_bank_account($account_code)
 		return $acct['id'];
 	} else
 		return false;
+}
+
+function get_chart_accounts_search($like)
+{
+	global $SysPrefs;
+
+	if (isset($SysPrefs->max_rows_in_search))
+		$limit = $SysPrefs->max_rows_in_search;
+	else
+		$limit = 10;
+
+
+	$sql = "SELECT chart.account_code, chart.account_name, type.name
+			FROM ".TB_PREF."chart_master chart,".TB_PREF."chart_types type
+			WHERE chart.account_type=type.id
+        AND (
+          chart.account_name LIKE " . db_escape("%" . $like. "%") . " OR
+          chart.account_code LIKE " . db_escape("%" . $like. "%") . "
+        ) 
+      	ORDER BY chart.account_code LIMIT 0,".(int)($limit); // We only display 10 items.
+	return db_query($sql, "Failed in retreiving GL account list.");
 }

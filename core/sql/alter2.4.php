@@ -16,10 +16,11 @@ class fa2_4 extends fa_patch {
 	var $description;
 	var $sql = 'alter2.4.sql';
 	var $preconf = true;
+	var	$max_upgrade_time = 900;	// table recoding is really long process
 	
 	function fa2_4() {
 		parent::fa_patch();
-		$this->description = _('Upgrade from version 2.3 to 2.4');
+		$this->description = _('Upgrade from version 2.3 to 2.4RC1');
 	}
 	
     /*
@@ -41,7 +42,7 @@ class fa2_4 extends fa_patch {
     */
 	function prepare()
     {
-		$this->collation = get_mysql_collation(get_post('collation'));
+		$this->collation = get_post('collation');
 		return true;
 	}
 
@@ -75,6 +76,20 @@ class fa2_4 extends fa_patch {
 
 		if ($result)
 			$result = $this->do_cleanup();
+		if ($result)
+		{
+			$db_connections[$company]['collation'] = $this->collation;
+			if (write_config_db())
+				return $this->log_error(_("Cannot update config_db.php file."));
+		}
+
+		$sec_updates = array(
+			'SA_SETUPCOMPANY' => array(
+				'SA_ASSET', 'SA_ASSETCATEGORY', 'SA_ASSETCLASS',
+				'SA_ASSETSTRANSVIEW','SA_ASSETTRANSFER', 'SA_ASSETDISPOSAL',
+				'SA_DEPRECIATION', 'SA_ASSETSANALYTIC'),
+		);
+		$result = $this->update_security_roles($sec_updates);
 
 		return $result;
 	}
@@ -87,6 +102,13 @@ class fa2_4 extends fa_patch {
 		$pref = $this->companies[$company]['tbpref'];
 		db_query("DROP TABLE IF EXISTS " . $pref . 'wo_costing');
 		db_query("DROP TABLE IF EXISTS " . $pref . 'stock_fa_class');
+		db_query("DELETE FROM ".$pref."sys_prefs
+			WHERE `name` in (
+				'gl_closing_date', 'deferred_income_act', 'no_zero_lines_amount', 'accounts_alpha',
+				'tax_algorithm', 'grn_clearing_act', 'default_receival_required',
+				'default_quote_valid_days',	'no_zero_lines_amount',	'show_po_item_codes', 'accounts_alpha',
+				'loc_notification', 'print_invoice_no', 'allow_negative_prices', 'print_item_images_on_quote',
+				'bcc_email', 'alternative_tax_include_on_docs', 'suppress_tax_rates')");
 	}
 
 	function update_workorders()
@@ -94,7 +116,7 @@ class fa2_4 extends fa_patch {
 		global $db;
 
 		$sql = "SELECT DISTINCT type, type_no, tran_date, person_id FROM ".TB_PREF."gl_trans WHERE `type`=".ST_WORKORDER
-		." AND person_type_id=1";
+			." AND person_type_id=1";
 		$res = db_query($sql);
 		if (!$res)
 			return $this->log_error(sprintf(_("Cannot update work orders costs:\n%s"), db_error_msg($db)));
@@ -135,12 +157,15 @@ class fa2_4 extends fa_patch {
 
 		$old_encoding = 'latin1'; // default client encoding
 
+		// uncomment in case of 1071 errors (requires SUPER privileges)
+		// db_query("SET @@global.innodb_large_prefix=1", "Cannot set large prefix");
+
 		 // site default encoding is presumed as encoding for all databases!
 		$lang = array_search_value($dflt_lang, $installed_languages, 'code');
 		$new_encoding = get_mysql_encoding_name(strtoupper($lang['encoding']));
 
  		$this->log_error(sprintf('Switching database to utf8 encoding from %s', $old_encoding), 'Info');
-		$collation = $this->collation;
+		$collation = get_mysql_collation($this->collation);
 		$tsql = "SHOW TABLES LIKE '".($pref=='' ? '' : substr($pref, 0, -1).'\\_')."%'";
 		$tresult = db_query($tsql, "Cannot select all tables with prefix '$pref'");
 		while($tbl = db_fetch($tresult)) {

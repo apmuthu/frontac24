@@ -851,13 +851,14 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
 --
 
 INSERT INTO `0_fiscal_year` VALUES (1, '2015-01-01', '2015-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES (2, '2016-01-01', '2016-12-31', 0);
 
 -- --------------------------------------------------------
 
@@ -1477,7 +1478,7 @@ INSERT INTO `0_recurrent_invoices` VALUES ('1', 'Weekly Maintenance', '6', '1', 
 -- --------------------------------------------------------
 
 --
---- Table structure for table `0_reflines`
+-- Table structure for table `0_reflines`
 --
 
 DROP TABLE IF EXISTS `0_reflines`;
@@ -1495,7 +1496,7 @@ CREATE TABLE `0_reflines` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23;
 
 --
---- Dumping data for table `0_reflines`
+-- Dumping data for table `0_reflines`
 --
 
 INSERT INTO `0_reflines` VALUES
@@ -1817,7 +1818,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_cogs_act` varchar(15) NOT NULL DEFAULT '',
   `dflt_inventory_act` varchar(15) NOT NULL DEFAULT '',
   `dflt_adjustment_act` varchar(15) NOT NULL DEFAULT '',
-  `dflt_assembly_act` varchar(15) NOT NULL DEFAULT '',
+  `dflt_wip_act` varchar(15) NOT NULL DEFAULT '',
   `dflt_dim1` int(11) DEFAULT NULL,
   `dflt_dim2` int(11) DEFAULT NULL,
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
@@ -1872,11 +1873,10 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
   `cogs_account` varchar(15) NOT NULL DEFAULT '',
   `inventory_account` varchar(15) NOT NULL DEFAULT '',
   `adjustment_account` varchar(15) NOT NULL DEFAULT '',
-  `assembly_account` varchar(15) NOT NULL DEFAULT '',
+  `wip_account` varchar(15) NOT NULL DEFAULT '',
   `dimension_id` int(11) DEFAULT NULL,
   `dimension2_id` int(11) DEFAULT NULL,
   `purchase_cost` double NOT NULL DEFAULT '0',
-  `last_cost` double NOT NULL DEFAULT '0',
   `material_cost` double NOT NULL DEFAULT '0',
   `labour_cost` double NOT NULL DEFAULT '0',
   `overhead_cost` double NOT NULL DEFAULT '0',
@@ -1898,12 +1898,12 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
 --
 
 INSERT INTO `0_stock_master` VALUES
-('101', '1', '1', 'iPad Air 2 16GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '200', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
-('102', '1', '1', 'iPhone 6 64GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '150', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
-('103', '1', '1', 'iPhone Cover Case', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '10', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
-('201', '3', '1', 'AP Surf Set', '', 'each', 'M', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '360', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
-('202', '4', '1', 'Maintenance', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
-('301', '4', '1', 'Support', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', '');
+('101', '1', '1', 'iPad Air 2 16GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '200', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('102', '1', '1', 'iPhone 6 64GB', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '150', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('103', '1', '1', 'iPhone Cover Case', '', 'each', 'B', '4010', '5010', '1510', '5040', '1530', '0', '0',  '0', '10', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('201', '3', '1', 'AP Surf Set', '', 'each', 'M', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '360', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('202', '4', '1', 'Maintenance', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', 'S', '0', '1', '0000-00-00', '0000-00-00', ''),
+('301', '4', '1', 'Support', '', 'hr', 'D', '4010', '5010', '1510', '5040', '1530', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 'S', '0', '1', '0000-00-00', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -2152,7 +2152,7 @@ INSERT INTO `0_sys_prefs` VALUES ('default_inventory_act', 'glsetup.items', 'var
 INSERT INTO `0_sys_prefs` VALUES ('default_cogs_act', 'glsetup.items', 'varchar', 15, '5010');
 INSERT INTO `0_sys_prefs` VALUES ('default_adj_act', 'glsetup.items', 'varchar', 15, '5040');
 INSERT INTO `0_sys_prefs` VALUES ('default_inv_sales_act', 'glsetup.items', 'varchar', 15, '4010');
-INSERT INTO `0_sys_prefs` VALUES ('default_assembly_act', 'glsetup.items', 'varchar', 15, '1530');
+INSERT INTO `0_sys_prefs` VALUES ('default_wip_act', 'glsetup.items', 'varchar', 15, '1530');
 INSERT INTO `0_sys_prefs` VALUES ('default_workorder_required', 'glsetup.manuf', 'int', 11, '20');
 INSERT INTO `0_sys_prefs` VALUES ('version_id', 'system', 'varchar', 11, '2.4.1');
 INSERT INTO `0_sys_prefs` VALUES ('auto_curr_reval', 'setup.company', 'smallint', 6, '1');
@@ -2520,6 +2520,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_issue_items` (
   `stock_id` varchar(40) DEFAULT NULL,
   `issue_id` int(11) DEFAULT NULL,
   `qty_issued` double DEFAULT NULL,
+  `unit_cost` double NOT NULL default '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -2561,7 +2562,7 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
   `stock_id` char(20) NOT NULL DEFAULT '',
   `workcentre` int(11) NOT NULL DEFAULT '0',
   `units_req` double NOT NULL DEFAULT '1',
-  `std_cost` double NOT NULL DEFAULT '0',
+  `unit_cost` double NOT NULL DEFAULT '0',
   `loc_code` char(5) NOT NULL DEFAULT '',
   `units_issued` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
