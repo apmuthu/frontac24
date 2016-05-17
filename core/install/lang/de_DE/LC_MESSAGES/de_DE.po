@@ -401,7 +401,7 @@ msgstr "Haupt-Konfigurationsdatei"
 #: /includes/system_tests.inc:296 /includes/system_tests.inc:318
 #, php-format
 msgid "Can't write '%s' file. Check FA directory write permissions."
-msgstr "Kann '%s'-Datei nicht schreiben. Überprüfen Sie die Schreibrechte im FA-Verzeichnis."
+msgstr "Kann '%s'-Datei nicht schreiben. Überprüfen Sie die Schreibrechte im FA-Verzeichnis ."
 
 #: /includes/system_tests.inc:297 /includes/system_tests.inc:319
 #, php-format

@@ -1,3 +1,16 @@
+2016-05-17 Janusz Dobrowolski
+Fixed typos in installer translation files, fixed translations in dashboard procedures.
+M	includes/dashboard.inc
+M	install/lang/de_DE/LC_MESSAGES/de_DE.mo
+M	install/lang/de_DE/LC_MESSAGES/de_DE.po
+M	install/lang/pt_PT/LC_MESSAGES/pt_PT.mo
+M	install/lang/pt_PT/LC_MESSAGES/pt_PT.po
+M	lang/new_language_template/LC_MESSAGES/empty.po 
+
+2016-05-17 Janusz Dobrowolski
+Constant string after last placeholder in reference line definition was ignored.
+M	includes/references.inc
+
 2016-02-22 15:33:49 +0100 Janusz Dobrowolski 
 Fixed missing changes in upgrade sql files.
 M	sql/alter2.4.sql
