@@ -1,3 +1,7 @@
+2016-05-23 Joe Hunt
+Bloomberg Rate fix for change of wrapper from span to div.
+M	gl/includes/db/gl_db_rates.inc
+
 2016-05-20 Janusz Dobrowolski
 Fixed bug in bank account edition and re-run
 M	gl/manage/bank_accounts.php
