@@ -1,3 +1,10 @@
+2016-05-27 Joe Hunt
+Tabbed dialogs allowed non access pages and re-runs.
+M	inventory/manage/items.php
+M	js/inserts.js
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
 2016-05-23 Joe Hunt
 Bloomberg Rate fix for change of wrapper from span to div.
 M	gl/includes/db/gl_db_rates.inc
