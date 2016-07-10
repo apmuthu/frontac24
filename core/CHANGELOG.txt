@@ -1,3 +1,8 @@
+2016-07-08 Joe Hunt
+Bug. is_date_closed() should be performed before is_date_in_fiscalyears().
+M	admin/void_transaction.php
+M	includes/date_functions.inc
+
 2016-05-27 Joe Hunt
 Tabbed dialogs allowed non access pages and re-runs.
 M	inventory/manage/items.php
