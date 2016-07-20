@@ -1,3 +1,7 @@
+2016-07-15 Joe Hunt
+Bug 3585. 'Exclude from purchase' function not working in PO. 
+M	purchasing/includes/ui/po_ui.inc
+
 2016-07-08 Joe Hunt
 Bug. is_date_closed() should be performed before is_date_in_fiscalyears().
 M	admin/void_transaction.php
