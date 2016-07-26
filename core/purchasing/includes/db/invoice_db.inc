@@ -496,8 +496,9 @@ function read_supp_invoice($trans_no, $trans_type, &$supp_trans)
              	}
              	else
              	{
-             		$supp_trans->add_gl_codes_to_trans($details_row["gl_code"], get_gl_account_name($details_row["gl_code"]), 0, 0,
-           				$details_row["FullUnitPrice"], $details_row["memo_"], $details_row["dimension_id"], $details_row["dimension2_id"]);
+             		$supp_trans->add_gl_codes_to_trans($details_row["gl_code"], get_gl_account_name($details_row["gl_code"]), 
+             			$details_row["dimension_id"], $details_row["dimension2_id"],
+           				$details_row["FullUnitPrice"], $details_row["memo_"]);
              	}
             }
 			$supp_trans->tax_overrides = get_tax_overrides($trans_type, $trans_no);

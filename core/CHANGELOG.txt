@@ -1,3 +1,8 @@
+2016-07-26 Joe Hunt
+Dimension is missing in Supplier Invoice View. GL Rows. Re-Run too.
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/invoice_items_db.inc
+
 2016-07-24 Ap.Muthu
 Minor bug in deleting fiscal years
 M	admin/db/fiscalyears_db.inc
