@@ -1,3 +1,7 @@
+2016-08-01 Joe Hunt
+Removed redundant line in reporting/includes/header2.inc. 
+M	reporting/includes/header2.inc
+
 2016-07-26 Joe Hunt
 Dimension is missing in Supplier Invoice View. GL Rows. Re-Run too.
 M	purchasing/includes/db/invoice_db.inc
