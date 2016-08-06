@@ -320,6 +320,7 @@ class Cpdf extends FPDI {
 		$ret = $txt[1];
 		$txt = $txt[0];
 		$this->SetXY($xb, $this->h - $yb - $h);
+
 		if ($this->isunicode && $this->encoding != "UTF-8")
 			$txt = iconv($this->encoding, "UTF-8", $txt);
 		$this->Cell($w, $h, $txt, $border, 0, $align, $fill, $link, $stretch);
