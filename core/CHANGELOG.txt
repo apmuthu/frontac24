@@ -1,3 +1,7 @@
+2016-08-06 Cambell
+Fix for bug in suppliers.php
+M	purchasing/manage/suppliers.php
+
 2016-08-01 Joe Hunt
 Removed redundant line in reporting/includes/header2.inc. 
 M	reporting/includes/header2.inc
