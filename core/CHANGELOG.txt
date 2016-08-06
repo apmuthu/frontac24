@@ -1,3 +1,7 @@
+2016-08-06 Janusz Dobrowolski
+Fixed broken html entities handling in longer TextWrap fields in reports. 
+M	reporting/includes/class.pdf.inc
+
 2016-08-06 Cambell
 Fix for bug in suppliers.php
 M	purchasing/manage/suppliers.php
