@@ -1,3 +1,7 @@
+2016-08-30 Cambell
+Ajax calls: set the checkbox value = 0 for an unset checkbox rather than skipping the element.
+M js/utils.js
+
 2016-08-06 Janusz Dobrowolski
 Fixed broken html entities handling in longer TextWrap fields in reports. 
 M	reporting/includes/class.pdf.inc
