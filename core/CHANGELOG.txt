@@ -1,4 +1,9 @@
 2016-08-30 Cambell
+Added functions for custom css files registered by modules
+M includes/main.inc
+M includes/page/header.inc
+
+2016-08-30 Cambell
 Supplier Payment: by default bank account is selected to be the same as that used on the last payment for the supplier (if any, or default currency account otherwise).
 M purchasing/includes/db/supp_trans_db.inc
 M purchasing/supplier_payment.php
