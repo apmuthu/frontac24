@@ -1,4 +1,9 @@
 2016-08-30 Cambell
+Supplier Payment: by default bank account is selected to be the same as that used on the last payment for the supplier (if any, or default currency account otherwise).
+M purchasing/includes/db/supp_trans_db.inc
+M purchasing/supplier_payment.php
+
+2016-08-30 Cambell
 Ajax calls: set the checkbox value = 0 for an unset checkbox rather than skipping the element.
 M js/utils.js
 
