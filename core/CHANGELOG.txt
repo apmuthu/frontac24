@@ -1,3 +1,7 @@
+2016-09-06 Janusz Dobrowolski
+Fixed problem with installing third party extension packages.
+M includes/packages.inc
+
 2016-09-06 Joe Hunt
 Increased space for built in number columns etc. in reports.
 M reporting/rep101.php
