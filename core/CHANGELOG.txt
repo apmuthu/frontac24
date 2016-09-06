@@ -1,3 +1,14 @@
+2016-09-06 Joe Hunt
+Increased space for built in number columns etc. in reports.
+M reporting/rep101.php
+M reporting/rep201.php
+M reporting/rep203.php
+M reporting/rep601.php
+M reporting/rep602.php
+M reporting/rep701.php
+M reporting/rep706.php
+M reporting/rep707.php
+
 2016-08-30 Cambell
 Added functions for custom css files registered by modules
 M includes/main.inc
