@@ -1,3 +1,7 @@
+2016-11-29
+Fixed A Bug in Item Sales Summary Report
+M reporting/rep309.php
+
 2016-11-18 Joe Hunt
 Fixed Bug 3667: supplier payment link error after entering supplier invoice.
 M purchasing/supplier_invoice.php
