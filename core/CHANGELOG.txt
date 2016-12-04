@@ -1,3 +1,7 @@
+2016-12-04
+Rerun Item Sales Summary Report Fix
+M reporting/rep309.php
+
 2016-11-29
 Fixed A Bug in Item Sales Summary Report
 M reporting/rep309.php
