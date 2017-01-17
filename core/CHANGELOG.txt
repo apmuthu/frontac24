@@ -1,4 +1,8 @@
 2017-01-15
+[0003733] Fixed php7 compatibility issue.
+M  frontaccounting.php
+
+2017-01-15
 [0003658] Errors during reference line edition when no table prefix is used.
 M includes/db/class.reflines_db.inc
 
