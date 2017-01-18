@@ -1,20 +1,25 @@
-2017-01-15
+2017-01-18 Ap.Muthu
+Fixed an array_combine object issue.
+M includes/main.inc
+M includes/ui/ui_lists.inc
+
+2017-01-15 Janusz Dobrowolski
 [0003733] Fixed php7 compatibility issue.
 M  frontaccounting.php
 
-2017-01-15
+2017-01-15 Janusz Dobrowolski
 [0003658] Errors during reference line edition when no table prefix is used.
 M includes/db/class.reflines_db.inc
 
-2016-12-23
+2016-12-23 Ap.Muthu
 Bug submitting forms in FA 2.4.x when checkbox field not changed. Fixed.
 M includes/ui/ui_input.inc
 
-2016-12-04
+2016-12-04 Joe Hunt
 Rerun Item Sales Summary Report Fix
 M reporting/rep309.php
 
-2016-11-29
+2016-11-29 Joe Hunt
 Fixed A Bug in Item Sales Summary Report
 M reporting/rep309.php
 
