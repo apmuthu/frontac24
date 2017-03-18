@@ -1,3 +1,7 @@
+2017-03-18 Janusz Dobrowolski
+Fixed buggy prefix in sql query in 2.1 upgrade class. 
+M sql/alter2.1.php
+
 2017-01-18 Ap.Muthu
 Fixed an array_combine object issue.
 M includes/main.inc
