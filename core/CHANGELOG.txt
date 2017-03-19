@@ -1,3 +1,17 @@
+2017-03-19 Janusz Dobrowolski
+Entropy fix wraps uniqid() in random_id() in main.inc
+M admin/attachments.php
+M includes/dashboard.inc
+M includes/main.inc
+M includes/ui/ui_controls.inc
+M reporting/includes/excel_report.inc
+M reporting/includes/pdf_report.inc
+M reporting/prn_redirect.php
+M reporting/rep102.php
+M reporting/rep202.php
+M reporting/rep706.php
+M reporting/rep707.php
+
 2017-03-18 Janusz Dobrowolski
 Fixed buggy prefix in sql query in 2.1 upgrade class. 
 M sql/alter2.1.php
