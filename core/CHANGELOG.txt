@@ -1,3 +1,7 @@
+2017-05-02 Janusz Dobrowolski
+[0003795] Fixed incorrect GL postings for cash purchase invoices.
+M purchasing/includes/db/supp_payment_db.inc
+
 2017-05-02 Joe Hunt
 0003816: Customer Credit Note (stand alone) does not restore inventory 
 M sales/includes/db/sales_credit_db.inc
