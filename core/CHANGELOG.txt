@@ -1,3 +1,8 @@
+2017-05-11 Joe Hunt
+Customer/Supplier Balances Report | Allocated column not showing correctly. Fixed.
+M reporting/rep101.php
+M reporting/rep201.php
+
 2017-05-02 Janusz Dobrowolski
 [0003795] Fixed incorrect GL postings for cash purchase invoices.
 M purchasing/includes/db/supp_payment_db.inc
