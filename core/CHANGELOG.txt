@@ -1,3 +1,8 @@
+2017-05-14 Joe Hunt
+Optimized Inventory Valuation Reports, 301 and 308.
+M reporting/rep301.php
+M reporting/rep308.php
+
 2017-05-12 Joe Hunt
 Added a small Arabic font file and improved the builtin DashBoard.
 M config.default.php
