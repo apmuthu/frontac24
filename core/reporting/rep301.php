@@ -12,9 +12,9 @@
 $page_security = 'SA_ITEMSVALREP';
 // ----------------------------------------------------------------
 // $ Revision:	2.0 $
-// Creator:	Joe Hunt
-// date_:	2005-05-19
-// Title:	Inventory Valuation
+// Creator:		Joe Hunt
+// date_:		2005-05-19
+// Title:		Inventory Valuation
 // ----------------------------------------------------------------
 $path_to_root="..";
 
@@ -36,15 +36,15 @@ function get_domestic_price($myrow, $stock_id, $qty, $old_std_cost, $old_qty)
 		if ($myrow['type'] == ST_SUPPRECEIVE)
 		{
 			// Has the supplier invoice increased the receival price?
-			$sql = "SELECT DISTINCT act_price 
-				FROM ".TB_PREF."purch_order_details pod
-					INNER JOIN ".TB_PREF."grn_batch grn ON pod.order_no =
-				grn.purch_order_no WHERE grn.id = ".$myrow['trans_no']." AND pod.item_code = '$stock_id'";
-			$result = db_query($sql, "Could not retrieve act_price from purch_order_details");
-			$row = db_fetch_row($result);
-			if ($row[0] > 0 AND $row[0] <> $myrow['price'])
-				$price = $row[0];
-		}
+            $sql = "SELECT DISTINCT act_price 
+                FROM ".TB_PREF."purch_order_details pod
+                    INNER JOIN ".TB_PREF."grn_batch grn ON pod.order_no =
+                grn.purch_order_no WHERE grn.id = ".$myrow['trans_no']." AND pod.item_code = '$stock_id'";
+            $result = db_query($sql, "Could not retrieve act_price from purch_order_details");
+            $row = db_fetch_row($result);
+            if ($row[0] > 0 AND $row[0] <> $myrow['price'])
+                $price = $row[0];
+        }
 		if ($myrow['person_id'] > 0)
 		{
 			// Do we have foreign currency?
@@ -68,26 +68,25 @@ function getAverageCost($stock_id, $to_date)
 
 	$to_date = date2sql($to_date);
 
-	$sql = "SELECT standard_cost, qty FROM ".TB_PREF."stock_moves
-		WHERE stock_id=".db_escape($stock_id)."
+  	$sql = "SELECT standard_cost, qty FROM ".TB_PREF."stock_moves
+  		WHERE stock_id=".db_escape($stock_id)."
 		AND tran_date <= '$to_date' AND standard_cost > 0.001 AND qty <> 0 AND type <> ".ST_LOCTRANSFER;
 
 	$sql .= " ORDER BY tran_date";	
 
 	$result = db_query($sql, "No standard cost transactions were returned");
+    
     if ($result == false)
     	return 0;
 	$qty = $old_qty = $count = $old_std_cost = $tot_cost = 0;
 	while ($row=db_fetch($result))
 	{
 		$qty += $row['qty'];	
-
 		$price = get_domestic_price($row, $stock_id, $qty, $old_std_cost, $old_qty);
-
-		$old_std_cost = $row['standard_cost'];
-		$tot_cost += $price;
-		$count++;
-		$old_qty = $qty;
+        $old_std_cost = $row['standard_cost'];
+        $tot_cost += $price;
+        $count++;
+        $old_qty = $qty;
 	}
 	if ($count == 0)
 		return 0;

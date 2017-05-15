@@ -127,20 +127,21 @@ function avg_unit_cost($stock_id, $location=null, $to_date)
 
 	if ($location != '')
 		$sql .= " AND move.loc_code = ".db_escape($location);
+
 	$sql .= " ORDER BY tran_date";	
 
 	$result = db_query($sql, "No standard cost transactions were returned");
+
     if ($result == false)
     	return 0;
+
 	$qty = $old_qty = $count = $old_std_cost = $tot_cost = 0;
 	while ($row=db_fetch($result))
 	{
 		$qty += $row['qty'];	
-
 		$price = get_domestic_price($row, $stock_id, $qty, $old_std_cost, $old_qty);
-	
-		$old_std_cost = $row['standard_cost'];
-		$tot_cost += $price;
+        $old_std_cost = $row['standard_cost'];
+        $tot_cost += $price;
 		$count++;
 		$old_qty = $qty;
 	}
@@ -181,29 +182,28 @@ function trans_qty_unit_cost($stock_id, $location=null, $from_date, $to_date, $i
 	else
 		$sql .= " AND qty < 0 ";
 	$sql .= " ORDER BY tran_date";
+	
 	$result = db_query($sql, "No standard cost transactions were returned");
+    
     if ($result == false)
     	return 0;
+	
 	$qty = $count = $old_qty = $old_std_cost = $tot_cost = 0;
 	while ($row=db_fetch($result))
 	{
-		$qty += $row['qty'];
-
-		$price = get_domestic_price($row, $stock_id, $qty, $old_std_cost, $old_qty);
-	
-		if (strncmp($row['tran_date'], $from_date,10) >= 0)
-		{
+        $qty += $row['qty'];
+        $price = get_domestic_price($row, $stock_id, $qty, $old_std_cost, $old_qty);
+        if (strncmp($row['tran_date'], $from_date,10) >= 0)
+        {
 			$tot_cost += $price;
 			$count++;
 		}
-		
 		$old_std_cost = $row['standard_cost'];
 		$old_qty = $qty;
 	}	
 	if ($count == 0)
 		return 0;
 	return $tot_cost / $count;
-
 }
 
 //----------------------------------------------------------------------------------------------------
