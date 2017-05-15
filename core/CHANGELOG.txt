@@ -1,4 +1,8 @@
 2017-05-15 Joe Hunt
+Improvements to dashboard.
+M includes/dashboard.inc
+
+2017-05-15 Joe Hunt
 0003862: Straight Line Depreciation value calculation is wrong
 0003863: Fixed Assets Valuation Report Includes inactive Items with Valuation
 0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
