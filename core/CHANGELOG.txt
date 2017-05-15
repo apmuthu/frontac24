@@ -1,3 +1,11 @@
+2017-05-15 Joe Hunt
+0003862: Straight Line Depreciation value calculation is wrong
+0003863: Fixed Assets Valuation Report Includes inactive Items with Valuation
+0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
+M fixed_assets/includes/depreciation.inc
+M includes/db/inventory_db.inc
+M sales/includes/db/sales_delivery_db.inc 
+
 2017-05-14 Joe Hunt
 Optimized Inventory Valuation Reports, 301 and 308.
 M reporting/rep301.php
