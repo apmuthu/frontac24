@@ -1,4 +1,8 @@
 2017-05-15 Joe Hunt
+Rerun. 0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
+M sales/includes/db/sales_delivery_db.inc
+
+2017-05-15 Joe Hunt
 Improvements to dashboard.
 M includes/dashboard.inc
 
