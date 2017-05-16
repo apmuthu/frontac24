@@ -1,4 +1,8 @@
 2017-05-15 Joe Hunt
+0003789: Comments is cut off when actual invoice is printed. Maximized to 130 characters.
+M  reporting/includes/reports_classes.inc
+
+2017-05-15 Joe Hunt
 Rerun. 0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
 M sales/includes/db/sales_delivery_db.inc
 
