@@ -1,3 +1,11 @@
+2017-05-18 Joe Hunt
+0003871: [Fixed Assets] new patch fix for: 0003866, 0003869
+M fixed_assets/includes/fixed_assets_db.inc
+M fixed_assets/inquiry/stock_inquiry.php
+M includes/db_pager.inc
+M includes/ui/db_pager_view.inc
+M reporting/rep451.php 
+
 2017-05-15 Joe Hunt
 0003789: Comments is cut off when actual invoice is printed. Maximized to 130 characters.
 M  reporting/includes/reports_classes.inc
