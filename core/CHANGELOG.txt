@@ -1,3 +1,11 @@
+2017-05-20 Joe Hunt
+[0003780] Sales Invoice to partial delivery was improperly issued as final prepayment invoice.
+M sales/customer_invoice.php
+M sales/includes/cart_class.inc
+M sales/includes/db/sales_invoice_db.inc
+M sales/includes/ui/sales_order_ui.inc
+M sales/sales_order_entry.php 
+
 2017-05-18 Joe Hunt
 0003871: [Fixed Assets] new patch fix for: 0003866, 0003869
 M fixed_assets/includes/fixed_assets_db.inc
