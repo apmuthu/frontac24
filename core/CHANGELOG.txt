@@ -1,4 +1,8 @@
 2017-05-20 Joe Hunt
+Sales type bug in tax_included (persistent on)
+M	sales/manage/sales_types.php
+
+2017-05-20 Joe Hunt
 Deleted doc/CHANGELOG.old.txt. Not needed any more.
 D	doc/CHANGELOG.old.txt
 
@@ -206,11 +210,11 @@ Fixed missing changes in upgrade sql files.
 M	sql/alter2.4.sql
 M	sql/alter2.4rc1.sql
 
-2016-02-21 16:44:45 +0100 Joe Hunt 
+2016-02-21 16:44:45 +0100 Joe Hunt
 New CHANGELOG.txt
 M	CHANGELOG.txt
 
-2016-02-21 16:43:01 +0100 Joe Hunt 
+2016-02-21 16:43:01 +0100 Joe Hunt
 Release 2.4.RC1
 M	update.html
 M	version.php
@@ -220,25 +224,25 @@ Upgrade procedures max execution time for this version rised to 900s due to WAMP
 M	sql/alter2.4.php
 M	sql/alter2.4rc1.php
 
-2016-02-16 11:34:44 +0100 Joe Hunt 
+2016-02-16 11:34:44 +0100 Joe Hunt
 Error in two comment lines in demo and new sql file. phpMyAdmin bailed out.
 M	sql/en_US-demo.sql
 M	sql/en_US-new.sql
 
-2016-02-15 12:20:39 +0100 Joe Hunt 
+2016-02-15 12:20:39 +0100 Joe Hunt
 More missing semicolons.
 M	sql/alter2.4.sql
 M	sql/alter2.4rc1.sql
 
-2016-02-15 12:14:18 +0100 Joe Hunt 
+2016-02-15 12:14:18 +0100 Joe Hunt
 Missing semicolon. Forgot the other file.
 M	sql/alter2.4.sql
 
-2016-02-15 11:47:39 +0100 Joe Hunt 
+2016-02-15 11:47:39 +0100 Joe Hunt
 Missing semicolon in UPDATE instruction.
 M	sql/alter2.4rc1.sql
 
-2016-02-14 22:06:29 +0100 Janusz Dobrowolski 
+2016-02-14 22:06:29 +0100 Janusz Dobrowolski
 Fixed upgrade procedures for manufacturing transactions, additional checks for voiding.
 M	admin/db/voiding_db.inc
 M	gl/view/gl_trans_view.php
@@ -248,7 +252,7 @@ M	manufacturing/includes/db/work_orders_db.inc
 M	sql/alter2.4.sql
 M	sql/alter2.4rc1.sql
 
-2016-02-13 12:16:06 +0100 Janusz Dobrowolski 
+2016-02-13 12:16:06 +0100 Janusz Dobrowolski
 Fixed manufacturing module voiding procedures.
 M	admin/db/voiding_db.inc
 M	manufacturing/includes/db/work_order_costing_db.inc
