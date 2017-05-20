@@ -1,139 +1,143 @@
 2017-05-20 Joe Hunt
+0003761: Reorder email is not sent for items used work order. Fixed.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2017-05-20 Joe Hunt
 [0003780] Sales Invoice to partial delivery was improperly issued as final prepayment invoice.
-M sales/customer_invoice.php
-M sales/includes/cart_class.inc
-M sales/includes/db/sales_invoice_db.inc
-M sales/includes/ui/sales_order_ui.inc
-M sales/sales_order_entry.php 
+M	sales/customer_invoice.php
+M	sales/includes/cart_class.inc
+M	sales/includes/db/sales_invoice_db.inc
+M	sales/includes/ui/sales_order_ui.inc
+M	sales/sales_order_entry.php 
 
 2017-05-18 Joe Hunt
 0003871: [Fixed Assets] new patch fix for: 0003866, 0003869
-M fixed_assets/includes/fixed_assets_db.inc
-M fixed_assets/inquiry/stock_inquiry.php
-M includes/db_pager.inc
-M includes/ui/db_pager_view.inc
-M reporting/rep451.php 
+M	fixed_assets/includes/fixed_assets_db.inc
+M	fixed_assets/inquiry/stock_inquiry.php
+M	includes/db_pager.inc
+M	includes/ui/db_pager_view.inc
+M	reporting/rep451.php 
 
 2017-05-15 Joe Hunt
 0003789: Comments is cut off when actual invoice is printed. Maximized to 130 characters.
-M  reporting/includes/reports_classes.inc
+M	reporting/includes/reports_classes.inc
 
 2017-05-15 Joe Hunt
 Rerun. 0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
-M sales/includes/db/sales_delivery_db.inc
+M	sales/includes/db/sales_delivery_db.inc
 
 2017-05-15 Joe Hunt
 Improvements to dashboard.
-M includes/dashboard.inc
+M	includes/dashboard.inc
 
 2017-05-15 Joe Hunt
 0003862: Straight Line Depreciation value calculation is wrong
 0003863: Fixed Assets Valuation Report Includes inactive Items with Valuation
 0003864: [Fixed Assets] GL Transactions for Fixed Asset Sales are wrong (patch provided)
-M fixed_assets/includes/depreciation.inc
-M includes/db/inventory_db.inc
-M sales/includes/db/sales_delivery_db.inc 
+M	fixed_assets/includes/depreciation.inc
+M	includes/db/inventory_db.inc
+M	sales/includes/db/sales_delivery_db.inc 
 
 2017-05-14 Joe Hunt
 Optimized Inventory Valuation Reports, 301 and 308.
-M reporting/rep301.php
-M reporting/rep308.php
+M	reporting/rep301.php
+M	reporting/rep308.php
 
 2017-05-12 Joe Hunt
 Added a small Arabic font file and improved the builtin DashBoard.
-M config.default.php
-M includes/dashboard.inc
-M reporting/fonts/zarnormal.ttf
-M reporting/includes/class.graphic.inc
+M	config.default.php
+M	includes/dashboard.inc
+M	reporting/fonts/zarnormal.ttf
+M	reporting/includes/class.graphic.inc
 
 2017-05-11 Joe Hunt
 Customer/Supplier Balances Report | Allocated column not showing correctly. Fixed.
-M reporting/rep101.php
-M reporting/rep201.php
+M	reporting/rep101.php
+M	reporting/rep201.php
 
 2017-05-02 Janusz Dobrowolski
 [0003795] Fixed incorrect GL postings for cash purchase invoices.
-M purchasing/includes/db/supp_payment_db.inc
+M	purchasing/includes/db/supp_payment_db.inc
 
 2017-05-02 Joe Hunt
 0003816: Customer Credit Note (stand alone) does not restore inventory 
-M sales/includes/db/sales_credit_db.inc
+M	sales/includes/db/sales_credit_db.inc
 
 2017-03-19 Janusz Dobrowolski
 Entropy fix wraps uniqid() in random_id() in main.inc
-M admin/attachments.php
-M includes/dashboard.inc
-M includes/main.inc
-M includes/ui/ui_controls.inc
-M reporting/includes/excel_report.inc
-M reporting/includes/pdf_report.inc
-M reporting/prn_redirect.php
-M reporting/rep102.php
-M reporting/rep202.php
-M reporting/rep706.php
-M reporting/rep707.php
+M	admin/attachments.php
+M	includes/dashboard.inc
+M	includes/main.inc
+M	includes/ui/ui_controls.inc
+M	reporting/includes/excel_report.inc
+M	reporting/includes/pdf_report.inc
+M	reporting/prn_redirect.php
+M	reporting/rep102.php
+M	reporting/rep202.php
+M	reporting/rep706.php
+M	reporting/rep707.php
 
 2017-03-18 Janusz Dobrowolski
 Fixed buggy prefix in sql query in 2.1 upgrade class. 
-M sql/alter2.1.php
+M	sql/alter2.1.php
 
 2017-01-18 Ap.Muthu
 Fixed an array_combine object issue.
-M includes/main.inc
-M includes/ui/ui_lists.inc
+M	includes/main.inc
+M	includes/ui/ui_lists.inc
 
 2017-01-15 Janusz Dobrowolski
 [0003733] Fixed php7 compatibility issue.
-M  frontaccounting.php
+M	frontaccounting.php
 
 2017-01-15 Janusz Dobrowolski
 [0003658] Errors during reference line edition when no table prefix is used.
-M includes/db/class.reflines_db.inc
+M	includes/db/class.reflines_db.inc
 
 2016-12-23 Ap.Muthu
 Bug submitting forms in FA 2.4.x when checkbox field not changed. Fixed.
-M includes/ui/ui_input.inc
+M	includes/ui/ui_input.inc
 
 2016-12-04 Joe Hunt
 Rerun Item Sales Summary Report Fix
-M reporting/rep309.php
+M	reporting/rep309.php
 
 2016-11-29 Joe Hunt
 Fixed A Bug in Item Sales Summary Report
-M reporting/rep309.php
+M	reporting/rep309.php
 
 2016-11-18 Joe Hunt
 Fixed Bug 3667: supplier payment link error after entering supplier invoice.
-M purchasing/supplier_invoice.php
+M	purchasing/supplier_invoice.php
 
 2016-09-06 Janusz Dobrowolski
 Fixed problem with installing third party extension packages.
-M includes/packages.inc
+M	includes/packages.inc
 
 2016-09-06 Joe Hunt
 Increased space for built in number columns etc. in reports.
-M reporting/rep101.php
-M reporting/rep201.php
-M reporting/rep203.php
-M reporting/rep601.php
-M reporting/rep602.php
-M reporting/rep701.php
-M reporting/rep706.php
-M reporting/rep707.php
+M	reporting/rep101.php
+M	reporting/rep201.php
+M	reporting/rep203.php
+M	reporting/rep601.php
+M	reporting/rep602.php
+M	reporting/rep701.php
+M	reporting/rep706.php
+M	reporting/rep707.php
 
 2016-08-30 Cambell
 Added functions for custom css files registered by modules
-M includes/main.inc
-M includes/page/header.inc
+M	includes/main.inc
+M	includes/page/header.inc
 
 2016-08-30 Cambell
 Supplier Payment: by default bank account is selected to be the same as that used on the last payment for the supplier (if any, or default currency account otherwise).
-M purchasing/includes/db/supp_trans_db.inc
-M purchasing/supplier_payment.php
+M	purchasing/includes/db/supp_trans_db.inc
+M	purchasing/supplier_payment.php
 
 2016-08-30 Cambell
 Ajax calls: set the checkbox value = 0 for an unset checkbox rather than skipping the element.
-M js/utils.js
+M	js/utils.js
 
 2016-08-06 Janusz Dobrowolski
 Fixed broken html entities handling in longer TextWrap fields in reports. 
