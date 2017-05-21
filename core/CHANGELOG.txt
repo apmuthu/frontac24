@@ -1,3 +1,7 @@
+2017-05-21 Joe Hunt
+Built-in Dashboard doesn't work after $hide_inaccessible_menu_items in config.php is set 1 (and there are disabled apps).
+M	includes/dashboard.inc
+
 2017-05-20 Joe Hunt
 Sales type bug in tax_included (persistent on)
 M	sales/manage/sales_types.php
