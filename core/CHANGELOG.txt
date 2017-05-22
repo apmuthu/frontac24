@@ -1,4 +1,8 @@
 2017-05-20 Joe Hunt
+Deleted doc/CHANGELOG.old.txt. Not needed any more.
+D	doc/CHANGELOG.old.txt
+
+2017-05-20 Joe Hunt
 0003761: Reorder email is not sent for items used work order. Fixed.
 M	manufacturing/includes/db/work_order_costing_db.inc
 
