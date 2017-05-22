@@ -1,3 +1,7 @@
+2017-05-22 Janusz Dobrowolski
+Fixed time zone setting in default config file.
+M	config.default.php
+
 2017-05-21 Joe Hunt
 Built-in Dashboard doesn't work after $hide_inaccessible_menu_items in config.php is set 1 (and there are disabled apps).
 M	includes/dashboard.inc
