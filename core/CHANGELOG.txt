@@ -1,4 +1,8 @@
 2017-06-08 Joe Hunt
+0003876: Notice: Trying to get property of non-object in includes\errors.inc on line 74
+M	includes/errors.inc
+
+2017-06-08 Joe Hunt
 Fixed dashboard page in Setup tab. Mixing customers in the Supplier diagram.
 M	includes/dashboard.inc
 
