@@ -1,3 +1,8 @@
+2017-06-08 Joe Hunt
+Fixed more rows when reporting to Excel Reports. Greater then 65535 rows.
+M reporting/includes/Workbook.php
+M reporting/includes/excel_report.inc
+
 2017-06-02 12:15:41 +0200 Janusz Dobrowolski 
 Now stable branch is 2.4
 
