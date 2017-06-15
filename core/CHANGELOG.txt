@@ -1,3 +1,17 @@
+2017-06-15 Janusz Dobrowolski
+Fixed payments reallocation for prepayment orders; blocked edition for open prepayment orders.
+M	includes/db/allocations_db.inc
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/po_db.inc
+M	sales/customer_invoice.php
+M	sales/includes/cart_class.inc
+M	sales/includes/db/sales_invoice_db.inc
+M	sales/includes/db/sales_order_db.inc
+M	sales/includes/sales_db.inc
+M	sales/inquiry/sales_orders_view.php
+M	sales/sales_order_entry.php
+
 2017-06-08 Joe Hunt
 0003876: Notice: Trying to get property of non-object in includes\errors.inc on line 74
 M	includes/errors.inc
