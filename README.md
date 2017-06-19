@@ -14,6 +14,8 @@ It will be updated only in some of my spare time.
 * [Official GitHub Mirror Repo](https://github.com/FrontAccountingERP/FA/tree/master)
 * [Old Primary SourceForge Mercurial (Hg) Repo](http://sourceforge.net/p/frontaccounting/mercurial/ci/unstable/tree/)
 
+* [FA 2.4 branch Extensions](https://github.com/apmuthu/FA24extensions)
+
 To clone the original in Git:
 ````
 git clone git://git.code.sf.net/p/frontaccounting/git frontaccounting-git
