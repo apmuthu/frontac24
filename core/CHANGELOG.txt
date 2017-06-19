@@ -1,4 +1,10 @@
-2017-06-15 Janusz Dobrowolski
+2017-06-19 Janusz Dobrowolski
+Fixed document total presentation in customer/supplier transaction inquiries. Rerun also.
+M	purchasing/inquiry/supplier_inquiry.php
+M	sales/includes/db/cust_trans_db.inc
+M	sales/inquiry/customer_inquiry.php
+
+2017-06-18 Janusz Dobrowolski
 0003896: Fixed Assets valuation report, location parameter not working
 M	reporting/rep451.php
 
