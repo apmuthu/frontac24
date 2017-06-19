@@ -1,4 +1,8 @@
 2017-06-15 Janusz Dobrowolski
+0003896: Fixed Assets valuation report, location parameter not working
+M	reporting/rep451.php
+
+2017-06-15 Janusz Dobrowolski
 Fixed payments reallocation for prepayment orders; blocked edition for open prepayment orders.
 M	includes/db/allocations_db.inc
 M	lang/new_language_template/LC_MESSAGES/empty.po
