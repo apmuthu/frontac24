@@ -595,7 +595,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `trans_no_to` int(11) DEFAULT NULL,
   `trans_type_to` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `person_id` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB;
@@ -762,7 +762,7 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
   `src_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
-  KEY (`src_id`)
+  KEY `src_id` (`src_id`)
 ) ENGINE=InnoDB;
 
 --
@@ -2009,7 +2009,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_no_to` int(11) DEFAULT NULL,
   `trans_type_to` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `person_id` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB;
@@ -2094,7 +2094,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
   `category` varchar(30) DEFAULT NULL,
   `type` varchar(20) NOT NULL DEFAULT '',
   `length` smallint(6) DEFAULT NULL,
-  `value` text NOT NULL DEFAULT '',
+  `value` text NOT NULL,
   PRIMARY KEY (`name`),
   KEY `category` (`category`)
 ) ENGINE=InnoDB;
@@ -2268,7 +2268,8 @@ CREATE TABLE IF NOT EXISTS `0_tax_types` (
   `purchasing_gl_code` varchar(15) NOT NULL DEFAULT '',
   `name` varchar(60) NOT NULL DEFAULT '',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`,`rate`)
 ) ENGINE=InnoDB;
 
 --
