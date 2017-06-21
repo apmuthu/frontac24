@@ -163,7 +163,7 @@ if ( (isset($_GET['DeliveryNumber']) && ($_GET['DeliveryNumber'] > 0) )
 	}
 	processing_start();
 
-	$_SESSION['Items'] = new cart(ST_SALESORDER, $order_no, ST_SALESINVOICE);
+	$_SESSION['Items'] = new Cart(ST_SALESORDER, $order_no, ST_SALESINVOICE);
 	$_SESSION['Items']->order_no = $order_no;
 	$_SESSION['Items']->src_docs = array($order_no);
 	$_SESSION['Items']->trans_no = 0;
