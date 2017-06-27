@@ -1,3 +1,7 @@
+2017-06-19 Joe Hunt
+Double escape of slash in translatable js strings. Fixed.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2017-06-19 Janusz Dobrowolski
 Fixed document total presentation in customer/supplier transaction inquiries. Rerun also.
 M	purchasing/inquiry/supplier_inquiry.php
