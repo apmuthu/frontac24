@@ -1,4 +1,8 @@
-2017-06-19 Joe Hunt
+2017-06-28 Joe Hunt
+Quick Entries. Wrong number of QE rows in presentation. Fixed.
+M	gl/manage/gl_quick_entries.php
+
+2017-06-27 Joe Hunt
 Double escape of slash in translatable js strings. Fixed.
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
