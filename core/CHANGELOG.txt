@@ -1,3 +1,7 @@
+2017-06-30 Joe Hunt
+0003921: Bug in Tax Groups fixed.
+M	taxes/tax_groups.php
+
 2017-06-28 Joe Hunt
 Quick Entries. Wrong number of QE rows in presentation. Fixed.
 M	gl/manage/gl_quick_entries.php
