@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FrontAccounting\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-07 13:48+0200\n"
+"PO-Revision-Date: 2012-10-01 23:11+0100\n"
+"Last-Translator: Translation Team <info@frontaccounting.net>\n"
+"Language-Team: Translators <info@frontaccounting.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+"X-Poedit-KeywordsList: _\n"
+
+#: reporting/rep107.php:285 reporting/rep109.php:212 reporting/rep111.php:209
+msgid "TOTAL ORDER VAT INCL."
+msgstr "TOTAL ORDER INCL. TAX"
+
+#: reporting/rep109.php:166 reporting/rep111.php:163
+msgid "TOTAL ORDER EX VAT"
+msgstr "TOTAL ORDER EX TAX"
+
+#: reporting/rep110.php:207
+msgid "TOTAL DELIVERY INCL. VAT"
+msgstr "TOTAL DELIVERY INCL. TAX"
+
+#: reporting/includes/doctext.inc:57 reporting/includes/doctext.inc:74
+#: reporting/includes/doctext.inc:95 reporting/includes/doctext.inc:109
+#: reporting/includes/doctext.inc:132 reporting/includes/doctext.inc:162
+#: reporting/includes/doctext.inc:185 reporting/includes/doctext.inc:203
+#: reporting/includes/doctext.inc:241
+msgid "Your VAT no."
+msgstr "Your Tax Id."
+
+#: reporting/includes/header2.inc:124
+msgid "Our VAT No."
+msgstr "Our Tax Id."
