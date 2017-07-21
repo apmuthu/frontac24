@@ -1,4 +1,8 @@
 2017-06-30 Joe Hunt
+Changing $use_costed_value to 1 instead of 0. Used in Inventory Valuation report.
+M	config.default.php
+
+2017-06-30 Joe Hunt
 0003921: Bug in Tax Groups fixed.
 M	taxes/tax_groups.php
 
