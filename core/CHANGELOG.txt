@@ -1,3 +1,7 @@
+2017-07-26 Joe Hunt
+undefined $myrow['trans_type'] when updating sales order
+M	sales/includes/db/sales_order_db.inc
+
 2017-06-30 Joe Hunt
 Changing $use_costed_value to 1 instead of 0. Used in Inventory Valuation report.
 M	config.default.php
