@@ -2158,7 +2158,7 @@ INSERT INTO `0_sys_prefs` VALUES ('version_id', 'system', 'varchar', 11, '2.4.1'
 INSERT INTO `0_sys_prefs` VALUES ('auto_curr_reval', 'setup.company', 'smallint', 6, '1');
 INSERT INTO `0_sys_prefs` VALUES ('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, '1550');
 INSERT INTO `0_sys_prefs` VALUES ('bcc_email', 'setup.company', 'varchar', 100, '');
-INSERT INTO `0_sys_prefs` VALUES ('deferred_income_act', 'glsetup.sales', 'varchar', '15', '');
+INSERT INTO `0_sys_prefs` VALUES ('deferred_income_act', 'glsetup.sales', 'varchar', 15, '');
 INSERT INTO `0_sys_prefs` VALUES ('gl_closing_date','setup.closing_date', 'date', 8, '');
 INSERT INTO `0_sys_prefs` VALUES ('alternative_tax_include_on_docs','setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES ('no_zero_lines_amount','glsetup.sales', 'tinyint', 1, '1');
@@ -2169,8 +2169,8 @@ INSERT INTO `0_sys_prefs` VALUES ('print_invoice_no','glsetup.sales', 'tinyint',
 INSERT INTO `0_sys_prefs` VALUES ('allow_negative_prices','glsetup.inventory', 'tinyint', 1, '1');
 INSERT INTO `0_sys_prefs` VALUES ('print_item_images_on_quote','glsetup.inventory', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES ('suppress_tax_rates','setup.company', 'tinyint', 1, '0');
-INSERT INTO `0_sys_prefs` VALUES ('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', '15', '5660');
-INSERT INTO `0_sys_prefs` VALUES ('depreciation_period', 'glsetup.company', 'tinyint', '1', '1');
+INSERT INTO `0_sys_prefs` VALUES ('default_loss_on_asset_disposal_act', 'glsetup.items', 'varchar', 15, '5660');
+INSERT INTO `0_sys_prefs` VALUES ('depreciation_period', 'glsetup.company', 'tinyint', 1, '1');
 INSERT INTO `0_sys_prefs` VALUES ('use_manufacturing','setup.company', 'tinyint', 1, '1');
 INSERT INTO `0_sys_prefs` VALUES ('use_fixed_assets','setup.company', 'tinyint', 1, '1');
 
