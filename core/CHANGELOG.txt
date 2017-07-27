@@ -1,3 +1,13 @@
+2017-07-27 Joe Hunt
+Database connection issue with non standard port.
+M	admin/create_coy.php
+M	admin/db/maintenance_db.inc
+M	includes/db/connect_db_mysql.inc
+M	includes/db/connect_db_mysqli.inc
+M	install/index.php
+M	install/lang/new_language_template/LC_MESSAGES/empty.po
+M	lang/new_language_template/LC_MESSAGES/empty.po 
+
 2017-07-26 Joe Hunt
 undefined $myrow['trans_type'] when updating sales order
 M	sales/includes/db/sales_order_db.inc
