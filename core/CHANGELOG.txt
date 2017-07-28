@@ -1,3 +1,10 @@
+2017-07-27 Janusz Dobrowolski
+Updated language templates. Double escaped Newlines fixed.
+M	install/lang/new_language_template/LC_MESSAGES/empty.po
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.mo
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po
+M	lang/new_language_template/LC_MESSAGES/empty.po 
+
 2017-07-27 Joe Hunt
 Database connection issue with non standard port.
 M	admin/create_coy.php
