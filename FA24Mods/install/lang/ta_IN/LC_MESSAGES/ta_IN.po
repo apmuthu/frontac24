@@ -1,402 +1,396 @@
 # Frontaccounting ERP Installer
 # Copyright (C) 2017 Ap.Muthu
 # This file is distributed under the same license as the FrontAccounting package.
-# Tuấn Anh <tuananh88c25@gmail.com>, 2016.
+# Ap.Muthu <apmuthu@usa.net>, 2017.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: FrontAccounting Install Wizard\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 20:22+0200\n"
-"PO-Revision-Date: 2017-07-29 16:27+0530\n"
+"PO-Revision-Date: 2017-07-29 16:30+0530\n"
 "Last-Translator: Ap.Muthu <apmuthu@usa.net>, 2017\n"
-"Language-Team: Vietnamese (https://www.transifex.com/gnuacademy/teams/55037/vi/)\n"
+"Language-Team: Tamil (https://www.transifex.com/gnuacademy/teams/55037/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi_VN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ta_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: install/index.php:20 install/index.php:41
 msgid "FrontAccouting ERP Installation Wizard"
-msgstr "Thuật sĩ cài đặt FrontAccouting ERP"
+msgstr "FrontAccouting ஈஆர்பி நிறுவல் வழிகாட்டி"
 
 #: install/index.php:42
 #, php-format
 msgid "Step %d: %s"
-msgstr "Bước %d: %s"
+msgstr "படி %d: %s"
 
 #: install/index.php:49
 msgid "Chart of accounts"
-msgstr "Bảng Tài khoản"
+msgstr "கணக்குகளின் அட்டவணை"
 
 #: install/index.php:49 install/index.php:76
 msgid "Encoding"
-msgstr "Mã hóa"
+msgstr "என்கோடிங்"
 
 #: install/index.php:49 install/index.php:76
 msgid "Description"
-msgstr "Miêu tả"
+msgstr "விரித்துரைத்தல்"
 
 #: install/index.php:49 install/index.php:76 install/index.php:403
 #: install/index.php:404
 msgid "Install"
-msgstr "cài đặt"
+msgstr "நிறுவுக"
 
 #: install/index.php:66 install/index.php:94
 msgid "Installed"
-msgstr "Cài đặt"
+msgstr "நிறுவப்பட்ட"
 
 #: install/index.php:76
 msgid "Language"
-msgstr "Ngôn ngữ"
+msgstr "மொழி"
 
 #: install/index.php:124
 msgid ""
 "Cannot connect to database. User or password is invalid or you have no "
 "permittions to create database."
 msgstr ""
-"Không thể kết nối với cơ sở dữ liệu. Người dùng hoặc mật khẩu không hợp lệ "
-"hoặc bạn không có quyền tạo cơ sở dữ liệu."
+"தரவுத்தளத்தில் இணைக்க முடியவில்லை. பயனர் அல்லது கடவுச்சொல் தவறானது அல்லது "
+"தரவுத்தள உருவாக்க உங்களுக்கு அனுமதி இல்லை."
 
 #: install/index.php:165
 msgid "Cannot save system configuration file 'config.php'."
-msgstr "Không thể lưu tập tin cấu hình hệ thống 'config.php'."
+msgstr "கணினி கட்டமைப்பு கோப்பை 'config.php' சேமிக்க முடியவில்லை."
 
 #: install/index.php:172
 msgid "Cannot open 'config_db.php' configuration file."
-msgstr "Không thể mở tập tin cấu hình 'config_db.php'"
+msgstr "'config_db.php' கட்டமைப்பு கோப்பை திறக்க முடியவில்லை."
 
 #: install/index.php:175
 msgid "Cannot write to the 'config_db.php' configuration file."
-msgstr "Không thể ghi vào tập tin cấu hình 'config_db.php'"
+msgstr "'config_db.php' கட்டமைப்பு கோப்பில் எழுத முடியவில்லை."
 
 #: install/index.php:178
 msgid ""
 "Configuration file 'config_db.php' is not writable. Change its permissions "
 "so it is, then re-run installation step."
 msgstr ""
-"Tập tin cấu hình 'config_db.php' không thể ghi. Thay đổi quyền của nó để nó "
-"được, sau đó chạy lại bước cài đặt."
+"கட்டமைப்பு கோப்பு 'config_db.php' எழுத முடியவில்லை. அதன் அனுமதியை "
+"மாற்றவும், அது மீண்டும் நிறுவலை நிறுவவும்."
 
 #: install/index.php:218
 msgid "Host name cannot be empty."
-msgstr "Tên Host không thể để trống."
+msgstr "Host பெயர் காலியாக இருக்க முடியாது."
 
 #: install/index.php:222
 msgid "Database port have to be numeric or empty."
-msgstr "Cổng cơ sở dữ liệu phải là số hoặc trống."
+msgstr "தரவுத்தள போர்ட் ஒரு எண் அல்லது காலியாக இருக்க வேண்டும்."
 
 #: install/index.php:226
 msgid "Database user name cannot be empty."
-msgstr "Tên người dùng Database  không thể để trống."
+msgstr "தரவுத்தள பயனர் பெயர் காலியாக இருக்க முடியாது."
 
 #: install/index.php:230
 msgid "Database name cannot be empty."
-msgstr "Tên cơ sở dữ liệu không thể để trống."
+msgstr "தரவுத்தள பெயர் காலியாக இருக்க முடியாது."
 
 #: install/index.php:285
 msgid "Company name cannot be empty."
-msgstr "Tên công ty không thể để trống."
+msgstr "நிறுவனத்தின் பெயர் காலியாக இருக்க முடியாது."
 
 #: install/index.php:289
 msgid "Company admin name cannot be empty."
-msgstr "Tên quản trị viên của công ty không thể để trống."
+msgstr "நிறுவனத்தின் நிர்வாகி பெயர் காலியாக இருக்க முடியாது."
 
 #: install/index.php:293
 msgid "Company admin password cannot be empty."
-msgstr "Mật khẩu quản trị viên của công ty không thể để trống."
+msgstr "நிறுவனத்தின் நிர்வாக கடவுச்சொல் காலியாக இருக்க முடியாது."
 
 #: install/index.php:297
 msgid "Company admin passwords differ."
-msgstr "mật khẩu quản trị công ty khác nhau."
+msgstr "நிறுவனத்தின் நிர்வாக கடவுச்சொற்கள் வேறுபடுகின்றன."
 
 #: install/index.php:327
 msgid "System Diagnostics"
-msgstr "Hệ thống chẩn đoán"
+msgstr "அமைப்பின் கண்டறிதல்"
 
 #: install/index.php:329
 msgid "Select install wizard language:"
-msgstr "Cài đặt ngôn ngữ:"
+msgstr "வழிகாட்டி மொழியை நிறுவவும்:"
 
 #: install/index.php:335
 msgid ""
 "All application preliminary requirements seems to be correct. Please press "
 "Continue button below."
 msgstr ""
-"Tất cả các yêu cầu sơ bộ ứng dụng có vẻ là đúng. Hãy nhấn nút Tiếp tục dưới "
-"đây."
+"அனைத்து பயன்பாடு ஆரம்ப தேவைகள் சரியானதாக தோன்றுகிறது. கீழே உள்ள buttonனை "
+"அழுத்தவும்."
 
 #: install/index.php:336 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:366 install/index.php:373
 #: install/index.php:380
 msgid "Continue >>"
-msgstr "Tiếp tục >>"
+msgstr "தொடரவும் >>"
 
 #: install/index.php:338
 msgid ""
 "Application cannot be installed. Please fix problems listed below in red, "
 "and press Refresh button."
 msgstr ""
-"Không thể cài đặt ứng dụng. Hãy khắc phục sự cố được liệt kê dưới đây bằng "
-"màu đỏ và nhấn nút Làm mới."
+"பயன்பாடு நிறுவப்படவில்லை. சிவப்பு கீழே பட்டியலிடப்பட்டுள்ள சிக்கல்களை "
+"சரிசெய்து, புதுப்பி buttonனை அழுத்தவும்."
 
 #: install/index.php:339
 msgid "Refresh"
-msgstr "Làm mới"
+msgstr "புதுப்பி"
 
 #: install/index.php:349
 msgid "Database Server Settings"
-msgstr "Thiết lập cơ sở dữ liệu"
+msgstr "டேட்டாபேஸ் சர்வர் அமைப்புகள்"
 
 #: install/index.php:351
 msgid "Server Host:"
-msgstr "Máy chủ:"
+msgstr "சர்வர் ஹோஸ்ட்:"
 
 #: install/index.php:352
 msgid "Server Port:"
-msgstr "Cổng máy chủ:"
+msgstr "சர்வர் போர்ட்:"
 
 #: install/index.php:353
 msgid "Database Name:"
-msgstr "Tên cơ sở dữ liệu:"
+msgstr "டேட்டாபேஸ் பெயர்:"
 
 #: install/index.php:354
 msgid "Database User:"
-msgstr "Tài khoản Cơ sở dữ liệu:"
+msgstr "டேட்டாபேஸ் பயனர்:"
 
 #: install/index.php:355
 msgid "Database Password:"
-msgstr "Mật khẩu Cơ sở dữ liệu:"
+msgstr "டேட்டாபேஸ் கடவுச்சொல்:"
 
 #: install/index.php:356
 msgid "Database Collation:"
-msgstr "Cơ sở dữ liệu Collation:"
+msgstr "டேட்டாபேஸ் அடுக்கு Collation:"
 
 #: install/index.php:357
 msgid "Use '0_' Table Prefix:"
-msgstr "Sử dụng tiền tố bảng '0_':"
+msgstr "'0_' Table முன்னுரை பயன்படுத்தவும்:"
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "Yes"
-msgstr "Có"
+msgstr "ஆம்"
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "No"
-msgstr "Không"
+msgstr "இல்லை"
 
 #: install/index.php:358
 msgid "Install Additional Language Packs from FA Repository:"
-msgstr "Cài đặt gói ngôn ngữ bổ sung từ FA Repository:"
+msgstr ""
 
 #: install/index.php:359
 msgid "Install Additional COAs from FA Repository:"
-msgstr "Cài đặt Hệ thống kế toán bổ sung từ FA Repository:"
+msgstr ""
 
 #: install/index.php:361
 msgid ""
 "Select collation you want to use. If you are unsure or you will use various "
 "languages, select unicode collation."
 msgstr ""
-"Chọn collation bạn muốn sử dụng. Nếu bạn không chắc chắn hoặc bạn sẽ sử dụng"
-" các ngôn ngữ khác nhau, hãy chọn phối hợp unicode."
 
 #: install/index.php:362
 msgid ""
 "Use table prefix if you share selected database for more than one FA company"
 " using the same collation."
 msgstr ""
-"Sử dụng tiền tố của bảng nếu bạn chia sẻ cơ sở dữ liệu đã chọn cho nhiều hơn"
-" một công ty FA sử dụng cùng một sự sắp xếp."
 
 #: install/index.php:363
 msgid ""
 "Do not select additional langs nor COAs if you have no working internet "
 "connection right now. You can install them later."
 msgstr ""
-"Không chọn các ngôn ngữ khác cũng không phải COAs nếu bạn không có kết nối "
-"internet đang hoạt động ngay bây giờ. Bạn có thể cài đặt chúng sau."
 
 #: install/index.php:364 install/index.php:371 install/index.php:378
 #: install/index.php:402 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:403
 msgid "<< Back"
-msgstr "<< Trở lại"
+msgstr "<< திரும்பும்"
 
 #: install/index.php:369 install/index.php:370
 msgid "User Interface Languages Selection"
-msgstr "Lựa chọn ngôn ngữ giao diện người dùng"
+msgstr ""
 
 #: install/index.php:376 install/index.php:377
 msgid "Charts of Accounts Selection"
-msgstr "Bảng tài khoản lựa chọn"
+msgstr "கணக்குகளின் அட்டவணை தேர்வு"
 
 #: install/index.php:393 install/index.php:394
 msgid "Company Settings"
-msgstr "Thiết lập Công ty"
+msgstr "நிறுவனத்தின் அமைப்பு"
 
 #: install/index.php:395 install/index.php:396
 msgid "Company Name:"
-msgstr "Tên công ty:"
+msgstr "நிறுவனம் பெயர்:"
 
 #: install/index.php:396 install/index.php:397
 msgid "Admin Login:"
-msgstr "Quản trị Đăng nhập:"
+msgstr "நிர்வாகி உள்நுழைவு:"
 
 #: install/index.php:397 install/index.php:398
 msgid "Admin Password:"
-msgstr "Mật khẩu quản trị:"
+msgstr "நிர்வாகி கடவுச்சொல்:"
 
 #: install/index.php:398 install/index.php:399
 msgid "Reenter Password:"
-msgstr "Nhập lại Mật khẩu:"
+msgstr "கடவுசொல்லை திருப்பி உள்ளிடு:"
 
 #: install/index.php:399 install/index.php:400
 msgid "Select Chart of Accounts:"
-msgstr "Chọn bảng tài khoản:"
+msgstr "கணக்குகளின் அட்டவணை தேர்வு:"
 
 #: install/index.php:400 install/index.php:401
 msgid "Select Default Language:"
-msgstr "Ngôn ngữ mặc định:"
+msgstr "இயல்பு மொழியை தேர்ந்தெடு:"
 
 #: install/index.php:403 install/index.php:404
 msgid "Start installation process"
-msgstr "Bắt đầu quá trình cài đặt"
+msgstr "நிறுவத் தொடங்க"
 
 #: install/index.php:407 install/index.php:408
 msgid "FrontAccounting ERP has been installed successsfully."
-msgstr "FrontAccounting ERP đã được cài đặt thành công."
+msgstr ""
 
 #: install/index.php:408 install/index.php:409
 msgid "Please do not forget to remove install wizard folder."
-msgstr "Xin đừng quên gỡ bỏ thư mục install wizard."
+msgstr ""
 
 #: install/index.php:411 install/index.php:412
 msgid "Click here to start."
-msgstr "Nhấn vào đây bắt đầu."
+msgstr "தொடங்க இங்கு கிளிக் செய்க"
 
 #: includes/system_tests.inc:15
 msgid "Info"
-msgstr "Thông tin"
+msgstr "தகவல்"
 
 #: includes/system_tests.inc:16
 msgid "Optional"
-msgstr "(Tùy chọn)"
+msgstr "விருப்பத்தக்க"
 
 #: includes/system_tests.inc:17
 msgid "Recommended"
-msgstr "Khuyến cáo"
+msgstr "பரிந்துரைக்கப்படுகிறது"
 
 #: includes/system_tests.inc:18
 msgid "Required "
-msgstr "Bắt buộc "
+msgstr ""
 
 #: includes/system_tests.inc:24
 msgid "MySQL version"
-msgstr "phiên bản MySQL"
+msgstr ""
 
 #: includes/system_tests.inc:28
 msgid "Upgrade MySQL server to version at least 4.1"
-msgstr "Nâng cấp máy chủ MySQL phiên bản thấp nhất là 4.1"
+msgstr ""
 
 #: includes/system_tests.inc:35
 msgid "PHP MySQL extension"
-msgstr "mở rộng PHP MySQL"
+msgstr ""
 
 #: includes/system_tests.inc:40
 msgid "Your PHP has to have MySQL extension enabled."
-msgstr "PHP của bạn đã có phần mở rộng MySQL kích hoạt."
+msgstr ""
 
 #: includes/system_tests.inc:46
 msgid "PHP version"
-msgstr "phiên bản PHP"
+msgstr ""
 
 #: includes/system_tests.inc:50
 msgid "Upgrade PHP to version at least 5.0.0"
-msgstr "Nâng cấp PHP lên phiên bản ít nhất 5.0.0"
+msgstr ""
 
 #: includes/system_tests.inc:57
 msgid "Server system"
-msgstr "hệ thống máy chủ"
+msgstr ""
 
 #: includes/system_tests.inc:67
 msgid "Session save path"
-msgstr "Phiên lưu đường dẫn"
+msgstr ""
 
 #: includes/system_tests.inc:79
 msgid "Removed install wizard folder"
-msgstr "Gỡ bỏ cài đặt thư mục Wizard"
+msgstr ""
 
 #: includes/system_tests.inc:82
 msgid "Not removed"
-msgstr "không loại bỏ"
+msgstr "அகற்றப்படவில்லை"
 
 #: includes/system_tests.inc:83
 msgid "Remove or rename install wizard folder for security reasons."
-msgstr "Xóa hoặc đổi tên thư mục cài đặt thuật sĩ vì lý do an ninh."
+msgstr ""
 
 #: includes/system_tests.inc:90
 msgid "Browser type"
-msgstr "loại trình duyệt"
+msgstr ""
 
 #: includes/system_tests.inc:94
 msgid "Any browser is supported"
-msgstr "Bất kỳ trình duyệt được hỗ trợ"
+msgstr ""
 
 #: includes/system_tests.inc:101
 msgid "Http server type"
-msgstr "loại máy chủ http"
+msgstr ""
 
 #: includes/system_tests.inc:105
 msgid "Any server is supported"
-msgstr "Bất kỳ máy chủ được hỗ trợ"
+msgstr ""
 
 #: includes/system_tests.inc:112
 msgid "Native gettext"
-msgstr "gettext Native"
+msgstr ""
 
 #: includes/system_tests.inc:116
 msgid "In case of no gettext support, php emulation is used"
-msgstr "Trong trường hợp không có hỗ trợ gettext, php thi đua được sử dụng"
+msgstr ""
 
 #: includes/system_tests.inc:124
 msgid "Debugging mode"
-msgstr "Chế độ kiểm lỗi"
+msgstr ""
 
 #: includes/system_tests.inc:128
 msgid "To switch debugging on set $go_debug>0 in config.php file"
-msgstr "Để chuyển đổi gỡ lỗi trên bộ $ go_debug> 0 trong tập tin config.php"
+msgstr ""
 
 #: includes/system_tests.inc:138
 msgid "Error logging"
-msgstr "lỗi đăng nhập"
+msgstr ""
 
 #: includes/system_tests.inc:146
 msgid "Disabled"
-msgstr "Bị tắt"
+msgstr "முடக்கப்பட்டது"
 
 #: includes/system_tests.inc:149
 msgid "To switch error logging set $error_logging in config.php file"
-msgstr "Để chuyển đổi lỗi đăng nhập bộ $ error_logging trong file config.php"
+msgstr ""
 
 #: includes/system_tests.inc:152
 msgid "Log file is not writeable"
-msgstr "Tệp nhật ký không phải là có thể ghi"
+msgstr ""
 
 #: includes/system_tests.inc:162
 msgid "Current database version"
-msgstr "Phiên bản cơ sở dữ liệu hiện thời"
+msgstr ""
 
 #: includes/system_tests.inc:166
 msgid "Database structure seems to be not upgraded to current version"
-msgstr "cấu trúc cơ sở dữ liệu có vẻ là không nâng cấp lên phiên bản hiện tại"
+msgstr ""
 
 #: includes/system_tests.inc:181
 msgid "Company subdirectories consistency"
-msgstr "Công ty thư mục con nhất quán"
+msgstr ""
 
 #: includes/system_tests.inc:194 includes/system_tests.inc:201
 #: includes/system_tests.inc:209 includes/system_tests.inc:226
@@ -404,141 +398,133 @@ msgstr "Công ty thư mục con nhất quán"
 #: includes/system_tests.inc:359 includes/system_tests.inc:367
 #, php-format
 msgid "'%s' is not writeable"
-msgstr "'%s' không ghi được"
+msgstr ""
 
 #: includes/system_tests.inc:222
 msgid "Temporary directory"
-msgstr "Thư mục tạm thời"
+msgstr ""
 
 #: includes/system_tests.inc:234
 msgid "Language configuration consistency"
-msgstr "thống nhất cấu hình ngôn ngữ"
+msgstr ""
 
 #: includes/system_tests.inc:243
 msgid "Languages folder should be writeable."
-msgstr "Ngôn ngữ thư mục cần được ghi."
+msgstr ""
 
 #: includes/system_tests.inc:252
 msgid "Languages configuration file should be writeable."
-msgstr "Tập tin cấu hình ngôn ngữ nên có thể ghi."
+msgstr ""
 
 #: includes/system_tests.inc:271
 #, php-format
 msgid "Missing %s translation file."
-msgstr "Thiếu %s tập tin dịch."
+msgstr ""
 
 #: includes/system_tests.inc:276
 #, php-format
 msgid "Missing system locale: %s"
-msgstr "Thiếu hệ thống ngôn ngữ: %s"
+msgstr ""
 
 #: includes/system_tests.inc:289
 msgid "Main config file"
-msgstr "Tập tin cấu hình chính"
+msgstr "பிரதான கட்டமைப்பு கோப்பு"
 
 #: includes/system_tests.inc:296 includes/system_tests.inc:318
 #, php-format
 msgid "Can't write '%s' file. Check FA directory write permissions."
-msgstr "Không thể ghi ' %s file'. Kiểm tra thư mục FA quyền ghi."
+msgstr ""
 
 #: includes/system_tests.inc:297 includes/system_tests.inc:319
 #, php-format
 msgid "'%s' file exists."
-msgstr "'%s' tập tin tồn tại."
+msgstr "'%s' கோப்பு ஏற்கனவே உள்ளது"
 
 #: includes/system_tests.inc:301
 #, php-format
 msgid "'%s' file should be read-only"
-msgstr "'%s' tập tin nên được chỉ đọc"
+msgstr "'%s' கோப்பினை வாசிக்க-மட்டுமே இருக்க வேண்டும்"
 
 #: includes/system_tests.inc:310
 msgid "Database auth file"
-msgstr "Tập tin cơ sở dữ liệu xác thực"
+msgstr "டேட்டாபேஸ் அங்கீகாரம் கோப்பு"
 
 #: includes/system_tests.inc:323
 #, php-format
 msgid ""
 "'%s' file should be read-only if you do not plan to add or change companies"
 msgstr ""
-"'%s' tập tin nên được chỉ đọc nếu bạn không có kế hoạch để thêm hoặc thay "
-"đổi công ty"
 
 #: includes/system_tests.inc:334
 msgid "Extensions system"
-msgstr "Hệ thống tiện ích mở rộng"
+msgstr ""
 
 #: includes/system_tests.inc:372
 msgid "Extensions configuration files and directories should be writeable"
-msgstr "Phần mở rộng tập tin cấu hình và thư mục này có thể ghi"
+msgstr ""
 
 #: includes/system_tests.inc:385
 #, php-format
 msgid "Non-standard theme directory '%s' is not writable"
-msgstr "Phi tiêu chuẩn thư mục chủ đề '%s' không cho phép ghi"
+msgstr ""
 
 #: includes/system_tests.inc:395
 msgid ""
 "OpenSSL PHP extension have to be enabled to use extension repository system."
 msgstr ""
-"OpenSSL PHP mở rộng phải được kích hoạt để sử dụng hệ thống kho lưu trữ mở "
-"rộng."
 
 #: includes/system_tests.inc:398
 msgid ""
 "OpenSSL have to be available on your server to use extension repository "
 "system."
 msgstr ""
-"OpenSSL phải có sẵn trên máy chủ của bạn để sử dụng hệ thống kho lưu trữ mở "
-"rộng."
 
 #: includes/system_tests.inc:421
 msgid "Test"
-msgstr "Thử nghiệm"
+msgstr "சோதனை"
 
 #: includes/system_tests.inc:421
 msgid "Test type"
-msgstr "Kiểm tra các loại"
+msgstr "சோதனை வகை"
 
 #: includes/system_tests.inc:421
 msgid "Value"
-msgstr "Giá trị"
+msgstr "மதிப்பு"
 
 #: includes/system_tests.inc:421
 msgid "Comments"
-msgstr "Ý kiến"
+msgstr "கருத்துரைகள்"
 
 #: includes/system_tests.inc:445
 msgid "Ok"
-msgstr "Chấp nhận"
+msgstr "சரி"
 
 #: includes/packages.inc:189
 #, php-format
 msgid "No key field '%s' in file '%s'"
-msgstr "Không có lĩnh vực quan trọng '%s' trong tập tin '%s'"
+msgstr "முக்கிய புலம் '%s' '%s' கோப்பில் இல்லை "
 
 #: includes/packages.inc:294
 msgid "Cannot download repo index file."
-msgstr "Không thể tải xuống tệp tin repo index."
+msgstr ""
 
 #: includes/packages.inc:306 includes/packages.inc:343
 #, php-format
 msgid "Cannot delete outdated '%s' file."
-msgstr "Không thể xóa lỗi thời ' %s file'."
+msgstr "காலாவதியான '%s' கோப்பு நீக்க முடியாது"
 
 #: includes/packages.inc:310
 msgid "Release file in repository is invalid, or public key is outdated."
 msgstr ""
-"tập tin phát hành trong kho là không hợp lệ, hoặc khóa công khai là lỗi "
-"thời."
 
 #: includes/packages.inc:327
 msgid "Repository version does not match application version."
-msgstr "phiên bản kho không phù hợp với phiên bản ứng dụng."
+msgstr ""
 
 #: includes/packages.inc:335 includes/packages.inc:377
 #, php-format
 msgid "Cannot download '%s' file."
-msgstr "Không thể tải xuống tệp '%s'."
+msgstr ""
 
 #: includes/packages.inc:347
 #, php-format
@@ -546,8 +532,6 @@ msgid ""
 "Security alert: broken index file in repository '%s'. Please inform "
 "repository administrator about this issue."
 msgstr ""
-"Thông báo bảo mật: chia tập tin chỉ mục trong kho '%s'. Hãy thông báo cho "
-"quản trị kho về vấn đề này."
 
 #: includes/packages.inc:383
 #, php-format
@@ -555,14 +539,12 @@ msgid ""
 "Security alert: broken package '%s' in repository. Please inform repository "
 "administrator about this issue."
 msgstr ""
-"Thông báo bảo mật: chia gói '%s' trong kho. Hãy thông báo cho quản trị kho "
-"về vấn đề này."
 
 #: includes/packages.inc:641 includes/packages.inc:696
 #, php-format
 msgid "Package '%s' not found."
-msgstr "Gói '%s' không tìm thấy."
+msgstr "'%s' தொகுப்பு காணப்படவில்லை."
 
 #: install/index.php:364
 msgid "Set Only Port value if you cannot use the default port 3306."
-msgstr "Chỉ đặt giá trị Port nếu bạn không thể sử dụng cổng mặc định 3306."
+msgstr ""
