@@ -1,4 +1,8 @@
 2017-07-27 Janusz Dobrowolski
+Double escaped newlines used in js strings reverted in language file template.
+M	lang/new_language_template/LC_MESSAGES/empty.po 
+
+2017-07-27 Janusz Dobrowolski
 Updated language templates. Double escaped Newlines fixed.
 M	install/lang/new_language_template/LC_MESSAGES/empty.po
 M	install/lang/pl_PL/LC_MESSAGES/pl_PL.mo
