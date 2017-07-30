@@ -1,4 +1,8 @@
 2017-07-30 Joe Hunt
+0003961: Undefined variables used during journal modify (tax included)
+M	gl/gl_journal.php
+
+2017-07-30 Joe Hunt
 0003962: Fixed result in Inventory Purchasing Report and re-run.
 M	purchasing/includes/db/grn_db.inc
 
