@@ -1,28 +1,34 @@
-2017-07-30 Joe Hunt
-0003954: Removed wrong RB from Customer Transactions Inquiry.
+2017-07-30 16:15:04 +0200 Joe Hunt 
+Release 2.4.2
+M	CHANGELOG.txt
+M	install/index.php (DB Port missing fix)
+M	version.php
+
+2017-07-30 13:15:04 +0200 Joe Hunt 
+0003954: RB not correct in Customer Transactions Inquiry. Removed RB from customer transactions.
 M	sales/includes/db/cust_trans_db.inc
 M	sales/inquiry/customer_inquiry.php
 
-2017-07-30 Joe Hunt
+2017-07-30 12:57:08 +0200 Joe Hunt 
 0003961: Undefined variables used during journal modify (tax included)
 M	gl/gl_journal.php
 
-2017-07-30 Joe Hunt
-0003962: Fixed result in Inventory Purchasing Report and re-run.
+2017-07-30 12:12:52 +0200 Joe Hunt 
+0003962: in Inventory Purchasing Report the result is wrongly showing.
 M	purchasing/includes/db/grn_db.inc
 
 2017-07-27 Janusz Dobrowolski
 Double escaped newlines used in js strings reverted in language file template.
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
-2017-07-27 Janusz Dobrowolski
+2017-07-27 20:25:47 +0200 Janusz Dobrowolski 
 Updated language templates. Double escaped Newlines fixed.
 M	install/lang/new_language_template/LC_MESSAGES/empty.po
 M	install/lang/pl_PL/LC_MESSAGES/pl_PL.mo
 M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
-2017-07-27 Joe Hunt
+2017-07-27 08:30:59 +0200 Joe Hunt 
 Database connection issue with non standard port.
 M	admin/create_coy.php
 M	admin/db/maintenance_db.inc
@@ -32,37 +38,37 @@ M	install/index.php
 M	install/lang/new_language_template/LC_MESSAGES/empty.po
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
-2017-07-26 Joe Hunt
-undefined $myrow['trans_type'] when updating sales order
+2017-07-26 08:07:30 +0200 Joe Hunt 
+undefined myrow ['trans_type'] when updating sales order
 M	sales/includes/db/sales_order_db.inc
 
-2017-06-30 Joe Hunt
+2017-07-20 22:01:17 +0200 Joe Hunt 
 Changing $use_costed_value to 1 instead of 0. Used in Inventory Valuation report.
 M	config.default.php
 
-2017-06-30 Joe Hunt
+2017-06-30 00:55:14 +0200 Joe Hunt 
 0003921: Bug in Tax Groups fixed.
 M	taxes/tax_groups.php
 
-2017-06-28 Joe Hunt
+2017-06-28 02:34:10 +0200 Joe Hunt 
 Quick Entries. Wrong number of QE rows in presentation. Fixed.
 M	gl/manage/gl_quick_entries.php
 
-2017-06-27 Joe Hunt
+2017-06-26 23:48:14 +0200 Joe Hunt 
 Double escape of slash in translatable js strings. Fixed.
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
-2017-06-19 Janusz Dobrowolski
+2017-06-19 16:26:56 +0200 Janusz Dobrowolski
 Fixed document total presentation in customer/supplier transaction inquiries. Rerun also.
 M	purchasing/inquiry/supplier_inquiry.php
 M	sales/includes/db/cust_trans_db.inc
 M	sales/inquiry/customer_inquiry.php
 
-2017-06-18 Janusz Dobrowolski
+2017-06-18 07:48:35 +0200 erling 
 0003896: Fixed Assets valuation report, location parameter not working
 M	reporting/rep451.php
 
-2017-06-15 Janusz Dobrowolski
+2017-06-14 23:33:29 +0200 Janusz Dobrowolski 
 Fixed payments reallocation for prepayment orders; blocked edition for open prepayment orders.
 M	includes/db/allocations_db.inc
 M	lang/new_language_template/LC_MESSAGES/empty.po
@@ -76,15 +82,15 @@ M	sales/includes/sales_db.inc
 M	sales/inquiry/sales_orders_view.php
 M	sales/sales_order_entry.php
 
-2017-06-08 Joe Hunt
+2017-06-08 11:31:28 +0200 Joe Hunt 
 0003876: Notice: Trying to get property of non-object in includes\errors.inc on line 74
 M	includes/errors.inc
 
-2017-06-08 Joe Hunt
+2017-06-08 08:34:47 +0200 Joe Hunt 
 Fixed dashboard page in Setup tab. Mixing customers in the Supplier diagram.
 M	includes/dashboard.inc
 
-2017-06-08 Joe Hunt
+2017-06-08 08:32:44 +0200 Joe Hunt 
 Fixed more rows when reporting to Excel Reports. Greater then 65535 rows.
 M	reporting/includes/Workbook.php
 M	reporting/includes/excel_report.inc
