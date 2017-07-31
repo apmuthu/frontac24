@@ -1,402 +1,405 @@
-# Frontaccounting ERP Installer
+# Frontaccounting ERP Installer Arabic (Egypt) translation file
 # Copyright (C) 2017 FrontAccounting LLC
 # This file is distributed under the same license as the FrontAccounting package.
-# Tuấn Anh <tuananh88c25@gmail.com>, 2016.
+# infotechaccountants.com <hameed@infotechaccountants.com>, 2017.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: FrontAccounting Install Wizard\n"
+"Project-Id-Version: FrontAccounting 2.4 Install Wizard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 20:22+0200\n"
-"PO-Revision-Date: 2017-07-29 16:27+0530\n"
-"Last-Translator: Ap.Muthu <apmuthu@usa.net>, 2017\n"
-"Language-Team: Vietnamese (https://www.transifex.com/gnuacademy/teams/55037/vi/)\n"
+"PO-Revision-Date: 2017-07-31 07:30+0400\n"
+"Last-Translator: infotechaccountants.com <hameed@infotechaccountants.com>, 2017\n"
+"Language-Team: Arabic (Egypt) (https://www.transifex.com/gnuacademy/teams/55037/ar_EG/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi_VN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ar_EG\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: install/index.php:20 install/index.php:41
 msgid "FrontAccouting ERP Installation Wizard"
-msgstr "Thuật sĩ cài đặt FrontAccouting ERP"
+msgstr ""
+"معالج التثبيت الخاص بالحل المالي لإدارة موارد المؤسسات \"FrontAccounting\""
 
 #: install/index.php:42
 #, php-format
 msgid "Step %d: %s"
-msgstr "Bước %d: %s"
+msgstr "الخطوة %d: %s "
 
 #: install/index.php:49
 msgid "Chart of accounts"
-msgstr "Bảng Tài khoản"
+msgstr "خريطة الحسابات"
 
 #: install/index.php:49 install/index.php:76
 msgid "Encoding"
-msgstr "Mã hóa"
+msgstr "الترميز"
 
 #: install/index.php:49 install/index.php:76
 msgid "Description"
-msgstr "Miêu tả"
+msgstr "الوصف"
 
 #: install/index.php:49 install/index.php:76 install/index.php:403
 #: install/index.php:404
 msgid "Install"
-msgstr "cài đặt"
+msgstr "التثبيت"
 
 #: install/index.php:66 install/index.php:94
 msgid "Installed"
-msgstr "Cài đặt"
+msgstr "تم تثبيته"
 
 #: install/index.php:76
 msgid "Language"
-msgstr "Ngôn ngữ"
+msgstr "اللغة"
 
 #: install/index.php:124
 msgid ""
 "Cannot connect to database. User or password is invalid or you have no "
 "permittions to create database."
 msgstr ""
-"Không thể kết nối với cơ sở dữ liệu. Người dùng hoặc mật khẩu không hợp lệ "
-"hoặc bạn không có quyền tạo cơ sở dữ liệu."
+"لا يمكن الاتصال بقاعدة البيانات. المستخدم أو كلمة المرور غير صالحة أو ليس "
+"لديك أذونات لإنشاء قاعدة بيانات."
 
 #: install/index.php:165
 msgid "Cannot save system configuration file 'config.php'."
-msgstr "Không thể lưu tập tin cấu hình hệ thống 'config.php'."
+msgstr "لا يمكن حفظ ملف التوصيف الخاص بالنظام  'config.php'"
 
 #: install/index.php:172
 msgid "Cannot open 'config_db.php' configuration file."
-msgstr "Không thể mở tập tin cấu hình 'config_db.php'"
+msgstr "لا يمكن فتح ملف التوصيف 'config_db.php'"
 
 #: install/index.php:175
 msgid "Cannot write to the 'config_db.php' configuration file."
-msgstr "Không thể ghi vào tập tin cấu hình 'config_db.php'"
+msgstr "لا يمكن الكتابة على ملف التوصيف 'config_db.php'"
 
 #: install/index.php:178
 msgid ""
 "Configuration file 'config_db.php' is not writable. Change its permissions "
 "so it is, then re-run installation step."
 msgstr ""
-"Tập tin cấu hình 'config_db.php' không thể ghi. Thay đổi quyền của nó để nó "
-"được, sau đó chạy lại bước cài đặt."
+"ملف التوصيف 'config_db.php' غير قابل للكتابة ، الرجاء تغيير صلاحيات "
+"الأستخدام و بعد ذلك أعد تشغيل خطوة التثبيت مرة أخرى"
 
 #: install/index.php:218
 msgid "Host name cannot be empty."
-msgstr "Tên Host không thể để trống."
+msgstr "أسم المضيف لا يمكن تركه فارغاً "
 
 #: install/index.php:222
 msgid "Database port have to be numeric or empty."
-msgstr "Cổng cơ sở dữ liệu phải là số hoặc trống."
+msgstr "يجب أن يكون منفذ قاعدة البيانات رقميا أو فارغا."
 
 #: install/index.php:226
 msgid "Database user name cannot be empty."
-msgstr "Tên người dùng Database  không thể để trống."
+msgstr "أسم مستخدم قاعدة البيانات لا يمكن تركه فارغاً"
 
 #: install/index.php:230
 msgid "Database name cannot be empty."
-msgstr "Tên cơ sở dữ liệu không thể để trống."
+msgstr "لا يمكن ترك أسم قاعدة البيانات فارغاً"
 
 #: install/index.php:285
 msgid "Company name cannot be empty."
-msgstr "Tên công ty không thể để trống."
+msgstr "لا يمكن ترك أسم الشركة فارغاً"
 
 #: install/index.php:289
 msgid "Company admin name cannot be empty."
-msgstr "Tên quản trị viên của công ty không thể để trống."
+msgstr "لا يمكن ترك أسم مدير النظام فارغاً"
 
 #: install/index.php:293
 msgid "Company admin password cannot be empty."
-msgstr "Mật khẩu quản trị viên của công ty không thể để trống."
+msgstr "لا يمكن ترك كلمة مرور مدير النظام فارغاً"
 
 #: install/index.php:297
 msgid "Company admin passwords differ."
-msgstr "mật khẩu quản trị công ty khác nhau."
+msgstr "كلمات مرور مدير النظام مختلفة"
 
 #: install/index.php:327
 msgid "System Diagnostics"
-msgstr "Hệ thống chẩn đoán"
+msgstr "تشخيص النظام"
 
 #: install/index.php:329
 msgid "Select install wizard language:"
-msgstr "Cài đặt ngôn ngữ:"
+msgstr "أختيار لغة معالج التثبيت"
 
 #: install/index.php:335
 msgid ""
 "All application preliminary requirements seems to be correct. Please press "
 "Continue button below."
 msgstr ""
-"Tất cả các yêu cầu sơ bộ ứng dụng có vẻ là đúng. Hãy nhấn nút Tiếp tục dưới "
-"đây."
+"جميع المتطلبات التمهيدية الخاصة بالتطبيق تبدو صحيحة ، الرجاء الضغط على زر "
+"الأستمرار في الأسفل"
 
 #: install/index.php:336 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:366 install/index.php:373
 #: install/index.php:380
 msgid "Continue >>"
-msgstr "Tiếp tục >>"
+msgstr "<< الاستمرار"
 
 #: install/index.php:338
 msgid ""
 "Application cannot be installed. Please fix problems listed below in red, "
 "and press Refresh button."
 msgstr ""
-"Không thể cài đặt ứng dụng. Hãy khắc phục sự cố được liệt kê dưới đây bằng "
-"màu đỏ và nhấn nút Làm mới."
+"لا يمكن تثبيت التطبيق ، الرجاء إصلاح المشاكل الملونة باللون الأحمر و المدرجة"
+" بالأسف ثم الضغط على زر التنشيط"
 
 #: install/index.php:339
 msgid "Refresh"
-msgstr "Làm mới"
+msgstr "تنشيط"
 
 #: install/index.php:349
 msgid "Database Server Settings"
-msgstr "Thiết lập cơ sở dữ liệu"
+msgstr "إعدادات خادم قاعدة البيانات"
 
 #: install/index.php:351
 msgid "Server Host:"
-msgstr "Máy chủ:"
+msgstr "الخادم المستضيف :"
 
 #: install/index.php:352
 msgid "Server Port:"
-msgstr "Cổng máy chủ:"
+msgstr "منفذ الخادم:"
 
 #: install/index.php:353
 msgid "Database Name:"
-msgstr "Tên cơ sở dữ liệu:"
+msgstr "أسم قاعدة البيانات:"
 
 #: install/index.php:354
 msgid "Database User:"
-msgstr "Tài khoản Cơ sở dữ liệu:"
+msgstr "مستخدم قاعدة البيانات:"
 
 #: install/index.php:355
 msgid "Database Password:"
-msgstr "Mật khẩu Cơ sở dữ liệu:"
+msgstr "كلمة مرور قاعدة البيانات:"
 
 #: install/index.php:356
 msgid "Database Collation:"
-msgstr "Cơ sở dữ liệu Collation:"
+msgstr "تجميع قاعدة البيانات:"
 
 #: install/index.php:357
 msgid "Use '0_' Table Prefix:"
-msgstr "Sử dụng tiền tố bảng '0_':"
+msgstr "استخدام '0_' كبادئة جدول"
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "Yes"
-msgstr "Có"
+msgstr "نعم"
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "No"
-msgstr "Không"
+msgstr "لا"
 
 #: install/index.php:358
 msgid "Install Additional Language Packs from FA Repository:"
-msgstr "Cài đặt gói ngôn ngữ bổ sung từ FA Repository:"
+msgstr "تثبيت حزم لغات إضافية من مستودع التطبيق :"
 
 #: install/index.php:359
 msgid "Install Additional COAs from FA Repository:"
-msgstr "Cài đặt Hệ thống kế toán bổ sung từ FA Repository:"
+msgstr "تثبيت خرائط حسابات أضافية من مستودع التطبيق :"
 
 #: install/index.php:361
 msgid ""
 "Select collation you want to use. If you are unsure or you will use various "
 "languages, select unicode collation."
 msgstr ""
-"Chọn collation bạn muốn sử dụng. Nếu bạn không chắc chắn hoặc bạn sẽ sử dụng"
-" các ngôn ngữ khác nhau, hãy chọn phối hợp unicode."
+"حدد الترتيب الذي تريد استخدامه. إذا كنت غير متأكد أو سوف تستخدم لغات مختلفة،"
+" حدد ترتيب ونيكود."
 
 #: install/index.php:362
 msgid ""
 "Use table prefix if you share selected database for more than one FA company"
 " using the same collation."
 msgstr ""
-"Sử dụng tiền tố của bảng nếu bạn chia sẻ cơ sở dữ liệu đã chọn cho nhiều hơn"
-" một công ty FA sử dụng cùng một sự sắp xếp."
+"استخدم بادئة الجدول إذا قمت بمشاركة قاعدة البيانات المحددة لأكثر من شركة فا "
+"باستخدام نفس الترتيب."
 
 #: install/index.php:363
 msgid ""
 "Do not select additional langs nor COAs if you have no working internet "
 "connection right now. You can install them later."
 msgstr ""
-"Không chọn các ngôn ngữ khác cũng không phải COAs nếu bạn không có kết nối "
-"internet đang hoạt động ngay bây giờ. Bạn có thể cài đặt chúng sau."
+"لا تختار لغات إضافية أو خرائط حسابات إضافية إذا لم يكن لديك الآن توصيلة "
+"أنترنت تعمل بكفاءة ، يمكنك أن تثبت اللغات و خرائط الحسابات في وقت لاحق"
 
 #: install/index.php:364 install/index.php:371 install/index.php:378
 #: install/index.php:402 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:403
 msgid "<< Back"
-msgstr "<< Trở lại"
+msgstr "للخلف >>"
 
 #: install/index.php:369 install/index.php:370
 msgid "User Interface Languages Selection"
-msgstr "Lựa chọn ngôn ngữ giao diện người dùng"
+msgstr "اختيار لغات واجهة المستخدم"
 
 #: install/index.php:376 install/index.php:377
 msgid "Charts of Accounts Selection"
-msgstr "Bảng tài khoản lựa chọn"
+msgstr "أختيار خرائط الحسابات"
 
 #: install/index.php:393 install/index.php:394
 msgid "Company Settings"
-msgstr "Thiết lập Công ty"
+msgstr "إعدادات الشركة"
 
 #: install/index.php:395 install/index.php:396
 msgid "Company Name:"
-msgstr "Tên công ty:"
+msgstr "أسم الشركة :"
 
 #: install/index.php:396 install/index.php:397
 msgid "Admin Login:"
-msgstr "Quản trị Đăng nhập:"
+msgstr "أسم الدخول لمدير النظام :"
 
 #: install/index.php:397 install/index.php:398
 msgid "Admin Password:"
-msgstr "Mật khẩu quản trị:"
+msgstr "كلمة مرور مدير النظام :"
 
 #: install/index.php:398 install/index.php:399
 msgid "Reenter Password:"
-msgstr "Nhập lại Mật khẩu:"
+msgstr "إعادة أدخال كلمة المرور :"
 
 #: install/index.php:399 install/index.php:400
 msgid "Select Chart of Accounts:"
-msgstr "Chọn bảng tài khoản:"
+msgstr "اختيار خريطة الحسابات :"
 
 #: install/index.php:400 install/index.php:401
 msgid "Select Default Language:"
-msgstr "Ngôn ngữ mặc định:"
+msgstr "اختيار اللغة الأفتراضية :"
 
 #: install/index.php:403 install/index.php:404
 msgid "Start installation process"
-msgstr "Bắt đầu quá trình cài đặt"
+msgstr "بدء عملية التثبيت"
 
 #: install/index.php:407 install/index.php:408
 msgid "FrontAccounting ERP has been installed successsfully."
-msgstr "FrontAccounting ERP đã được cài đặt thành công."
+msgstr "تمت عملية تثبيت FrontAccounting ERP بنجاح"
 
 #: install/index.php:408 install/index.php:409
 msgid "Please do not forget to remove install wizard folder."
-msgstr "Xin đừng quên gỡ bỏ thư mục install wizard."
+msgstr "الرجاء لا تنسى أن تزيل مجلد معالج التثبيت"
 
 #: install/index.php:411 install/index.php:412
 msgid "Click here to start."
-msgstr "Nhấn vào đây bắt đầu."
+msgstr "الضغط هنا للبدء"
 
 #: includes/system_tests.inc:15
 msgid "Info"
-msgstr "Thông tin"
+msgstr "معلومات"
 
 #: includes/system_tests.inc:16
 msgid "Optional"
-msgstr "(Tùy chọn)"
+msgstr "اختياري"
 
 #: includes/system_tests.inc:17
 msgid "Recommended"
-msgstr "Khuyến cáo"
+msgstr "يوصى به"
 
 #: includes/system_tests.inc:18
 msgid "Required "
-msgstr "Bắt buộc "
+msgstr "مطلوب"
 
 #: includes/system_tests.inc:24
 msgid "MySQL version"
-msgstr "phiên bản MySQL"
+msgstr "إصدار MySQL"
 
 #: includes/system_tests.inc:28
 msgid "Upgrade MySQL server to version at least 4.1"
-msgstr "Nâng cấp máy chủ MySQL phiên bản thấp nhất là 4.1"
+msgstr "ترقية خادم MySQL إلى الإصدار 4.1 على الأقل"
 
 #: includes/system_tests.inc:35
 msgid "PHP MySQL extension"
-msgstr "mở rộng PHP MySQL"
+msgstr "رابط برمجي بين PHP و MySQL"
 
 #: includes/system_tests.inc:40
 msgid "Your PHP has to have MySQL extension enabled."
-msgstr "PHP của bạn đã có phần mở rộng MySQL kích hoạt."
+msgstr "الـ PHP الخاص بك يجب أن يحتوي على رابط برمجي لـ MySQL مفعل"
 
 #: includes/system_tests.inc:46
 msgid "PHP version"
-msgstr "phiên bản PHP"
+msgstr "إصدار PHP"
 
 #: includes/system_tests.inc:50
 msgid "Upgrade PHP to version at least 5.0.0"
-msgstr "Nâng cấp PHP lên phiên bản ít nhất 5.0.0"
+msgstr "ترقية PHP إلى الإصدار رقم 5.0.0 على الأقل"
 
 #: includes/system_tests.inc:57
 msgid "Server system"
-msgstr "hệ thống máy chủ"
+msgstr "نظام الخادم"
 
 #: includes/system_tests.inc:67
 msgid "Session save path"
-msgstr "Phiên lưu đường dẫn"
+msgstr "مسار حفظ جلسة الأستخدام"
 
 #: includes/system_tests.inc:79
 msgid "Removed install wizard folder"
-msgstr "Gỡ bỏ cài đặt thư mục Wizard"
+msgstr "مجلد معالج التثبيت الذي تمت إزالته"
 
 #: includes/system_tests.inc:82
 msgid "Not removed"
-msgstr "không loại bỏ"
+msgstr "لم يتم إزالته"
 
 #: includes/system_tests.inc:83
 msgid "Remove or rename install wizard folder for security reasons."
-msgstr "Xóa hoặc đổi tên thư mục cài đặt thuật sĩ vì lý do an ninh."
+msgstr "قم بإزالة أو قم بإعادة تسمية مجلد معالج التثبيت و ذلك لأسباب أمنية"
 
 #: includes/system_tests.inc:90
 msgid "Browser type"
-msgstr "loại trình duyệt"
+msgstr "نوع المتصفح"
 
 #: includes/system_tests.inc:94
 msgid "Any browser is supported"
-msgstr "Bất kỳ trình duyệt được hỗ trợ"
+msgstr "أي مستصفح تم دعمه"
 
 #: includes/system_tests.inc:101
 msgid "Http server type"
-msgstr "loại máy chủ http"
+msgstr "نوع خادم Http"
 
 #: includes/system_tests.inc:105
 msgid "Any server is supported"
-msgstr "Bất kỳ máy chủ được hỗ trợ"
+msgstr "أي خادم تم دعمه"
 
 #: includes/system_tests.inc:112
 msgid "Native gettext"
-msgstr "gettext Native"
+msgstr "جيتيكس الطبيعية"
 
 #: includes/system_tests.inc:116
 msgid "In case of no gettext support, php emulation is used"
-msgstr "Trong trường hợp không có hỗ trợ gettext, php thi đua được sử dụng"
+msgstr "في حالة عدم دعم جيتيكس ، فإن محاكي PHP سوف يستخدم "
 
 #: includes/system_tests.inc:124
 msgid "Debugging mode"
-msgstr "Chế độ kiểm lỗi"
+msgstr "بيئة تصحيح الأخطاء"
 
 #: includes/system_tests.inc:128
 msgid "To switch debugging on set $go_debug>0 in config.php file"
-msgstr "Để chuyển đổi gỡ lỗi trên bộ $ go_debug> 0 trong tập tin config.php"
+msgstr ""
+"لتفعيل بيئة تصحيح الأخطاء يجب أن يتم ضبط $go_debug>0 في الملف config.php"
 
 #: includes/system_tests.inc:138
 msgid "Error logging"
-msgstr "lỗi đăng nhập"
+msgstr "سجل وقائع الأخطاء"
 
 #: includes/system_tests.inc:146
 msgid "Disabled"
-msgstr "Bị tắt"
+msgstr "غير مفعل"
 
 #: includes/system_tests.inc:149
 msgid "To switch error logging set $error_logging in config.php file"
-msgstr "Để chuyển đổi lỗi đăng nhập bộ $ error_logging trong file config.php"
+msgstr ""
+"لتفعيل سجل وقائع الأخطاء يجب أن يتم ضبط $error_logging في ملف config.php"
 
 #: includes/system_tests.inc:152
 msgid "Log file is not writeable"
-msgstr "Tệp nhật ký không phải là có thể ghi"
+msgstr "ملف سجل الوقائع غير قابل للكتابة عليه"
 
 #: includes/system_tests.inc:162
 msgid "Current database version"
-msgstr "Phiên bản cơ sở dữ liệu hiện thời"
+msgstr "إصدار قاعدة البيانات الحالي"
 
 #: includes/system_tests.inc:166
 msgid "Database structure seems to be not upgraded to current version"
-msgstr "cấu trúc cơ sở dữ liệu có vẻ là không nâng cấp lên phiên bản hiện tại"
+msgstr "يبدو أن هيكل قاعدة البيانات لم تتم ترقيته إلى الإصدار الحالي"
 
 #: includes/system_tests.inc:181
 msgid "Company subdirectories consistency"
-msgstr "Công ty thư mục con nhất quán"
+msgstr "اتساق الفهارس الفرعية للشركة"
 
 #: includes/system_tests.inc:194 includes/system_tests.inc:201
 #: includes/system_tests.inc:209 includes/system_tests.inc:226
@@ -404,141 +407,139 @@ msgstr "Công ty thư mục con nhất quán"
 #: includes/system_tests.inc:359 includes/system_tests.inc:367
 #, php-format
 msgid "'%s' is not writeable"
-msgstr "'%s' không ghi được"
+msgstr "'%s' غير قابل للكتابة عليه"
 
 #: includes/system_tests.inc:222
 msgid "Temporary directory"
-msgstr "Thư mục tạm thời"
+msgstr "الفهرس المؤقت"
 
 #: includes/system_tests.inc:234
 msgid "Language configuration consistency"
-msgstr "thống nhất cấu hình ngôn ngữ"
+msgstr "اتساق توصيف اللغة"
 
 #: includes/system_tests.inc:243
 msgid "Languages folder should be writeable."
-msgstr "Ngôn ngữ thư mục cần được ghi."
+msgstr "مجلد اللغات يجب أن يكون قابل للكتابة عليه"
 
 #: includes/system_tests.inc:252
 msgid "Languages configuration file should be writeable."
-msgstr "Tập tin cấu hình ngôn ngữ nên có thể ghi."
+msgstr "ملف توصيف اللغات يجب أن يكون قابل للكتابة عليه"
 
 #: includes/system_tests.inc:271
 #, php-format
 msgid "Missing %s translation file."
-msgstr "Thiếu %s tập tin dịch."
+msgstr "ملف الترجمة %s مفقود"
 
 #: includes/system_tests.inc:276
 #, php-format
 msgid "Missing system locale: %s"
-msgstr "Thiếu hệ thống ngôn ngữ: %s"
+msgstr "مسار النظام المفقود : %s"
 
 #: includes/system_tests.inc:289
 msgid "Main config file"
-msgstr "Tập tin cấu hình chính"
+msgstr "ملف التوصيف الرئيسي"
 
 #: includes/system_tests.inc:296 includes/system_tests.inc:318
 #, php-format
 msgid "Can't write '%s' file. Check FA directory write permissions."
-msgstr "Không thể ghi ' %s file'. Kiểm tra thư mục FA quyền ghi."
+msgstr ""
+"لا يمكن الكتابة على الملف  '%s' ، قم بفحص صلاحيات الكتابة على مجلد التطبيق"
 
 #: includes/system_tests.inc:297 includes/system_tests.inc:319
 #, php-format
 msgid "'%s' file exists."
-msgstr "'%s' tập tin tồn tại."
+msgstr "ملف  '%s' موجود"
 
 #: includes/system_tests.inc:301
 #, php-format
 msgid "'%s' file should be read-only"
-msgstr "'%s' tập tin nên được chỉ đọc"
+msgstr "الملف  '%s' يجب أن يكون للقراءة فقط "
 
 #: includes/system_tests.inc:310
 msgid "Database auth file"
-msgstr "Tập tin cơ sở dữ liệu xác thực"
+msgstr "ملف اعتماد قاعدة البيانات"
 
 #: includes/system_tests.inc:323
 #, php-format
 msgid ""
 "'%s' file should be read-only if you do not plan to add or change companies"
 msgstr ""
-"'%s' tập tin nên được chỉ đọc nếu bạn không có kế hoạch để thêm hoặc thay "
-"đổi công ty"
+"الملف  '%s' يجب أن يكون للقراءة فقط ، إذا كنت تخطط أن تضيف أو تغير الشركات"
 
 #: includes/system_tests.inc:334
 msgid "Extensions system"
-msgstr "Hệ thống tiện ích mở rộng"
+msgstr "نظام الإضافات البرمجية"
 
 #: includes/system_tests.inc:372
 msgid "Extensions configuration files and directories should be writeable"
-msgstr "Phần mở rộng tập tin cấu hình và thư mục này có thể ghi"
+msgstr "ملفات توصيف الإضافات البرمجية و المجلدات يجب أن تكون قابلة للكتابة"
 
 #: includes/system_tests.inc:385
 #, php-format
 msgid "Non-standard theme directory '%s' is not writable"
-msgstr "Phi tiêu chuẩn thư mục chủ đề '%s' không cho phép ghi"
+msgstr "مجلد الشكل الغير معياري  '%s' يجب أن يكون غير قابل للكتابة"
 
 #: includes/system_tests.inc:395
 msgid ""
 "OpenSSL PHP extension have to be enabled to use extension repository system."
 msgstr ""
-"OpenSSL PHP mở rộng phải được kích hoạt để sử dụng hệ thống kho lưu trữ mở "
-"rộng."
+"نظام الروابط البرمجية OpenSSL لـ PHP يجب أن يكون مفعل لأستخدام مستودع "
+"الإضافات البرمجية للنظام"
 
 #: includes/system_tests.inc:398
 msgid ""
 "OpenSSL have to be available on your server to use extension repository "
 "system."
 msgstr ""
-"OpenSSL phải có sẵn trên máy chủ của bạn để sử dụng hệ thống kho lưu trữ mở "
-"rộng."
+"OpenSSL يجب أن يكون متاح على الخادم حتى يمكنك أستخدام مستودع الإضافات "
+"البرمجية للنظام"
 
 #: includes/system_tests.inc:421
 msgid "Test"
-msgstr "Thử nghiệm"
+msgstr "اختبار"
 
 #: includes/system_tests.inc:421
 msgid "Test type"
-msgstr "Kiểm tra các loại"
+msgstr "نوع الاختبار"
 
 #: includes/system_tests.inc:421
 msgid "Value"
-msgstr "Giá trị"
+msgstr "القيمة"
 
 #: includes/system_tests.inc:421
 msgid "Comments"
-msgstr "Ý kiến"
+msgstr "الملاحظات"
 
 #: includes/system_tests.inc:445
 msgid "Ok"
-msgstr "Chấp nhận"
+msgstr "موافق"
 
 #: includes/packages.inc:189
 #, php-format
 msgid "No key field '%s' in file '%s'"
-msgstr "Không có lĩnh vực quan trọng '%s' trong tập tin '%s'"
+msgstr ""
 
 #: includes/packages.inc:294
 msgid "Cannot download repo index file."
-msgstr "Không thể tải xuống tệp tin repo index."
+msgstr "يتعذر تنزيل ملف فهرس إعادة الشراء."
 
 #: includes/packages.inc:306 includes/packages.inc:343
 #, php-format
 msgid "Cannot delete outdated '%s' file."
-msgstr "Không thể xóa lỗi thời ' %s file'."
+msgstr ""
 
 #: includes/packages.inc:310
 msgid "Release file in repository is invalid, or public key is outdated."
-msgstr ""
-"tập tin phát hành trong kho là không hợp lệ, hoặc khóa công khai là lỗi "
-"thời."
+msgstr "ملف الإصدار في مستودع التخزين غير صالح، أو أن المفتاح العمومي قديم."
 
 #: includes/packages.inc:327
 msgid "Repository version does not match application version."
-msgstr "phiên bản kho không phù hợp với phiên bản ứng dụng."
+msgstr "نسخة مستودع لا يطابق إصدار التطبيق."
 
 #: includes/packages.inc:335 includes/packages.inc:377
 #, php-format
 msgid "Cannot download '%s' file."
-msgstr "Không thể tải xuống tệp '%s'."
+msgstr ""
 
 #: includes/packages.inc:347
 #, php-format
@@ -546,8 +547,6 @@ msgid ""
 "Security alert: broken index file in repository '%s'. Please inform "
 "repository administrator about this issue."
 msgstr ""
-"Thông báo bảo mật: chia tập tin chỉ mục trong kho '%s'. Hãy thông báo cho "
-"quản trị kho về vấn đề này."
 
 #: includes/packages.inc:383
 #, php-format
@@ -555,14 +554,12 @@ msgid ""
 "Security alert: broken package '%s' in repository. Please inform repository "
 "administrator about this issue."
 msgstr ""
-"Thông báo bảo mật: chia gói '%s' trong kho. Hãy thông báo cho quản trị kho "
-"về vấn đề này."
 
 #: includes/packages.inc:641 includes/packages.inc:696
 #, php-format
 msgid "Package '%s' not found."
-msgstr "Gói '%s' không tìm thấy."
+msgstr ""
 
 #: install/index.php:364
 msgid "Set Only Port value if you cannot use the default port 3306."
-msgstr "Chỉ đặt giá trị Port nếu bạn không thể sử dụng cổng mặc định 3306."
+msgstr "تعيين قيمة المنفذ فقط إذا لم تتمكن من استخدام المنفذ الافتراضي 3306."

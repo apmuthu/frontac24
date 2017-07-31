@@ -1,12 +1,12 @@
-# Frontaccounting ERP Installer
-# Copyright (C) 2017 Ap.Muthu
+# Frontaccounting ERP Installer Yamil (India) translation file
+# Copyright (C) 2017 FrontAccounting LLC
 # This file is distributed under the same license as the FrontAccounting package.
 # Ap.Muthu <apmuthu@usa.net>, 2017.
 # 
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: FrontAccounting Install Wizard\n"
+"Project-Id-Version: FrontAccounting 2.4 Install Wizard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 20:22+0200\n"
 "PO-Revision-Date: 2017-07-29 16:30+0530\n"
