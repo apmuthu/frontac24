@@ -1,3 +1,7 @@
+2017-08-04 Janusz Dobrowolski
+[0003964] Fixed bug in voiding GRN.
+M	admin/void_transaction.php
+
 2017-07-31 14:30:00 +0200 Joe Hunt 
 Re-Release 2.4.2 with db version fix
 M	version.php
