@@ -1,4 +1,4 @@
-# Frontaccounting ERP Installer Tamil (India) translation file
+# Frontaccounting ERP Installer Hindi (India) translation file
 # Copyright (C) 2017 FrontAccounting LLC
 # This file is distributed under the same license as the FrontAccounting package.
 # Ap.Muthu <apmuthu@usa.net>, 2017.
@@ -9,184 +9,176 @@ msgstr ""
 "Project-Id-Version: FrontAccounting 2.4 Install Wizard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 20:22+0200\n"
-"PO-Revision-Date: 2017-07-29 16:30+0530\n"
+"PO-Revision-Date: 2017-08-15 14:02+0530\n"
 "Last-Translator: Ap.Muthu <apmuthu@usa.net>, 2017\n"
-"Language-Team: Tamil (https://www.transifex.com/gnuacademy/teams/55037/ta/)\n"
+"Language-Team: Hindi (https://www.transifex.com/gnuacademy/teams/55037/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta_IN\n"
+"Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: install/index.php:20 install/index.php:41
 msgid "FrontAccouting ERP Installation Wizard"
-msgstr "FrontAccouting ஈஆர்பி நிறுவல் வழிகாட்டி"
+msgstr ""
 
 #: install/index.php:42
 #, php-format
 msgid "Step %d: %s"
-msgstr "படி %d: %s"
+msgstr ""
 
 #: install/index.php:49
 msgid "Chart of accounts"
-msgstr "கணக்குகளின் அட்டவணை"
+msgstr "खातों का चार्ट"
 
 #: install/index.php:49 install/index.php:76
 msgid "Encoding"
-msgstr "என்கோடிங்"
+msgstr ""
 
 #: install/index.php:49 install/index.php:76
 msgid "Description"
-msgstr "விரித்துரைத்தல்"
+msgstr "विवरण"
 
 #: install/index.php:49 install/index.php:76 install/index.php:403
 #: install/index.php:404
 msgid "Install"
-msgstr "நிறுவுக"
+msgstr ""
 
 #: install/index.php:66 install/index.php:94
 msgid "Installed"
-msgstr "நிறுவப்பட்ட"
+msgstr ""
 
 #: install/index.php:76
 msgid "Language"
-msgstr "மொழி"
+msgstr ""
 
 #: install/index.php:124
 msgid ""
 "Cannot connect to database. User or password is invalid or you have no "
 "permittions to create database."
 msgstr ""
-"தரவுத்தளத்தில் இணைக்க முடியவில்லை. பயனர் அல்லது கடவுச்சொல் தவறானது அல்லது "
-"தரவுத்தள உருவாக்க உங்களுக்கு அனுமதி இல்லை."
 
 #: install/index.php:165
 msgid "Cannot save system configuration file 'config.php'."
-msgstr "கணினி கட்டமைப்பு கோப்பை 'config.php' சேமிக்க முடியவில்லை."
+msgstr ""
 
 #: install/index.php:172
 msgid "Cannot open 'config_db.php' configuration file."
-msgstr "'config_db.php' கட்டமைப்பு கோப்பை திறக்க முடியவில்லை."
+msgstr ""
 
 #: install/index.php:175
 msgid "Cannot write to the 'config_db.php' configuration file."
-msgstr "'config_db.php' கட்டமைப்பு கோப்பில் எழுத முடியவில்லை."
+msgstr ""
 
 #: install/index.php:178
 msgid ""
 "Configuration file 'config_db.php' is not writable. Change its permissions "
 "so it is, then re-run installation step."
 msgstr ""
-"கட்டமைப்பு கோப்பு 'config_db.php' எழுத முடியவில்லை. அதன் அனுமதியை "
-"மாற்றவும், அது மீண்டும் நிறுவலை நிறுவவும்."
 
 #: install/index.php:218
 msgid "Host name cannot be empty."
-msgstr "Host பெயர் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:222
 msgid "Database port have to be numeric or empty."
-msgstr "தரவுத்தள போர்ட் ஒரு எண் அல்லது காலியாக இருக்க வேண்டும்."
+msgstr ""
 
 #: install/index.php:226
 msgid "Database user name cannot be empty."
-msgstr "தரவுத்தள பயனர் பெயர் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:230
 msgid "Database name cannot be empty."
-msgstr "தரவுத்தள பெயர் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:285
 msgid "Company name cannot be empty."
-msgstr "நிறுவனத்தின் பெயர் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:289
 msgid "Company admin name cannot be empty."
-msgstr "நிறுவனத்தின் நிர்வாகி பெயர் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:293
 msgid "Company admin password cannot be empty."
-msgstr "நிறுவனத்தின் நிர்வாக கடவுச்சொல் காலியாக இருக்க முடியாது."
+msgstr ""
 
 #: install/index.php:297
 msgid "Company admin passwords differ."
-msgstr "நிறுவனத்தின் நிர்வாக கடவுச்சொற்கள் வேறுபடுகின்றன."
+msgstr ""
 
 #: install/index.php:327
 msgid "System Diagnostics"
-msgstr "அமைப்பின் கண்டறிதல்"
+msgstr ""
 
 #: install/index.php:329
 msgid "Select install wizard language:"
-msgstr "வழிகாட்டி மொழியை நிறுவவும்:"
+msgstr ""
 
 #: install/index.php:335
 msgid ""
 "All application preliminary requirements seems to be correct. Please press "
 "Continue button below."
 msgstr ""
-"அனைத்து பயன்பாடு ஆரம்ப தேவைகள் சரியானதாக தோன்றுகிறது. கீழே உள்ள buttonனை "
-"அழுத்தவும்."
 
 #: install/index.php:336 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:366 install/index.php:373
 #: install/index.php:380
 msgid "Continue >>"
-msgstr "தொடரவும் >>"
+msgstr ""
 
 #: install/index.php:338
 msgid ""
 "Application cannot be installed. Please fix problems listed below in red, "
 "and press Refresh button."
 msgstr ""
-"பயன்பாடு நிறுவப்படவில்லை. சிவப்பு கீழே பட்டியலிடப்பட்டுள்ள சிக்கல்களை "
-"சரிசெய்து, புதுப்பி buttonனை அழுத்தவும்."
 
 #: install/index.php:339
 msgid "Refresh"
-msgstr "புதுப்பி"
+msgstr ""
 
 #: install/index.php:349
 msgid "Database Server Settings"
-msgstr "டேட்டாபேஸ் சர்வர் அமைப்புகள்"
+msgstr ""
 
 #: install/index.php:351
 msgid "Server Host:"
-msgstr "சர்வர் ஹோஸ்ட்:"
+msgstr ""
 
 #: install/index.php:352
 msgid "Server Port:"
-msgstr "சர்வர் போர்ட்:"
+msgstr ""
 
 #: install/index.php:353
 msgid "Database Name:"
-msgstr "டேட்டாபேஸ் பெயர்:"
+msgstr ""
 
 #: install/index.php:354
 msgid "Database User:"
-msgstr "டேட்டாபேஸ் பயனர்:"
+msgstr ""
 
 #: install/index.php:355
 msgid "Database Password:"
-msgstr "டேட்டாபேஸ் கடவுச்சொல்:"
+msgstr ""
 
 #: install/index.php:356
 msgid "Database Collation:"
-msgstr "டேட்டாபேஸ் அடுக்கு Collation:"
+msgstr ""
 
 #: install/index.php:357
 msgid "Use '0_' Table Prefix:"
-msgstr "'0_' Table முன்னுரை பயன்படுத்தவும்:"
+msgstr ""
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "Yes"
-msgstr "ஆம்"
+msgstr ""
 
 #: install/index.php:357 includes/system_tests.inc:38
 #: includes/system_tests.inc:113 includes/system_tests.inc:126
 msgid "No"
-msgstr "இல்லை"
+msgstr ""
 
 #: install/index.php:358
 msgid "Install Additional Language Packs from FA Repository:"
@@ -218,7 +210,7 @@ msgstr ""
 #: install/index.php:402 install/index.php:365 install/index.php:372
 #: install/index.php:379 install/index.php:403
 msgid "<< Back"
-msgstr "<< திரும்பும்"
+msgstr ""
 
 #: install/index.php:369 install/index.php:370
 msgid "User Interface Languages Selection"
@@ -226,39 +218,39 @@ msgstr ""
 
 #: install/index.php:376 install/index.php:377
 msgid "Charts of Accounts Selection"
-msgstr "கணக்குகளின் அட்டவணை தேர்வு"
+msgstr ""
 
 #: install/index.php:393 install/index.php:394
 msgid "Company Settings"
-msgstr "நிறுவனத்தின் அமைப்பு"
+msgstr ""
 
 #: install/index.php:395 install/index.php:396
 msgid "Company Name:"
-msgstr "நிறுவனம் பெயர்:"
+msgstr ""
 
 #: install/index.php:396 install/index.php:397
 msgid "Admin Login:"
-msgstr "நிர்வாகி உள்நுழைவு:"
+msgstr ""
 
 #: install/index.php:397 install/index.php:398
 msgid "Admin Password:"
-msgstr "நிர்வாகி கடவுச்சொல்:"
+msgstr ""
 
 #: install/index.php:398 install/index.php:399
 msgid "Reenter Password:"
-msgstr "கடவுசொல்லை திருப்பி உள்ளிடு:"
+msgstr ""
 
 #: install/index.php:399 install/index.php:400
 msgid "Select Chart of Accounts:"
-msgstr "கணக்குகளின் அட்டவணை தேர்வு:"
+msgstr ""
 
 #: install/index.php:400 install/index.php:401
 msgid "Select Default Language:"
-msgstr "இயல்பு மொழியை தேர்ந்தெடு:"
+msgstr ""
 
 #: install/index.php:403 install/index.php:404
 msgid "Start installation process"
-msgstr "நிறுவத் தொடங்க"
+msgstr ""
 
 #: install/index.php:407 install/index.php:408
 msgid "FrontAccounting ERP has been installed successsfully."
@@ -270,19 +262,19 @@ msgstr ""
 
 #: install/index.php:411 install/index.php:412
 msgid "Click here to start."
-msgstr "தொடங்க இங்கு கிளிக் செய்க"
+msgstr ""
 
 #: includes/system_tests.inc:15
 msgid "Info"
-msgstr "தகவல்"
+msgstr ""
 
 #: includes/system_tests.inc:16
 msgid "Optional"
-msgstr "விருப்பத்தக்க"
+msgstr ""
 
 #: includes/system_tests.inc:17
 msgid "Recommended"
-msgstr "பரிந்துரைக்கப்படுகிறது"
+msgstr ""
 
 #: includes/system_tests.inc:18
 msgid "Required "
@@ -326,7 +318,7 @@ msgstr ""
 
 #: includes/system_tests.inc:82
 msgid "Not removed"
-msgstr "அகற்றப்படவில்லை"
+msgstr ""
 
 #: includes/system_tests.inc:83
 msgid "Remove or rename install wizard folder for security reasons."
@@ -370,7 +362,7 @@ msgstr ""
 
 #: includes/system_tests.inc:146
 msgid "Disabled"
-msgstr "முடக்கப்பட்டது"
+msgstr ""
 
 #: includes/system_tests.inc:149
 msgid "To switch error logging set $error_logging in config.php file"
@@ -428,7 +420,7 @@ msgstr ""
 
 #: includes/system_tests.inc:289
 msgid "Main config file"
-msgstr "பிரதான கட்டமைப்பு கோப்பு"
+msgstr ""
 
 #: includes/system_tests.inc:296 includes/system_tests.inc:318
 #, php-format
@@ -438,16 +430,16 @@ msgstr ""
 #: includes/system_tests.inc:297 includes/system_tests.inc:319
 #, php-format
 msgid "'%s' file exists."
-msgstr "'%s' கோப்பு ஏற்கனவே உள்ளது"
+msgstr ""
 
 #: includes/system_tests.inc:301
 #, php-format
 msgid "'%s' file should be read-only"
-msgstr "'%s' கோப்பினை வாசிக்க-மட்டுமே இருக்க வேண்டும்"
+msgstr ""
 
 #: includes/system_tests.inc:310
 msgid "Database auth file"
-msgstr "டேட்டாபேஸ் அங்கீகாரம் கோப்பு"
+msgstr ""
 
 #: includes/system_tests.inc:323
 #, php-format
@@ -481,28 +473,28 @@ msgstr ""
 
 #: includes/system_tests.inc:421
 msgid "Test"
-msgstr "சோதனை"
+msgstr ""
 
 #: includes/system_tests.inc:421
 msgid "Test type"
-msgstr "சோதனை வகை"
+msgstr ""
 
 #: includes/system_tests.inc:421
 msgid "Value"
-msgstr "மதிப்பு"
+msgstr ""
 
 #: includes/system_tests.inc:421
 msgid "Comments"
-msgstr "கருத்துரைகள்"
+msgstr ""
 
 #: includes/system_tests.inc:445
 msgid "Ok"
-msgstr "சரி"
+msgstr ""
 
 #: includes/packages.inc:189
 #, php-format
 msgid "No key field '%s' in file '%s'"
-msgstr "முக்கிய புலம் '%s' '%s' கோப்பில் இல்லை "
+msgstr ""
 
 #: includes/packages.inc:294
 msgid "Cannot download repo index file."
@@ -511,7 +503,7 @@ msgstr ""
 #: includes/packages.inc:306 includes/packages.inc:343
 #, php-format
 msgid "Cannot delete outdated '%s' file."
-msgstr "காலாவதியான '%s' கோப்பு நீக்க முடியாது"
+msgstr ""
 
 #: includes/packages.inc:310
 msgid "Release file in repository is invalid, or public key is outdated."
@@ -543,7 +535,7 @@ msgstr ""
 #: includes/packages.inc:641 includes/packages.inc:696
 #, php-format
 msgid "Package '%s' not found."
-msgstr "'%s' தொகுப்பு காணப்படவில்லை."
+msgstr ""
 
 #: install/index.php:364
 msgid "Set Only Port value if you cannot use the default port 3306."
