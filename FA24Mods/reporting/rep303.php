@@ -127,12 +127,30 @@ function print_stock_check()
 		$aligns = array('left',	'left',	'left', 'right', 'right', 'right', 'right');
 	}
 
+    $params =   array(
+		0 => $comments,
+    	1 => array('text' => _('Category'), 'from' => $cat, 'to' => ''),
+    	2 => array('text' => _('Location'), 'from' => $loc, 'to' => ''),
+    	3 => array('text' => _('Only Shortage'), 'from' => $short, 'to' => ''),
+		4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
+	);
 
-    	$params =   array( 	0 => $comments,
-    				1 => array('text' => _('Category'), 'from' => $cat, 'to' => ''),
-    				2 => array('text' => _('Location'), 'from' => $loc, 'to' => ''),
-    				3 => array('text' => _('Only Shortage'), 'from' => $short, 'to' => ''),
-					4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => ''));
+    // define barcode style
+    $style = array(
+    	'position' => 'L', // If blank string, barcode starts on left edge of page
+    	'stretch' => false,
+    	'fitwidth' => true,
+    	'cellfitalign' => '',
+    	'border' => true,
+    	'padding' => 3,
+    	'fgcolor' => array(0,0,0),
+    	'bgcolor' => false, //array(255,255,255),
+    	'text' => true,
+    	'font' => 'helvetica',
+    	'fontsize' => 8,
+    	'stretchtext' => 4
+    );
+    // write1DBarcode($code, $type, $x='', $y='', $w='', $h='', $xres=0.4, $style='', $align='')
 
    	$rep = new FrontReport(_('Stock Check Sheets'), "StockCheckSheet", user_pagesize(), 9, $orientation);
     if ($orientation == 'L')
@@ -195,15 +213,23 @@ function print_stock_check()
 		{
 			$image = company_path() . '/images/'
 				. item_img_name($trans['stock_id']) . '.jpg';
+
+			$rep->NewLine();
+			if ($rep->row - $SysPrefs->pic_height < $rep->bottomMargin)
+				$rep->NewPage();
+
 			if (file_exists($image))
 			{
-				$rep->NewLine();
-				if ($rep->row - $SysPrefs->pic_height < $rep->bottomMargin)
-					$rep->NewPage();
 				$rep->AddImage($image, $rep->cols[1], $rep->row - $SysPrefs->pic_height, 0, $SysPrefs->pic_height);
-				$rep->row -= $SysPrefs->pic_height;
-				$rep->NewLine();
 			}
+
+			$bar_y = $rep->GetY();
+			$barcode = str_pad($trans['stock_id'], 7, '0', STR_PAD_LEFT);
+			$barcode = substr($barcode, 0, 7); // EAN 8 Check digit is auto computed and barcode printed
+			$rep->write1DBarcode($barcode, 'EAN8', 200, $bar_y+20, 20, $SysPrefs->pic_height, 1.2, $style, 'N');
+
+			$rep->row -= $SysPrefs->pic_height;
+			$rep->NewLine();
 		}
 	}
 	$rep->Line($rep->row - 4);
