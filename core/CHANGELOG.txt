@@ -1,3 +1,7 @@
+2017-08-28 Janusz Dobrowolski
+Fixed invalid reference number update in document edition. 
+M	includes/ui/ui_input.inc
+
 2017-08-04 Janusz Dobrowolski
 [0003964] Fixed bug in voiding GRN.
 M	admin/void_transaction.php
