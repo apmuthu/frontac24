@@ -1,4 +1,8 @@
 2017-08-29 Joe Hunt
+Extended width of F2 Popup Customer Window to 600px
+M	includes/ui/ui_controls.inc
+
+2017-08-29 Joe Hunt
 Fix in date2sql function.
 M	includes/date_functions.inc
 
