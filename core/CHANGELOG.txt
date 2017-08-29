@@ -1,4 +1,8 @@
 2017-08-29 Joe Hunt
+Fixed Logical Bug in Customer Balances Report.
+M	reporting/rep101.php
+
+2017-08-29 Joe Hunt
 Select button visibility in F4 Items Popup. Removed extra parameter in submit_return() usage.
 M	inventory/manage/items.php
 
