@@ -1,3 +1,8 @@
+2017-08-30 Joe Hunt
+Old Sales Quote Reference Fix
+M	sales/includes/cart_class.inc
+M	sales/view/view_sales_order.php
+
 2017-08-29 Joe Hunt
 Fixed Logical Bug in Customer Balances Report.
 M	reporting/rep101.php
