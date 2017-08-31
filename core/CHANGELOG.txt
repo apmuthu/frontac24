@@ -1,3 +1,7 @@
+2017-08-31 Joe Hunt
+Group Total in Trial Balance on Screen.
+M	gl/inquiry/gl_trial_balance.php
+
 2017-08-30 Joe Hunt
 Old Sales Quote Reference Fix
 M	sales/includes/cart_class.inc
