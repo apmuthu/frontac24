@@ -1,3 +1,8 @@
+2017-09-04 Joe Hunt
+Config option for Logo on Reports.
+M	config.default.php
+M	reporting/includes/pdf_report.inc
+
 2017-09-02 Janusz Dobrowolski
 Fixed bug in product average cost calculations.
 M	manufacturing/includes/db/work_order_produce_items_db.inc
