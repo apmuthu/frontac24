@@ -1,3 +1,7 @@
+2017-09-07 Janusz Dobrowolski
+Sales Invoice: fixed tax included amount position.
+M	reporting/rep107.php
+
 2017-09-05 Joe Hunt
 Per company based Report Logo Option
 M	admin/company_preferences.php
