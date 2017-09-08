@@ -1,3 +1,7 @@
+2017-09-09 Joe Hunt
+Profit and Loss Statement. Compensate for to-date = leap-year in period compare.
+M	reporting/rep707.php
+
 2017-09-08 Joe Hunt
 Added the new Company Logo on Reports in default charts.
 M	sql/alter2.4.php
