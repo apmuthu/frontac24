@@ -1840,6 +1840,7 @@ INSERT INTO `0_sys_prefs` VALUES ('auto_curr_reval', 'setup.company', 'smallint'
 INSERT INTO `0_sys_prefs` VALUES ('bank_charge_act', 'glsetup.general', 'varchar', 15, '5690');
 INSERT INTO `0_sys_prefs` VALUES ('base_sales', 'setup.company', 'int', 11, '1');
 INSERT INTO `0_sys_prefs` VALUES ('bcc_email', 'setup.company', 'varchar', 100, '');
+INSERT INTO `0_sys_prefs` VALUES ('company_logo_report', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES ('coy_logo', 'setup.company', 'varchar', 100, '');
 INSERT INTO `0_sys_prefs` VALUES ('coy_name', 'setup.company', 'varchar', 60, 'Company name');
 INSERT INTO `0_sys_prefs` VALUES ('coy_no', 'setup.company', 'varchar', 25, '');
