@@ -1,3 +1,7 @@
+2017-09-19 Joe Hunt
+Bug in rep108 (and 101) when using Journal Entry for making entries in AR account.
+M	 includes/ui/items_cart.inc
+
 2017-09-17 Joe Hunt
 New Company Option for showing both Short Names and Names in Customer/Supplier lists.
 M	admin/company_preferences.php
