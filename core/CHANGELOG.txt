@@ -1,3 +1,7 @@
+2017-09-20 Janusz Dobrowolski
+Fixed bug in reallocation payments during purchase invoice edition.
+M	purchasing/includes/db/invoice_db.inc
+
 2017-09-20 Joe Hunt
 Right align numbers in customer inquiry.
 M	sales/inquiry/customer_inquiry.php
