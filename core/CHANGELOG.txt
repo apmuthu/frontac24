@@ -1,3 +1,7 @@
+2017-09-20 Joe Hunt
+Right align numbers in customer inquiry.
+M	sales/inquiry/customer_inquiry.php
+
 2017-09-19 Joe Hunt
 Bug in rep108 (and 101) when using Journal Entry for making entries in AR account.
 M	 includes/ui/items_cart.inc
