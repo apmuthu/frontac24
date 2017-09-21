@@ -1,3 +1,20 @@
+2017-09-20 Joe Hunt
+Right align numbers in inquiries and lists.
+M	includes/ui/allocation_cart.inc
+M	inventory/inquiry/stock_movements.php
+M	purchasing/allocations/supplier_allocation_main.php
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/inquiry/po_search_completed.php
+M	purchasing/inquiry/supplier_allocation_inquiry.php
+M	purchasing/inquiry/supplier_inquiry.php
+M	sales/allocations/customer_allocation_main.php
+M	sales/create_recurrent_invoices.php
+M	sales/inquiry/customer_allocation_inquiry.php
+M	sales/inquiry/sales_deliveries_view.php
+M	sales/inquiry/sales_orders_view.php
+M	sales/manage/recurrent_invoices.php
+M	sales/manage/sales_groups.php
+
 2017-09-20 Janusz Dobrowolski
 Fixed bug in reallocation payments during purchase invoice edition.
 M	purchasing/includes/db/invoice_db.inc
