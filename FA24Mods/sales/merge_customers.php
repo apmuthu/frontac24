@@ -1,7 +1,8 @@
 <?php
 
 $path_to_root = "..";
-$page_security = 'SA_CUSTOMER';
+//$page_security = 'SA_CUSTOMER';
+$page_security = 'SA_SETUPCOMPANY';
 
 include_once($path_to_root . "/sales/includes/cart_class.inc");
 include_once($path_to_root . "/includes/session.inc");
@@ -16,9 +17,9 @@ include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/gl/includes/gl_db.inc");
 include_once($path_to_root . "/sales/includes/db/customers_db.inc");
 
-$js = '';
+$js = "";
 
-page("Merge Customers", false, false, "", $js);
+page(_($help_context = "Merge Customers"), false, false, "", $js);
 
 $deletecustomer = $_POST['deletecustomer']+0;
 $keepcustomer   = $_POST['keepcustomer']+0;
@@ -35,6 +36,15 @@ if ($keepcustomer && $deletecustomer) {
     db_query($sql, "An error occured");
 
     $sql = "UPDATE ".TB_PREF."cust_allocations SET person_id = $keepcustomer WHERE person_id = $deletecustomer";
+    db_query($sql, "An error occured");
+
+    $sql = "UPDATE ".TB_PREF."recurrent_invoices SET debtor_no = $keepcustomer WHERE debtor_no = $deletecustomer";
+    db_query($sql, "An error occured");
+
+    $sql = "UPDATE ".TB_PREF."sales_orders SET debtor_no = $keepcustomer WHERE debtor_no = $deletecustomer";
+    db_query($sql, "An error occured");
+
+    $sql = "UPDATE ".TB_PREF."sales_orders SET branch_code = (SELECT branch_code FROM ".TB_PREF."cust_branch cb WHERE cb.debtor_no = $keepcustomer LIMIT 1) WHERE debtor_no = $deletecustomer";
     db_query($sql, "An error occured");
 
     $sql = "DELETE FROM ".TB_PREF."debtors_master WHERE debtor_no = $deletecustomer"; 
@@ -55,30 +65,25 @@ if ($keepcustomer && $deletecustomer) {
     header("Location: ..");
 }
 
-$sql = "SELECT debtor_no, `name` FROM ".TB_PREF."debtors_master  ORDER BY `name` ASC ";
-$result = db_query($sql, "An error occured");
+br(2);
+start_table();
+label_cell("<b class=\"headingtext\">NOTE: THIS ACTION IS IRREVOCABLE</b>");
+end_table(2);
 
-echo "<form method=\"post\">";
-echo "<center><br /><br /><b class=\"headingtext\">NOTE: THIS ACTION IS IRREVOCABLE</b><br /><br /><table style= \"width:70% \">  <tr>  <td colspan= \"6 \">Merge & Delete this customer</td>  <th> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </th>  <td colspan= \"6 \">Keep this customer</td>   </tr>  <tr>  <td colspan= \"6 \"><select id= \"deletecustomer\" name= \"deletecustomer\" class= \"combo2 \" title= \"Merge & Delete customer \" _last= \"14 \">";
+start_form();
+start_table();
+customer_list_cells(_("Merge & Delete this Customer: "), 'deletecustomer');
+label_cell("<font size= \"6 \"> &nbsp; &nbsp; &rArr; &nbsp; &nbsp; &nbsp; </font>");
+customer_list_cells(_("Merge & Keep this customer: "), 'keepcustomer');
 
-while ($myrow = db_fetch($result)) {
-    echo "<option value= \"" . $myrow['debtor_no'] . " \">" . $myrow['name'] . " </option>"; 
-}
+end_table(3);
+display_warning(_("Are you sure you want to void this transaction ? This action cannot be undone."), 0, 1);
+br();
+submit_center_first('ConfirmMerge', _("Merge Customers"), '', true);
+submit_center_last('CancelMerge', _("Cancel"), '', 'cancel');
+// echo "<input type=\"submit\" value=\" Merge Customers \"> &nbsp; &nbsp; <input type=\"submit\" formaction=\"..\" value=\" Cancel \" > </center>";
 
-echo "</select></td>  <td colspan= \"2 \"><font size= \"6 \"> &nbsp; &nbsp; &rArr; &nbsp; &nbsp; &nbsp; </font> </td><td colspan= \"6 \"><select id= \"keepcustomer\" name= \"keepcustomer\" class= \"combo2 \" title= \"Merge & keep customer \" _last= \"14 \">";
-
-$sql = "SELECT debtor_no, `name` FROM ".TB_PREF."debtors_master  ORDER BY `name` ASC ";
-$result = db_query($sql, "An error occured");
-
-while ($myrow = db_fetch($result)) {
-    echo "<option value= \"" . $myrow['debtor_no'] . " \">" . $myrow['name'] . " </option>"; 
-}
-
-echo "</select></td>  </tr>";
-
-echo "</table>";
-
-echo "<br /><br /><br /><input type=\"submit\" value=\" Merge Customers \"> &nbsp; &nbsp; <input type=\"submit\" formaction=\"..\" value=\" Cancel \" > </center>";
-echo "</form><br /><br /><br />";
+end_form();
+br(3);
 
 end_page();
