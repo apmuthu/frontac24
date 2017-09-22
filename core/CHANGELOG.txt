@@ -1,3 +1,8 @@
+2017-09-22 Joe Hunt
+Bug presenting ST_JOURNAL in AR/AP Reports fixed.
+M	reporting/rep108.php
+M	sales/includes/db/customers_db.inc
+
 2017-09-20 Joe Hunt
 Right align numbers in inquiries and lists.
 M	includes/ui/allocation_cart.inc
