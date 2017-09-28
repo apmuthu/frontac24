@@ -1,3 +1,13 @@
+2017-09-28 Joe Hunt
+Better wrapping on comments in documents.
+M	reporting/rep107.php
+M	reporting/rep109.php
+M	reporting/rep110.php
+M	reporting/rep111.php
+M	reporting/rep113.php
+M	reporting/rep209.php
+M	sales/includes/sales_ui.inc
+
 2017-09-22 Joe Hunt
 Bug presenting ST_JOURNAL in AR/AP Reports fixed.
 M	reporting/rep108.php
