@@ -1,4 +1,8 @@
 2017-09-28 Joe Hunt
+Removed unused variable $show_voided_gl_trans from 2.4 config file.
+M	config.default.php
+
+2017-09-28 Joe Hunt
 Better wrapping on comments in documents.
 M	reporting/rep107.php
 M	reporting/rep109.php
