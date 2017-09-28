@@ -53,13 +53,13 @@ if ($keepcustomer && $deletecustomer) {
     $sql = "DELETE FROM ".TB_PREF."cust_branch WHERE debtor_no = $deletecustomer"; 
     db_query($sql, "An error occured");
 
-    $sql = "DELETE FROM ".TB_PREF."crm_contacts WHERE type = 'customer' AND entity_id = $deletecustomer"; 
+    $sql = "DELETE FROM ".TB_PREF."crm_contacts WHERE `type` = 'customer' AND entity_id = $deletecustomer"; 
     db_query($sql, "An error occured");
 
-    $sql = "DELETE FROM ".TB_PREF."crm_contacts WHERE type = 'cust_branch' AND entity_id = (SELECT branch_code FROM ".TB_PREF."cust_branch WHERE debtor_no = $deletecustomer)"; 
+    $sql = "DELETE FROM ".TB_PREF."crm_contacts WHERE `type` = 'cust_branch' AND entity_id = (SELECT branch_code FROM ".TB_PREF."cust_branch WHERE debtor_no = $deletecustomer)"; 
     db_query($sql, "An error occured");
 
-    $sql = "DELETE FROM ".TB_PREF."crm_persons WHERE type = 'customer' AND id = (SELECT person_id from ".TB_PREF."crm_contacts WHERE type = 'customer' AND entity_id = $deletecustomer LIMIT 1)"; 
+    $sql = "DELETE FROM ".TB_PREF."crm_persons WHERE id = (SELECT person_id from ".TB_PREF."crm_contacts WHERE `type` = 'customer' AND entity_id = $deletecustomer LIMIT 1)"; 
     db_query($sql, "An error occured");
         
     header("Location: ..");
