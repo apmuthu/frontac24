@@ -210,3 +210,20 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 */
 	$use_popup_search = true;
 	$max_rows_in_search = 10;
+
+/*
+	LAN repo with unsigned packages (0), WAN repo with signed packages (1)
+*/
+	$repo_sign = 1;
+
+/*
+// Comment out parameters not used in user repo - overrides repo in version.php
+	$repo_auth = array(
+//		'scheme' => 'http://', // 'ftp://', 'https://'
+//		'login' => '',
+//		'pass' => '',
+		'host' => 'www.example.com',
+		'path' => 'farepo',	// no leading or trailing slashes (/)
+		'branch' => '2.4'	// Repository branch for current sources version
+	);
+*/

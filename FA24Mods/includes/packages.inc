@@ -268,7 +268,7 @@ function pkg_prop($pkg, $property, $lang=false)
 //
 function get_pkg_or_list($type = null, $pkgname = null, $filter=array(), $outkey=null, $download=true) {
 
-	global $path_to_root, $repo_auth;
+	global $path_to_root, $repo_auth, $repo_sign;
 
 	$repo =  (isset($repo_auth['scheme']) ? $repo_auth['scheme'] : 'http://')
 			.(isset($repo_auth['login'])  ? $repo_auth['login'].':' : '')
@@ -303,7 +303,7 @@ function get_pkg_or_list($type = null, $pkgname = null, $filter=array(), $outkey
 			display_error(_("OpenSSL have to be available on your server to use extension repository system."));
 			return null;
 		}	
-		if (openssl_verify($data, $sig, $cert) <= 0) {
+		if ((!isset($repo_sign) || $repo_sign == 1) && openssl_verify($data, $sig, $cert) <= 0) {
 			if ($refresh) {
 				if (!@unlink($loclist))
 				{
@@ -675,6 +675,12 @@ function install_extension($pkg_name)
 				'active' => @$pkg['DefaultStatus'] == 'active' ? true : false,
 				'path' => $pkg['InstallPath'],
 			);
+//			if (isset($pkg['MenuTabs']))
+//				$ext['tabs'] = $pkg['MenuTabs'];
+//			if (isset($pkg['MenuEntries']))
+//				$ext['entries'] = $pkg['MenuEntries'];
+//			if (isset($pkg['AccessExtensions']))
+//				$ext['acc_file'] = $pkg['AccessExtensions'];
 			if (isset($pkg['SqlScript']))
 				$ext['sql'] = $pkg['SqlScript'];
 
