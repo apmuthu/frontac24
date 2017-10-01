@@ -1,3 +1,7 @@
+2017-10-01 Joe Hunt
+Fixed user config values unavailable error generated before user login
+M	includes/current_user.inc
+
 2017-09-29 Joe Hunt
 Test for open_ssl in extensions.
 M	 includes/packages.inc
