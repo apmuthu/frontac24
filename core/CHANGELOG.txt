@@ -1,3 +1,7 @@
+2017-10-02 Joe Hunt
+Optimised get_company_pref()
+M	admin/db/company_db.inc
+
 2017-10-01 Joe Hunt
 Fixed user config values unavailable error generated before user login
 M	includes/current_user.inc
