@@ -1,3 +1,7 @@
+2017-10-02 PaulShipley
+Fixed Bug in ui_controls.inc
+M	includes/ui/ui_controls.inc
+
 2017-10-02 Joe Hunt
 Optimised get_company_pref()
 M	admin/db/company_db.inc
