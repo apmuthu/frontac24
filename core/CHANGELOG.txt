@@ -1,3 +1,7 @@
+2017-10-05 Joe Hunt
+Searching Journal Inquiry by user fixed
+M	gl/inquiry/journal_inquiry.php
+
 2017-10-03 Joe Hunt
 Fixed After successful Backup, loader.gif still present
 M	admin/backups.php
