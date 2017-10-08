@@ -1,3 +1,7 @@
+2017-10-09 Janusz Dobrowolski
+Fixed bug in exchange rate display helper.
+M	includes/ui/ui_view.inc
+
 2017-10-05 Joe Hunt
 Searching Journal Inquiry by user fixed
 M	gl/inquiry/journal_inquiry.php
