@@ -1,3 +1,7 @@
+2017-10-09 Joe Hunt
+Fixed Undefined variable: site_ip in file.
+M	gl/includes/db/gl_db_rates.inc
+
 2017-10-09 Janusz Dobrowolski
 Fixed bug in exchange rate display helper.
 M	includes/ui/ui_view.inc
