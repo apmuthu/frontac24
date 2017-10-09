@@ -1,3 +1,7 @@
+2017-10-10 Janusz Dobrowolski
+Fixed reference number refresh on conflict during concurrent sales documents entry.
+M	sales/sales_order_entry.php
+
 2017-10-09 Joe Hunt
 Fixed Undefined variable: site_ip in file.
 M	gl/includes/db/gl_db_rates.inc
