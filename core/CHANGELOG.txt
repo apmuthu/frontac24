@@ -1,3 +1,7 @@
+2017-10-12 Joe Hunt
+Fixed Bug in unticked checkbox evaluation
+M	includes/ui/ui_input.inc
+
 2017-10-10 Janusz Dobrowolski
 Fixed reference number refresh on conflict during concurrent sales documents entry.
 M	sales/sales_order_entry.php
