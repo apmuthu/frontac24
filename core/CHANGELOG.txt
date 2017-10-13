@@ -1,3 +1,7 @@
+2017-10-13 Janusz Dobrowolski
+Added prepayment amount invoiced in Prepayment Invoice view.
+M	sales/view/view_invoice.php
+
 2017-10-13 Joe Hunt
 Customer Allocations bug fixed.
 M	sales/allocations/customer_allocate.php
