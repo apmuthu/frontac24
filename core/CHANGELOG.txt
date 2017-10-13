@@ -1,3 +1,11 @@
+2017-10-13 Joe Hunt
+Customer Allocations bug fixed.
+M	sales/allocations/customer_allocate.php
+M	sales/allocations/customer_allocation_main.php
+M	sales/includes/db/custalloc_db.inc
+M	sales/inquiry/customer_allocation_inquiry.php
+M	sales/inquiry/customer_inquiry.php
+
 2017-10-12 Joe Hunt
 Fixed Bug in unticked checkbox evaluation
 M	includes/ui/ui_input.inc
