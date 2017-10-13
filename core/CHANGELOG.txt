@@ -1,4 +1,15 @@
 2017-10-13 Janusz Dobrowolski
+Supplier Inquiry/Customer Inquiry: removed inconsistency in unsettled/overdue transactions.
+M	includes/ui/ui_lists.inc
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	purchasing/includes/db/supp_trans_db.inc
+M	purchasing/includes/db/suppliers_db.inc
+M	purchasing/inquiry/supplier_inquiry.php
+M	sales/includes/db/cust_trans_db.inc
+M	sales/includes/db/customers_db.inc
+M	sales/inquiry/customer_inquiry.php
+
+2017-10-13 Janusz Dobrowolski
 Added prepayment amount invoiced in Prepayment Invoice view.
 M	sales/view/view_invoice.php
 
