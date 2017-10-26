@@ -1,3 +1,7 @@
+2017-10-26 Joe Hunt
+Fixed URL of Google exchange rate provider
+M	gl/includes/db/gl_db_rates.inc
+
 2017-10-13 Janusz Dobrowolski
 Supplier Inquiry/Customer Inquiry: removed inconsistency in unsettled/overdue transactions.
 M	includes/ui/ui_lists.inc
