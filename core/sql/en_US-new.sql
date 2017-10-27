@@ -639,7 +639,7 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans` (
   `dimension2_id` int(11) NOT NULL default '0',
   `payment_terms` int(11) default NULL,
   `tax_included` tinyint(1) unsigned NOT NULL default '0',
-  PRIMARY KEY (`type`,`trans_no`),
+  PRIMARY KEY (`type`,`trans_no`,`debtor_no`),
   KEY `debtor_no` (`debtor_no`,`branch_code`),
   KEY `tran_date` (`tran_date`),
   KEY `order_` (`order_`)
@@ -1796,7 +1796,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_trans` (
   `rate` double NOT NULL default '1',
   `alloc` double NOT NULL default '0',
   `tax_included` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY (`type`,`trans_no`),
+  PRIMARY KEY (`type`,`trans_no`,`supplier_id`),
   KEY `supplier_id` (`supplier_id`),
   KEY `tran_date` (`tran_date`)
 ) ENGINE=InnoDB;

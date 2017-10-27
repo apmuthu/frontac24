@@ -1,4 +1,9 @@
 2017-10-27 Janusz Dobrowolski
+Fixed debtor_trans and supp_trans primary keys to allow multiply AR/AP accounts in journal transactions.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2017-10-27 Janusz Dobrowolski
 Removed sparse return line in hooks.inc
 M	includes/hooks.inc
 
