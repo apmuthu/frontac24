@@ -1,3 +1,7 @@
+2017-10-27 Janusz Dobrowolski
+Removed sparse return line in hooks.inc
+M	includes/hooks.inc
+
 2017-10-27 Joe Hunt
 Add Items on the Fly. Behavior Changed in FA24. Fixed.
 M	inventory/manage/items.php
