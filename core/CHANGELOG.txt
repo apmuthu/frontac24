@@ -1,4 +1,10 @@
-2017-10-29
+2017-10-29 Janusz Dobrowolski
+Items: fixed item tax type selector to exclude inactive item tax types.
+M	includes/ui/ui_lists.inc
+M	inventory/manage/items.php
+M	taxes/db/item_tax_types_db.inc
+
+2017-10-29 Joe Hunt
 On the fly F2 Customers and Suppliers popup selection fix
 M	purchasing/manage/suppliers.php
 M	sales/manage/customers.php
