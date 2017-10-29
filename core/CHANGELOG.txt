@@ -1,3 +1,8 @@
+2017-10-29
+On the fly F2 Customers and Suppliers popup selection fix
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
 2017-10-27 Janusz Dobrowolski
 Fixed debtor_trans and supp_trans primary keys to allow multiply AR/AP accounts in journal transactions.
 M	sql/en_US-demo.sql
