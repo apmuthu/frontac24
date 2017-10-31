@@ -1,3 +1,8 @@
+2017-10-31 Janusz Dobrowolski
+Set NOT NULL on debtor_trans/supp_trans primary key fields.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2017-10-31 Joe Hunt
 Voiding cleanup - success message display added
 M	admin/void_transaction.php
