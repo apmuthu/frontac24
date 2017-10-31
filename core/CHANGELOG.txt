@@ -1,3 +1,7 @@
+2017-10-31 Joe Hunt
+Voiding cleanup - success message display added
+M	admin/void_transaction.php
+
 2017-10-29 Janusz Dobrowolski
 Items: fixed item tax type selector to exclude inactive item tax types.
 M	includes/ui/ui_lists.inc
