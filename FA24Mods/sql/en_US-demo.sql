@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2017-10-12
+Last Update     - 2017-10-31
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -181,16 +181,15 @@ CREATE TABLE IF NOT EXISTS `0_bank_trans` (
 
 CREATE TABLE IF NOT EXISTS `0_bom` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent` char(20) NOT NULL DEFAULT '',
-  `component` char(20) NOT NULL DEFAULT '',
+  `parent` varchar(20) NOT NULL DEFAULT '',
+  `component` varchar(20) NOT NULL DEFAULT '',
   `workcentre_added` int(11) NOT NULL DEFAULT '0',
-  `loc_code` char(5) NOT NULL DEFAULT '',
+  `loc_code` varchar(5) NOT NULL DEFAULT '',
   `quantity` double NOT NULL DEFAULT '1',
-  PRIMARY KEY (`parent`,`component`,`workcentre_added`,`loc_code`),
+  PRIMARY KEY (`parent`,`loc_code`,`component`,`workcentre_added`),
   KEY `component` (`component`),
   KEY `id` (`id`),
   KEY `loc_code` (`loc_code`),
-  KEY `parent` (`parent`,`loc_code`),
   KEY `workcentre_added` (`workcentre_added`)
 ) ENGINE=InnoDB;
 
@@ -246,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `0_comments` (
 
 CREATE TABLE IF NOT EXISTS `0_credit_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reason_description` char(100) NOT NULL DEFAULT '',
+  `reason_description` varchar(100) NOT NULL DEFAULT '',
   `dissallow_invoices` tinyint(1) NOT NULL DEFAULT '0',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -273,7 +272,9 @@ CREATE TABLE IF NOT EXISTS `0_crm_contacts` (
   `action` varchar(20) NOT NULL COMMENT 'foreign key to crm_categories',
   `entity_id` varchar(11) DEFAULT NULL COMMENT 'entity id in related class table',
   PRIMARY KEY (`id`),
-  KEY `type` (`type`,`action`)
+  KEY `type` (`type`,`action`),
+  KEY `entity_id` (`entity_id`),
+  KEY `person_id` (`person_id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_crm_persons` (
@@ -314,8 +315,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
   `trans_no_to` int(11) DEFAULT NULL,
   `trans_type_to` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `person_id` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
-  KEY `From` (`trans_type_from`,`trans_no_from`),
+  UNIQUE KEY `trans_type_from` (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB;
 
@@ -389,7 +389,8 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
   `src_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
-  KEY `src_id` (`src_id`)
+  KEY `src_id` (`src_id`),
+  KEY `stock_trans` (`stock_id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_debtors_master` (
@@ -556,8 +557,8 @@ CREATE TABLE IF NOT EXISTS `0_journal` (
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_loc_stock` (
-  `loc_code` char(5) NOT NULL DEFAULT '',
-  `stock_id` char(20) NOT NULL DEFAULT '',
+  `loc_code` varchar(5) NOT NULL DEFAULT '',
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `reorder_level` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`loc_code`,`stock_id`),
   KEY `stock_id` (`stock_id`)
@@ -579,7 +580,7 @@ CREATE TABLE IF NOT EXISTS `0_locations` (
 
 CREATE TABLE IF NOT EXISTS `0_payment_terms` (
   `terms_indicator` int(11) NOT NULL AUTO_INCREMENT,
-  `terms` char(80) NOT NULL DEFAULT '',
+  `terms` varchar(80) NOT NULL DEFAULT '',
   `days_before_due` smallint(6) NOT NULL DEFAULT '0',
   `day_in_following_month` smallint(6) NOT NULL DEFAULT '0',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
@@ -620,11 +621,11 @@ CREATE TABLE IF NOT EXISTS `0_printers` (
 
 CREATE TABLE IF NOT EXISTS `0_purch_data` (
   `supplier_id` int(11) NOT NULL DEFAULT '0',
-  `stock_id` char(20) NOT NULL DEFAULT '',
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `price` double NOT NULL DEFAULT '0',
-  `suppliers_uom` char(50) NOT NULL DEFAULT '',
+  `suppliers_uom` varchar(50) NOT NULL DEFAULT '',
   `conversion_factor` double NOT NULL DEFAULT '1',
-  `supplier_description` char(50) NOT NULL DEFAULT '',
+  `supplier_description` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`supplier_id`,`stock_id`)
 ) ENGINE=InnoDB;
 
@@ -705,7 +706,7 @@ CREATE TABLE IF NOT EXISTS `0_recurrent_invoices` (
 CREATE TABLE IF NOT EXISTS `0_reflines` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `trans_type` int(11) NOT NULL,
-  `prefix` char(5) NOT NULL DEFAULT '',
+  `prefix` varchar(5) NOT NULL DEFAULT '',
   `pattern` varchar(35) NOT NULL DEFAULT '1',
   `description` varchar(60) NOT NULL DEFAULT '',
   `default` tinyint(1) NOT NULL DEFAULT '0',
@@ -779,7 +780,7 @@ CREATE TABLE IF NOT EXISTS `0_sales_pos` (
 
 CREATE TABLE IF NOT EXISTS `0_sales_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sales_type` char(50) NOT NULL DEFAULT '',
+  `sales_type` varchar(50) NOT NULL DEFAULT '',
   `tax_included` int(1) NOT NULL DEFAULT '0',
   `factor` double NOT NULL DEFAULT '1',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
@@ -789,9 +790,9 @@ CREATE TABLE IF NOT EXISTS `0_sales_types` (
 
 CREATE TABLE IF NOT EXISTS `0_salesman` (
   `salesman_code` int(11) NOT NULL AUTO_INCREMENT,
-  `salesman_name` char(60) NOT NULL DEFAULT '',
-  `salesman_phone` char(30) NOT NULL DEFAULT '',
-  `salesman_fax` char(30) NOT NULL DEFAULT '',
+  `salesman_name` varchar(60) NOT NULL DEFAULT '',
+  `salesman_phone` varchar(30) NOT NULL DEFAULT '',
+  `salesman_fax` varchar(30) NOT NULL DEFAULT '',
   `salesman_email` varchar(100) NOT NULL DEFAULT '',
   `provision` double NOT NULL DEFAULT '0',
   `break_pt` double NOT NULL DEFAULT '0',
@@ -897,12 +898,12 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
 CREATE TABLE IF NOT EXISTS `0_stock_moves` (
   `trans_id` int(11) NOT NULL AUTO_INCREMENT,
   `trans_no` int(11) NOT NULL DEFAULT '0',
-  `stock_id` char(20) NOT NULL DEFAULT '',
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `type` smallint(6) NOT NULL DEFAULT '0',
-  `loc_code` char(5) NOT NULL DEFAULT '',
+  `loc_code` varchar(5) NOT NULL DEFAULT '',
   `tran_date` date NOT NULL DEFAULT '0000-00-00',
   `price` double NOT NULL DEFAULT '0',
-  `reference` char(40) NOT NULL DEFAULT '',
+  `reference` varchar(40) NOT NULL DEFAULT '',
   `qty` double NOT NULL DEFAULT '1',
   `standard_cost` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`trans_id`),
@@ -1003,7 +1004,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
 CREATE TABLE IF NOT EXISTS `0_tag_associations` (
   `record_id` varchar(15) NOT NULL,
   `tag_id` int(11) NOT NULL,
-  UNIQUE KEY `record_id` (`record_id`,`tag_id`)
+  PRIMARY KEY `record_id` (`record_id`,`tag_id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_tags` (
@@ -1161,11 +1162,11 @@ CREATE TABLE IF NOT EXISTS `0_wo_manufacture` (
 CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `workorder_id` int(11) NOT NULL DEFAULT '0',
-  `stock_id` char(20) NOT NULL DEFAULT '',
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `workcentre` int(11) NOT NULL DEFAULT '0',
   `units_req` double NOT NULL DEFAULT '1',
   `unit_cost` double NOT NULL DEFAULT '0',
-  `loc_code` char(5) NOT NULL DEFAULT '',
+  `loc_code` varchar(5) NOT NULL DEFAULT '',
   `units_issued` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `workorder_id` (`workorder_id`)
@@ -1173,8 +1174,8 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
 
 CREATE TABLE IF NOT EXISTS `0_workcentres` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` char(40) NOT NULL DEFAULT '',
-  `description` char(50) NOT NULL DEFAULT '',
+  `name` varchar(40) NOT NULL DEFAULT '',
+  `description` varchar(50) NOT NULL DEFAULT '',
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
