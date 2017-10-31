@@ -1,4 +1,9 @@
 2017-10-31 Janusz Dobrowolski
+Change on debtor_trans/supp_trans keys added in 2.4/2.4rc upgrade scripts
+M	sql/alter2.4.sql
+M	sql/alter2.4rc1.sql
+
+2017-10-31 Janusz Dobrowolski
 Set NOT NULL on debtor_trans/supp_trans primary key fields.
 M	sql/en_US-demo.sql
 M	sql/en_US-new.sql
