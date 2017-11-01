@@ -1,4 +1,8 @@
 2017-11-01 Joe Hunt
+Wrong colspan in supplier credit note. Fixed.
+M	purchasing/includes/ui/invoice_ui.inc
+
+2017-11-01 Joe Hunt
 Fixing bug in Customer Inquiry and Supplier Inquiry
 M	purchasing/inquiry/supplier_inquiry.php
 M	sales/inquiry/customer_inquiry.php
