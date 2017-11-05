@@ -54,6 +54,7 @@ function db_query($sql, $err_msg=null)
 	$comp = isset($_SESSION["wa_current_user"]->cur_con) ? $_SESSION["wa_current_user"]->cur_con : 0;
 	$cur_prefix = $db_connections[$comp]['tbpref'];
 	$sql = str_replace(TB_PREF, $cur_prefix, $sql);
+	$sql = trim($sql);
 
 	if ($SysPrefs->show_sql)
 	{
@@ -76,7 +77,7 @@ function db_query($sql, $err_msg=null)
 
 	if($SysPrefs->sql_trail) {
 		$db_last_inserted_id = mysqli_insert_id($db);	// preserve in case trail insert is done
-		if ($SysPrefs->select_trail || (strstr($sql, 'SELECT') === false)) {
+		if ($SysPrefs->select_trail || (substr(strtoupper($sql),0,6) <> 'SELECT')) {
 			mysqli_query($db, "INSERT INTO ".$cur_prefix."sql_trail
 				(`sql`, `result`, `msg`)
 				VALUES(".db_escape($sql).",".($result ? 1 : 0).",
