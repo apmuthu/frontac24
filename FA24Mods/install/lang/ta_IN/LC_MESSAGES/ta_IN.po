@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: FrontAccounting 2.4 Install Wizard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-27 20:22+0200\n"
-"PO-Revision-Date: 2017-07-29 16:30+0530\n"
+"PO-Revision-Date: 2017-11-06 13:40+0530\n"
 "Last-Translator: Ap.Muthu <apmuthu@usa.net>, 2017\n"
 "Language-Team: Tamil (https://www.transifex.com/gnuacademy/teams/55037/ta/)\n"
 "MIME-Version: 1.0\n"
@@ -190,29 +190,37 @@ msgstr "இல்லை"
 
 #: install/index.php:358
 msgid "Install Additional Language Packs from FA Repository:"
-msgstr ""
+msgstr "FA களஞ்சியத்திலிருந்து கூடுதல் மொழி பொதிகளை நிறுவவும்:"
 
 #: install/index.php:359
 msgid "Install Additional COAs from FA Repository:"
-msgstr ""
+msgstr "FA களஞ்சியத்தில் இருந்து கூடுதல் COA களை நிறுவவும்:"
 
 #: install/index.php:361
 msgid ""
 "Select collation you want to use. If you are unsure or you will use various "
 "languages, select unicode collation."
 msgstr ""
+"நீங்கள் பயன்படுத்த விரும்பும் கலவை தேர்ந்தெடுக்கவும். உங்களுக்கு "
+"தெரியாவிட்டால் அல்லது நீங்கள் பல்வேறு மொழிகளில் பயன்படுத்தினால், யூனிகோட் "
+"கலவை என்பதைத் தேர்ந்தெடுக்கவும்."
 
 #: install/index.php:362
 msgid ""
 "Use table prefix if you share selected database for more than one FA company"
 " using the same collation."
 msgstr ""
+"ஒரே கூட்டுத்தொகையைப் பயன்படுத்தி ஒன்றுக்கும் மேற்பட்ட FA நிறுவனங்களுக்கு "
+"தேர்ந்தெடுத்த தரவுத்தளத்தை நீங்கள் பகிர்ந்தால் அட்டவணை முன்னொட்டைப் "
+"பயன்படுத்தவும்."
 
 #: install/index.php:363
 msgid ""
 "Do not select additional langs nor COAs if you have no working internet "
 "connection right now. You can install them later."
 msgstr ""
+"உங்களிடம் இன்டர்நெட் இணைப்பு இல்லை என்றால் கூடுதல் இணைப்புகளை அல்லது COA களை"
+" தேர்ந்தெடுக்க வேண்டாம். நீங்கள் அவற்றை பின்னர் நிறுவ முடியும்."
 
 #: install/index.php:364 install/index.php:371 install/index.php:378
 #: install/index.php:402 install/index.php:365 install/index.php:372
@@ -222,7 +230,7 @@ msgstr "<< திரும்பும்"
 
 #: install/index.php:369 install/index.php:370
 msgid "User Interface Languages Selection"
-msgstr ""
+msgstr "பயனர் இடைமுகம் மொழிகள் தேர்வு"
 
 #: install/index.php:376 install/index.php:377
 msgid "Charts of Accounts Selection"
@@ -262,11 +270,11 @@ msgstr "நிறுவத் தொடங்க"
 
 #: install/index.php:407 install/index.php:408
 msgid "FrontAccounting ERP has been installed successsfully."
-msgstr ""
+msgstr "FrontAccounting ERP வெற்றிகரமாக நிறுவப்பட்டது."
 
 #: install/index.php:408 install/index.php:409
 msgid "Please do not forget to remove install wizard folder."
-msgstr ""
+msgstr "நிறுவ வழிகாட்டி கோப்புறையை அகற்ற மறக்க வேண்டாம்."
 
 #: install/index.php:411 install/index.php:412
 msgid "Click here to start."
@@ -286,43 +294,43 @@ msgstr "பரிந்துரைக்கப்படுகிறது"
 
 #: includes/system_tests.inc:18
 msgid "Required "
-msgstr ""
+msgstr "தேவையான"
 
 #: includes/system_tests.inc:24
 msgid "MySQL version"
-msgstr ""
+msgstr "MySQL பதிப்பு"
 
 #: includes/system_tests.inc:28
 msgid "Upgrade MySQL server to version at least 4.1"
-msgstr ""
+msgstr "குறைந்தபட்சம் 4.1 பதிப்புக்கு MySQL சேவையகத்தை மேம்படுத்தவும்"
 
 #: includes/system_tests.inc:35
 msgid "PHP MySQL extension"
-msgstr ""
+msgstr "PHP MySQL நீட்டிப்பு"
 
 #: includes/system_tests.inc:40
 msgid "Your PHP has to have MySQL extension enabled."
-msgstr ""
+msgstr "உங்கள் PHP MySQL நீட்டிப்பு செயல்படுத்தப்பட வேண்டும்."
 
 #: includes/system_tests.inc:46
 msgid "PHP version"
-msgstr ""
+msgstr "PHP பதிப்பு"
 
 #: includes/system_tests.inc:50
 msgid "Upgrade PHP to version at least 5.0.0"
-msgstr ""
+msgstr "குறைந்தபட்சம் 5.0.0 பதிப்புக்கு PHP ஐ மேம்படுத்தவும்"
 
 #: includes/system_tests.inc:57
 msgid "Server system"
-msgstr ""
+msgstr "Server அமைப்பு"
 
 #: includes/system_tests.inc:67
 msgid "Session save path"
-msgstr ""
+msgstr "Session சேமி பாதை"
 
 #: includes/system_tests.inc:79
 msgid "Removed install wizard folder"
-msgstr ""
+msgstr "நிறுவ வழிகாட்டி கோப்புறையை நீக்கியது"
 
 #: includes/system_tests.inc:82
 msgid "Not removed"
@@ -331,42 +339,44 @@ msgstr "அகற்றப்படவில்லை"
 #: includes/system_tests.inc:83
 msgid "Remove or rename install wizard folder for security reasons."
 msgstr ""
+"பாதுகாப்பு காரணங்களுக்காக நிறுவ வழிகாட்டி கோப்புறையை நீக்க அல்லது "
+"மறுபெயரிடு."
 
 #: includes/system_tests.inc:90
 msgid "Browser type"
-msgstr ""
+msgstr "உலாவி வகை"
 
 #: includes/system_tests.inc:94
 msgid "Any browser is supported"
-msgstr ""
+msgstr "எந்த உலாவி ஆதரிக்கப்படுகிறது"
 
 #: includes/system_tests.inc:101
 msgid "Http server type"
-msgstr ""
+msgstr "Http server வகை"
 
 #: includes/system_tests.inc:105
 msgid "Any server is supported"
-msgstr ""
+msgstr "எந்த சேவையகம் ஆதரிக்கப்படுகிறது"
 
 #: includes/system_tests.inc:112
 msgid "Native gettext"
-msgstr ""
+msgstr "இவரது வேண்டுகோள்"
 
 #: includes/system_tests.inc:116
 msgid "In case of no gettext support, php emulation is used"
-msgstr ""
+msgstr "எந்த gettext ஆதரவு, PHP சமநிலை பயன்படுத்தப்படுகிறது"
 
 #: includes/system_tests.inc:124
 msgid "Debugging mode"
-msgstr ""
+msgstr "பிழைதிருத்தும் முறை"
 
 #: includes/system_tests.inc:128
 msgid "To switch debugging on set $go_debug>0 in config.php file"
-msgstr ""
+msgstr "config.php கோப்பில் $go_debug> 0 என்ற அமைப்பில் பிழைகளை மாற்றுவதற்கு"
 
 #: includes/system_tests.inc:138
 msgid "Error logging"
-msgstr ""
+msgstr "உள்நுழைவதில் பிழை"
 
 #: includes/system_tests.inc:146
 msgid "Disabled"
@@ -374,23 +384,23 @@ msgstr "முடக்கப்பட்டது"
 
 #: includes/system_tests.inc:149
 msgid "To switch error logging set $error_logging in config.php file"
-msgstr ""
+msgstr "பிழை logging ஐ அமைப்பது config.php கோப்பில் $error_logging ஐ அமைக்க"
 
 #: includes/system_tests.inc:152
 msgid "Log file is not writeable"
-msgstr ""
+msgstr "பதிவு கோப்பு எழுதக்கூடியதாக இல்லை"
 
 #: includes/system_tests.inc:162
 msgid "Current database version"
-msgstr ""
+msgstr "தற்போதைய தரவுத்தள பதிப்பு"
 
 #: includes/system_tests.inc:166
 msgid "Database structure seems to be not upgraded to current version"
-msgstr ""
+msgstr "தரவுத்தள வடிவமைப்பு தற்போதைய பதிப்பிற்கு மேம்படுத்தப்படவில்லை"
 
 #: includes/system_tests.inc:181
 msgid "Company subdirectories consistency"
-msgstr ""
+msgstr "நிறுவனம் துணை அடைவு நிலைத்தன்மையும்"
 
 #: includes/system_tests.inc:194 includes/system_tests.inc:201
 #: includes/system_tests.inc:209 includes/system_tests.inc:226
@@ -398,33 +408,33 @@ msgstr ""
 #: includes/system_tests.inc:359 includes/system_tests.inc:367
 #, php-format
 msgid "'%s' is not writeable"
-msgstr ""
+msgstr "'%s' எழுத இயலாது"
 
 #: includes/system_tests.inc:222
 msgid "Temporary directory"
-msgstr ""
+msgstr "தற்காலிக கோப்பகம்"
 
 #: includes/system_tests.inc:234
 msgid "Language configuration consistency"
-msgstr ""
+msgstr "மொழி கட்டமைப்பு நிலைத்தன்மையும்"
 
 #: includes/system_tests.inc:243
 msgid "Languages folder should be writeable."
-msgstr ""
+msgstr "மொழிகள் கோப்புறை எழுதப்பட வேண்டும்."
 
 #: includes/system_tests.inc:252
 msgid "Languages configuration file should be writeable."
-msgstr ""
+msgstr "மொழிகள் கட்டமைப்பு கோப்பு எழுதப்பட வேண்டும்."
 
 #: includes/system_tests.inc:271
 #, php-format
 msgid "Missing %s translation file."
-msgstr ""
+msgstr "%s மொழிபெயர்ப்பு கோப்பை காணவில்லை."
 
 #: includes/system_tests.inc:276
 #, php-format
 msgid "Missing system locale: %s"
-msgstr ""
+msgstr "கணினி மொழி காணவில்லை: %s"
 
 #: includes/system_tests.inc:289
 msgid "Main config file"
@@ -433,7 +443,7 @@ msgstr "பிரதான கட்டமைப்பு கோப்பு"
 #: includes/system_tests.inc:296 includes/system_tests.inc:318
 #, php-format
 msgid "Can't write '%s' file. Check FA directory write permissions."
-msgstr ""
+msgstr "'%s' கோப்பை எழுத முடியவில்லை. FA அடைவு எழுத அனுமதிகளை சரிபார்க்கவும்."
 
 #: includes/system_tests.inc:297 includes/system_tests.inc:319
 #, php-format
@@ -454,30 +464,37 @@ msgstr "டேட்டாபேஸ் அங்கீகாரம் கோ�
 msgid ""
 "'%s' file should be read-only if you do not plan to add or change companies"
 msgstr ""
+"நிறுவனங்களைச் சேர்க்க அல்லது மாற்றுவதற்கு நீங்கள் திட்டமிடவில்லை என்றால் "
+"'%s' கோப்பு வாசிக்க வேண்டும்"
 
 #: includes/system_tests.inc:334
 msgid "Extensions system"
-msgstr ""
+msgstr "நீட்டிப்புகள் அமைப்பு"
 
 #: includes/system_tests.inc:372
 msgid "Extensions configuration files and directories should be writeable"
 msgstr ""
+"நீட்டிப்புகள் கட்டமைப்பு கோப்புகள் மற்றும் கோப்பகங்கள் எழுதப்பட வேண்டும்"
 
 #: includes/system_tests.inc:385
 #, php-format
 msgid "Non-standard theme directory '%s' is not writable"
-msgstr ""
+msgstr "தரமற்ற கோப்பகத்தின் அடைவு '%s' எழுத இயலாது"
 
 #: includes/system_tests.inc:395
 msgid ""
 "OpenSSL PHP extension have to be enabled to use extension repository system."
 msgstr ""
+"OpenSSL PHP நீட்டிப்பு நீட்டிப்பு களஞ்சிய அமைப்பு பயன்படுத்த இயலுமைப்படுத்த "
+"வேண்டும்."
 
 #: includes/system_tests.inc:398
 msgid ""
 "OpenSSL have to be available on your server to use extension repository "
 "system."
 msgstr ""
+"நீட்டிப்பு களஞ்சிய முறைமையைப் பயன்படுத்த OpenSSL உங்கள் சர்வரில் இருக்க "
+"வேண்டும்."
 
 #: includes/system_tests.inc:421
 msgid "Test"
@@ -506,7 +523,7 @@ msgstr "முக்கிய புலம் '%s' '%s' கோப்பில
 
 #: includes/packages.inc:294
 msgid "Cannot download repo index file."
-msgstr ""
+msgstr "ரெபோ குறியீட்டு கோப்பை பதிவிறக்க முடியவில்லை."
 
 #: includes/packages.inc:306 includes/packages.inc:343
 #, php-format
@@ -516,15 +533,17 @@ msgstr "காலாவதியான '%s' கோப்பு நீக்�
 #: includes/packages.inc:310
 msgid "Release file in repository is invalid, or public key is outdated."
 msgstr ""
+"களஞ்சியத்தில் வெளியீட்டு கோப்பில் செல்லுபடியாகாதது அல்லது பொது விசை "
+"காலாவதியானது."
 
 #: includes/packages.inc:327
 msgid "Repository version does not match application version."
-msgstr ""
+msgstr "களஞ்சிய பதிப்பு பதிப்பு பதிப்போடு பொருந்தவில்லை."
 
 #: includes/packages.inc:335 includes/packages.inc:377
 #, php-format
 msgid "Cannot download '%s' file."
-msgstr ""
+msgstr "'%s' கோப்பை பதிவிறக்க முடியவில்லை."
 
 #: includes/packages.inc:347
 #, php-format
@@ -532,6 +551,8 @@ msgid ""
 "Security alert: broken index file in repository '%s'. Please inform "
 "repository administrator about this issue."
 msgstr ""
+"பாதுகாப்பு எச்சரிக்கை: உடைந்த தொகுப்பு '%s' களஞ்சியத்தில். இந்த சிக்கல் "
+"குறித்து களஞ்சிய நிர்வாகியை தயவுசெய்து தெரிவிக்கவும்."
 
 #: includes/packages.inc:383
 #, php-format
@@ -539,6 +560,8 @@ msgid ""
 "Security alert: broken package '%s' in repository. Please inform repository "
 "administrator about this issue."
 msgstr ""
+"பாதுகாப்பு எச்சரிக்கை: உடைந்த தொகுப்பு '%s' களஞ்சியத்தில். இந்த சிக்கல் "
+"குறித்து களஞ்சிய நிர்வாகியை தயவுசெய்து தெரிவிக்கவும்."
 
 #: includes/packages.inc:641 includes/packages.inc:696
 #, php-format
@@ -548,3 +571,5 @@ msgstr "'%s' தொகுப்பு காணப்படவில்லை
 #: install/index.php:364
 msgid "Set Only Port value if you cannot use the default port 3306."
 msgstr ""
+"3306 முன்னிருப்பு துறைமுகத்தை நீங்கள் பயன்படுத்த முடியாவிட்டால் மட்டுமே, "
+"போர்ட் மதிப்பு அமைக்கவும்."
