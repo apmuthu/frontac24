@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: FrontAccounting 2.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-13 17:38+0200\n"
-"PO-Revision-Date: 2017-11-025 17:5119:26+0530\n"
+"PO-Revision-Date: 2017-11-06 12:15+0530\n"
 "Last-Translator: Ap.Muthu <apmuthu@usa.net>, 2017\n"
 "Language-Team: Hindi (https://www.transifex.com/gnuacademy/teams/55037/hi/)\n"
 "MIME-Version: 1.0\n"
@@ -906,7 +906,7 @@ msgstr "हाँ"
 msgid ""
 "You are about to remove company \\'%s\\'.\n"
 "Do you want to continue ?"
-msgstr "आप कंपनी ''%s' को हटाने जा रहे हैं। \\nक्या आप जारी रखना चाहते हैं?"
+msgstr "आप कंपनी \\'%s\\' को हटाने जा रहे हैं।\nक्या आप जारी रखना चाहते हैं?"
 
 #: admin/create_coy.php:282
 msgid "The marked company is the current company which cannot be deleted."
@@ -1659,7 +1659,7 @@ msgstr "नवीनतम एक्सटेंशन पैकेज अपल
 msgid ""
 "You are about to remove package \\'%s\\'.\n"
 "Do you want to continue ?"
-msgstr "आप पैकेज '%s' को हटाने वाले हैं। \\n क्या आप जारी रखना चाहते हैं?"
+msgstr "आप पैकेज \\'%s\\' को हटाने वाले हैं।\nक्या आप जारी रखना चाहते हैं?"
 
 #: admin/inst_lang.php:23
 msgid "Install/Update Languages"
@@ -1706,7 +1706,7 @@ msgstr "नवीनतम भाषा पैकेज अपलोड और �
 msgid ""
 "You are about to remove language \\'%s\\'.\n"
 "Do you want to continue ?"
-msgstr "आप '%s' भाषा को हटाने वाले हैं। \\n क्या आप जारी रखना चाहते हैं?"
+msgstr "आप \\'%s\\' भाषा को हटाने वाले हैं।\nक्या आप जारी रखना चाहते हैं?"
 
 #: admin/inst_lang.php:118
 msgid "The marked language is the current language which cannot be deleted."
