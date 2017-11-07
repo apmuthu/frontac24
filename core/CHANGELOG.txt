@@ -1,4 +1,8 @@
 2017-11-07 Joe Hunt
+Top manufactured dashboard shows wrong statistics. Fixed
+M	includes/dashboard.inc
+
+2017-11-07 Joe Hunt
 Default Credit Limit changed to price format.
 M	admin/gl_setup.php
 
