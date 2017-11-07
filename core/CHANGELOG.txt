@@ -1,3 +1,7 @@
+2017-11-07 Joe Hunt
+Default Credit Limit changed to price format.
+M	admin/gl_setup.php
+
 2017-11-01 Joe Hunt
 Wrong colspan in supplier credit note. Fixed.
 M	purchasing/includes/ui/invoice_ui.inc
