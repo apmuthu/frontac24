@@ -1,4 +1,11 @@
 2017-11-09 Janusz Dobrowolski
+Workaround for segfaults in some buggy php encoding library versions.
+M	includes/db/connect_db_mysqli.inc
+M	includes/page/header.inc
+M	includes/ui/ui_input.inc
+M	inventory/manage/item_units.php
+
+2017-11-09 Janusz Dobrowolski
 Fixed memory limit during database export.
 M	 admin/db/maintenance_db.inc
 
