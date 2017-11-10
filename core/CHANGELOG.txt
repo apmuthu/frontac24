@@ -1,3 +1,8 @@
+2017-11-10 Joe Hunt
+FA 2.4.3 with gettext update
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	version.php
+
 2017-11-09 Janusz Dobrowolski
 Workaround for segfaults in some buggy php encoding library versions.
 M	includes/db/connect_db_mysqli.inc
@@ -7,7 +12,7 @@ M	inventory/manage/item_units.php
 
 2017-11-09 Janusz Dobrowolski
 Fixed memory limit during database export.
-M	 admin/db/maintenance_db.inc
+M	admin/db/maintenance_db.inc
 
 2017-11-09 Janusz Dobrowolski
 Session Exception error handler fix
