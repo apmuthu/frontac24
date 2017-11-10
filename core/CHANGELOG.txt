@@ -1,4 +1,8 @@
 2017-11-10 Joe Hunt
+Bug in php 7.1 when using $go_debug>0 in config.php. Only a warning. Work around.
+M	includes/current_user.inc
+
+2017-11-10 Joe Hunt
 FA 2.4.3 with gettext update
 M	lang/new_language_template/LC_MESSAGES/empty.po
 M	version.php
