@@ -333,7 +333,7 @@ class gettext_php_support extends gettext_native_support
      */
     function _load_domain($domain, $path = "./locale")
     {
-		$src_domain = $path . "/$this->_lang_code/LC_MESSAGES/$domain.po";
+        $src_domain = $path . "/$this->_lang_code/LC_MESSAGES/$domain.po";
         $php_domain = $path . "/$this->_lang_code/LC_MESSAGES/$domain.php";
 
         if ( $this->_lang_code == 'C' ) {
