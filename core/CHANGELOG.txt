@@ -1,4 +1,8 @@
 2017-11-09 Janusz Dobrowolski
+Fixed memory limit during database export.
+M	 admin/db/maintenance_db.inc
+
+2017-11-09 Janusz Dobrowolski
 Session Exception error handler fix
 M	includes/errors.inc
 M	includes/session.inc
