@@ -1,4 +1,9 @@
 2017-11-09 Janusz Dobrowolski
+Session Exception error handler fix
+M	includes/errors.inc
+M	includes/session.inc
+
+2017-11-09 Janusz Dobrowolski
 PHP7 compatibility fixes for class constructors
 M	admin/includes/fa_patch.class.inc
 M	applications/application.php
