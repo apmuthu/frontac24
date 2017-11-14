@@ -1,7 +1,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 
--- 2017-10-31
--- This script synchronises apmuthu's FAMods standard FA 2.3.26 Chart to FA24Mods FA 2.4.2+
+-- 2017-11-14
+-- This script synchronises apmuthu's FAMods FA 2.3.26 Chart to FA24Mods FA 2.4.2+
 -- USE `23mod`;
 
 ALTER TABLE `0_areas` ENGINE=InnoDB; 
@@ -140,9 +140,9 @@ ALTER TABLE `0_quick_entry_lines`
 CREATE TABLE `0_reflines`(
 	`id` int(11) NOT NULL  auto_increment , 
 	`trans_type` int(11) NOT NULL  , 
-	`prefix` varchar(5) COLLATE latin1_general_ci NOT NULL  DEFAULT '' , 
-	`pattern` varchar(35) COLLATE latin1_general_ci NOT NULL  DEFAULT '1' , 
-	`description` varchar(60) COLLATE latin1_general_ci NOT NULL  DEFAULT '' , 
+	`prefix` varchar(5) NOT NULL  DEFAULT '' , 
+	`pattern` varchar(35) NOT NULL  DEFAULT '1' , 
+	`description` varchar(60) NOT NULL  DEFAULT '' , 
 	`default` tinyint(1) NOT NULL  DEFAULT 0 , 
 	`inactive` tinyint(1) NOT NULL  DEFAULT 0 , 
 	PRIMARY KEY (`id`) , 
@@ -219,7 +219,7 @@ ALTER TABLE `0_supp_allocations`
 	CHANGE `trans_type_from` `trans_type_from` int(11)   NULL after `trans_no_from`, 
 	CHANGE `trans_no_to` `trans_no_to` int(11)   NULL after `trans_type_from`, 
 	CHANGE `trans_type_to` `trans_type_to` int(11)   NULL after `trans_no_to`, 
-	ADD UNIQUE KEY `person_id`(`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`);
+	ADD UNIQUE KEY `trans_type_from` (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`);
 
 ALTER TABLE `0_supp_invoice_items` 
 	ADD COLUMN `dimension_id` int(11)   NOT NULL DEFAULT 0 after `memo_`, 
@@ -270,9 +270,7 @@ ALTER TABLE `0_wo_issue_items`
 	ADD COLUMN `unit_cost` double   NOT NULL DEFAULT 0 after `qty_issued`;
 
 ALTER TABLE `0_wo_requirements` 
-	ADD COLUMN `unit_cost` double   NOT NULL DEFAULT 0 after `units_req`, 
-	CHANGE `loc_code` `loc_code` varchar(5) NOT NULL DEFAULT '' after `unit_cost`, 
-	DROP COLUMN `std_cost`;
+	CHANGE `std_cost` `unit_cost` double   NOT NULL DEFAULT 0;
 
 ALTER TABLE `0_workcentres` ENGINE=InnoDB;
 

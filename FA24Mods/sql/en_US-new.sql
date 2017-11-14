@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - No
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2017-10-31
+Last Update     - 2017-11-14
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -921,8 +921,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_no_to` int(11) DEFAULT NULL,
   `trans_type_to` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `person_id` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
-  KEY `From` (`trans_type_from`,`trans_no_from`),
+  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB;
 

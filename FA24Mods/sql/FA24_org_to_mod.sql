@@ -1,6 +1,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 
--- 2017-10-31
+-- 2017-11-14
 -- This script synchronises a standard FA 2.4.2+ Chart to apmuthu's FA24Mods Chart for FA 2.4.2+
 -- USE `24org`;
 
@@ -9,7 +9,8 @@ ALTER TABLE `0_bom`
 	CHANGE `component` `component` varchar(20) NOT NULL DEFAULT '' after `parent`, 
 	CHANGE `loc_code` `loc_code` varchar(5) NOT NULL DEFAULT '' after `workcentre_added`, 
 	DROP KEY `parent`, 
-	DROP KEY `PRIMARY`, add PRIMARY KEY(`parent`,`loc_code`,`component`,`workcentre_added`);
+	DROP KEY `PRIMARY`,
+	ADD PRIMARY KEY (`parent`,`loc_code`,`component`,`workcentre_added`);
 
 ALTER TABLE `0_credit_status` 
 	CHANGE `reason_description` `reason_description` varchar(100) NOT NULL DEFAULT '' after `id`;
@@ -20,7 +21,8 @@ ALTER TABLE `0_crm_contacts`
 
 ALTER TABLE `0_cust_allocations` 
 	DROP KEY `From`, 
-	DROP KEY `trans_type_from`, add UNIQUE KEY `trans_type_from`(`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`);
+	DROP KEY `trans_type_from`,
+	ADD UNIQUE KEY `trans_type_from` (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`);
 
 ALTER TABLE `0_debtor_trans_details` 
 	ADD KEY `stock_trans`(`stock_id`);
@@ -54,15 +56,16 @@ ALTER TABLE `0_stock_moves`
 	CHANGE `reference` `reference` varchar(40) NOT NULL DEFAULT '' after `price`;
 
 ALTER TABLE `0_supp_allocations` 
-	ADD UNIQUE KEY `person_id`(`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`), 
-	DROP KEY `trans_type_from`;
+	DROP KEY `From`,
+	DROP KEY `trans_type_from`,
+	ADD UNIQUE KEY `trans_type_from` (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`);
 
 ALTER TABLE `0_tag_associations` 
-	ADD PRIMARY KEY(`record_id`,`tag_id`), 
-	DROP KEY `record_id`;
+	DROP KEY `record_id`,
+	ADD PRIMARY KEY `record_id` (`record_id`,`tag_id`);
 
 ALTER TABLE `0_tax_types` 
-	ADD UNIQUE KEY `name`(`name`,`rate`);
+	ADD UNIQUE KEY `name` (`name`,`rate`);
 
 ALTER TABLE `0_users` 
 	CHANGE `transaction_days` `transaction_days` smallint(6)   NOT NULL DEFAULT 30 COMMENT 'Transaction days' after `startup_tab`, 
