@@ -3,7 +3,7 @@
 /* How to make new entries here for non-packaged languages:
 
 -- 'code' should match the name of the directory for the language under \lang
-.-- 'name' is the name that will be displayed in the language selection list (in Users and Display Setup)
+-- 'name' is the name that will be displayed in the language selection list (in Users and Display Setup)
 -- 'rtl' only needs to be set for right-to-left languages like Arabic and Hebrew
 -- 'encoding' used in translation file
 -- 'version' always set to '' for manually installed languages.
