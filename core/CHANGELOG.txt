@@ -1,3 +1,7 @@
+2017-11-19 Joe Hunt
+Sort Chart of Accounts by name. Fixed.
+M	admin/inst_chart.php
+
 2017-11-17 Janusz Dobrowolski
 Fixed rounding differences in sales delivery and invoice.
 M	sales/includes/db/sales_delivery_db.inc
