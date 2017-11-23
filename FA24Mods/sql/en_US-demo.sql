@@ -1722,6 +1722,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('alternative_tax_include_on_docs', 'setup.company', 'tinyint', '1', '0')
 ,('auto_curr_reval', 'setup.company', 'smallint', '6', '1')
 ,('bank_charge_act', 'glsetup.general', 'varchar', '15', '5690')
+,('barcodes_on_stock','setup.company', 'tinyint', 1, '0')
 ,('base_sales', 'setup.company', 'int', '11', '1')
 ,('bcc_email', 'setup.company', 'varchar', '100', '')
 ,('company_logo_report', 'setup.company', 'tinyint', '1', '0')

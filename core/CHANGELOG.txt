@@ -1,3 +1,13 @@
+2017-11-23 Joe Hunt
+New Company Setup 'Barcodes On Stock' to show barcodes on Rep303, rerun.
+M	admin/company_preferences.php
+M	inventory/manage/items.php
+M	reporting/includes/barcodes.php
+M	reporting/rep303.php
+M	sql/alter2.4.php
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2017-11-19 Joe Hunt
 Sort Chart of Accounts by name. Fixed.
 M	admin/inst_chart.php
