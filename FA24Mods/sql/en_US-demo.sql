@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2017-11-14
+Last Update     - 2017-11-23
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
