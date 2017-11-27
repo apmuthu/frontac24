@@ -1,3 +1,7 @@
+2017-11-27 Joe Hunt
+Adapting to Google's error when getting exchange rates. Fixed.
+M	gl/includes/db/gl_db_rates.inc
+
 2017-11-25 Joe Hunt
 Misleading on system diagnostics (MariaDB), fixed.
 M	includes/system_tests.inc
