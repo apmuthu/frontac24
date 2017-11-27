@@ -1,4 +1,11 @@
 2017-11-27 Joe Hunt
+Account Class/Group drill down added
+M	gl/manage/gl_account_classes.php
+M	gl/manage/gl_account_types.php
+M	gl/manage/gl_accounts.php
+M	includes/ui/ui_lists.inc
+
+2017-11-27 Joe Hunt
 Adapting to Google's error when getting exchange rates. Fixed.
 M	gl/includes/db/gl_db_rates.inc
 
