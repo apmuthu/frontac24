@@ -1,3 +1,9 @@
+2017-12-02 Janusz Dobrowolski
+Backups/Restore: fixed compressed backup view, fixed obsolete ajax indicator during download.
+M	admin/backups.php
+M	includes/ui/ui_input.inc
+M	js/inserts.js
+
 2017-11-27 Joe Hunt
 Account Class/Group drill down added
 M	gl/manage/gl_account_classes.php
