@@ -1,3 +1,9 @@
+2017-12-09 Joe Hunt
+Inventory Valuation Report showing 0 (zero) on Unit Cost and decimal precision fix.
+M	includes/current_user.inc
+M	reporting/rep301.php
+M	reporting/rep308.php
+
 2017-12-06 Joe Hunt
 Rerun of System Checks for backwards PHP compatibility.
 M	includes/system_tests.inc
