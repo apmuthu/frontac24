@@ -1,3 +1,7 @@
+2017-12-13 Joe Hunt
+Google and Bloomberg Exchange Rate consolidated fixes
+M	gl/includes/db/gl_db_rates.inc
+
 2017-12-09 Joe Hunt
 Inventory Valuation Report showing 0 (zero) on Unit Cost and decimal precision fix.
 M	includes/current_user.inc
