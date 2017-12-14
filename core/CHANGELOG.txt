@@ -1,3 +1,7 @@
+2017-12-14 Janusz Dobrowolski
+System Diagnostics: fixed set of standard theme directories.
+M	 includes/system_tests.inc
+
 2017-12-13 Joe Hunt
 Google and Bloomberg Exchange Rate consolidated fixes
 M	gl/includes/db/gl_db_rates.inc
