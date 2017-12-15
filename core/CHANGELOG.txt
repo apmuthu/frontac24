@@ -1,4 +1,9 @@
 2017-12-15 Joe Hunt
+New Report 310.php: Inventory Purchasing - Transaction based report
+M	reporting/rep310.php
+M	reporting/reports_main.php
+
+2017-12-15 Joe Hunt
 Installing third party extensions fixed
 M	includes/packages.inc
 
