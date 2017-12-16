@@ -1,6 +1,6 @@
 /*
 *********************************************************************
-FrontAccounting v2.4.2 Git 2017-10-03
+FrontAccounting v2.4.3 Git 2017-10-03
 *********************************************************************
 MySQL           - 5.1.73-1+deb6u1
 Database        - frontac
@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - No
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2017-11-23
+Last Update     - 2017-12-16
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -921,7 +921,7 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
   `trans_no_to` int(11) DEFAULT NULL,
   `trans_type_to` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `trans_type_from` (`person_id`,`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`),
+  UNIQUE KEY `trans_type_from` (`trans_type_from`,`trans_no_from`,`trans_type_to`,`trans_no_to`,`person_id`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
 ) ENGINE=InnoDB;
 
@@ -1222,15 +1222,16 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('1530', '', 'Stocks of Work In Progress', '2', '0')
 ,('1540', '', 'Stocks of Finished Goods', '2', '0')
 ,('1550', '', 'Goods Received Clearing account', '2', '0')
-,('1820', '', 'Office Furniture &amp; Equipment', '3', '0')
-,('1825', '', 'Accum. Amort. -Furn. &amp; Equip.', '3', '0')
+,('1820', '', 'Office Furniture and Equipment', '3', '0')
+,('1825', '', 'Accum. Amort. - Furn. and Equip.', '3', '0')
 ,('1840', '', 'Vehicle', '3', '0')
-,('1845', '', 'Accum. Amort. -Vehicle', '3', '0')
+,('1845', '', 'Accum. Amort. - Vehicle', '3', '0')
 ,('2100', '', 'Accounts Payable', '4', '0')
+,('2105', '', 'Deferred Income Account', '4', '0')
 ,('2110', '', 'Accrued Income Tax - Federal', '4', '0')
 ,('2120', '', 'Accrued Income Tax - State', '4', '0')
 ,('2130', '', 'Accrued Franchise Tax', '4', '0')
-,('2140', '', 'Accrued Real &amp; Personal Prop Tax', '4', '0')
+,('2140', '', 'Accrued Real and Personal Prop Tax', '4', '0')
 ,('2150', '', 'Sales Tax', '4', '0')
 ,('2160', '', 'Accrued Use Tax Payable', '4', '0')
 ,('2210', '', 'Accrued Wages', '4', '0')
@@ -1250,7 +1251,7 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('3350', '', 'Common Shares', '6', '0')
 ,('3590', '', 'Retained Earnings - prior years', '7', '0')
 ,('4010', '', 'Sales', '8', '0')
-,('4430', '', 'Shipping &amp; Handling', '9', '0')
+,('4430', '', 'Shipping and Handling', '9', '0')
 ,('4440', '', 'Interest', '9', '0')
 ,('4450', '', 'Foreign Exchange Gain', '9', '0')
 ,('4500', '', 'Prompt Payment Discounts', '9', '0')
@@ -1258,11 +1259,11 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('5010', '', 'Cost of Goods Sold - Retail', '10', '0')
 ,('5020', '', 'Material Usage Varaiance', '10', '0')
 ,('5030', '', 'Consumable Materials', '10', '0')
-,('5040', '', 'Purchase price Variance', '10', '0')
-,('5050', '', 'Purchases of materials', '10', '0')
+,('5040', '', 'Purchase Price Variance', '10', '0')
+,('5050', '', 'Purchases of Materials', '10', '0')
 ,('5060', '', 'Discounts Received', '10', '0')
 ,('5100', '', 'Freight', '10', '0')
-,('5410', '', 'Wages &amp; Salaries', '11', '0')
+,('5410', '', 'Wages and Salaries', '11', '0')
 ,('5420', '', 'Wages - Overtime', '11', '0')
 ,('5430', '', 'Benefits - Comp Time', '11', '0')
 ,('5440', '', 'Benefits - Payroll Taxes', '11', '0')
@@ -1275,17 +1276,17 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('5540', '', 'Taxes - Personal Property', '11', '0')
 ,('5550', '', 'Taxes - Franchise', '11', '0')
 ,('5560', '', 'Taxes - Foreign Withholding', '11', '0')
-,('5610', '', 'Accounting &amp; Legal', '12', '0')
-,('5615', '', 'Advertising &amp; Promotions', '12', '0')
+,('5610', '', 'Accounting and Legal', '12', '0')
+,('5615', '', 'Advertising and Promotions', '12', '0')
 ,('5620', '', 'Bad Debts', '12', '0')
 ,('5660', '', 'Amortization Expense', '12', '0')
 ,('5685', '', 'Insurance', '12', '0')
-,('5690', '', 'Interest &amp; Bank Charges', '12', '0')
+,('5690', '', 'Interest and Bank Charges', '12', '0')
 ,('5700', '', 'Office Supplies', '12', '0')
 ,('5760', '', 'Rent', '12', '0')
-,('5765', '', 'Repair &amp; Maintenance', '12', '0')
+,('5765', '', 'Repairs and Maintenance', '12', '0')
 ,('5780', '', 'Telephone', '12', '0')
-,('5785', '', 'Travel &amp; Entertainment', '12', '0')
+,('5785', '', 'Travel and Entertainment', '12', '0')
 ,('5790', '', 'Utilities', '12', '0')
 ,('5795', '', 'Registrations', '12', '0')
 ,('5800', '', 'Licenses', '12', '0')
@@ -1293,18 +1294,18 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('9990', '', 'Year Profit/Loss', '12', '0');
 
 INSERT INTO `0_chart_types` (`id`,`name`,`class_id`,`parent`,`inactive`) VALUES
- ('1', 'Current Assets', '1', '', '0')
-,('2', 'Inventory Assets', '1', '', '0')
-,('3', 'Capital Assets', '1', '', '0')
-,('4', 'Current Liabilities', '2', '', '0')
-,('5', 'Long Term Liabilities', '2', '', '0')
-,('6', 'Share Capital', '2', '', '0')
-,('7', 'Retained Earnings', '2', '', '0')
-,('8', 'Sales Revenue', '3', '', '0')
-,('9', 'Other Revenue', '3', '', '0')
+ ('1',  'Current Assets', '1', '', '0')
+,('2',  'Inventory Assets', '1', '', '0')
+,('3',  'Capital Assets', '1', '', '0')
+,('4',  'Current Liabilities', '2', '', '0')
+,('5',  'Long Term Liabilities', '2', '', '0')
+,('6',  'Share Capital', '2', '', '0')
+,('7',  'Retained Earnings', '2', '', '0')
+,('8',  'Sales Revenue', '3', '', '0')
+,('9',  'Other Revenue', '3', '', '0')
 ,('10', 'Cost of Goods Sold', '4', '', '0')
 ,('11', 'Payroll Expenses', '4', '', '0')
-,('12', 'General &amp; Administrative expenses', '4', '', '0');
+,('12', 'General and Administrative expenses', '4', '', '0');
 
 INSERT INTO `0_credit_status` (`id`,`reason_description`,`dissallow_invoices`,`inactive`) VALUES
  ('1', 'Good History', '0', '0')
@@ -1312,15 +1313,15 @@ INSERT INTO `0_credit_status` (`id`,`reason_description`,`dissallow_invoices`,`i
 ,('4', 'In liquidation', '1', '0');
 
 INSERT INTO `0_crm_categories` (`id`,`type`,`action`,`name`,`description`,`system`,`inactive`) VALUES
- ('1', 'cust_branch', 'general', 'General', 'General contact data for customer branch (overrides company setting)', '1', '0')
-,('2', 'cust_branch', 'invoice', 'Invoices', 'Invoice posting (overrides company setting)', '1', '0')
-,('3', 'cust_branch', 'order', 'Orders', 'Order confirmation (overrides company setting)', '1', '0')
-,('4', 'cust_branch', 'delivery', 'Deliveries', 'Delivery coordination (overrides company setting)', '1', '0')
-,('5', 'customer', 'general', 'General', 'General contact data for customer', '1', '0')
-,('6', 'customer', 'order', 'Orders', 'Order confirmation', '1', '0')
-,('7', 'customer', 'delivery', 'Deliveries', 'Delivery coordination', '1', '0')
-,('8', 'customer', 'invoice', 'Invoices', 'Invoice posting', '1', '0')
-,('9', 'supplier', 'general', 'General', 'General contact data for supplier', '1', '0')
+ ('1',  'cust_branch', 'general', 'General', 'General contact data for customer branch (overrides company setting)', '1', '0')
+,('2',  'cust_branch', 'invoice', 'Invoices', 'Invoice posting (overrides company setting)', '1', '0')
+,('3',  'cust_branch', 'order', 'Orders', 'Order confirmation (overrides company setting)', '1', '0')
+,('4',  'cust_branch', 'delivery', 'Deliveries', 'Delivery coordination (overrides company setting)', '1', '0')
+,('5',  'customer', 'general', 'General', 'General contact data for customer', '1', '0')
+,('6',  'customer', 'order', 'Orders', 'Order confirmation', '1', '0')
+,('7',  'customer', 'delivery', 'Deliveries', 'Delivery coordination', '1', '0')
+,('8',  'customer', 'invoice', 'Invoices', 'Invoice posting', '1', '0')
+,('9',  'supplier', 'general', 'General', 'General contact data for supplier', '1', '0')
 ,('10', 'supplier', 'order', 'Orders', 'Order confirmation', '1', '0')
 ,('11', 'supplier', 'delivery', 'Deliveries', 'Delivery coordination', '1', '0')
 ,('12', 'supplier', 'invoice', 'Invoices', 'Invoice posting', '1', '0');
@@ -1353,7 +1354,8 @@ INSERT INTO `0_payment_terms` (`terms_indicator`,`terms`,`days_before_due`,`day_
  ('1', 'Due 15th Of the Following Month', '0', '17', '0')
 ,('2', 'Due By End Of The Following Month', '0', '30', '0')
 ,('3', 'Payment due within 10 days', '10', '0', '0')
-,('4', 'Cash Only', '0', '0', '0');
+,('4', 'Cash Only', '0', '0', '0'),
+,('5', 'Prepaid Sale', '-1', '0', '0');
 
 INSERT INTO `0_print_profiles` (`id`,`profile`,`report`,`printer`) VALUES
  ('1', 'Out of office', NULL, '0')
@@ -1473,7 +1475,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('default_sales_discount_act', 'glsetup.sales', 'varchar', '15', '4510')
 ,('default_wip_act', 'glsetup.items', 'varchar', '15', '1530')
 ,('default_workorder_required', 'glsetup.manuf', 'int', '11', '20')
-,('deferred_income_act', 'glsetup.sales', 'varchar', '15', '')
+,('deferred_income_act', 'glsetup.sales', 'varchar', '15', '2105')
 ,('depreciation_period', 'glsetup.company', 'tinyint', '1', '1')
 ,('domicile', 'setup.company', 'varchar', '55', '')
 ,('email', 'setup.company', 'varchar', '100', '')
