@@ -1,3 +1,7 @@
+2017-12-18 Joe Hunt
+Inventory purchasing transaction based report - space fix
+M	reporting/rep310.php
+
 2017-12-15 Joe Hunt
 New Report 310.php: Inventory Purchasing - Transaction based report
 M	reporting/rep310.php
