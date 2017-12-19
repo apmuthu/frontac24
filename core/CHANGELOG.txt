@@ -1,4 +1,8 @@
 2017-12-19 Janusz Dobrowolski
+Produce Finished Items: document reference input order fixed.
+M	manufacturing/work_order_add_finished.php
+
+2017-12-19 Janusz Dobrowolski
 Work Order - Entry, Additional Costs: fixed input data checks.
 M	manufacturing/work_order_costs.php
 M	manufacturing/work_order_entry.php
