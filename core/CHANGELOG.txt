@@ -1,4 +1,16 @@
 2017-12-19 Janusz Dobrowolski
+Added VARLIB_PATH and VARLOG_PATH defines to simplify packaging.
+M	admin/includes/fa_patch.class.inc
+M	admin/inst_upgrade.php
+M	admin/view/view_upgrade_log.php
+M	config.default.php
+M	gl/includes/db/gl_db_rates.inc
+M	includes/packages.inc
+M	includes/session.inc
+M	includes/system_tests.inc
+M	install/isession.inc
+
+2017-12-19 Janusz Dobrowolski
 Produce Finished Items: document reference input order fixed.
 M	manufacturing/work_order_add_finished.php
 

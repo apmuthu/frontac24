@@ -26,10 +26,11 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 		ini_set('date.timezone', 'Europe/Berlin');
 
 	// Log file for error/warning messages. Should be set to any location
-	// writable by www server. When set to empty string logging is switched off. 
+	// writable by www server. When set to empty string logging is switched off.
+	// VARLOG_PATH is defined in the includes/session.inc and includes/isession.inc
 	// Special value 'syslog' can be used for system logger usage (see php manual).
 	//$error_logfile = '';
-	$error_logfile = $path_to_root.'/tmp/errors.log';
+	$error_logfile = VARLOG_PATH.'/errors.log';
 	$debug 			= 1;	// show sql on database errors
 
 	$show_sql 		= 0;	// show all sql queries in page footer for debugging purposes
