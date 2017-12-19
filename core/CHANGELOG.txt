@@ -1,3 +1,7 @@
+2017-12-19 Joe Hunt
+Installed Third Party extension version display
+M	admin/inst_module.php
+
 2017-12-18 Joe Hunt
 Inventory purchasing transaction based report - space fix
 M	reporting/rep310.php
