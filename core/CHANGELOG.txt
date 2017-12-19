@@ -1,3 +1,8 @@
+2017-12-19 Janusz Dobrowolski
+Stock Status display, Manufacturing Reports: fixed products on WO count.
+M	includes/db/manufacturing_db.inc
+M	reporting/rep303.php
+
 2017-12-19 Joe Hunt
 Installed Third Party extension version display
 M	admin/inst_module.php
