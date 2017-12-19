@@ -1,4 +1,8 @@
 2017-12-19 Janusz Dobrowolski
+Password field in installer changed to hide text.
+M	install/index.php
+
+2017-12-19 Janusz Dobrowolski
 Added VARLIB_PATH and VARLOG_PATH defines to simplify packaging.
 M	admin/includes/fa_patch.class.inc
 M	admin/inst_upgrade.php
