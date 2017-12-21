@@ -1,3 +1,7 @@
+2017-12-21 Joe Hunt
+subledger_list shows inactive records in Journal Entry. Fixed.
+M	includes/ui/ui_lists.inc
+
 2017-12-19 Janusz Dobrowolski
 Password field in installer changed to hide text.
 M	install/index.php
