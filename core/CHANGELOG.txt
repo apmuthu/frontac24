@@ -1,3 +1,7 @@
+2017-12-22 Joe Hunt
+Better Company Logo alignment on Reports.
+M	reporting/includes/pdf_report.inc
+
 2017-12-21 Joe Hunt
 subledger_list shows inactive records in Journal Entry. Fixed.
 M	includes/ui/ui_lists.inc
