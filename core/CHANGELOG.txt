@@ -1,3 +1,7 @@
+2017-12-23 Joe Hunt
+Card Session Error and Fix.
+M	sales/includes/sales_ui.inc
+
 2017-12-22 Joe Hunt
 Better Company Logo alignment on Reports.
 M	reporting/includes/pdf_report.inc
