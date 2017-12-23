@@ -1,4 +1,9 @@
 2017-12-23 Joe Hunt
+Sales Area list, added 'No Area Filter'.
+M	includes/ui/ui_lists.inc
+M	reporting/includes/reports_classes.inc
+
+2017-12-23 Joe Hunt
 Card Session Error and Fix.
 M	sales/includes/sales_ui.inc
 
