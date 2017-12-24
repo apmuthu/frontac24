@@ -1,3 +1,7 @@
+2017-12-24 Joe Hunt
+tax group can be null as argument
+M	taxes/db/tax_groups_db.inc
+
 2017-12-23 Joe Hunt
 Sales Area list, added 'No Area Filter'.
 M	includes/ui/ui_lists.inc
