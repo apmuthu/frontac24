@@ -1,4 +1,8 @@
 2017-12-24 Joe Hunt
+Extra default parameter added to meta_forward function.
+M	includes/ui/ui_controls.inc
+
+2017-12-24 Joe Hunt
 tax group can be null as argument
 M	taxes/db/tax_groups_db.inc
 
