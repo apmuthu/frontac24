@@ -1,3 +1,7 @@
+2018-01-05 Joe Hunt
+Fixed a multipart form in backups.
+M	admin/backups.php
+
 2017-12-24 Joe Hunt
 Extra default parameter added to meta_forward function.
 M	includes/ui/ui_controls.inc
