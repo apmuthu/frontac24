@@ -1,3 +1,7 @@
+2018-01-13 Janusz Dobrowolski
+Fixed account auto-selection on Customer Payments page.
+M	sales/customer_payments.php
+
 2018-01-05 Joe Hunt
 Fixed a multipart form in backups.
 M	admin/backups.php
