@@ -1,3 +1,7 @@
+2018-01-13 Janusz Dobrowolski
+Fixed bank account auto-selection in Customer Payments (continued).
+M	sales/customer_payments.php
+
 2018-01-13 Joe Hunt
 Fixed printing sequences of Sales Invoices.
 M	reporting/rep107.php
