@@ -1,3 +1,8 @@
+2018-01-15 Janusz Dobrowolski
+Refreshed year bump in standard Chart SQLs
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2018-01-13 Janusz Dobrowolski
 Fixed bank account auto-selection in Customer Payments (continued).
 M	sales/customer_payments.php
