@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2018-01-15
+Last Update     - 2018-01-16
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1270,7 +1270,7 @@ INSERT INTO `0_chart_master` (`account_code`,`account_code2`,`account_name`,`acc
 ,('1840', '', 'Vehicle', '3', '0')
 ,('1845', '', 'Accum. Amort. - Vehicle', '3', '0')
 ,('2100', '', 'Accounts Payable', '4', '0')
-,('2105', '', 'Deferred Income Account', '4', '0')
+,('2105', '', 'Deferred Income', '4', '0')
 ,('2110', '', 'Accrued Income Tax - Federal', '4', '0')
 ,('2120', '', 'Accrued Income Tax - State', '4', '0')
 ,('2130', '', 'Accrued Franchise Tax', '4', '0')

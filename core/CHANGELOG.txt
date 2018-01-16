@@ -1,3 +1,8 @@
+2018-01-16 Janusz Dobrowolski
+Added deferred income account and prepayment terms in init sql files.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2018-01-15 Janusz Dobrowolski
 Refreshed year bump in standard Chart SQLs
 M	sql/en_US-demo.sql
