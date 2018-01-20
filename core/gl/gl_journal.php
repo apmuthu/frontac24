@@ -328,7 +328,7 @@ if (isset($_POST['Process']))
 	$trans_no = write_journal_entries($cart);
 
         // retain the reconciled status if desired by user
-        if (isset($_POST['reconciled])
+        if (isset($_POST['reconciled'])
             && $_POST['reconciled'] == 1) {
             $sql = "UPDATE ".TB_PREF."bank_trans SET reconciled=".db_escape($_POST['reconciled_date'])
                 ." WHERE type=" . ST_JOURNAL . " AND trans_no=".db_escape($trans_no);
