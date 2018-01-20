@@ -1,3 +1,10 @@
+2018-01-20 Joe Hunt
+Fixed $sign bug in various reports
+M	reporting/rep109.php
+M	reporting/rep110.php
+M	reporting/rep111.php
+M	reporting/rep209.php
+
 2018-01-16 Janusz Dobrowolski
 Added deferred income account and prepayment terms in init sql files.
 M	sql/en_US-demo.sql
