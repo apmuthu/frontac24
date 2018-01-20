@@ -49,6 +49,18 @@ function add_bank_trans($type, $trans_no, $bank_act, $ref, $date_,
 
 //----------------------------------------------------------------------------------------
 
+function last_bank_trans($field)
+{
+	$sql = "SELECT " . $field . 
+		" FROM ".TB_PREF."bank_trans
+                ORDER BY id DESC LIMIT 1";
+	$last_query = db_query($sql, "query for last bank transaction");
+	$row = db_fetch_row($last_query);
+        return $row[0];
+}
+
+//----------------------------------------------------------------------------------------
+
 function exists_bank_trans($type, $type_no)
 {
 	$sql = "SELECT trans_no
