@@ -33,16 +33,17 @@ function getTaxTransactions($from, $to, $tax_id)
 	$fromdate = date2sql($from);
 	$todate = date2sql($to);
 
-	$sql = "SELECT d.debtor_no, d.name AS cust_name, d.tax_id, dt.type, dt.trans_no,  
+	$sql = "SELECT d.debtor_no, d.name AS cust_name, d.tax_id, st.sales_type, dt.type, dt.trans_no,  
 			CASE WHEN dt.type=".ST_CUSTCREDIT." THEN (ov_amount+ov_freight+ov_discount)*-1 
 			ELSE (ov_amount+ov_freight+ov_discount) END *dt.rate AS total
 		FROM ".TB_PREF."debtor_trans dt
 			LEFT JOIN ".TB_PREF."debtors_master d ON d.debtor_no=dt.debtor_no
+			LEFT JOIN ".TB_PREF."sales_types st ON d.sales_type=st.id
 		WHERE (dt.type=".ST_SALESINVOICE." OR dt.type=".ST_CUSTCREDIT.") ";
 	if ($tax_id)
 		$sql .= "AND tax_id<>'' ";
 	$sql .= "AND dt.tran_date >=".db_escape($fromdate)." AND dt.tran_date<=".db_escape($todate)."
-		ORDER BY d.debtor_no"; 
+		ORDER BY d.sales_type, d.debtor_no"; 
     return db_query($sql,"No transactions were returned");
 }
 
@@ -103,6 +104,8 @@ function print_sales_summary_report()
 	
 	$totalnet = 0.0;
 	$totaltax = 0.0;
+	$st_totalnet = 0.0;
+	$st_totaltax = 0.0;
 	$transactions = getTaxTransactions($from, $to, $tax_id);
 
 	$rep->TextCol(0, 4, _('Balances in Home Currency'));
@@ -111,10 +114,12 @@ function print_sales_summary_report()
 	$custno = 0;
 	$tax = $total = 0;
 	$custname = $tax_id = "";
+        $sales_type = "";
 	while ($trans=db_fetch($transactions))
 	{
 		if ($custno != $trans['debtor_no'])
 		{
+
 			if ($custno != 0)
 			{
 				$rep->TextCol(0, 1, $custname);
@@ -123,6 +128,8 @@ function print_sales_summary_report()
 				$rep->AmountCol(3, 4, $tax, $dec);
 				$totalnet += $total;
 				$totaltax += $tax;
+                                $st_totalnet += $total;
+                                $st_totaltax += $tax;
 				$total = $tax = 0;
 				$rep->NewLine();
 
@@ -135,6 +142,25 @@ function print_sales_summary_report()
 			$custno = $trans['debtor_no'];
 			$custname = $trans['cust_name'];
 			$tax_id = $trans['tax_id'];
+
+                        if ($sales_type != ""
+                            && $sales_type != $trans['sales_type']) {
+                            $rep->Font('bold');
+                            $rep->NewLine();
+                            $rep->Line($rep->row + $rep->lineHeight);
+                            $rep->TextCol(0, 2, $sales_type);
+                            $rep->AmountCol(2, 3, $st_totalnet, $dec);
+                            $rep->AmountCol(3, 4, $st_totaltax, $dec);
+                            $rep->Line($rep->row - 5);
+                            $rep->Font();
+                            $rep->NewLine();
+                            $rep->NewLine();
+                            $st_totalnet=0;
+                            $st_totaltax=0;
+                        }
+                        $sales_type = $trans['sales_type'];
+
+
 		}	
 		$taxes = getTaxes($trans['type'], $trans['trans_no']);
 		if ($taxes != null)
@@ -144,6 +170,7 @@ function print_sales_summary_report()
 			$tax += $taxes['tax'];
 		}	
 		$total += $trans['total']; 
+
 	}
 	if ($custno != 0)
 	{
@@ -154,6 +181,16 @@ function print_sales_summary_report()
 		$totalnet += $total;
 		$totaltax += $tax;
 		$rep->NewLine();
+
+                $rep->Font('bold');
+                $rep->NewLine();
+                $rep->Line($rep->row + $rep->lineHeight);
+                $rep->TextCol(0, 2, $sales_type);
+                $rep->AmountCol(2, 3, $st_totalnet + $total, $dec);
+                $rep->AmountCol(3, 4, $st_totaltax + $tax, $dec);
+                $rep->Line($rep->row - 5);
+                $rep->Font();
+                $rep->NewLine();
 	}
 	$rep->Font('bold');
 	$rep->NewLine();

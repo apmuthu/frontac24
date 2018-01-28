@@ -77,8 +77,6 @@ function print_statements()
 	$PastDueDays1 = get_company_pref('past_due_days');
 	$PastDueDays2 = 2 * $PastDueDays1;
 
-	if ($email == 0)
-		$rep = new FrontReport(_('STATEMENT'), "StatementBulk", user_pagesize(), 9, $orientation);
     if ($orientation == 'L')
     	recalculate_cols($cols);
 
@@ -103,6 +101,8 @@ function print_statements()
 		$params['bankaccount'] = $baccount['id'];
 		if (db_num_rows($TransResult) == 0)
 			continue;
+                if ($email == 0 && !isset($rep))
+                        $rep = new FrontReport(_('STATEMENT'), "StatementBulk", user_pagesize(), 9, $orientation);
 		if ($email == 1)
 		{
 			$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
@@ -170,7 +170,10 @@ function print_statements()
 			$rep->End($email, _("Statement") . " " . _("as of") . " " . sql2date($date));
 
 	}
-	if ($email == 0)
+
+        if (!isset($rep))
+            display_notification("No customers with outstanding balances found");
+	else if ($email == 0)
 		$rep->End();
 }
 

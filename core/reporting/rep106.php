@@ -100,14 +100,6 @@ function print_salesman_list()
 
 	$aligns2 = $aligns;
 
-	$rep = new FrontReport(_('Salesman Listing'), "SalesmanListing", user_pagesize(), 9, $orientation);
-    if ($orientation == 'L')
-    	recalculate_cols($cols);
-	$cols2 = $cols;
-	$rep->Font();
-	$rep->Info($params, $cols, $headers, $aligns, $cols2, $headers2, $aligns2);
-
-	$rep->NewPage();
 	$salesman = 0;
 	$subtotal = $total = $subprov = $provtotal = 0;
 
@@ -115,6 +107,16 @@ function print_salesman_list()
 
 	while ($myrow=db_fetch($result))
 	{
+                if (!isset($rep)) {
+                    $rep = new FrontReport(_('Salesman Listing'), "SalesmanListing", user_pagesize(), 9, $orientation);
+                if ($orientation == 'L')
+                    recalculate_cols($cols);
+                    $cols2 = $cols;
+                    $rep->Font();
+                    $rep->Info($params, $cols, $headers, $aligns, $cols2, $headers2, $aligns2);
+
+                    $rep->NewPage();
+                }
 		$rep->NewLine(0, 2, false, $salesman);
 		if ($salesman != $myrow['salesman_code'])
 		{
@@ -165,25 +167,30 @@ function print_salesman_list()
 		$subtotal += $amt;
 		$subprov += $prov;
 	}
-	if ($salesman != 0)
-	{
-		$rep->Line($rep->row - 4);
-		$rep->NewLine(2);
-		$rep->TextCol(0, 3, _('Total'));
-		$rep->AmountCol(5, 6, $subtotal, $dec);
-		$rep->AmountCol(6, 7, $subprov, $dec);
-		$rep->Line($rep->row  - 4);
-		$rep->NewLine(2);
-		$total += $subtotal;
-		$provtotal += $subprov;
-	}
-	$rep->fontSize += 2;
-	$rep->TextCol(0, 3, _('Grand Total'));
-	$rep->fontSize -= 2;
-	$rep->AmountCol(5, 6, $total, $dec);
-	$rep->AmountCol(6, 7, $provtotal, $dec);
-	$rep->Line($rep->row  - 4);
-	$rep->NewLine();
-	$rep->End();
+
+        if (!isset($rep))
+            display_notification("No salesman transactions found");
+        else {
+            if ($salesman != 0)
+            {
+                    $rep->Line($rep->row - 4);
+                    $rep->NewLine(2);
+                    $rep->TextCol(0, 3, _('Total'));
+                    $rep->AmountCol(5, 6, $subtotal, $dec);
+                    $rep->AmountCol(6, 7, $subprov, $dec);
+                    $rep->Line($rep->row  - 4);
+                    $rep->NewLine(2);
+                    $total += $subtotal;
+                    $provtotal += $subprov;
+            }
+            $rep->fontSize += 2;
+            $rep->TextCol(0, 3, _('Grand Total'));
+            $rep->fontSize -= 2;
+            $rep->AmountCol(5, 6, $total, $dec);
+            $rep->AmountCol(6, 7, $provtotal, $dec);
+            $rep->Line($rep->row  - 4);
+            $rep->NewLine();
+            $rep->End();
+        }
 }
 
