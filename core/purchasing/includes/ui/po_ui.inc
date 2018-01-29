@@ -62,6 +62,37 @@ function copy_to_cart()
 	}
 }
 
+function service_alg_list($name, $selected_id=null, $submit_on_change=false)
+{
+        $items = array();
+        $items['0'] =  _("No");
+        $items['1'] =  _("By Quantity");
+        $items['2'] =  _("By Line Item");
+        $items['3'] =  _("By Line Total");
+
+        return array_selector($name, $selected_id, $items,
+                array(
+                        'select_submit'=> $submit_on_change,
+                        'async' => false ) ); // FIX?
+}
+
+function service_alg_list_cells($label, $name, $selected_id=null, $submit_on_change=false)
+{
+        if ($label != null)
+                echo "<td>$label</td>\n";
+        echo "<td>";
+        echo service_alg_list($name, $selected_id, $submit_on_change);
+        echo "</td>\n";
+}
+
+function service_alg_list_row($label, $name, $selected_id=null, $submit_on_change=false)
+{
+        echo "<tr><td class='label'>$label</td>";
+        service_alg_list_cells(null, $name, $selected_id, $submit_on_change);
+        echo "</tr>\n";
+}
+
+
 //---------------------------------------------------------------------------------------------------
 
 function create_new_po($trans_type, $trans_no)
@@ -173,6 +204,7 @@ function display_po_header(&$order)
 	if (get_company_pref('use_dimension') == 2)
 		dimensions_list_row(_('Dimension 2').':', 'dimension2', null, true, _('Default'), false, 2);
 	locations_list_row(_("Receive Into:"), 'StkLocation', null, false, true, $order->fixed_asset); 
+        service_alg_list_row(_('Service Costs In Item Prices?'), 'reprice');
 
 	table_section(3);
 

@@ -284,6 +284,7 @@ function get_short_info($stock_id)
 function get_sql_for_po_search_completed($from, $to, $supplier_id=ALL_TEXT, $location=ALL_TEXT,
 	$order_number = '', $stock_id = '', $also_closed=false)
 {
+        $dec = user_price_dec();
 	$sql = "SELECT 
 		porder.order_no, 
 		porder.reference, 
@@ -292,7 +293,7 @@ function get_sql_for_po_search_completed($from, $to, $supplier_id=ALL_TEXT, $loc
 		porder.requisition_no, 
 		porder.ord_date, 
 		supplier.curr_code, 
-		Sum(line.unit_price*line.quantity_ordered) AS OrderValue,
+                Sum(Round(line.unit_price*line.quantity_ordered, $dec)) AS OrderValue,
 		porder.into_stock_location,
 		chk.isopen
 		FROM ".TB_PREF."purch_orders as porder
@@ -344,6 +345,7 @@ function get_sql_for_po_search_completed($from, $to, $supplier_id=ALL_TEXT, $loc
 
 function get_sql_for_po_search($from, $to, $supplier_id=ALL_TEXT, $location=ALL_TEXT, $order_number='', $stock_id='')
 {
+        $dec = user_price_dec();
 	$sql = "SELECT 
 		porder.order_no, 
 		porder.reference,
@@ -352,7 +354,7 @@ function get_sql_for_po_search($from, $to, $supplier_id=ALL_TEXT, $location=ALL_
 		porder.requisition_no, 
 		porder.ord_date,
 		supplier.curr_code,
-		Sum(line.unit_price*line.quantity_ordered) AS OrderValue,
+                Sum(Round(line.unit_price*line.quantity_ordered, $dec)) AS OrderValue,
 		Sum(line.delivery_date < '". date2sql(Today()) ."'
 		AND (line.quantity_ordered > line.quantity_received)) As OverDue
 		FROM ".TB_PREF."purch_orders as porder,"

@@ -168,6 +168,21 @@ class purch_order
 	}
 
 	/*
+		Returns order subtotal
+	*/
+	function get_trans_subtotal() {
+		
+		$total = 0;
+		$dec = user_price_dec();
+
+		foreach ($this->line_items as $ln_itm) {
+			$value = round($ln_itm->quantity * $ln_itm->price, $dec);
+			$total += $value;
+                }
+                return $total;
+        }
+
+	/*
 		Returns order value including all taxes
 	*/
 	function get_trans_total() {
@@ -191,6 +206,82 @@ class purch_order
 		}
 		return $total;
 	}
+
+        function is_service_item($stock_id)
+        {
+                $item_row = get_item($stock_id);
+                if (!$item_row) 
+                        return false;
+                return is_service($item_row['mb_flag']);
+        }
+
+        function service_price_per_line($method)
+        {
+            $total_service = 0;
+            $total = 0;
+            $dec = user_price_dec();
+
+            foreach ($this->line_items as $ln_itm) {
+                if ($this->is_service_item($ln_itm->stock_id)) {
+                    $value = round($ln_itm->quantity * $ln_itm->price, $dec);
+                    $total_service += $value;
+                } else {
+                    if ($method == 1)
+                        $total += $ln_itm->quantity;
+                    else if ($method == 2)
+                        $total++;
+                    else {
+                        $value = round($ln_itm->quantity * $ln_itm->price, $dec);
+                        $total += $value;
+                    }
+                }
+            }
+            if ($total == 0)
+                return 0;
+
+            return $total_service / $total;
+        }
+
+        // Apportion service price line items to non-service items
+        // and zero out service item price
+
+        // Common methods to apportion service charges are:
+        // by quantity, weight, volume, line item, line total.
+        // $method: 1 Quantity
+        //          2 Line Item
+        //          3 Line Total
+
+        function reprice_order($method)
+        {
+            $service_cost = $this->service_price_per_line($method);
+            if ($service_cost == 0)
+                return;
+
+            $total = $this->get_trans_subtotal();
+            $dec = user_price_dec();
+            foreach ($this->line_items as $ln_itm) {
+                    if ($this->is_service_item($ln_itm->stock_id))
+                        $ln_itm->price = 0;
+                    else {
+                        if ($method == 1)
+                            $ln_itm->price += $service_cost;
+                        else if ($method == 2)
+                            $ln_itm->price += $service_cost / $ln_itm->quantity;
+                        else {
+                            $value = round($ln_itm->quantity * $ln_itm->price, $dec);
+                            $ln_itm->price += $service_cost * $value / $ln_itm->quantity;
+                        }
+                        $last_ln = $ln_itm;
+                    }
+            }
+            $total2 = $this->get_trans_subtotal();
+            if ($total != $total2) {
+            // uh oh, rounding broke the invoice total
+            // change the price of the last item to fix it
+                $last_ln->price = ($last_ln->quantity * $last_ln->price + $total - $total2)/$last_ln->quantity;
+            }
+        }
+
 
 } /* end of class defintion */
 

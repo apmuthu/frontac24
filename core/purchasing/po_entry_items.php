@@ -240,7 +240,12 @@ function check_data()
 	   	return false;
     }
 
-    if (!check_num('price', 0))
+    // Note: if the item is a service and the user wants to reprice
+    // the order, allow negative input, as the service item will
+    // zeroed out anyway.
+
+    if (!check_num('price', 0)
+        && !($_POST['reprice'] != 0 && $_SESSION['PO']->is_service_item($_POST['stock_id'])))
     {
 	   	display_error(_("The price entered must be numeric and not less than zero."));
 		set_focus('price');
@@ -274,6 +279,8 @@ function handle_update_item()
 	
 		$_SESSION['PO']->update_order_item($_POST['line_no'], input_num('qty'), input_num('price'),
   			@$_POST['req_del_date'], $_POST['item_description'] );
+                if ($_POST['reprice'] != 0)
+                    $_SESSION['PO']->reprice_order($_POST['reprice']);
 		unset_form_variables();
 	}	
     line_start_focus();
@@ -315,6 +322,8 @@ function handle_add_new_item()
 					get_post('stock_id_text'), //$myrow["description"], 
 					input_num('price'), '', // $myrow["units"], (retrived in cart)
 					$_SESSION['PO']->trans_type == ST_PURCHORDER ? $_POST['req_del_date'] : '', 0, 0);
+                                if ($_POST['reprice'] != 0)
+                                    $_SESSION['PO']->reprice_order($_POST['reprice']);
 
 				unset_form_variables();
 				$_POST['stock_id']	= "";
@@ -437,6 +446,7 @@ function handle_commit_order()
 		}
 	}
 }
+
 //---------------------------------------------------------------------------------------------------
 if (isset($_POST['update'])) {
 	copy_to_cart();

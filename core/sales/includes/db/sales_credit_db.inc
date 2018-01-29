@@ -152,8 +152,9 @@ function write_credit_note(&$credit_note, $write_off_acc)
 				$taxitem['rate'], $credit_note->tax_included, $taxitem['Value'],
 				$taxitem['Net'], $ex_rate,
 				$credit_note->document_date, $credit_note->reference, TR_OUTPUT);
-
-			$total += add_gl_trans_customer(ST_CUSTCREDIT, $credit_no, $credit_date, $taxitem['sales_gl_code'], 0, 0,
+                        // sales_gl_code is not set for taxexempt
+                        if (isset($taxitem['sales_gl_code']))
+                            $total += add_gl_trans_customer(ST_CUSTCREDIT, $credit_no, $credit_date, $taxitem['sales_gl_code'], 0, 0,
 				$taxitem['Value'], $credit_note->customer_id,
 				"A tax GL posting for this credit note could not be inserted");
 		}
