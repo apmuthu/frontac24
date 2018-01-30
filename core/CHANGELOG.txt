@@ -1,3 +1,7 @@
+2018-01-30 Joe Hunt
+Sales Orders Status rep105.php Report now with Amounts and re-run
+M	reporting/rep105.php
+
 2018-01-20 Joe Hunt
 Fixed $sign bug in various reports
 M	reporting/rep109.php
