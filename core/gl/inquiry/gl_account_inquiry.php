@@ -27,6 +27,7 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(800, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
+$js .= get_js_history("Show", "account", "TransFromDate", "TransToDate", "Dimension", "Dimension2", "Memo", "amount_min", "amount_max");
 
 page(_($help_context = "General Ledger Inquiry"), false, false, '', $js);
 
@@ -38,20 +39,7 @@ if (get_post('Show'))
 	$Ajax->activate('trans_tbl');
 }
 
-if (isset($_GET["account"]))
-	$_POST["account"] = $_GET["account"];
-if (isset($_GET["TransFromDate"]))
-	$_POST["TransFromDate"] = $_GET["TransFromDate"];
-if (isset($_GET["TransToDate"]))
-	$_POST["TransToDate"] = $_GET["TransToDate"];
-if (isset($_GET["Dimension"]))
-	$_POST["Dimension"] = $_GET["Dimension"];
-if (isset($_GET["Dimension2"]))
-	$_POST["Dimension2"] = $_GET["Dimension2"];
-if (isset($_GET["amount_min"]))
-	$_POST["amount_min"] = $_GET["amount_min"];
-if (isset($_GET["amount_max"]))
-	$_POST["amount_max"] = $_GET["amount_max"];
+set_posts("account", "TransFromDate", "TransToDate", "Dimension", "Dimension2", "Memo", "amount_min", "amount_max");
 
 if (!isset($_POST["amount_min"]))
 	$_POST["amount_min"] = price_format(0);
