@@ -1,4 +1,8 @@
 2018-02-04 Janusz Dobrowolski
+Added POS name in cash payment memo.
+M	sales/includes/db/sales_invoice_db.inc
+
+2018-02-04 Janusz Dobrowolski
 Reconcile Bank Account: added memo display, added Reconcile All button.
 M	gl/bank_account_reconcile.php
 M	gl/includes/db/gl_db_bank_accounts.inc
