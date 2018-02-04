@@ -1,4 +1,9 @@
 2018-02-04 Janusz Dobrowolski
+Bank Payment: for selected supplier payment set supplier account dimensions.
+M	gl/includes/ui/gl_bank_ui.inc
+M	purchasing/includes/db/suppliers_db.inc
+
+2018-02-04 Janusz Dobrowolski
 GL Inquiry: search by memo, added journal edition link.
 M	gl/includes/db/gl_db_trans.inc
 M	gl/inquiry/gl_account_inquiry.php
