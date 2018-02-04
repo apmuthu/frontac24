@@ -1,4 +1,8 @@
 2018-02-04 Janusz Dobrowolski
+Fixed fallback mode entry on non-js browsers.
+M	access/login.php
+
+2018-02-04 Janusz Dobrowolski
 Added POS name in cash payment memo.
 M	sales/includes/db/sales_invoice_db.inc
 
