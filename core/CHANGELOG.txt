@@ -1,4 +1,9 @@
 2018-02-04 Janusz Dobrowolski
+Sales Order Entry: initial item selector position points to last ordered item (seems to be more useful than always selecting first item in selector).
+M	sales/includes/db/sales_order_db.inc
+M	sales/includes/ui/sales_order_ui.inc
+
+2018-02-04 Janusz Dobrowolski
 Void a Transaction: keeping date unchanged after transaction voiding to allow continuation on date.
 M	admin/void_transaction.php
 
