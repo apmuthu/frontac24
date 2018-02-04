@@ -1,4 +1,9 @@
 2018-02-04 Janusz Dobrowolski
+Reconcile Bank Account: added memo display, added Reconcile All button.
+M	gl/bank_account_reconcile.php
+M	gl/includes/db/gl_db_bank_accounts.inc
+
+2018-02-04 Janusz Dobrowolski
 Bank Payment: for selected supplier payment set supplier account dimensions.
 M	gl/includes/ui/gl_bank_ui.inc
 M	purchasing/includes/db/suppliers_db.inc
