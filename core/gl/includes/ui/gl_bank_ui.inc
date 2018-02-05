@@ -122,7 +122,7 @@ function display_bank_header(&$order)
 
         // Query the user to retain the reconciled status
         if (!$new) {
-            $result = get_bank_trans(ST_JOURNAL, $order->order_id);
+            $result = get_bank_trans($order->trans_type, $order->order_id);
             $row = db_fetch($result);
             if ($row
                 && $row['reconciled'] != "") {
