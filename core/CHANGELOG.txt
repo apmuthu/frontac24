@@ -1,3 +1,7 @@
+2018-03-04 Joe Hunt
+Open Balance bug in rep101.php (Customers Balance)
+M	reporting/rep101.php
+
 2018-02-06 Joe Hunt
 Fixed a minor bug in QOH in inventory Planning Report
 M	 reporting/rep302.php
