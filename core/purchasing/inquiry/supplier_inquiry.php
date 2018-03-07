@@ -22,18 +22,10 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
-page(_($help_context = "Supplier Inquiry"), isset($_GET['supplier_id']), false, "", $js);
+$js .= get_js_history('supplier_id', 'TransAfterDate', 'TransToDate');
+page(_($help_context = "Supplier Inquiry"), isset($_GET['supplier_id']) && !isset($_GET['TransToDate']), false, "", $js);
 
-if (isset($_GET['supplier_id'])){
-	$_POST['supplier_id'] = $_GET['supplier_id'];
-}
-
-if (isset($_GET['FromDate'])){
-	$_POST['TransAfterDate'] = $_GET['FromDate'];
-}
-if (isset($_GET['ToDate'])){
-	$_POST['TransToDate'] = $_GET['ToDate'];
-}
+set_posts('supplier_id', 'TransAfterDate', 'TransToDate');
 
 //------------------------------------------------------------------------------------------------
 

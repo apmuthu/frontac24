@@ -23,7 +23,9 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
-page(_($help_context = "Customer Transactions"), isset($_GET['customer_id']), false, "", $js);
+$js .= get_js_history("customer_id", "TransAfterDate", "TransToDate", "filterType");
+
+page(_($help_context = "Customer Transactions"), isset($_GET['customer_id']) && !isset($_GET['TransAfterDate']), false, "", $js);
 
 //------------------------------------------------------------------------------------------------
 

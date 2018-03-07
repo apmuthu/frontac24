@@ -23,7 +23,7 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(800, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
-$js .= get_js_history("Search", "Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed");
+$js .= get_js_history("Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed");
 
 page(_($help_context = "Journal Inquiry"), false, false, "", $js);
 

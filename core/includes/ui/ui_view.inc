@@ -1552,10 +1552,9 @@ function trans_editor_link($type, $trans_no)
 // This way, if the user changes these variables,
 // then uses the back button to return, it returns to the page
 // as the user modified it.
-function get_js_history($button, ...$vars)
+function get_js_history(...$vars)
 {
-    $js = 'document.getElementById("'.$button.'").addEventListener("click", changeVar);
-
+    $js = ' 
     function changeVar() {
         var stateObj = { foo: "bar" };
         var state = "";

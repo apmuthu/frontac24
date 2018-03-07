@@ -22,12 +22,11 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(900, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
+$js .= get_js_history("customer_id", "TransAfterDate", "TransToDate", "filterType");
+
 page(_($help_context = "Customer Allocation Inquiry"), false, false, "", $js);
 
-if (isset($_GET['customer_id']))
-{
-	$_POST['customer_id'] = $_GET['customer_id'];
-}
+set_posts('customer_id');
 
 //------------------------------------------------------------------------------------------------
 
