@@ -1,3 +1,7 @@
+2018-03-08 Joe Hunt
+Changed GL Inquiry to also include the Reference Number.
+M	gl/inquiry/gl_account_inquiry.php
+
 2018-03-04 Joe Hunt
 Open Balance bug in rep101.php (Customers Balance)
 M	reporting/rep101.php
