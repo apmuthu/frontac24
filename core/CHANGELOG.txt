@@ -1,3 +1,8 @@
+2018-03-08 BraathWaate
+Key files enabled for Ajax Inquiry
+M	includes/ui/ui_view.inc
+M	js/inserts.js
+
 2018-03-08 Joe Hunt
 Changed GL Inquiry to also include the Reference Number.
 M	gl/inquiry/gl_account_inquiry.php
