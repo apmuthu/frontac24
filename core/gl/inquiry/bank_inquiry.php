@@ -26,7 +26,7 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(800, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
-$js .= get_js_history('bank_account', 'TransAfterDate', 'TransToDate');
+$js .= get_js_history(array('bank_account', 'TransAfterDate', 'TransToDate'));
 page(_($help_context = "Bank Statement"), isset($_GET['bank_account']) && !isset($_GET['TransAfterDate']), false, "", $js);
 
 check_db_has_bank_accounts(_("There are no bank accounts defined in the system."));
@@ -39,7 +39,7 @@ if (get_post('Show'))
 	$Ajax->activate('trans_tbl');
 }
 
-set_posts('bank_account', 'TransAfterDate', 'TransToDate');
+set_posts(array('bank_account', 'TransAfterDate', 'TransToDate'));
 //------------------------------------------------------------------------------------------------
 
 start_form();

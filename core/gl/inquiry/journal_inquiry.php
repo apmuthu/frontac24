@@ -23,7 +23,7 @@ if ($SysPrefs->use_popup_windows)
 	$js .= get_js_open_window(800, 500);
 if (user_use_date_picker())
 	$js .= get_js_date_picker();
-$js .= get_js_history("Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed");
+$js .= get_js_history(array("Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed"));
 
 page(_($help_context = "Journal Inquiry"), false, false, "", $js);
 
@@ -35,7 +35,7 @@ if (get_post('Search'))
 	$Ajax->activate('journal_tbl');
 }
 //--------------------------------------------------------------------------------------
-set_posts("Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed");
+set_posts(array("Ref", "filterType", "FromDate", "ToDate", "Memo", "userid", "AlsoClosed"));
 if (!isset($_POST['filterType']))
 	$_POST['filterType'] = -1;
 
