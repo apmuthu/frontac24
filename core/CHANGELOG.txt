@@ -1,3 +1,7 @@
+2018-03-14 Joe Hunt
+Wrong error message in Save Items.
+M	inventory/includes/db/items_db.inc
+
 2018-03-12 BraathWaate / Joe Hunt
 Reverted: Key files enabled for Ajax Inquiry
 M	includes/ui/ui_view.inc
