@@ -1,3 +1,7 @@
+2018-03-17 Janusz Dobrowolski
+Updated New Core Language Template empty.po
+M	lang/new_language_template/LC_MESSAGES/empty.po 
+
 2018-03-16 Joe Hunt
 Ref. edit boxes has been extended to show 16 instead of 10 chars.
 M	includes/ui/ui_input.inc
