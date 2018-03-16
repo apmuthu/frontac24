@@ -1,3 +1,7 @@
+2018-03-16 Joe Hunt
+Ref. edit boxes has been extended to show 16 instead of 10 chars.
+M	includes/ui/ui_input.inc
+
 2018-03-14 Joe Hunt
 Wrong error message in Save Items.
 M	inventory/includes/db/items_db.inc
