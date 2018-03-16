@@ -1,4 +1,20 @@
 2018-03-17 Janusz Dobrowolski
+Moved installed languages to core, updated others
+M	install/lang/ar_EG/LC_MESSAGES/ar_EG.mo
+M	install/lang/ar_EG/LC_MESSAGES/ar_EG.po
+M	install/lang/de_DE/LC_MESSAGES/de_DE.mo
+M	install/lang/de_DE/LC_MESSAGES/de_DE.po
+M	install/lang/hi_IN/LC_MESSAGES/hi_IN.mo
+M	install/lang/hi_IN/LC_MESSAGES/hi_IN.po
+M	install/lang/id_ID/LC_MESSAGES/id_ID.mo
+M	install/lang/id_ID/LC_MESSAGES/id_ID.po
+M	install/lang/ta_IN/LC_MESSAGES/ta_IN.mo
+M	install/lang/ta_IN/LC_MESSAGES/ta_IN.po
+M	install/lang/vi_VN/LC_MESSAGES/vi_VN.mo
+M	install/lang/vi_VN/LC_MESSAGES/vi_VN.po
+M	install/isession.inc
+
+2018-03-17 Janusz Dobrowolski
 Updated New Core Language Template empty.po
 M	lang/new_language_template/LC_MESSAGES/empty.po 
 
