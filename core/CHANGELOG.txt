@@ -1,3 +1,7 @@
+2018-03-17 Joe Hunt
+FA 2.4.4
+M	version.php
+
 2018-03-17 Janusz Dobrowolski
 Moved installed languages to core, updated others
 M	install/lang/ar_EG/LC_MESSAGES/ar_EG.mo
