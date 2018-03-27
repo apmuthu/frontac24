@@ -1,3 +1,7 @@
+2018-03-27 Joe Hunt
+Update Journal Entry SQL query fixed.
+M	gl/includes/db/gl_journal.inc
+
 2018-03-17 Joe Hunt
 FA 2.4.4
 M	version.php
