@@ -1,3 +1,7 @@
+2018-04-09 Joe Hunt
+report_classes.inc - Parameter must be an array fixed.
+M	reporting/includes/reports_classes.inc
+
 2018-04-02 Joe Hunt
 Fixed the summation of the outstanding open balance in Customer Balance Report.
 M	reporting/rep101.php
