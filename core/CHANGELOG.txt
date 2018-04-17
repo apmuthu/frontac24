@@ -1,3 +1,7 @@
+2018-04-17 Janusz Dobrowolski
+Removed obsolete column 'Received' from direct purchase document entry forms.
+M	purchasing/includes/ui/po_ui.inc
+
 2018-04-16 Joe Hunt
 Standard Charts and upgrades for new sys_prefs flag ref_no_auto_increase
 M	sql/en_US-demo.sql
