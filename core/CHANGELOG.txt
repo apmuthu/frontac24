@@ -1,4 +1,8 @@
 2018-04-18 Joe Hunt
+Fixed a php 7.2 bug in db_pager.inc.
+M	includes/db_pager.inc
+
+2018-04-18 Joe Hunt
 Typo in report Customer Detail Listing
 M	reporting/rep103.php
 
