@@ -1,3 +1,7 @@
+2018-05-08 Joe Hunt
+The function get_customer_trans_details now includes itemPrice ex tax in SQL.
+M	sales/includes/db/cust_trans_details_db.inc
+
 2018-04-29 Joe Hunt
 0004161: g/l inquiry person/item displays number instead of person & Rerun.
 M	gl/includes/db/gl_db_trans.inc
