@@ -1,3 +1,7 @@
+2018-05-09 Joe Hunt
+Adding Attachments to Dimension
+M	dimensions/dimension_entry.php
+
 2018-05-08 Joe Hunt
 The function get_customer_trans_details now includes itemPrice ex tax in SQL.
 M	sales/includes/db/cust_trans_details_db.inc
