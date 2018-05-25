@@ -1,3 +1,7 @@
+2018-05-25 Joe Hunt
+Currency Convertor Google URL update
+M	gl/includes/db/gl_db_rates.inc
+
 2018-05-09 Joe Hunt
 Adding Attachments to Dimension
 M	dimensions/dimension_entry.php
