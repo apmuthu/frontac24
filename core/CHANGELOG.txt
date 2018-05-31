@@ -1,4 +1,8 @@
 2018-05-31 Joe Hunt
+0004468: @braathwaate: Cannot modify a funds transfer twice.
+M	gl/includes/db/gl_db_banking.inc
+
+2018-05-31 Joe Hunt
 0004476: Our Order No is always 0 on customer payment receipt. Fixed by empty column.
 M	reporting/includes/doctext.inc
 
