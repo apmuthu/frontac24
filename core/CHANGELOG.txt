@@ -1,3 +1,8 @@
+2018-06-01 Janusz Dobrowolski
+0004461 Installer: added info about needed user database permissions. (update install langs separately)
+M	install/index.php
+M	install/lang/new_language_template/LC_MESSAGES/empty.po
+
 2018-05-31 Joe Hunt
 0004468: @braathwaate: Cannot modify a funds transfer twice.
 M	gl/includes/db/gl_db_banking.inc
