@@ -1,3 +1,8 @@
+2018-06-04 Joe Hunt
+Work Order Report rep402 option for GL rows and re-run
+M	reporting/rep402.php
+M	reporting/reports_main.php
+
 2018-06-01 Janusz Dobrowolski
 Synched all install languages with upstream
 M	install/lang/ar_EG/LC_MESSAGES/ar_EG.po	ar_EG.po
