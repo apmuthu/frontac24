@@ -1,3 +1,7 @@
+2018-06-12 Joe Hunt
+Wrong standard cost for AP Surf Set with rerun for wrong type
+M	sql/en_US-demo.sql
+
 2018-06-04 Joe Hunt
 Work Order Report rep402 option for GL rows and re-run
 M	reporting/rep402.php
