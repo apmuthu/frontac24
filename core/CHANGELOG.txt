@@ -1,3 +1,7 @@
+2018-06-16
+Report 102 Aged Customer Analysis SQL fix
+M	purchasing/includes/db/suppliers_db.inc
+ 
 2018-06-12 Joe Hunt
 Wrong standard cost for AP Surf Set with rerun for wrong type
 M	sql/en_US-demo.sql
