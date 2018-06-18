@@ -1,3 +1,7 @@
+2018-06-18
+AP Surf Set in demo data rerun
+M	sql/en_US-demo.sql
+
 2018-06-16
 Report 102 Aged Customer Analysis SQL fix
 M	purchasing/includes/db/suppliers_db.inc
