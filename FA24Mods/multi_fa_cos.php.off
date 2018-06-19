@@ -1,0 +1,132 @@
+<?php
+// Purpose      : Script to generate files for Multiple Companies in FrontAccounting 2.4.x
+// Author       : Ap.Muthu <apmuthu@usa.net>
+// URL Argument : n = number of companies (default 2)
+// Release Date : 2018-06-19
+// Usage Notes  : FA must have already been installed with one default company and the Company DB must exist
+// Company Dirs : The folders in the company folder get generated
+// config_db.php: It is generated as config_db_new.php can be renamed to config_db.php on verification
+// DB SQLs      : The sql file can be used to generate the DB tables with their default data in phpMyAdmin or any MySQL client
+// Default CoA  : DB_SCRIPT constant in the code below can be used for it
+// Charset      : The DB_CHARSET and DB_COLLATE constants in the code below can be used for it
+// Company DBs  : The degfault company's DB is taken as a prefix and the "_#" is suffixed for each Company # like fac24_1, fac24_2, etc
+// Admin PWD    : The initial password for each company admin user is "mypass_#" where # is the company number, like mypass_1, mypass_2, etc
+
+	$num_cos = isset($_REQUEST['n']) ? $_REQUEST['n']+0 : 2;
+	$comp_subdirs = array('images', 'pdf_files', 'backup','js_cache', 'reporting', 'attachments');
+
+	define('COMPANY_DIR', 'company');
+	define('CO_BASE', 'My Company');
+	define('NEW_HOST', 'localhost');
+	define('NEW_PORT', '');
+	define('PRIV_USER', 'root');
+	define('PRIV_PWD', '');
+	define('DB_CHARSET','utf8');
+	define('DB_COLLATE','utf8_unicode_ci');
+	define('DB_SCRIPT', file_get_contents('sql/en_US-new.sql')); // otherwise upload your CoA and use it here
+	define('PASS_PFX', 'mypass');
+
+	if(!file_exists('config_db.php')) die('Install FA with Default Company first.');
+	include_once('config_db.php');
+
+	define('DEF_CO_NO', $def_coy);
+	define('DB_BASE', $db_connections[0]['dbname']);
+	define('LAST_DB_INDEX', $tb_pref_counter-1);
+
+	$sqls = '';
+	$dbconn = new mysqli(NEW_HOST, PRIV_USER, PRIV_PWD);
+	if (strncmp($dbconn->server_info, "5.6", 3) >= 0) 
+		$sqls .= "\nSET sql_mode = '';\n";
+	$sqls .= "\nSET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;\n";
+
+	for ($i=0; $i < $num_cos; $i++) {
+		make_new_co($tb_pref_counter);
+		$tb_pref_counter++;
+	}
+
+	$sqls .= "\n\nSET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;\n";
+	file_put_contents('multi_company_'.(LAST_DB_INDEX+1).'_to_'.($tb_pref_counter-1).'.sql', $sqls);
+
+// write the config_db file
+	$msg = "<?php\n\n";
+	$msg .= "/*Connection Information for the database\n";
+	$msg .= "\$def_coy - the default company that is pre-selected on login\n\n";
+	$msg .= "'host' - the computer ip address or name where the database is. The default is 'localhost' assuming that the web server is also the sql server.\n\n";
+	$msg .= "'port' - the computer port where the database is. The default is '3306'. Set empty for default.\n\n";
+	$msg .= "'dbuser' - the user name under which the company database should be accessed.\n";
+	$msg .= "  NB it is not secure to use root as the dbuser with no password - a user with appropriate privileges must be set up.\n\n";
+	$msg .= "'dbpassword' - the password required for the dbuser to authorise the above database user.\n\n";
+	$msg .= "'dbname' - the name of the database as defined in the RDMS being used. Typically RDMS allow many databases to be maintained under the same server.\n";
+	$msg .= "'collation' - the character set used for the database.\n";
+	$msg .= "'tbpref' - prefix on table names, or '' if not used. Always use non-empty prefixes if multiply company use the same database.\n";
+	$msg .= "*/\n\n\n";
+
+	$msg .= "\$def_coy = " . $def_coy . ";\n\n";
+	$msg .= "\$tb_pref_counter = " . $tb_pref_counter . ";\n\n";
+	$msg .= "\$db_connections = " .var_export($db_connections, true);
+	$msg .= ";\n";
+
+	file_put_contents('config_db_new.php', $msg);
+
+function make_new_co($i) {
+	global $db_connections, $tb_pref_counter, $comp_subdirs, $sqls, $config_db;
+
+	$new_co_name = num_str(CO_BASE, $i, true);
+	$new_db = num_str(DB_BASE, $i);
+	$new_tbpref = $i.'_';
+	$new_adminpwd = num_str(PASS_PFX, $i);
+
+	$sqls .= "\n\n-- Start of Company $i\n\n";
+	$sqls .= "CREATE DATABASE IF NOT EXISTS `$new_db` DEFAULT CHARACTER SET ".DB_CHARSET." DEFAULT COLLATE ".DB_COLLATE.";\n";
+	$sqls .= "USE `$new_db`;\n"; 
+	$sqls .= str_replace(' `0_', ' `'.$new_tbpref, DB_SCRIPT) . "\n"; 
+	$sqls .= "UPDATE `".$new_tbpref."users` SET `password`=MD5('$new_adminpwd');\n";
+	$sqls .= "\n\n-- End of Company $i\n\n";
+
+	$db_connections[$i]=Array(
+		'name'       => $new_co_name,
+		'host'       => NEW_HOST,
+		'port'       => NEW_PORT,
+		'dbname'     => $new_db,
+		'collation'  => ((DB_COLLATE == 'utf8_unicode_ci') ? 'utf8_xx' : DB_COLLATE),
+		'tbpref'     => $new_tbpref,
+		'dbuser'     => PRIV_USER,
+		'dbpassword' => PRIV_PWD,
+	);
+
+	create_company_dirs($i);
+
+return;
+	$exts = get_company_extensions();
+	write_extensions($exts, $selected_id);
+
+	display_notification($new ? _('New company has been created.') : _('Company has been updated.'));
+
+	$Mode = 'RESET';
+	return true;
+}
+
+function create_company_dirs($i) {
+	global $comp_subdirs;
+	$index = "<?php\nheader(\"Location: ../index.php\");\n";
+	$cdir = COMPANY_DIR."/$i";
+	@mkdir($cdir);
+	$f = @fopen("$cdir/index.php", "wb");
+	@fwrite($f, $index);
+	@fclose($f);
+
+	foreach($comp_subdirs as $dir) {
+		@mkdir($cdir.'/'.$dir);
+		$f = @fopen("$cdir/$dir/index.php", "wb");
+		@fwrite($f, $index);
+		@fclose($f);
+	}
+
+	@copy(COMPANY_DIR.'/'.DEF_CO_NO.'/installed_extensions.php', $cdir.'/installed_extensions.php');
+}
+
+function num_str($str, $i, $space=false) {
+	return $str.(($space)? ' ' : '_').$i;
+}
+
+?>
