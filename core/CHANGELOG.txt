@@ -1,3 +1,7 @@
+2018-07-12
+Fiscal year delete leads to undefined variable $total. Fixed.
+M	admin/db/fiscalyears_db.inc
+
 2018-06-18
 AP Surf Set in demo data rerun
 M	sql/en_US-demo.sql
