@@ -142,6 +142,12 @@ function ref_view($row)
 	return $row['ref'];
 }
 
+function is_selected($row) // Function added by faisal
+{
+	global $selected_id;
+	return $row['trans_no'] == $selected_id ? true : false;
+}
+
 function voiding_controls()
 {
 	global $selected_id;
@@ -185,6 +191,8 @@ function voiding_controls()
 	);
 
 	$table =& new_db_pager('transactions', $sql, $cols);
+	$table->set_marker('is_selected', _("Marked transactions will be voided.")); //Added by Faisal
+
 	$table->width = "40%";
 	display_db_pager($table);
 

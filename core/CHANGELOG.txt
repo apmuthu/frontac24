@@ -1,4 +1,8 @@
 2018-08-11 Joe Hunt
+Marker in Void Transactions fixed
+M	admin/void_transaction.php
+
+2018-08-11 Joe Hunt
 Whitespace corrections
 M	admin/void_transaction.php
 
