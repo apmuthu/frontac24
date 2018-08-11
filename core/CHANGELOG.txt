@@ -1,3 +1,7 @@
+2018-08-11 Joe Hunt
+Whitespace corrections
+M	admin/void_transaction.php
+
 2018-07-12 Joe Hunt
 Stock goes negative even if negative inventory is turned off. Fix by @kvvaradha
 M	admin/void_transaction.php
