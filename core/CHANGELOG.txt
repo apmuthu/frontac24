@@ -1,4 +1,8 @@
 2018-08-11 Joe Hunt
+Solution for item editable description
+M	includes/ui/ui_view.inc
+
+2018-08-11 Joe Hunt
 Marker in Void Transactions fixed
 M	admin/void_transaction.php
 
