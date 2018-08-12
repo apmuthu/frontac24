@@ -1,4 +1,8 @@
-2018-08-11 Joe Hunt
+2018-08-12 Joe Hunt
+Avoid running same query multiple times. Rep307.php. Fixed
+M	reporting/rep307.php
+
+2018-08-12 Joe Hunt
 Solution for item editable description
 M	includes/ui/ui_view.inc
 
