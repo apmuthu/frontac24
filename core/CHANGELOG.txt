@@ -1,3 +1,7 @@
+2018-08-19 Joe Hunt
+Removed redundant sql sentences in Report Filters.
+M	reporting/includes/reports_classes.inc
+
 2018-08-12 Joe Hunt
 Avoid running same query multiple times. Rep307.php. Fixed
 M	reporting/rep307.php
