@@ -1,3 +1,7 @@
+2018-08-23 Joe Hunt
+Whitespace changes to sales_order_ui.inc on commit and rollback
+M	sales/includes/ui/sales_order_ui.inc
+
 2018-08-19 Joe Hunt
 Fixed bug in Report Supplier Balances.
 M	reporting/rep201.php

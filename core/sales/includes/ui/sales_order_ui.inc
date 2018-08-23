@@ -503,11 +503,11 @@ function sales_order_item_controls(&$order, &$rowcounter, $line_no=-1)
 			stock_disposable_fa_list_cells(null,'stock_id', null, _('[Select item]'), true, $order->line_items);
 		else
 		if (list_updated('stock_id')) {
-                            sales_items_list_cells(null,'stock_id', null, false, true, true);
-			    $Ajax->activate('price');
-			    $Ajax->activate('units');
-			    $Ajax->activate('qty');
-			    $Ajax->activate('line_total');
+            sales_items_list_cells(null,'stock_id', null, false, true, true);
+		    $Ajax->activate('price');
+		    $Ajax->activate('units');
+		    $Ajax->activate('qty');
+		    $Ajax->activate('line_total');
 		} else
 			 sales_items_list_cells(null,'stock_id', last_sales_order_detail($order, 'stk_code'), false, true, true);
 
