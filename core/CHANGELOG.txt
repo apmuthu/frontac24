@@ -1,3 +1,7 @@
+2018-08-30 Joe Hunt
+@notrinos: Update material cost when quantity on hand is zero.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
 2018-08-26 Joe Hunt
 @braathwaate Bug 4601: memo line not cleared after enter new payment item.
 M	gl/gl_bank.php
