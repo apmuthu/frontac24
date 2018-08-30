@@ -1,3 +1,7 @@
+2018-08-26 Joe Hunt
+@braathwaate Bug 4504: utf-8 decoding not working for some special characters on pdf reports. PHP4 support removed.
+M	reporting/includes/tcpdf.php
+
 2018-08-26 Janusz Dobrowolski
 Bug 4577: Ajax confirmation dialog ignored user answer in Sales Order cancellation.
 M	js/inserts.js
