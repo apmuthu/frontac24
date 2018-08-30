@@ -1,3 +1,7 @@
+2018-08-26 Janusz Dobrowolski
+Bug 4577: Ajax confirmation dialog ignored user answer in Sales Order cancellation.
+M	js/inserts.js
+
 2018-08-26 Joe Hunt
 @braathwaate Bug 4617: Initialised missing variable $memo in work order costing
 M	manufacturing/includes/db/work_order_costing_db.inc
