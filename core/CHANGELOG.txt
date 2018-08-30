@@ -1,4 +1,12 @@
 2018-08-26 Joe Hunt
+@braathwaate Bug 4601: memo line not cleared after enter new payment item.
+M	gl/gl_bank.php
+M	gl/includes/ui/gl_bank_ui.inc
+M	gl/inquiry/bank_inquiry.php
+M	includes/dashboard.inc
+M	includes/ui/ui_input.inc
+
+2018-08-26 Joe Hunt
 @braathwaate Bug 4504: utf-8 decoding not working for some special characters on pdf reports. PHP4 support removed.
 M	reporting/includes/tcpdf.php
 
