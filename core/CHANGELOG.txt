@@ -1,4 +1,9 @@
 2018-08-30 Joe Hunt
+@braathwaate: FA 2.4.4 no longer displays 0.00 Sales Invoices in customer_inquiry - Fixed.
+M	sales/includes/db/cust_trans_db.inc
+M	sales/inquiry/customer_inquiry.php
+
+2018-08-30 Joe Hunt
 @notrinos: Update material cost when quantity on hand is zero.
 M	manufacturing/includes/db/work_order_costing_db.inc
 
