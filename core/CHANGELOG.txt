@@ -1,4 +1,8 @@
 2018-08-26 Joe Hunt
+@braathwaate Bug 4617: Initialised missing variable $memo in work order costing
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2018-08-26 Joe Hunt
 @braathwaate Bug 4563: rep308 costed inventory movements do not reconcile.
 M	reporting/rep308.php
 
