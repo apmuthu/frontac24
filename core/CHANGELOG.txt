@@ -1,3 +1,7 @@
+2018-08-26 Joe Hunt
+@braathwaate Bug 4563: rep308 costed inventory movements do not reconcile.
+M	reporting/rep308.php
+
 2018-08-23 Joe Hunt
 Whitespace changes to sales_order_ui.inc on commit and rollback
 M	sales/includes/ui/sales_order_ui.inc
