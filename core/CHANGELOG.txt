@@ -1,4 +1,11 @@
 2018-08-31 Joe Hunt
+Rerun @braathwaate Bug 4601: memo line not cleared after enter new payment item.
+M	gl/includes/ui/gl_journal_ui.inc
+M	gl/inquiry/bank_inquiry.php
+M	includes/dashboard.inc (reverted)
+M	includes/ui/ui_input.inc (reverted)
+
+2018-08-31 Joe Hunt
 Rerun @notrinos: Update material cost when quantity on hand is zero.
 M	manufacturing/includes/db/work_order_costing_db.inc
 
