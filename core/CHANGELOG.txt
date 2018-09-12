@@ -1,3 +1,7 @@
+2018-09-12 Joe Hunt
+@notrinos: Fixed error creating customer credit note: Undefined index: sales_gl_code
+M	taxes/tax_calc.inc
+
 2018-08-31 Joe Hunt
 Rerun @braathwaate Bug 4601: memo line not cleared after enter new payment item.
 M	gl/includes/ui/gl_journal_ui.inc
