@@ -1,3 +1,7 @@
+2018-09-13 Joe Hunt
+@notrinos: Left to allocate fixed and rerun
+M	includes/ui/ui_view.inc
+
 2018-09-12 Joe Hunt
 @notrinos: Fixed error creating customer credit note: Undefined index: sales_gl_code
 M	taxes/tax_calc.inc
