@@ -1,3 +1,8 @@
+2018-09-17 Janusz Dobrowolski
+Fixed comment for crm_contacts table in init sql files.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql 
+
 2018-09-15 Joe Hunt
 @notrinos: Fixed Line break in supplier_list_cells when label is null
 M	includes/ui/ui_lists.inc
