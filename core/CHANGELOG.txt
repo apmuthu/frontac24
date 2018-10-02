@@ -1,3 +1,7 @@
+2018-10-02 Joe Hunt
+@braathwaate 0004641: items->transactions should not show QOH for service items. Fixed by disabling transactions when non inventory item.
+M	inventory/manage/items.php
+
 2018-09-17 Janusz Dobrowolski
 Fixed comment for crm_contacts table in init sql files.
 M	sql/en_US-demo.sql
