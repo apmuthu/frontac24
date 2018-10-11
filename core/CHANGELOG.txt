@@ -1,3 +1,10 @@
+2018-10-11 Janusz Dobrowolski
+Work Order voided reference reusage, costing and reporting issues fixed
+M	manufacturing/includes/db/work_orders_db.inc
+M	reporting/includes/reports_classes.inc
+M	reporting/rep409.php
+M	manufacturing/includes/db/work_order_costing_db.inc
+
 2018-10-06 Joe Hunt
 @braathwaate: Fixed Customer statement reflecting wrong balance. 
 M	reporting/rep108.php
