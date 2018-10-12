@@ -1,3 +1,7 @@
+2018-10-12 Janusz Dobrowolski
+[0004736] Items: item cloning did not preserved value for non-editable fields.
+M	inventory/manage/items.php
+
 2018-10-11 Janusz Dobrowolski
 Work Order voided reference reusage, costing and reporting issues fixed
 M	manufacturing/includes/db/work_orders_db.inc
