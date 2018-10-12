@@ -1,4 +1,8 @@
 2018-10-12 Janusz Dobrowolski
+[0004475] Modifying Journal Transaction: fixed form layout for gl edition containing subaccount.
+M	includes/ui/items_cart.inc
+
+2018-10-12 Janusz Dobrowolski
 [0004736] Items: item cloning did not preserved value for non-editable fields.
 M	inventory/manage/items.php
 
