@@ -1,3 +1,8 @@
+2018-10-26 Joe Hunt
+@notrinos: Fixed deprecated each() function in PHP 7.2 (tcpdf.php / fpdi.php)
+M	reporting/includes/tcpdf.php
+M	reporting/includes/fpdi/fpdi
+
 2018-10-24 Janusz Dobrowolski
 [0004594] Suppliers: inactive tax groups should not appear in tax group selector for new supplier.
 M	includes/ui/ui_lists.inc
