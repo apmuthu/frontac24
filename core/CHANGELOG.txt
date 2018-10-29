@@ -1,3 +1,7 @@
+2018-10-29 Joe Hunt
+@cleal: fixed count() in reports_classes.inc:37
+M	reporting/includes/reports_classes.inc
+
 2018-10-26 Joe Hunt
 @notrinos: Fixed deprecated each() function in PHP 7.2 (tcpdf.php / fpdi.php)
 M	reporting/includes/tcpdf.php
