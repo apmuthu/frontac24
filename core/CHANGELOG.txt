@@ -1,3 +1,7 @@
+2018-11-05 Janusz Dobrowolski
+[0004736] Fix to get_item helper.
+M	inventory/includes/db/items_db.inc
+
 2018-10-29 Joe Hunt
 @cleal: fixed count() in reports_classes.inc:37
 M	reporting/includes/reports_classes.inc
