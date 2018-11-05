@@ -1,4 +1,15 @@
 2018-11-05 Janusz Dobrowolski
+Cleanups fixing obscure numeric references to some sql helpers results.
+M	dimensions/dimension_entry.php
+M	dimensions/view/view_dimension.php
+M	manufacturing/includes/db/work_orders_db.inc
+M	manufacturing/includes/manufacturing_ui.inc
+M	manufacturing/work_order_add_finished.php
+M	manufacturing/work_order_costs.php
+M	manufacturing/work_order_entry.php
+M	purchasing/includes/db/invoice_db.inc
+
+2018-11-05 Janusz Dobrowolski
 [0004736] Fix to get_item helper.
 M	inventory/includes/db/items_db.inc
 
