@@ -1,3 +1,8 @@
+2018-10-13/18 Joe Hunt
+@notrinos: Added input data checks for company prefs and GL setup
+M	admin/company_preferences.php
+M	admin/gl_setup.php
+
 2018-11-05 Janusz Dobrowolski
 Cleanups fixing obscure numeric references to some sql helpers results.
 M	dimensions/dimension_entry.php
