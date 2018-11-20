@@ -317,3 +317,7 @@ ALTER TABLE `0_supp_trans`
 	CHANGE `supplier_id` `supplier_id` int(11) unsigned NOT NULL,
 	DROP PRIMARY KEY,
 	ADD PRIMARY KEY (`type`,`trans_no`,`supplier_id`);
+
+ALTER TABLE `0_sales_orders`
+	ADD INDEX `OrderNoIdx` (`order_no`),
+	ADD INDEX `OrderDebtorNoIdx` (`debtor_no`);

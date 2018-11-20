@@ -763,7 +763,9 @@ CREATE TABLE IF NOT EXISTS `0_sales_orders` (
   `total` double NOT NULL DEFAULT '0',
   `prep_amount` double NOT NULL DEFAULT '0',
   `alloc` double NOT NULL DEFAULT '0',
-  PRIMARY KEY (`trans_type`,`order_no`)
+  PRIMARY KEY (`trans_type`,`order_no`),
+  KEY `OrderNoIdx` (`order_no`),
+  KEY `OrderDebtorNoIdx` (`debtor_no`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_sales_pos` (
