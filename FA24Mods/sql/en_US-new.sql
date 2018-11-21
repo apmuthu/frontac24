@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - No
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2018-01-16
+Last Update     - 2018-11-20
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1500,6 +1500,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('po_over_charge', 'glsetup.purchase', 'int', '11', '10')
 ,('po_over_receive', 'glsetup.purchase', 'int', '11', '10')
 ,('postal_address', 'setup.company', 'tinytext', '0', 'N/A')
+,('print_dialog_direct','setup.company', 'tinyint', '1', '0')
 ,('print_invoice_no', 'glsetup.sales', 'tinyint', '1', '0')
 ,('print_item_images_on_quote', 'glsetup.inventory', 'tinyint', '1', '0')
 ,('profit_loss_year_act', 'glsetup.general', 'varchar', '15', '9990')

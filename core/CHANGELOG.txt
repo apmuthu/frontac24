@@ -1,3 +1,11 @@
+2018-10-20 Joe Hunt
+@notrinos: Added Company Setup Option to Open Print Dialog Direct on Reports
+M	admin/company_preferences.php
+M	reporting/includes/pdf_report.inc
+M	sql/alter2.4.php
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2018-10-19 Joe Hunt
 0004760: @braathwaate speeded up last_sales_order_detail function sql
 M	sales/includes/db/sales_order_db.inc
