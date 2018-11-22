@@ -1,4 +1,8 @@
 2018-10-22 Joe Hunt
+@kvvaradha: Fixed Customer Balance Showing wrong Outstanding balance (Journal Entry allocation)
+M	reporting/rep101.php
+
+2018-10-22 Joe Hunt
 @mugao-EM / @Andijani: Fixed Revaluation amount posted wrongly.
 M	gl/includes/db/gl_db_banking.inc
 
