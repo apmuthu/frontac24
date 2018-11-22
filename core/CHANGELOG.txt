@@ -1,3 +1,7 @@
+2018-10-22 Joe Hunt
+@mugao-EM / @Andijani: Fixed Revaluation amount posted wrongly.
+M	gl/includes/db/gl_db_banking.inc
+
 2018-10-20 Joe Hunt
 @notrinos: Added Company Setup Option to Open Print Dialog Direct on Reports
 M	admin/company_preferences.php
