@@ -1,21 +1,32 @@
-2018-10-28 Joe Hunt
+2018-11-29 Joe Hunt
+Fixed and re-run php 7.2 count() compatibility and intval cast in number_format2 parameter 2
+M	admin/db/maintenance_db.inc
+M	includes/current_user.inc
+M	includes/ui/ui_globals.inc
+M	reporting/includes/fpdi/fpdi.php
+M	reporting/includes/reports_classes.inc
+M	sales/includes/sales_db.inc
+M	includes/ui/contacts_view.inc
+M	includes/ui/items_cart.inc
+
+2018-11-28 Joe Hunt
 0004760: Rerun of last_sales_order_detail function sql
 M	sales/includes/db/sales_order_db.inc
 
-2018-10-24 Joe Hunt
+2018-11-24 Joe Hunt
 @kvvaradha: PO Delivery does not show the Supplier name in GL transactions report.
 M	gl/includes/db/gl_db_trans.inc
 M	reporting/rep704.php
 
-2018-10-22 Joe Hunt
+2018-11-22 Joe Hunt
 @kvvaradha: Fixed Customer Balance Showing wrong Outstanding balance (Journal Entry allocation)
 M	reporting/rep101.php
 
-2018-10-22 Joe Hunt
+2018-11-22 Joe Hunt
 @mugao-EM / @Andijani: Fixed Revaluation amount posted wrongly.
 M	gl/includes/db/gl_db_banking.inc
 
-2018-10-20 Joe Hunt
+2018-11-20 Joe Hunt
 @notrinos: Added Company Setup Option to Open Print Dialog Direct on Reports
 M	admin/company_preferences.php
 M	reporting/includes/pdf_report.inc
@@ -23,11 +34,11 @@ M	sql/alter2.4.php
 M	sql/en_US-demo.sql
 M	sql/en_US-new.sql
 
-2018-10-19 Joe Hunt
+2018-11-19 Joe Hunt
 0004760: @braathwaate speeded up last_sales_order_detail function sql
 M	sales/includes/db/sales_order_db.inc
 
-2018-10-13/18 Joe Hunt
+2018-11-13/18 Joe Hunt
 @notrinos: Added input data checks for company prefs and GL setup
 M	admin/company_preferences.php
 M	admin/gl_setup.php
