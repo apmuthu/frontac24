@@ -1,4 +1,8 @@
 2018-12-06 Janusz Dobrowolski
+FA 2.4.5
+M	version.php
+
+2018-12-05 Janusz Dobrowolski
 Updated gettext template
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
