@@ -1,3 +1,7 @@
+2018-12-06 Janusz Dobrowolski
+Updated gettext template
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2018-11-29 Joe Hunt
 Fixed and re-run php 7.2 count() compatibility and intval cast in number_format2 parameter 2
 M	admin/db/maintenance_db.inc
