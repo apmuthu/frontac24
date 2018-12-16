@@ -1,3 +1,7 @@
+2018-12-16 Joe Hunt
+Fixed Bug in count_array(), /includes/ui/ui_globals.inc and re-run.
+M	includes/ui/ui_globals.inc
+
 2018-12-06 Janusz Dobrowolski
 FA 2.4.5
 M	version.php
