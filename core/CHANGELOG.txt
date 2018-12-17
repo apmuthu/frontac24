@@ -1,4 +1,8 @@
 2018-12-16 Joe Hunt
+Pressing Batch button in Invoice against Deliveries - missing index fixed.
+M	sales/inquiry/sales_deliveries_view.php
+
+2018-12-16 Joe Hunt
 Fixed a non well formed numeric value encountered rep102.php
 M	reporting/rep102.php
 
