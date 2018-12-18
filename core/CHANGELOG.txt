@@ -1,4 +1,9 @@
 2018-12-17 Joe Hunt
+@notrinos: EXCHANGE-RATES.ORG added as default reliable rate provider
+M	config.default.php
+M	gl/includes/db/gl_db_rates.inc
+
+2018-12-17 Joe Hunt
 Credit Notes were never seen in View Sales Order. Fixed.
 M	sales/view/view_sales_order.php
 
