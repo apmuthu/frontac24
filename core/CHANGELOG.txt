@@ -1,4 +1,8 @@
 2018-12-17 Joe Hunt
+Credit Notes were never seen in View Sales Order. Fixed.
+M	sales/view/view_sales_order.php
+
+2018-12-17 Joe Hunt
 Non well formed numeric value in rep202.php fixed
 M	reporting/rep202.php
 
