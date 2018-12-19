@@ -1,4 +1,9 @@
 2018-12-19 Joe Hunt
+@braathwaate: 4821: banking overdraft message has php errors. Fixed.
+M	gl/gl_bank.php
+M	gl/includes/db/gl_db_bank_trans.inc
+
+2018-12-19 Joe Hunt
 @braathwaate 4811: magnifying glass select on deposits/payments erroneously shows bank account gl accounts. Fixed.
 M	gl/includes/db/gl_db_accounts.inc
 M	gl/inquiry/accounts_list.php
