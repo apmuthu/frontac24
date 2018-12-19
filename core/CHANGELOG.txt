@@ -1,3 +1,7 @@
+2018-12-19 Joe Hunt
+@braathwaate: 4796: Entering customer payment with a bank charge equal to the total amount results in database error. Fixed.
+M	sales/customer_payments.php
+
 2018-12-18 Joe Hunt
 Changed Journal # to GL # in GL Trans View.
 M	gl/inquiry/journal_inquiry.php
