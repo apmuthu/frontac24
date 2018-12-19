@@ -1,3 +1,9 @@
+2018-12-18 Joe Hunt
+Changed Journal # to GL # in GL Trans View.
+M	gl/inquiry/journal_inquiry.php
+M	gl/view/gl_trans_view.php
+M	includes/ui/ui_view.inc
+
 2018-12-17 Joe Hunt
 @notrinos: EXCHANGE-RATES.ORG added as default reliable rate provider
 M	config.default.php
