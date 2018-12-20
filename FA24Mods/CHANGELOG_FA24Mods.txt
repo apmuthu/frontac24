@@ -1,6 +1,7 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
-2018-12-17 config file updated for new exchange rate provider
+2018-12-20 config file updated for new exchange rate provider CCA
+2018-12-17 config file updated for new exchange rate provider EXCHANGE-RATES.ORG
 2018-12-08 hi_IN core translations updated for all strings in FA 2.4.5
 2018-12-08 ta_IN core translations updated for all strings in FA 2.4.5
 2018-11-21 Added print_dialog_direct sys_prefs flag

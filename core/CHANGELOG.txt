@@ -1,3 +1,8 @@
+2018-12-20 Joe Hunt
+@notrinos: Added CCA. Fixed ECB, and EXCHANGE-RATES.ORG providers
+M	config.default.php
+M	gl/includes/db/gl_db_rates.inc
+
 2018-12-19 Joe Hunt
 @braathwaate: 4821: banking overdraft message has php errors. Fixed.
 M	gl/gl_bank.php
