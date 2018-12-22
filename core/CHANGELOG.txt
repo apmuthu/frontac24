@@ -1,3 +1,10 @@
+2018-12-21 Joe Hunt
+@boxygen: Added Customer / Supplier Trial Balance Reports and 2 re-runs
+M	reporting/rep115.php
+M	reporting/rep201.php
+M	reporting/rep206.php
+M	reporting/reports_main.php
+
 2018-12-20 Joe Hunt
 @notrinos: Added CCA. Fixed ECB, and EXCHANGE-RATES.ORG providers
 M	config.default.php
