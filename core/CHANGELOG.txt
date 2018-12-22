@@ -1,4 +1,8 @@
-2018-12-21 Joe Hunt
+2018-12-22 Joe Hunt
+Barcodes in report Stock Check Sheets should only print numeric stock id's.
+M	reporting/rep303.php
+
+2018-12-22 Joe Hunt
 @boxygen: Added Customer / Supplier Trial Balance Reports and 2 re-runs
 M	reporting/rep115.php
 M	reporting/rep201.php
