@@ -1,3 +1,8 @@
+2018-12-23 Janusz Dobrowolski
+Attach Documents: fixed SQL injection vulnerability.
+M	admin/db/transactions_db.inc
+M	includes/references.inc
+
 2018-12-22 Joe Hunt
 Barcodes in report Stock Check Sheets should only print numeric stock id's.
 M	reporting/rep303.php
