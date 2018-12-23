@@ -1,3 +1,7 @@
+2018-12-23 Joe Hunt
+Report Stock Check Sheet is now testing for valid barcodes of EAN, EAN-8, EAN-13, GTIN-8, GTIN-12, GTIN-14, UPC, UPC-12 coupon code, EAN if 'Using Barcodes' is enabled.
+M	reporting/rep303.php
+
 2018-12-23 Janusz Dobrowolski
 Update README.md, removed obsolete install/update info, added list of contributors.
 M	README.md
