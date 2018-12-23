@@ -1,4 +1,8 @@
 2018-12-23 Janusz Dobrowolski
+Gettext template update.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2018-12-23 Janusz Dobrowolski
 Attach Documents: fixed SQL injection vulnerability.
 M	admin/db/transactions_db.inc
 M	includes/references.inc
