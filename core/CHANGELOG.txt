@@ -1,3 +1,7 @@
+2019-01-02 Joe Hunt
+@notrinos: Supplier Transaction Inquiry for GRN did not filter on date - fixed.
+M	purchasing/includes/db/supp_trans_db.inc
+
 2018-12-24 Joe Hunt
 FA 2.4.6
 M	version.php
