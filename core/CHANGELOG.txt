@@ -1,3 +1,7 @@
+2019-01-05 Joe Hunt
+@kvvaradha: Date Picker to close when clicked outside of the datepicker.
+M	includes/ui/ui_view.inc
+
 2019-01-02 Joe Hunt
 @notrinos: Supplier Transaction Inquiry for GRN did not filter on date - fixed.
 M	purchasing/includes/db/supp_trans_db.inc
