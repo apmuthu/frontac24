@@ -92,6 +92,18 @@ function get_fiscalyear_begin_for_date($date)
 		return begin_fiscalyear();
 }
 
+function get_fiscalyear_end_for_date($date)
+{
+ 	$date = date2sql($date);
+	$sql = "SELECT end FROM ".TB_PREF."fiscal_year WHERE '$date' >= begin AND '$date' <= end";
+	$result = db_query($sql, "could not get end date of the fiscal year");
+	$row = db_fetch_row($result);
+	if ($row != false)
+		return sql2date($row[0]);
+	else
+		return end_fiscalyear();
+}
+
 function check_begin_end_date($date1, $date2)
 {
 	$sql = "SELECT MAX(end), MIN(begin) FROM ".TB_PREF."fiscal_year";

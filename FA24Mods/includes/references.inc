@@ -57,8 +57,10 @@ $refline_placeholders = array(
 	'MM' => 'date',
 	'YY' => 'date',
 	'YYYY' => 'date',
-	'FF' => 'date', // fiscal year
+	'FF' => 'date', // fiscal year begin
 	'FFFF' => 'date',
+	'EE' => 'date', // fiscal year end
+	'EEEE' => 'date',
 	'UU' => 'user',
  	'P' => 'pos',
 //	 FIXME:  for placeholders below all the code should work, but as the ref length is variable,
@@ -128,6 +130,11 @@ class references
 						case 'FFFF':
 							list($day, $month, $year) = explode_date_to_dmy(get_fiscalyear_begin_for_date($context['date']));
 							$out .= $ph == 'FF' ? sprintf('%02d', $year%100): sprintf('%04d', $year);
+							break;
+						case 'EE':
+						case 'EEEE':
+							list($day, $month, $year) = explode_date_to_dmy(get_fiscalyear_end_for_date($context['date']));
+							$out .= $ph == 'EE' ? sprintf('%02d', $year%100): sprintf('%04d', $year);
 							break;
 						case 'C':
 							$out .= sprintf('%d', $context['customer']);
@@ -297,6 +304,9 @@ class references
 			$f_year = explode("-", date2sql(get_fiscalyear_begin_for_date($context['date'])));
 			$f_year2 = substr($f_year[0], 2);
 			$f_year4 = $f_year[0];
+			$e_year = explode("-", date2sql(get_fiscalyear_end_for_date($context['date'])));
+			$e_year2 = substr($e_year[0], 2);
+			$e_year4 = $e_year[0];
 		} else
 		{
 			$month = '\d{2,}';
@@ -304,6 +314,8 @@ class references
 			$year4 = '\d{4,}';
 			$f_year2 = '\d{2,}';
 			$f_year4 = '\d{4,}';
+			$e_year2 = '\d{2,}';
+			$e_year4 = '\d{4,}';
 		}
 		$cust = @$context['customer'] ? $context['customer'] : '\d+';
 		$supp = @$context['supplier'] ? $context['supplier'] : '\d+';
@@ -321,6 +333,8 @@ class references
 				'/\{YYYY\}/',
 				'/\{FF\}/',
 				'/\{FFFF\}/',
+				'/\{EE\}/',
+				'/\{EEEE\}/',
 				'/\{C\}/',
 				'/\{B\}/',
 				'/\{S\}/',
@@ -337,6 +351,8 @@ class references
 				$year4,
 				$f_year2,
 				$f_year4,
+				$e_year2,
+				$e_year4,
 				$cust,
 				$branch,
 				$supp,
