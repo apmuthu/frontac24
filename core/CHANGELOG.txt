@@ -1,4 +1,9 @@
 2019-01-10 Janusz Dobrowolski
+Fixed allocation date for customer payments entry, additional fixes for strict sql mode.
+M	includes/db/audit_trail_db.inc
+M	sales/customer_payments.php
+
+2019-01-10 Janusz Dobrowolski
 Activated strict SQL mode, minor SQL injection fix, fixed _vl() debug helper.
 M	admin/display_prefs.php
 M	includes/date_functions.inc
