@@ -1,4 +1,9 @@
 2019-01-10 Janusz Dobrowolski
+Fixed get_post() support for numeric fields.
+M	admin/display_prefs.php (jointly fixed in earlier commit)
+M	includes/ui/ui_controls.inc
+
+2019-01-10 Janusz Dobrowolski
 Quick Entries: fixed false warning.
 M	gl/manage/gl_quick_entries.php
 
