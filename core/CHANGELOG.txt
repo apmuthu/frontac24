@@ -1,3 +1,20 @@
+2019-01-10 Janusz Dobrowolski
+Activated strict SQL mode, minor SQL injection fix, fixed _vl() debug helper.
+M	admin/display_prefs.php
+M	includes/date_functions.inc
+M	includes/db/class.reflines_db.inc
+M	includes/db/connect_db_mysql.inc
+M	includes/db/connect_db_mysqli.inc
+M	includes/ui/class.crud_view.inc
+M	includes/ui/class.reflines_crud.inc
+M	includes/ui/ui_input.inc
+M	includes/ui/ui_view.inc
+M	inventory/includes/db/items_db.inc
+M	inventory/manage/items.php
+M	inventory/manage/locations.php
+M	purchasing/manage/suppliers.php
+M	sales/includes/cart_class.inc
+
 2019-01-08 Joe Hunt
 Password reset mail big delay fix using From: email in header.
 M	includes/current_user.inc
