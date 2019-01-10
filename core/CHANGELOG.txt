@@ -1,4 +1,8 @@
 2019-01-10 Janusz Dobrowolski
+Quick Entries: fixed false warning.
+M	gl/manage/gl_quick_entries.php
+
+2019-01-10 Janusz Dobrowolski
 Fixed allocation date for customer payments entry, additional fixes for strict sql mode.
 M	includes/db/audit_trail_db.inc
 M	sales/customer_payments.php
