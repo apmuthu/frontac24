@@ -1,3 +1,7 @@
+2019-01-14 Joe Hunt
+@notrinos: wrong command symbol in ui_list.inc fixed
+M	includes/ui/ui_lists.inc
+
 2019-01-11 Joe Hunt
 @notrinos: Update Material Cost Function - rollback and rerun
 M	manufacturing/includes/db/work_order_costing_db.inc
