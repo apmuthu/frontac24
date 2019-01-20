@@ -1,3 +1,7 @@
+2019-01-20 Janusz Dobrowolski
+Relaxed sql_mode set on DB init for backwards compatibility on backup restoration.
+M	admin/db/maintenance_db.inc
+
 2019-01-16 Joe Hunt
 Removed all double semicolon line endings in code files
 M	admin\attachments.php
