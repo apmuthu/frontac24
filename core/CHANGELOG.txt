@@ -1,3 +1,8 @@
+2019-01-22 Joe Hunt
+Updated 2 core COAs with demo data only in the demo variant.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2019-01-20 Janusz Dobrowolski
 Relaxed sql_mode set on DB init for backwards compatibility on backup restoration.
 M	admin/db/maintenance_db.inc
