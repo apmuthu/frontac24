@@ -1,3 +1,7 @@
+2019-01-23 Joe Hunt
+@kvvaradha: items_cart class logical bug fixed.
+M	includes/ui/items_cart.inc
+
 2019-01-22 Joe Hunt
 Updated 2 core COAs with demo data only in the demo variant.
 M	sql/en_US-demo.sql
