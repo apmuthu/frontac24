@@ -1,3 +1,8 @@
+2019-01-24 Joe Hunt
+@kvvaradha: Sales DB and UI bug fixed with re-run
+M	sales/includes/sales_db.inc
+M	sales/includes/ui/sales_order_ui.inc
+
 2019-01-23 Joe Hunt
 @kvvaradha: items_cart class logical bug fixed.
 M	includes/ui/items_cart.inc
