@@ -1,3 +1,8 @@
+2019-02-13 Janusz Dobrowolski
+Process Depreciation: hardcoded fiscal years constraint removed.
+M	includes/data_checks.inc
+M	includes/ui/ui_lists.inc
+
 2019-02-13 Joe Hunt
 @kvvaradha: Customer balance Report rep101.php extra parameter removed
 M	reporting/rep101.php
