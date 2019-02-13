@@ -1,3 +1,7 @@
+2019-02-13 Joe Hunt
+@kvvaradha: Customer balance Report rep101.php extra parameter removed
+M	reporting/rep101.php
+
 2019-01-29 Joe Hunt
 @anoopmb: Item units bug fixed and re-run
 M	inventory/includes/db/items_units_db.inc
