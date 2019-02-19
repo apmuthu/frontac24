@@ -1,3 +1,7 @@
+2019-02-19 Joe Hunt
+@kvvaradha: Fixed users Last Visit Date with Time.
+M	admin/users.php
+
 2019-02-13 Janusz Dobrowolski
 Process Depreciation: hardcoded fiscal years constraint removed.
 M	includes/data_checks.inc
