@@ -1,4 +1,8 @@
 2019-02-22 Joe Hunt
+0004859: @boxygen: Outstanding in Customer Balance with Journal Entry fixed.
+M	reporting/rep101.php
+
+2019-02-22 Joe Hunt
 0004847: @braathwaate: FA allows reconciliation of closed transactions
 M	gl/bank_account_reconcile.php
 
