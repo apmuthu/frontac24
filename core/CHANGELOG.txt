@@ -1,3 +1,7 @@
+2019-02-22 Joe Hunt
+@braathwaate: Fixed newlines in memo displayed as html on purchase order modify
+M	purchasing/includes/db/po_db.inc
+
 2019-02-19 Joe Hunt
 @kvvaradha: Fixed users Last Visit Date with Time.
 M	admin/users.php
