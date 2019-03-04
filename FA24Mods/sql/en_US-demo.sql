@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2019-03-03
+Last Update     - 2019-03-04
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1005,7 +1005,7 @@ CREATE TABLE IF NOT EXISTS `0_sys_prefs` (
 CREATE TABLE IF NOT EXISTS `0_tag_associations` (
   `record_id` varchar(15) NOT NULL,
   `tag_id` int(11) NOT NULL,
-  PRIMARY KEY `record_id` (`record_id`,`tag_id`)
+  PRIMARY KEY (`record_id`,`tag_id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `0_tags` (

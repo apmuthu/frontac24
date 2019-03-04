@@ -1,3 +1,8 @@
+2019-03-04 Joe Hunt
+@apmuthu: Clean up in en_US-demo.sql and en_US-new.sql
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2019-02-22 Joe Hunt
 0004859: @boxygen: Outstanding in Customer Balance with Journal Entry fixed.
 M	reporting/rep101.php

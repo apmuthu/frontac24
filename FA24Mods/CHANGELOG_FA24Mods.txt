@@ -1,6 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
-2019-03-03 Upstream en_US-demo.sql with updated demo data
+2019-03-04 Upstream en_US-demo.sql updated with demo data and cleanup of en_US-new.sql too
 2019-01-16 Upstream fix for ST_DIMENSION in references.inc patterns
 2019-01-16 Reverted Upstream fixes for SQL Strict Mode
 2019-01-10 Upstream fixes
