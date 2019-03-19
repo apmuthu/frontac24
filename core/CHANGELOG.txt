@@ -1,3 +1,6 @@
+2019-03-19 Joe Hunt
+@braathwaate: Supplier invoice quick entry edit enabled
+
 2019-03-06 Joe Hunt
 @PaulShipley: PHP 7.X non-numeric value fix when using date format 5 (YYYY/MM/DD)
 M	includes/date_functions.inc
