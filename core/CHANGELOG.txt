@@ -1,5 +1,12 @@
+2019-03-21 Joe Hunt
+@notrinos: Removed broken CCA in exchange rate providers list, updated url from google api.
+M	config.default.php
+M	gl/includes/db/gl_db_rates.inc
+
 2019-03-19 Joe Hunt
 @braathwaate: Supplier invoice quick entry edit enabled
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_invoice.php
 
 2019-03-06 Joe Hunt
 @PaulShipley: PHP 7.X non-numeric value fix when using date format 5 (YYYY/MM/DD)
