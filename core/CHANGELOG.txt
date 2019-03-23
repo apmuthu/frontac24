@@ -1,3 +1,7 @@
+2019-03-23 Joe Hunt
+Presentation bug in Sales Order View when reference is 'auto'.
+M	sales/view/view_sales_order.php
+
 2019-03-21 Joe Hunt
 @notrinos: Removed broken CCA in exchange rate providers list, updated url from google api.
 M	config.default.php
