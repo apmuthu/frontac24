@@ -1,3 +1,7 @@
+2019-03-24 Joe Hunt
+@JimmyC: Sales Invoice/Delivery when Cash Sales and document date before now. Due date should be the same.
+M	sales/sales_order_entry.php
+
 2019-03-23 Joe Hunt
 Presentation bug in Sales Order View when reference is 'auto'.
 M	sales/view/view_sales_order.php
