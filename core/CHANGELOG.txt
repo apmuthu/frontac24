@@ -1,4 +1,8 @@
 2019-03-26 Joe Hunt
+4867: supplier quick entry g/l account list should show the bank accounts in the line.
+M	purchasing/includes/ui/invoice_ui.inc
+
+2019-03-26 Joe Hunt
 @braathwaate: 4869 - Work order listing / reports fixed to omit voided orders and re-run.
 M	manufacturing/includes/db/work_orders_db.inc
 M	reporting/includes/reports_classes.inc
