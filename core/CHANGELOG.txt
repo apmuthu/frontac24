@@ -1,4 +1,10 @@
-2019-03-28 Joe Hunt
+2019-03-26 Joe Hunt
+@braathwaate: 4869 - Work order listing / reports fixed to omit voided orders and re-run.
+M	manufacturing/includes/db/work_orders_db.inc
+M	reporting/includes/reports_classes.inc
+M	reporting/rep402.php
+
+2019-03-26 Joe Hunt
 Upstream cleanup of whitespace in 2019-01-17 commit
 M	js/behaviour.js
 
