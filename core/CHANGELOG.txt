@@ -1,4 +1,10 @@
 2019-03-26 Joe Hunt
+@braathwaate/@joe: 4863 - Dimension not defaulted on PO entry / modify - Fixed.
+M	purchasing/includes/db/grn_db.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/po_db.inc
+
+2019-03-26 Joe Hunt
 4867: supplier quick entry g/l account list should show the bank accounts in the line.
 M	purchasing/includes/ui/invoice_ui.inc
 
