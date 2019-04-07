@@ -1,3 +1,7 @@
+2019-04-07 Joe Hunt
+@braathwaate: Recurrent Invoices in 2.4 is not sending.
+M	sales/create_recurrent_invoices.php
+
 2019-03-26 Joe Hunt
 @braathwaate/@joe: 4863 - Dimension not defaulted on PO entry / modify - Fixed.
 M	purchasing/includes/db/grn_db.inc
