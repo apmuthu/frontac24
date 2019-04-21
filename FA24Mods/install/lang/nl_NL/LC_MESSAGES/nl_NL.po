@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: FrontAccounting Install Wizard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-31 23:08+0200\n"
-"PO-Revision-Date: 2019-04-20 20:00+0000\n"
+"PO-Revision-Date: 2019-04-21 12:00+0000\n"
 "Last-Translator: Stefan Nijessen <snijessen@xs4all.nl>, 2019\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/gnuacademy/teams/55037/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "FrontAccounting ERP Installatiewizard"
 #: install/index.php:42
 #, php-format
 msgid "Step %d: %s"
-msgstr "Stap %d : %s"
+msgstr "Stap %d: %s"
 
 #: install/index.php:49
 msgid "Chart of accounts"
@@ -90,7 +90,7 @@ msgstr "De hostnaam mag niet leeg zijn."
 
 #: install/index.php:222
 msgid "Database port have to be numeric or empty."
-msgstr ""
+msgstr "Databasepoort moet numeriek of leeg zijn."
 
 #: install/index.php:226
 msgid "Database user name cannot be empty."
@@ -161,7 +161,7 @@ msgstr "Servernaam:"
 
 #: install/index.php:352
 msgid "Server Port:"
-msgstr ""
+msgstr "Server poort:"
 
 #: install/index.php:353
 msgid "Database Name:"
@@ -177,7 +177,7 @@ msgstr "Database wachtwoord:"
 
 #: install/index.php:356
 msgid "Database Collation:"
-msgstr ""
+msgstr "Database Collation:"
 
 #: install/index.php:357
 msgid "Use '0_' Table Prefix:"
@@ -210,12 +210,16 @@ msgid ""
 "Select collation you want to use. If you are unsure or you will use various "
 "languages, select unicode collation."
 msgstr ""
+"Selecteer Collation dat je wilt gebruiken. Als u niet zeker weet of u "
+"verschillende talen gebruikt, selecteert u unicode Collation."
 
 #: install/index.php:362 install/index.php:363
 msgid ""
 "Use table prefix if you share selected database for more than one FA company"
 " using the same collation."
 msgstr ""
+"Gebruik tabelvoorvoegsel als u de geselecteerde database deelt voor meer dan"
+" een FA-bedrijf dat hetzelfde Collation gebruikt."
 
 #: install/index.php:363 install/index.php:364
 msgid ""
@@ -270,7 +274,7 @@ msgstr "Selecteer de standaardtaal:"
 
 #: install/index.php:403 install/index.php:404 install/index.php:405
 msgid "Start installation process"
-msgstr ""
+msgstr "Start het installatieproces"
 
 #: install/index.php:407 install/index.php:408 install/index.php:409
 msgid "FrontAccounting ERP has been installed successsfully."
@@ -322,7 +326,7 @@ msgstr "PHP versie"
 
 #: includes/system_tests.inc:50 includes/system_tests.inc:53
 msgid "Upgrade PHP to version at least 5.0.0"
-msgstr ""
+msgstr "Upgrade PHP naar versie ten minste 5.0.0"
 
 #: includes/system_tests.inc:57 includes/system_tests.inc:60
 msgid "Server system"
@@ -536,7 +540,7 @@ msgstr "Geen veld '%s' in bestand '%s'"
 
 #: includes/packages.inc:294 includes/packages.inc:295
 msgid "Cannot download repo index file."
-msgstr ""
+msgstr "Kan het repo-indexbestand niet downloaden."
 
 #: includes/packages.inc:306 includes/packages.inc:343
 #: includes/packages.inc:311 includes/packages.inc:348
@@ -556,7 +560,7 @@ msgstr "De database versie komt niet overeen met de versie van de applicatie."
 #: includes/packages.inc:340 includes/packages.inc:382
 #, php-format
 msgid "Cannot download '%s' file."
-msgstr ""
+msgstr "'%s'-bestand kan niet worden gedownload."
 
 #: includes/packages.inc:347 includes/packages.inc:352
 #, php-format
@@ -584,10 +588,13 @@ msgstr "Bestand '%s' niet gevonden."
 
 #: install/index.php:364 install/index.php:365
 msgid "Set Only Port value if you cannot use the default port 3306."
-msgstr ""
+msgstr "Stel alleen de poortwaarde in als u de standaardpoort 3306 niet kunt gebruiken."
 
 #: install/index.php:361
 msgid ""
 "Use database user/password with permissions to create new database, or use "
 "proper credentials for previously created empty database."
 msgstr ""
+"Gebruik databasegebruiker/wachtwoord met machtigingen om een nieuwe database"
+" aan te maken, of gebruik de juiste inloggegevens voor een eerder gecreëerde"
+" lege database."
