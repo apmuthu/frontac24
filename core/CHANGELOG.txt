@@ -1,3 +1,7 @@
+2019-04-22 Joe Hunt
+@kvvaradha: Rerun of sales_order_ui.inc 2019-04-13
+M	sales/includes/ui/sales_order_ui.inc
+
 2019-04-14 Joe Hunt
 @kvvaradha: user_list_cells Real name shows empty when not entered in user table and re-run.
 M	includes/ui/ui_lists.inc
