@@ -1,3 +1,10 @@
+2019-05-01 Joe Hunt
+Fixed Email Receipt to customer.
+M	reporting/includes/reporting.inc
+M	reporting/rep112.php
+M	reporting/reports_main.php
+M	sales/customer_payments.php
+
 2019-04-22 Joe Hunt
 @kvvaradha: Rerun of sales_order_ui.inc 2019-04-13
 M	sales/includes/ui/sales_order_ui.inc
