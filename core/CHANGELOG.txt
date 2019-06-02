@@ -1,3 +1,8 @@
+2019-06-02 Joe Hunt
+@JimmyC: Wrong Presentation of supp balance in forms.
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/po_db.inc
+
 2019-05-18 Joe Hunt
 @boxygen:  Customer and Supplier Trial Balance Report and margin and no_zeroes fixes.
 M	reporting/rep115.php
