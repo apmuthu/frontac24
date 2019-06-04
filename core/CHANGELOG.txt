@@ -1,4 +1,8 @@
 2019-06-04 Joe Hunt
+@boxygen: Bug 4896: Standard Cost not Updated in debtor_trans_detail table if Customer Credit Note is processed.
+M	sales/includes/db/sales_credit_db.inc
+
+2019-06-04 Joe Hunt
 @poncho1234: Fixed Supplier Allocation Inquiry - Due Date.
 M	purchasing/inquiry/supplier_allocation_inquiry.php
 
