@@ -1,3 +1,8 @@
+2019-06-16 Joe Hunt
+@boxygen: Fixing Get_domestic_price in rep301 and rep308.
+M	reporting/rep301.php
+M	reporting/rep308.php
+
 2019-06-15 Janusz Dobrowolski
 Removed invalid update of stock_move costs on cost update.
 M	inventory/includes/db/items_trans_db.inc
