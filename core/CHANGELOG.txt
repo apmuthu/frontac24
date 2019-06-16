@@ -1,4 +1,8 @@
 2019-06-16 Joe Hunt
+@braathwaate: General Ledger List of journal entries - empty memo fields fix.
+M	reporting/rep702.php
+
+2019-06-16 Joe Hunt
 @boxygen: Fixing Get_domestic_price in rep301 and rep308.
 M	reporting/rep301.php
 M	reporting/rep308.php
