@@ -92,7 +92,7 @@ function add_stock_adjustment_item($adj_id, $stock_id, $location, $date_, $refer
     	display_db_error("Cannot do inventory adjustment for Service item : $stock_id", "");
     }
 
-	update_average_material_cost(null, $stock_id, $standard_cost, $quantity, $date_);
+	$new_cost = update_average_material_cost(null, $stock_id, $standard_cost, $quantity, $date_);
 
 	if (is_fixed_asset($mb_flag)) {
 		$sql = "UPDATE ".TB_PREF."stock_master SET inactive=1
@@ -101,7 +101,7 @@ function add_stock_adjustment_item($adj_id, $stock_id, $location, $date_, $refer
 	}
 
 	add_stock_move(ST_INVADJUST, $stock_id, $adj_id, $location,
-        $date_, $reference, $quantity, $standard_cost);
+        $date_, $reference, $quantity, $new_cost, $standard_cost);
 
 	$inv_value = $standard_cost * $quantity;
 	$adj_value = $standard_cost * -($quantity);
