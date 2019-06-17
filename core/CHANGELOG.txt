@@ -1,4 +1,8 @@
 2019-06-17 Joe Hunt
+Whitespace synch with upstream for previous commit
+M	inventory/includes/db/items_adjust_db.inc
+
+2019-06-17 Joe Hunt
 @boxygen: Cost Update anomaly in Inventory Sales Report fixed and rerun
 M	inventory/includes/db/items_adjust_db.inc
 M	reporting/rep301.php
