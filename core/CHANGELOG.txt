@@ -1,3 +1,7 @@
+2019-06-20 Joe Hunt
+Fixed Inventory Purchasing Report with physical rate from line and rerun
+M	reporting/rep306.php
+
 2019-06-17 Joe Hunt
 Whitespace synch with upstream for previous commit
 M	inventory/includes/db/items_adjust_db.inc
