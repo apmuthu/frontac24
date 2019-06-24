@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2019-06-24 Upstream changes incorporated
 2019-06-23 Moved inventory adjustment changes from upstream here - will be incorporated into upstream 2.5
 2019-04-22 Removed sales_order_ui.inc as fixed anew in upstream
 2019-04-21 Dutch (Netherlands) - nl_NL installer language translation files fully done

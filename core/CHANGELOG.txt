@@ -1,5 +1,9 @@
+2019-06-24 Janusz Dobrowolski
+Fixed inventory cost calculation for fiscal year deletion.
+M	admin/db/fiscalyears_db.inc
+
 2019-06-23 Janusz Dobrowolski
-Moved inventory adjustment changes for database consistency to FAMods24
+Reverted inventory adjustment changes for database consistency and moved to FAMods24
 M	inventory/includes/db/items_adjust_db.inc
 M	reporting/rep301.php
 M	reporting/rep308.php
