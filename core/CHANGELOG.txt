@@ -1,3 +1,11 @@
+2019-06-25 Joe Hunt
+FA 2.4.7
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	themes/canvas/default.css
+M	themes/default/default.css
+M	themes/dropdown/default.css
+M	version.php
+
 2019-06-24 Janusz Dobrowolski
 Fixed inventory cost calculation for fiscal year deletion.
 M	admin/db/fiscalyears_db.inc
