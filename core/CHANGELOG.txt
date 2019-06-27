@@ -1,3 +1,7 @@
+2019-06-27 Janusz Dobrowolski
+Inventory Adjustment: Fixed entry error when inventory notifications enabled.
+M	inventory/includes/db/items_adjust_db.inc
+
 2019-06-25 Joe Hunt
 FA 2.4.7
 M	lang/new_language_template/LC_MESSAGES/empty.po
