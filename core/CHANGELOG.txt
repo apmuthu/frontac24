@@ -1,3 +1,9 @@
+2019-06-28 Janusz Dobrowolski
+Negative Inventory Adjustment should always use current average item cost.
+M	inventory/adjustments.php
+M	inventory/includes/item_adjustments_ui.inc
+M	js/inserts.js
+
 2019-06-27 Janusz Dobrowolski
 Inventory Adjustment: Fixed entry error when inventory notifications enabled.
 M	inventory/includes/db/items_adjust_db.inc
