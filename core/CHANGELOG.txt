@@ -1,3 +1,7 @@
+2019-07-03 Janusz Dobrowolski
+Audit Trail: regression in audit history (after sql strict mode related changes) fixed.
+includes/db/audit_trail_db.inc
+
 2019-07-03 Joe Hunt
 Bug 4920: Search icon in 'items table' wraps underneath select combo when screen width reduced. Fixed
 M	includes/ui/ui_lists.inc
