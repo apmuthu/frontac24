@@ -1,3 +1,7 @@
+2019-07-03 Joe Hunt
+Bug 4920: Search icon in 'items table' wraps underneath select combo when screen width reduced. Fixed
+M	includes/ui/ui_lists.inc
+
 2019-06-28 Janusz Dobrowolski
 Negative Inventory Adjustment should always use current average item cost.
 M	inventory/adjustments.php
@@ -280,90 +284,4 @@ M	purchasing/includes/db/supp_trans_db.inc
 
 2018-12-24 Joe Hunt
 FA 2.4.6
-M	version.php
-
-2018-12-23 Joe Hunt
-Report Stock Check Sheet is now testing for valid barcodes of EAN, EAN-8, EAN-13, GTIN-8, GTIN-12, GTIN-14, UPC, UPC-12 coupon code, EAN if 'Using Barcodes' is enabled.
-M	reporting/rep303.php
-
-2018-12-23 Janusz Dobrowolski
-Update README.md, removed obsolete install/update info, added list of contributors.
-M	README.md
-D	install.html
-D	update.html
-M	doc/license.txt
-
-2018-12-23 Janusz Dobrowolski
-Gettext template update.
-M	lang/new_language_template/LC_MESSAGES/empty.po
-
-2018-12-23 Janusz Dobrowolski
-Attach Documents: fixed SQL injection vulnerability.
-M	admin/db/transactions_db.inc
-M	includes/references.inc
-
-2018-12-22 Joe Hunt
-Barcodes in report Stock Check Sheets should only print numeric stock id's.
-M	reporting/rep303.php
-
-2018-12-22 Joe Hunt
-@boxygen: Added Customer / Supplier Trial Balance Reports and 2 re-runs
-M	reporting/rep115.php
-M	reporting/rep201.php
-M	reporting/rep206.php
-M	reporting/reports_main.php
-
-2018-12-20 Joe Hunt
-@notrinos: Added CCA. Fixed ECB, and EXCHANGE-RATES.ORG providers
-M	config.default.php
-M	gl/includes/db/gl_db_rates.inc
-
-2018-12-19 Joe Hunt
-@braathwaate: 4821: banking overdraft message has php errors. Fixed.
-M	gl/gl_bank.php
-M	gl/includes/db/gl_db_bank_trans.inc
-
-2018-12-19 Joe Hunt
-@braathwaate 4811: magnifying glass select on deposits/payments erroneously shows bank account gl accounts. Fixed.
-M	gl/includes/db/gl_db_accounts.inc
-M	gl/inquiry/accounts_list.php
-M	includes/ui/ui_lists.inc
-
-2018-12-19 Joe Hunt
-@braathwaate: 4796: Entering customer payment with a bank charge equal to the total amount results in database error. Fixed.
-M	sales/customer_payments.php
-
-2018-12-18 Joe Hunt
-Changed Journal # to GL # in GL Trans View.
-M	gl/inquiry/journal_inquiry.php
-M	gl/view/gl_trans_view.php
-M	includes/ui/ui_view.inc
-
-2018-12-17 Joe Hunt
-@notrinos: EXCHANGE-RATES.ORG added as default reliable rate provider
-M	config.default.php
-M	gl/includes/db/gl_db_rates.inc
-
-2018-12-17 Joe Hunt
-Credit Notes were never seen in View Sales Order. Fixed.
-M	sales/view/view_sales_order.php
-
-2018-12-17 Joe Hunt
-Non well formed numeric value in rep202.php fixed
-M	reporting/rep202.php
-
-2018-12-16 Joe Hunt
-Pressing Batch button in Invoice against Deliveries - missing index fixed.
-M	sales/inquiry/sales_deliveries_view.php
-
-2018-12-16 Joe Hunt
-Fixed a non well formed numeric value encountered rep102.php
-M	reporting/rep102.php
-
-2018-12-16 Joe Hunt
-Fixed Bug in count_array(), /includes/ui/ui_globals.inc and re-run.
-M	includes/ui/ui_globals.inc
-
-2018-12-06 Janusz Dobrowolski
-FA 2.4.5
 M	version.php
