@@ -1,4 +1,11 @@
 2019-07-07 Janusz Dobrowolski
+Code cleanup in supplier_invoice.php and supplier_credit.php
+M	purchasing/includes/supp_trans_class.inc
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_credit.php
+M	purchasing/supplier_invoice.php
+
+2019-07-07 Janusz Dobrowolski
 Credit Note Modification: fixed check whether transaction is editable.
 M	purchasing/supplier_credit.php
 
