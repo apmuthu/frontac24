@@ -1,3 +1,9 @@
+2019-07-07 Janusz Dobrowolski
+Purchase Order View: fixed dates, added overdue delivery marker.
+M	purchasing/includes/db/grn_db.inc
+M	purchasing/includes/ui/grn_ui.inc
+M	purchasing/view/view_grn.php 
+
 2019-07-03 Janusz Dobrowolski
 Audit Trail: regression in audit history (after sql strict mode related changes) fixed.
 includes/db/audit_trail_db.inc
