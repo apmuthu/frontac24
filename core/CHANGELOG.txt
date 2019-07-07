@@ -1,4 +1,8 @@
 2019-07-07 Janusz Dobrowolski
+Strict SQL related error when background journal transaction was saved. Fixed.
+M	includes/db/gl_journal.inc
+
+2019-07-07 Janusz Dobrowolski
 Purchase Order View: fixed dates, added overdue delivery marker.
 M	purchasing/includes/db/grn_db.inc
 M	purchasing/includes/ui/grn_ui.inc
