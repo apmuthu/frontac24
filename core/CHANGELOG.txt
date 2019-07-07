@@ -1,4 +1,8 @@
 2019-07-07 Janusz Dobrowolski
+Credit Note Modification: fixed check whether transaction is editable.
+M	purchasing/supplier_credit.php
+
+2019-07-07 Janusz Dobrowolski
 Strict SQL related error when background journal transaction was saved. Fixed.
 M	includes/db/gl_journal.inc
 
