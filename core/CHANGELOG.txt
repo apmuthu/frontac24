@@ -1,3 +1,9 @@
+2019-07-08 Janusz Dobrowolski
+Supplier Invoice: on form opening currency was not displayed for foreign supplier.
+M	includes/ui/ui_view.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/ui/invoice_ui.inc
+
 2019-07-07 Janusz Dobrowolski
 Code cleanup in supplier_invoice.php and supplier_credit.php
 M	purchasing/includes/supp_trans_class.inc
