@@ -1,3 +1,7 @@
+2019-07-17 Joe Hunt
+0004946: Inserting a supplier without the short name resets the whole form. Fixed.
+M	purchasing/manage/suppliers.php
+
 2019-07-08 Janusz Dobrowolski
 Supplier Invoice: on form opening currency was not displayed for foreign supplier.
 M	includes/ui/ui_view.inc
