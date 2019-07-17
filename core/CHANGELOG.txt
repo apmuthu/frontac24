@@ -1,4 +1,8 @@
 2019-07-17 Joe Hunt
+0004944: The field characters size of Supplier's Reference is too short. Fixed.
+M	purchasing/includes/ui/po_ui.inc
+
+2019-07-17 Joe Hunt
 0004946: Inserting a supplier without the short name resets the whole form. Fixed.
 M	purchasing/manage/suppliers.php
 
