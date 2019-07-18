@@ -1,3 +1,7 @@
+2019-07-18 Joe Hunt
+Supplier Invoice - wrong alignment in first 2 columns when selecting items to invoice. Fixed.
+M	purchasing/includes/ui/invoice_ui.inc
+
 2019-07-17 Joe Hunt
 0004944: The field characters size of Supplier's Reference is too short. Fixed.
 M	purchasing/includes/ui/po_ui.inc
