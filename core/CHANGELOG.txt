@@ -1,4 +1,8 @@
 2019-07-18 Joe Hunt
+Inventory Item Movements: Purchase Order Delivery and Credit Note has trans_no in reference column or Return memo presented instead of reference. Fixed.
+M	inventory/includes/inventory_db.inc
+
+2019-07-18 Joe Hunt
 Supplier Invoice - wrong alignment in first 2 columns when selecting items to invoice. Fixed.
 M	purchasing/includes/ui/invoice_ui.inc
 
