@@ -1,4 +1,16 @@
 2019-07-18 Joe Hunt
+Paged transaction inquiries optimized for maximum links in Sales and Purchasing and continuation
+M	dimensions/inquiry/search_dimensions.php
+M	manufacturing/search_work_orders.php
+M	purchasing/includes/db/po_db.inc
+M	purchasing/inquiry/po_search.php
+M	purchasing/inquiry/po_search_completed.php
+M	purchasing/inquiry/supplier_inquiry.php
+M	reporting/includes/reporting.inc 
+M	sales/inquiry/customer_inquiry.php
+M	sales/inquiry/sales_orders_view.php 
+
+2019-07-18 Joe Hunt
 Limit editable stock items list in Sales Order, Credit Notes to 50 chars and re-run.
 M	includes/ui/ui_lists.inc
 M	sales/includes/ui/sales_order_ui.inc
