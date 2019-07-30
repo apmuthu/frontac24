@@ -1,3 +1,7 @@
+2019-07-30 Janusz Dobrowolski
+Allocate Customer Payments or Credit Notes: fully allocated payments with discount were still displayed even with settled option off, fixed.
+M	sales/includes/db/custalloc_db.inc
+
 2019-07-24 Joe Hunt
 Journal Inquiry Dates to be from User Preference Transaction Days.
 M	gl/inquiry/journal_inquiry.php
