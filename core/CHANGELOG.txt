@@ -1,3 +1,7 @@
+2019-08-08 Joe Hunt
+Bug 4980: Memo DB field size to match in voiding a transaction by truncation in audit_trail.
+M	includes/db/audit_trail_db.inc
+
 2019-08-02/05 Joe Hunt
 Show more relevant info in CounterPart Field, Journal Inquiry and re-run, tab => 4 spaces
 M	gl/includes/db/gl_db_trans.inc
