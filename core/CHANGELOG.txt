@@ -1,3 +1,7 @@
+2019-08-17 Joe Hunt
+Bug 4987: In RTL languages, text aligned centered is printed aligned right in PDF documents. Fixed.
+M	reporting/includes/class.pdf.inc
+
 2019-08-08 Joe Hunt
 Bug 4980: Memo DB field size to match in voiding a transaction by truncation in audit_trail.
 M	includes/db/audit_trail_db.inc
