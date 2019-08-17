@@ -1,4 +1,8 @@
 2019-08-17 Joe Hunt
+Report Sales Listing by Salesman fix
+M	reporting/rep106.php
+
+2019-08-17 Joe Hunt
 Bug 4987: In RTL languages, text aligned centered is printed aligned right in PDF documents. Fixed.
 M	reporting/includes/class.pdf.inc
 
