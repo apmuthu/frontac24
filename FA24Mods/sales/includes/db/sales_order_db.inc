@@ -635,7 +635,7 @@ function last_sales_order_detail($order, $field)
                         WHERE debtor_no=" . db_escape($order->customer_id)
                         . " ORDER BY d.id DESC LIMIT 1";
 
-        $last_query=db_query($sql, "Retreive last order detail");
+        $last_query=db_query($sql, "Could not retrieve last order detail");
         $row = db_fetch_row($last_query);
         return $row[0];
 }

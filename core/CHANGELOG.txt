@@ -1,3 +1,7 @@
+2019-08-28 Joe Hunt
+Database error message in sales_order_db.inc fixed.
+M	sales/includes/db/sales_order_db.inc
+
 2019-08-17 Joe Hunt
 Clone Manufactured Item -> Clone BOM.
 M	manufacturing/manage/bom_edit.php
