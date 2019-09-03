@@ -1,3 +1,7 @@
+2019-09-03 notrinos
+Inventory location transfer from sales kit fixed.
+M	 inventory/includes/stock_transfers_ui.inc
+
 2019-08-28 Joe Hunt
 Database error message in sales_order_db.inc fixed.
 M	sales/includes/db/sales_order_db.inc
