@@ -1,3 +1,7 @@
+2019-10-04 Joe Hunt
+Additional Transaction Date presence check
+M	admin/db/transactions_db.inc
+
 2019-09-03 Joe Hunt
 Whitespace changes synched with upstream
 M	inventory/includes/stock_transfers_ui.inc
