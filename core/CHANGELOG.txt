@@ -1,4 +1,15 @@
-2019-10-04 Joe Hunt
+2019-10-10 Janusz Dobrowolski
+Added Customer / Supplier Attachments feature
+A	includes/ui/attachment.inc
+M	admin/attachments.php
+M	admin/db/attachments_db.inc
+M	admin/db/transactions_db.inc
+M	includes/sysnames.inc
+M	includes/types.inc
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
+2019-10-06 Joe Hunt
 Further count() => count_array() fixes
 M	reporting/includes/pdf_report.inc
 
