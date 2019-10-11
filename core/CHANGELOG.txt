@@ -1,3 +1,8 @@
+2019-10-11 Janusz Dobrowolski
+Additional fixes for Cust / Supp Attachments to allow for Add Suppliers
+M	admin/attachments.php
+M	purchasing/manage/suppliers.php
+
 2019-10-10 Janusz Dobrowolski
 Added Customer / Supplier Attachments feature
 A	includes/ui/attachment.inc
