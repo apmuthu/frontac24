@@ -1,3 +1,7 @@
+2019-10-14 Joe Hunt
+Voided documents still exist in drop-down when printing. Fixed.
+M	reporting/includes/reports_classes.inc
+
 2019-10-11 Janusz Dobrowolski
 Additional fixes for Cust / Supp Attachments to allow for Add Suppliers
 M	admin/attachments.php
