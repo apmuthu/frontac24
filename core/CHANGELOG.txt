@@ -1,3 +1,7 @@
+2019-10-21 Joe Hunt
+Bug 5013: zero invoices create zero payments and cause db error upon view payment. Fixed.
+M	sales/includes/db/sales_invoice_db.inc
+
 2019-10-14 Joe Hunt
 Voided documents still exist in drop-down when printing. Fixed.
 M	reporting/includes/reports_classes.inc
