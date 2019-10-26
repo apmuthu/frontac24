@@ -1,3 +1,7 @@
+2019-10-26 Joe Hunt
+Misspelled parameter in rep115.php
+M	reporting/rep115.php
+
 2019-10-21 Joe Hunt
 Bug 5013: zero invoices create zero payments and cause db error upon view payment. Fixed.
 M	sales/includes/db/sales_invoice_db.inc
