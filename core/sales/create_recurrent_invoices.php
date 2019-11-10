@@ -1,13 +1,13 @@
 <?php
 /**********************************************************************
-    Copyright (C) FrontAccounting, LLC.
+	Copyright (C) FrontAccounting, LLC.
 	Released under the terms of the GNU General Public License, GPL, 
 	as published by the Free Software Foundation, either version 3 
 	of the License, or (at your option) any later version.
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
-    See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+	See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
 $page_security = 'SA_SALESINVOICE';
 $path_to_root = "..";
@@ -96,11 +96,11 @@ if ($id != -1)
 		whole invoiced time is <begin, end>
 		invoices are issued _after_ invoiced period is gone, eg:
 		begin 1.1
-		end   31.3
-		period:    invoice ready for issue since:
-		1.1-31.1 -  1.2
-		1.2-28.2 -  1.3
-		1.3-31.3 -  1.4
+		end	  31.3
+		period:	   invoice ready for issue since:
+		1.1-31.1 -	1.2
+		1.2-28.2 -	1.3
+		1.3-31.3 -	1.4
 		In example above, when end is set to 1.4 will generate additional invoice on 1.5 !
 	*/
 
@@ -114,7 +114,7 @@ if ($id != -1)
 	$invs = array();
 	if (recurrent_invoice_ready($id, $date))
 	{
- 			begin_transaction();
+			begin_transaction();
 
 			if ($myrow['debtor_no'] == 0)
 			{
@@ -229,20 +229,20 @@ while ($myrow = db_fetch($result))
 	label_cell($myrow["days"]);
 	label_cell($myrow['monthly']);
 	label_cell(sql2date($myrow['begin']),  "align='center'");
-	label_cell(sql2date($myrow['end']),  "align='center'");
-	label_cell(calculate_next($myrow),  "align='center'");
- 	if ($myrow['overdue'])
- 	{
+	label_cell(sql2date($myrow['end']),	 "align='center'");
+	label_cell(calculate_next($myrow),	"align='center'");
+	if ($myrow['overdue'])
+	{
 		$count = recurrent_invoice_count($myrow['id']);
- 		if ($count)
- 		{
+		if ($count)
+		{
 			button_cell("create".$myrow["id"], sprintf(_("Create %s Invoice(s)"), $count), "", ICON_DOC, 'process');
 		} else {
 			label_cell('');
 		}
 	}
- 	else
- 		label_cell("");
+	else
+		label_cell("");
 	end_row();
 }
 end_table();
