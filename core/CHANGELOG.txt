@@ -1,3 +1,9 @@
+2019-11-10 Joe Hunt
+count error when printing to Excel. Fixed.
+M	reporting/includes/Workbook.php
+M	reporting/includes/excel_report.inc
+M	reporting/includes/pdf_report.inc
+
 2019-10-28 Joe Hunt
 Bug 5009: Page # on invoices counts up across invoices. Fixed for all documents.
 M	reporting/includes/pdf_report.inc
