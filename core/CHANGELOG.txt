@@ -1,4 +1,8 @@
 2019-11-10 Joe Hunt
+recurring invoices - period improved.
+M	sales/create_recurrent_invoices.php
+
+2019-11-10 Joe Hunt
 Whitespace synched with upstream
 M	sales/create_recurrent_invoices.php
 

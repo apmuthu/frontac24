@@ -179,8 +179,10 @@ if ($id != -1)
 		label_row(_('Template:'), get_customer_trans_view_str(ST_SALESORDER, $myrow["order_no"]));
 		label_row(_('Number of invoices:'), $count);
 		date_row(_('Invoice date:'), 'trans_date');
-		text_row(_('Invoice notice:'), 'memo', sprintf(_("Recurrent Invoice covers period %s - %s."), $from, add_days($to, -1)),
-			100, 100);
+		$newto = add_months($to, $myrow['monthly']);
+		$newto = add_days($newto, $myrow['days']);
+		text_row(_('Invoice notice:'), 'memo', sprintf(_("Recurrent Invoice covers period %s - %s."), $to,	 add_days($newto, -1)), 100, 100);
+		//text_row(_('Invoice notice:'), 'memo', sprintf(_("Recurrent Invoice covers period %s - %s."), //$from, add_days($to, -1)), 100, 100);
 		end_table();
 		hidden('from', $from, true);
 		hidden('to', $to, true);
