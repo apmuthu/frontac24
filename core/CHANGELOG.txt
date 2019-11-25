@@ -1,3 +1,7 @@
+2019-11-25 Janusz Dobrowolski
+Bug 4993: Sales Order - incorrect prepayment guess for wholesale (non tax included) pricelists.
+M	sales/includes/cart_class.inc
+
 2019-11-25 Joe Hunt
 @brucek: Formatting error in dashboard.inc fixed.
 M	includes/dashboard.inc
