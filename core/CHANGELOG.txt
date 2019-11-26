@@ -1,3 +1,7 @@
+2019-11-26 Joe Hunt
+Bug 4988: Auto Increase of Document References cant be disabled. Fixed.
+M	sales/includes/cart_class.inc
+
 2019-11-25 Janusz Dobrowolski
 Bug 4993: Sales Order - incorrect prepayment guess for wholesale (non tax included) pricelists.
 M	sales/includes/cart_class.inc
