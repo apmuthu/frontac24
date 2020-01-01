@@ -1,3 +1,9 @@
+2020-01-01 Joe Hunt
+Bank statement report with All Bank Accounts option added, rerun
+M	reporting/includes/reports_classes.inc
+M	reporting/rep601.php
+M	reporting/reports_main.php
+
 2019-12-26 Joe Hunt
 Customer Payment Entry scrolling behaviour on All or None fixed.
 M	includes/ui/allocation_cart.inc
