@@ -557,7 +557,8 @@ function get_sql_for_sales_orders_view($trans_type, $trans_no, $filter,
 					sorder.branch_code,
 					sorder.customer_ref,
 					sorder.ord_date,
-					sorder.deliver_to";
+					sorder.deliver_to
+				ORDER BY sorder.order_no DESC";
 	return $sql;
 }
 
@@ -630,10 +631,10 @@ function is_prepaid_order_open($order_no)
 function last_sales_order_detail($order, $field)
 {
         $sql = "SELECT $field
-                        FROM ".TB_PREF."sales_order_details d"
-                        ." LEFT JOIN " .TB_PREF."sales_orders o on d.order_no=o.order_no
-                        WHERE debtor_no=" . db_escape($order->customer_id)
-                        . " ORDER BY d.id DESC LIMIT 1";
+            FROM ".TB_PREF."sales_order_details d
+            LEFT JOIN " .TB_PREF."sales_orders o on d.order_no=o.order_no
+            WHERE debtor_no=" . db_escape($order->customer_id) . "
+            ORDER BY d.id DESC LIMIT 1";
 
         $last_query=db_query($sql, "Could not retrieve last order detail");
         $row = db_fetch_row($last_query);

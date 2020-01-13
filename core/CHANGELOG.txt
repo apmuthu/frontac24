@@ -1,3 +1,8 @@
+2020-01-13 Joe Hunt
+Sales Order Inquiry Sort Descending. Fixed.
+M	sales/includes/db/sales_order_db.inc
+M	sales/inquiry/sales_orders_view.php
+
 2020-01-01 Joe Hunt
 Bank statement report with All Bank Accounts option added, rerun
 M	reporting/includes/reports_classes.inc
