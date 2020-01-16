@@ -1,3 +1,7 @@
+2020-01-16 Joe Hunt
+Tax rate displayed twice in rep209 (Purchase orders). Fixed.
+M	reporting/rep209.php
+
 2020-01-13 Joe Hunt
 Sales Order Inquiry Sort Descending. Fixed.
 M	sales/includes/db/sales_order_db.inc
