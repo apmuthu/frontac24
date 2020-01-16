@@ -1,4 +1,8 @@
 2020-01-16 Joe Hunt
+Uninitialized string offset in main.inc Fixed for php >= 7.0
+M	includes/main.inc
+
+2020-01-16 Joe Hunt
 Tax rate displayed twice in rep209 (Purchase orders). Fixed.
 M	reporting/rep209.php
 
