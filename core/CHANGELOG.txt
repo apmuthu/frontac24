@@ -1,3 +1,7 @@
+2020-01-18 Janusz Dobrowolski
+Fixed Assets Depreciation: removed invalid and obsolete audit record update.
+M	fixed_assets/includes/fixed_assets_db.inc
+
 2020-01-16 Joe Hunt
 Uninitialized string offset in main.inc Fixed for php >= 7.0
 M	includes/main.inc
