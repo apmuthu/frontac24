@@ -1,3 +1,10 @@
+2020-01-21/24 Joe Hunt
+Customers/Suppliers/Items - Optimised and removed Menu in F2/F3/F4 popups
+M	includes/ui/ui_controls.inc
+M	inventory/manage/items.php
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
 2020-01-18 Janusz Dobrowolski
 Fixed Assets Depreciation: removed invalid and obsolete audit record update.
 M	fixed_assets/includes/fixed_assets_db.inc
