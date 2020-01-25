@@ -1,3 +1,11 @@
+2020-01-21/25 Janusz Dobrowolski
+Added NL_nl and NB_no installer language files from FA24Mods
+M	install/isession.inc
+A	install/lang/nb_NO/LC_MESSAGES/nb_NO.mo
+A	install/lang/nb_NO/LC_MESSAGES/nb_NO.po
+A	install/lang/nl_NL/LC_MESSAGES/nl_NL.mo
+A	install/lang/nl_NL/LC_MESSAGES/nl_NL.po
+
 2020-01-21/24 Joe Hunt
 Customers/Suppliers/Items - Optimised and removed Menu in F2/F3/F4 popups
 M	includes/ui/ui_controls.inc
