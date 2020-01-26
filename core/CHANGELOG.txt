@@ -1,3 +1,8 @@
+2020-01-26 Janusz Dobrowolski
+@oakstreet1: Added support for views in Backup and Restore
+M	admin/db/maintenance_db.inc
+M	includes/db/connect_db.inc
+
 2020-01-21/25 Janusz Dobrowolski
 Added NL_nl and NB_no installer language files from FA24Mods
 M	install/isession.inc
