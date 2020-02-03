@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - No
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2019-03-04
+Last Update     - 2020-02-04
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1335,7 +1335,7 @@ INSERT INTO `0_currencies` (`currency`,`curr_abrev`,`curr_symbol`,`country`,`hun
 ,('CA Dollars','CAD','$','Canada','Cents',1,0);
 
 INSERT INTO `0_fiscal_year` (`id`,`begin`,`end`,`closed`) VALUES
- ('1', '2018-01-01', '2018-12-31', '0');
+ ('1', '2019-01-01', '2019-12-31', '0');
 
 INSERT INTO `0_groups` (`id`,`description`,`inactive`) VALUES
  ('1', 'Small', '0')

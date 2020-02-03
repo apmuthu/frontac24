@@ -1,3 +1,8 @@
+2020-02-04 Joe Hunt
+Moved dates by 1 year in standard Chart SQLs
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2020-01-29 Janusz Dobrowolski
 Bug 4904: Customer Credit Note - fixed invalid inventory GL postings for service items.
 M	sales/includes/db/sales_credit_db.inc
