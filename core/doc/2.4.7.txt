@@ -1,3 +1,273 @@
+2019-06-25 Joe Hunt
+FA 2.4.7
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	themes/canvas/default.css
+M	themes/default/default.css
+M	themes/dropdown/default.css
+M	version.php
+
+2019-06-24 Janusz Dobrowolski
+Fixed inventory cost calculation for fiscal year deletion.
+M	admin/db/fiscalyears_db.inc
+
+2019-06-23 Janusz Dobrowolski
+Reverted inventory adjustment changes for database consistency and moved to FAMods24
+M	inventory/includes/db/items_adjust_db.inc
+M	reporting/rep301.php
+M	reporting/rep308.php
+
+2019-06-20 Joe Hunt
+Fixed Inventory Purchasing Report with physical rate from line and rerun
+M	reporting/rep306.php
+
+2019-06-17 Joe Hunt
+Whitespace synch with upstream for previous commit
+M	inventory/includes/db/items_adjust_db.inc
+
+2019-06-17 Joe Hunt
+@boxygen: Cost Update anomaly in Inventory Sales Report fixed and rerun
+M	inventory/includes/db/items_adjust_db.inc
+M	reporting/rep301.php
+M	reporting/rep308.php
+
+2019-06-16 Joe Hunt
+@braathwaate: General Ledger List of journal entries - empty memo fields fix.
+M	reporting/rep702.php
+
+2019-06-16 Joe Hunt
+@boxygen: Fixing Get_domestic_price in rep301 and rep308.
+M	reporting/rep301.php
+M	reporting/rep308.php
+
+2019-06-15 Janusz Dobrowolski
+Removed invalid update of stock_move costs on cost update.
+M	inventory/includes/db/items_trans_db.inc
+
+2019-06-04 Joe Hunt
+@boxygen: Bug 4896: Standard Cost not Updated in debtor_trans_detail table if Customer Credit Note is processed.
+M	sales/includes/db/sales_credit_db.inc
+
+2019-06-04 Joe Hunt
+@poncho1234: Fixed Supplier Allocation Inquiry - Due Date.
+M	purchasing/inquiry/supplier_allocation_inquiry.php
+
+2019-06-02 Joe Hunt
+@JimmyC: Wrong Presentation of supp balance in forms.
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/po_db.inc
+
+2019-05-18 Joe Hunt
+@boxygen:  Customer and Supplier Trial Balance Report and margin and no_zeroes fixes.
+M	reporting/rep115.php
+M	reporting/rep206.php
+
+2019-05-01 Joe Hunt
+Fixed Email Receipt to customer.
+M	reporting/includes/reporting.inc
+M	reporting/rep112.php
+M	reporting/reports_main.php
+M	sales/customer_payments.php
+
+2019-04-22 Joe Hunt
+@kvvaradha: Rerun of sales_order_ui.inc 2019-04-13
+M	sales/includes/ui/sales_order_ui.inc
+
+2019-04-14 Joe Hunt
+@kvvaradha: user_list_cells Real name shows empty when not entered in user table and re-run.
+M	includes/ui/ui_lists.inc
+
+2019-04-13 Joe Hunt
+@braathwaate and @kvvaradha: Rerun of sales_order_ui.inc 2019-01-24/25 - fixed bug
+M	sales/includes/ui/sales_order_ui.inc
+
+2019-04-07 Joe Hunt
+@braathwaate: Recurrent Invoices in 2.4 is not sending.
+M	sales/create_recurrent_invoices.php
+
+2019-03-26 Joe Hunt
+@braathwaate/@joe: 4863 - Dimension not defaulted on PO entry / modify - Fixed.
+M	purchasing/includes/db/grn_db.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/po_db.inc
+
+2019-03-26 Joe Hunt
+4867: supplier quick entry g/l account list should show the bank accounts in the line.
+M	purchasing/includes/ui/invoice_ui.inc
+
+2019-03-26 Joe Hunt
+@braathwaate: 4869 - Work order listing / reports fixed to omit voided orders and re-run.
+M	manufacturing/includes/db/work_orders_db.inc
+M	reporting/includes/reports_classes.inc
+M	reporting/rep402.php
+
+2019-03-26 Joe Hunt
+Upstream cleanup of whitespace in 2019-01-17 commit
+M	js/behaviour.js
+
+2019-03-26 Joe Hunt
+@JimmyC/@joe: Empty gl transaction on Zero amount tax details was zero when net amount present - fixed.
+M	sales/includes/db/sales_invoice_db.inc
+
+2019-03-24 Joe Hunt
+@JimmyC: Sales Invoice/Delivery when Cash Sales and document date before now. Due date should be the same.
+M	sales/sales_order_entry.php
+
+2019-03-23 Joe Hunt
+Presentation bug in Sales Order View when reference is 'auto'.
+M	sales/view/view_sales_order.php
+
+2019-03-21 Joe Hunt
+@notrinos: Removed broken CCA in exchange rate providers list, updated url from google api.
+M	config.default.php
+M	gl/includes/db/gl_db_rates.inc
+
+2019-03-19 Joe Hunt
+@braathwaate: Supplier invoice quick entry edit enabled
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_invoice.php
+
+2019-03-06 Joe Hunt
+@PaulShipley: PHP 7.X non-numeric value fix when using date format 5 (YYYY/MM/DD)
+M	includes/date_functions.inc
+
+2019-03-04 Joe Hunt
+@apmuthu: Clean up in en_US-demo.sql and en_US-new.sql
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2019-02-22 Joe Hunt
+0004859: @boxygen: Outstanding in Customer Balance with Journal Entry fixed.
+M	reporting/rep101.php
+
+2019-02-22 Joe Hunt
+0004847: @braathwaate: FA allows reconciliation of closed transactions
+M	gl/bank_account_reconcile.php
+
+2019-02-22 Joe Hunt
+@braathwaate: Fixed newlines in memo displayed as html on purchase order modify
+M	purchasing/includes/db/po_db.inc
+
+2019-02-19 Joe Hunt
+@kvvaradha: Fixed users Last Visit Date with Time.
+M	admin/users.php
+
+2019-02-13 Janusz Dobrowolski
+Process Depreciation: hardcoded fiscal years constraint removed.
+M	includes/data_checks.inc
+M	includes/ui/ui_lists.inc
+
+2019-02-13 Joe Hunt
+@kvvaradha: Customer balance Report rep101.php extra parameter removed
+M	reporting/rep101.php
+
+2019-01-29 Joe Hunt
+@anoopmb: Item units bug fixed and re-run
+M	inventory/includes/db/items_units_db.inc
+
+2019-01-25 Janusz Dobrowolski
+Additional sql strict mode related fix in add_trans_tax_details().
+M	gl/includes/db/gl_db_trans.inc
+
+2019-01-24 Joe Hunt
+@kvvaradha: Sales DB and UI bug fixed with re-run
+M	sales/includes/sales_db.inc
+M	sales/includes/ui/sales_order_ui.inc
+
+2019-01-23 Joe Hunt
+@kvvaradha: items_cart class logical bug fixed.
+M	includes/ui/items_cart.inc
+
+2019-01-22 Joe Hunt
+Updated 2 core COAs with demo data only in the demo variant.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2019-01-20 Janusz Dobrowolski
+Relaxed sql_mode set on DB init for backwards compatibility on backup restoration.
+M	admin/db/maintenance_db.inc
+
+2019-01-16 Joe Hunt
+Removed all double semicolon line endings in code files
+M	admin\attachments.php
+M	fixed_assets\includes\fa_classes_db.inc
+M	gl\includes\db\gl_db_trans.inc
+M	inventory\view\view_transfer.php
+M	js\behaviour.js
+M	manufacturing\view\wo_issue_view.php
+M	purchasing\view\view_po.php
+M	reporting\rep451.php
+M	sales\customer_credit_invoice.php
+M	sales\includes\db\customers_db.inc
+M	taxes\tax_groups.php
+
+2019-01-16 Joe Hunt
+@boxygen: Placeholders now allowed for Dimensions
+M	includes/references.inc
+
+2019-01-14 Joe Hunt
+@notrinos: wrong command symbol in ui_list.inc fixed
+M	includes/ui/ui_lists.inc
+
+2019-01-11 Joe Hunt
+@notrinos: Update Material Cost Function - rollback and rerun
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2019-01-10 Janusz Dobrowolski
+Fixed get_post() support for numeric fields.
+M	admin/display_prefs.php (jointly fixed in earlier commit)
+M	includes/ui/ui_controls.inc
+
+2019-01-10 Janusz Dobrowolski
+Quick Entries: fixed false warning.
+M	gl/manage/gl_quick_entries.php
+
+2019-01-10 Janusz Dobrowolski
+Fixed allocation date for customer payments entry, additional fixes for strict sql mode.
+M	includes/db/audit_trail_db.inc
+M	sales/customer_payments.php
+
+2019-01-10 Janusz Dobrowolski
+Activated strict SQL mode, minor SQL injection fix, fixed _vl() debug helper.
+M	admin/display_prefs.php
+M	includes/date_functions.inc
+M	includes/db/class.reflines_db.inc
+M	includes/db/connect_db_mysql.inc
+M	includes/db/connect_db_mysqli.inc
+M	includes/ui/class.crud_view.inc
+M	includes/ui/class.reflines_crud.inc
+M	includes/ui/ui_input.inc
+M	includes/ui/ui_view.inc
+M	inventory/includes/db/items_db.inc
+M	inventory/manage/items.php
+M	inventory/manage/locations.php
+M	purchasing/manage/suppliers.php
+M	sales/includes/cart_class.inc
+
+2019-01-08 Joe Hunt
+Password reset mail big delay fix using From: email in header.
+M	includes/current_user.inc
+
+2019-01-08 Joe Hunt
+@braathwaate bug 4817: g/l account inquiry can timeout due to slow sql.
+M	gl/includes/db/gl_db_trans.inc
+M	gl/inquiry/gl_account_inquiry.php
+
+2019-01-08 Janusz Dobrowolski
+New transaction reference formats {FF}/{FFFF} for fiscal years starting on other than January 1st.
+M	includes/references.inc
+
+2019-01-07 Joe Hunt
+@apmuthu: Optimized function get_trans_tax_details()
+M	gl/includes/db/gl_db_trans.inc
+
+2019-01-05 Joe Hunt
+@kvvaradha: Date Picker to close when clicked outside of the datepicker.
+M	includes/ui/ui_view.inc
+
+2019-01-02 Joe Hunt
+@notrinos: Supplier Transaction Inquiry for GRN did not filter on date - fixed.
+M	purchasing/includes/db/supp_trans_db.inc
+
 2018-12-24 Joe Hunt
 FA 2.4.6
 M	version.php
