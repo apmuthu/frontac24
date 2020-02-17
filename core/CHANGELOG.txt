@@ -1,4 +1,9 @@
 2020-02-17 Janusz Dobrowolski
+Annual Expense Breakdown Report rep705 1000s print option added for annual totals.
+M	reporting/rep705.php
+M	reporting/reports_main.php
+
+2020-02-17 Janusz Dobrowolski
 GL Account Transactions Report rep704 layout for no dimension 2 improved.
 M	reporting/rep704.php
 
