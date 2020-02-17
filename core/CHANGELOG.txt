@@ -1,3 +1,7 @@
+2020-02-17 Janusz Dobrowolski
+GL Account Transactions Report rep704 layout for no dimension 2 improved.
+M	reporting/rep704.php
+
 2020-02-11 Janusz Dobrowolski
 Customer, Supplier Payments - weak connection inconsistency addressed
 M	includes/ui/allocation_cart.inc
