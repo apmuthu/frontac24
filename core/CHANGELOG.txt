@@ -1,3 +1,7 @@
+2020-02-19 Joe Hunt
+Quantity On Hand (QOH) Now Available On Inventory Adjustments
+M	inventory/includes/item_adjustments_ui.inc
+
 2020-02-17 Janusz Dobrowolski
 Annual Expense Breakdown Report rep705 1000s print option added for annual totals.
 M	reporting/rep705.php
