@@ -1,4 +1,9 @@
 2020-02-19 Joe Hunt
+Added missing closed.png icon to canvas, dropdown themes
+A	themes/canvas/images/closed.png
+A	themes/dropdown/images/closed.png
+
+2020-02-19 Joe Hunt
 Quantity On Hand (QOH) Now Available On Inventory Adjustments
 M	inventory/includes/item_adjustments_ui.inc
 
