@@ -1,3 +1,7 @@
+2020-03-17 Joe Hunt
+Bug 5083: Manufacturing creates bank transactions but void does not delete them. Fixed.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
 2020-02-19 Joe Hunt
 Added missing closed.png icon to canvas, dropdown themes
 A	themes/canvas/images/closed.png
