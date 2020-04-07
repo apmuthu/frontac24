@@ -1,3 +1,8 @@
+2020-04-07 Joe Hunt
+Bug 5106: Fixed field length for inserting kit, Foreign Item Codes.
+inventory/manage/item_codes.php
+inventory/manage/sales_kits.php
+
 2020-03-17 Joe Hunt
 Bug 5081: Editing unallocated customer payment changes payment amount. Fixed.
 M	includes/ui/allocation_cart.inc
