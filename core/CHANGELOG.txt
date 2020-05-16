@@ -1,3 +1,8 @@
+2020-05-17 Joe Hunt
+Optimized reports rep115 and rep704.
+M	reporting/rep115.php
+M	reporting/rep704.php
+
 2020-05-16 Joe Hunt
 Recurring invoices dimensions into gl_trans by company flag option.
 M	admin/company_preferences.php
