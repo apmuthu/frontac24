@@ -1,3 +1,8 @@
+2020-05-16 Joe Hunt
+Recurring invoices dimensions into gl_trans by company flag option.
+M	admin/company_preferences.php
+M	sales/create_recurrent_invoices.php
+
 2020-05-15 Joe Hunt
 Deleting a fiscal year problem. Fixed.
 M	admin/db/fiscalyears_db.inc
