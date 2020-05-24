@@ -1,3 +1,7 @@
+2020-05-23 Joe Hunt
+Bug in backups.php, 'protect', fixed.
+M	admin/backups.php
+
 2020-05-17 Joe Hunt
 Optimized reports rep115 and rep704.
 M	reporting/rep115.php
