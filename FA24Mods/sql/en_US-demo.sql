@@ -1,6 +1,6 @@
 /*
 *********************************************************************
-FrontAccounting v2.4.2 Git 2017-10-03
+FrontAccounting v2.4.8 Git 2020-06-14
 *********************************************************************
 MySQL           - 5.1.73-1+deb6u1
 Database        - frontac_demo
@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2020-02-04
+Last Update     - 2020-06-14
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1805,6 +1805,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('default_workorder_required', 'glsetup.manuf', 'int', '11', '20')
 ,('deferred_income_act', 'glsetup.sales', 'varchar', '15', '2105')
 ,('depreciation_period', 'glsetup.company', 'tinyint', '1', '1')
+,('dim_on_recurrent_invoice','setup.company', 'tinyint', 1, '0')
 ,('domicile', 'setup.company', 'varchar', '55', '')
 ,('email', 'setup.company', 'varchar', '100', 'delta@example.com')
 ,('exchange_diff_act', 'glsetup.general', 'varchar', '15', '4450')
@@ -1817,6 +1818,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('legal_text', 'glsetup.customer', 'tinytext', '0', '')
 ,('loc_notification', 'glsetup.inventory', 'tinyint', '1', '0')
 ,('login_tout', 'setup.company', 'smallint', '6', '600')
+,('long_description_invoice', 'setup.company', 'tinyint', '1', '0')
 ,('no_customer_list', 'setup.company', 'tinyint', '1', '0')
 ,('no_item_list', 'setup.company', 'tinyint', '1', '0')
 ,('no_supplier_list', 'setup.company', 'tinyint', '1', '0')

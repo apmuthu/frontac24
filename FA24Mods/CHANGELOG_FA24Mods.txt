@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2020-06-13 Upstream fixes for Long Item Description on Invoice on per company SysPrefs
 2020-06-13 Upstream fixes for Delivery against Sales Order Inquiry Remainder value
 2020-05-15 Upstream fixes for deleting fiscal year
 2020-02-06 Updated ta_IN, hi_IN core language strings to FA 2.4.8 upstream

@@ -1,4 +1,10 @@
 2020-06-13 Joe Hunt
+Print Long Item Description on Invoice. Feature. Company Setup Flag.
+M	admin/company_preferences.php
+M	reporting/rep107.php
+M	sales/includes/db/cust_trans_details_db.inc
+
+2020-06-13 Joe Hunt
 Delivery Against Sales Order Inquiry View, Wrong Remainder Value. Fixed.
 M	sales/includes/db/sales_order_db.inc
 
