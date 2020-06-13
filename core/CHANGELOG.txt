@@ -1,3 +1,7 @@
+2020-06-13 Joe Hunt
+Delivery Against Sales Order Inquiry View, Wrong Remainder Value. Fixed.
+M	sales/includes/db/sales_order_db.inc
+
 2020-05-23 Joe Hunt
 Bug in backups.php, 'protect', fixed.
 M	admin/backups.php
