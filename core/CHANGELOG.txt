@@ -1,8 +1,14 @@
+2020-06-14 Joe Hunt
+Currency range fix for invoice from 2017 in FA24Mods moved to core
+M	reporting/rep107.php
+
 2020-06-13 Joe Hunt
 Print Long Item Description on Invoice. Feature. Company Setup Flag.
 M	admin/company_preferences.php
 M	reporting/rep107.php
 M	sales/includes/db/cust_trans_details_db.inc
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
 
 2020-06-13 Joe Hunt
 Delivery Against Sales Order Inquiry View, Wrong Remainder Value. Fixed.
