@@ -1,3 +1,7 @@
+2020-06-22 Joe Hunt
+Trial Balance - Added Group totals only checkbox.
+M	gl/inquiry/gl_trial_balance.php
+
 2020-06-14 Joe Hunt
 Currency range fix for invoice from 2017 in FA24Mods moved to core
 M	reporting/rep107.php
