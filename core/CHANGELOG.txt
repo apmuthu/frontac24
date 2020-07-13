@@ -1,3 +1,7 @@
+2020-07-13 Janusz Dobrowolski
+Install/Update Languages: fixed directory traversal issue
+M	admin/inst_lang.php
+
 2020-07-06 Janusz Dobrowolski
 Additional syntax and PHP 7.4 compatibility fixes
 M	includes/session.inc
