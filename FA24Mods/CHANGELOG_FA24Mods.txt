@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2020-07-31 Upstream fixes for Negative Inventory Adjustments
 2020-06-20 Fixed Tamil and Hindi language file versions in the inc file
 2020-06-14 Moved rep107.php 2017 mods for currency filter to upstream
 2020-06-13 Upstream fixes for Long Item Description on Invoice on per company SysPrefs

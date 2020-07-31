@@ -1,3 +1,7 @@
+2020-07-31 Joe Hunt
+Negative Inventory Adjustments not working anymore (2.4.8). Fixed
+M	inventory/includes/db/items_adjust_db.inc
+
 2020-07-13 Janusz Dobrowolski
 Install/Update Languages: fixed directory traversal issue
 M	admin/inst_lang.php
