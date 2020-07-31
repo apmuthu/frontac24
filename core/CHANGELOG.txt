@@ -1,4 +1,9 @@
 2020-07-31 Joe Hunt
+Bug in Supplier Credit Note Edit, Fixed.
+M	purchasing/includes/supp_trans_class.inc
+M	purchasing/supplier_credit.php
+
+2020-07-31 Joe Hunt
 Negative Inventory Adjustments not working anymore (2.4.8). Fixed
 M	inventory/includes/db/items_adjust_db.inc
 
