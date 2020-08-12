@@ -1,3 +1,15 @@
+2020-08-12 Joe Hunt
+Dimension wise balance sheet items - AR/AP implemented
+M	gl/includes/db/gl_db_banking.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/supp_payment_db.inc
+M	purchasing/includes/purchasing_db.inc
+M	purchasing/supplier_payment.php
+M	sales/customer_payments.php
+M	sales/includes/db/payment_db.inc
+M	sales/includes/db/sales_credit_db.inc
+M	sales/includes/db/sales_invoice_db.inc
+
 2020-08-04 Joe Hunt
 PHP 7.4 fixes and rerun
 M	gl/gl_journal.php
