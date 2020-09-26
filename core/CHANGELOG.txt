@@ -1,4 +1,9 @@
 2020-09-26 Janusz Dobrowolski
+Bug 4964: Balance Sheet, P&L Drilldown invalid navigation via Back links fixed.
+M	 gl/inquiry/balance_sheet.php
+M	 gl/inquiry/profit_loss.php
+
+2020-09-26 Janusz Dobrowolski
 Bug 4756: Amounts in words on documents were printed in user language instead of document contact language. Fixed.
 M	 includes/hooks.inc
 M	 reporting/includes/class.pdf.inc
