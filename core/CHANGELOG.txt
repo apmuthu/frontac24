@@ -1,3 +1,7 @@
+2020-09-27 Janusz Dobrowolski
+Bug 5198 @Bobby Lin: Attach Documents: constrained attachment file types to avoid XSS using javascript in SVG.
+M	 admin/attachments.php
+
 2020-09-26 Janusz Dobrowolski
 Bug 4964: Balance Sheet, P&L Drilldown invalid navigation via Back links fixed.
 M	 gl/inquiry/balance_sheet.php
