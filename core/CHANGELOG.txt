@@ -1,4 +1,16 @@
 2020-09-28 Janusz Dobrowolski
+Fixed warnings related to empty item/customer/supplier selector in search modes.
+M	 gl/includes/db/gl_db_bank_accounts.inc
+M	 inventory/cost_update.php
+M	 inventory/manage/item_codes.php
+M	 inventory/prices.php
+M	 inventory/purchasing_data.php
+M	 purchasing/includes/db/supp_trans_db.inc
+M	 purchasing/includes/db/suppliers_db.inc
+M	 sales/includes/db/customers_db.inc
+M	 sales/manage/customer_branches.php
+
+2020-09-28 Janusz Dobrowolski
 Bug 5202: Supplier Payment: Fixed allocation table refresh after change in supplier selector.
 M	 purchasing/supplier_payment.php
 
