@@ -1,3 +1,7 @@
+2020-09-28 Janusz Dobrowolski
+Bug 5213: Additional cleanup
+M	 inventory/includes/db/items_adjust_db.inc
+
 2020-09-27 Janusz Dobrowolski
 Bug 5198 @Bobby Lin: Attach Documents: constrained attachment file types to avoid XSS using javascript in SVG.
 M	 admin/attachments.php
