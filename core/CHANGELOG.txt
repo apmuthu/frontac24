@@ -1,3 +1,7 @@
+2020-09-26 Joe Hunt
+Bug Fix: Purchase Order delete when invoking hook_db_prevoid()
+M	 purchasing/includes/db/po_db.inc
+
 2020-09-24 Janusz Dobrowolski
 Bug 5178: Fixed customer selection via popup after missing inline customer search.
 M	 includes/ui/ui_lists.inc
