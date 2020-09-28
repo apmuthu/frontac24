@@ -1,3 +1,7 @@
+2020-09-26 Janusz Dobrowolski
+Bug 5200: filename length check limits 60 chars to avoid unexpected error on long names.
+M	 admin/attachments.php
+
 2020-09-26 Joe Hunt
 Bug Fix: Purchase Order delete when invoking hook_db_prevoid()
 M	 purchasing/includes/db/po_db.inc
