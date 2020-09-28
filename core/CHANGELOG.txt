@@ -1,4 +1,11 @@
 2020-09-24 Janusz Dobrowolski
+Bug 5178: Fixed customer selection via popup after missing inline customer search.
+M	 includes/ui/ui_lists.inc
+M	 includes/ui/ui_view.inc
+M	 sales/includes/cart_class.inc
+M	 sales/includes/ui/sales_order_ui.inc 
+
+2020-09-24 Janusz Dobrowolski
 Bug 5220: Delivery to foreign customer against Prepaid Sales Order - GL Balance fixed
 M	 sales/includes/db/sales_delivery_db.inc
 
