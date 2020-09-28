@@ -1,4 +1,8 @@
-2020-08-12 Joe Hunt
+2020-09-24 Janusz Dobrowolski
+Bug 5220: Delivery to foreign customer against Prepaid Sales Order - GL Balance fixed
+M	 sales/includes/db/sales_delivery_db.inc
+
+2020-08-11 Joe Hunt
 Dimension wise balance sheet items - AR/AP implemented
 M	gl/includes/db/gl_db_banking.inc
 M	purchasing/includes/db/invoice_db.inc
