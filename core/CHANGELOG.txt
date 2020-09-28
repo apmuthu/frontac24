@@ -1,4 +1,9 @@
 2020-09-26 Janusz Dobrowolski
+Bug 4756: Amounts in words on documents were printed in user language instead of document contact language. Fixed.
+M	 includes/hooks.inc
+M	 reporting/includes/class.pdf.inc
+
+2020-09-26 Janusz Dobrowolski
 Bug 5179: Added max parameter to textarea*() helpers, put into all memo/comments input fields
 M	 admin/crm_categories.php
 M	 fixed_assets/process_depreciation.php
