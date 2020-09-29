@@ -1,3 +1,7 @@
+2020-09-29 Joe Hunt
+After creating Sales Order, sending email had PDF without a name. Fixed. 
+M	 reporting/rep109.php
+
 2020-09-28 Janusz Dobrowolski
 Fixed warnings related to empty item/customer/supplier selector in search modes.
 M	 gl/includes/db/gl_db_bank_accounts.inc
