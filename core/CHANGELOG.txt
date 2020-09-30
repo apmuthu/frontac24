@@ -1,4 +1,9 @@
 2020-09-30 Janusz Dobrowolski
+Bug 5170: Fixed Assets Purchase: fixed error on items with long description, removed sparse fields edition in Fixed Assets.
+M	inventory/manage/items.php
+M	purchasing/includes/purchasing_db.inc
+
+2020-09-30 Janusz Dobrowolski
 Small cleanups in installer.
 M	includes/db/connect_db_mysql.inc
 M	includes/db/connect_db_mysqli.inc
