@@ -1,3 +1,11 @@
+2020-09-30 Janusz Dobrowolski
+Small cleanups in installer.
+M	includes/db/connect_db_mysql.inc
+M	includes/db/connect_db_mysqli.inc
+M	install/isession.inc
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.mo
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po 
+
 2020-09-29 Joe Hunt
 After creating Sales Order, sending email had PDF without a name. Fixed. 
 M	 reporting/rep109.php
