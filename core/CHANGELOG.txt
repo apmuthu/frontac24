@@ -1,3 +1,7 @@
+2020-10-05 Janusz Dobrowolski
+Bug 5214: Stock Check Sheet: changed shortages option name to be less confusing.
+M	reporting/reports_main.php
+
 2020-10-02 Joe Hunt
 Bug 5232: A disposed fixed asset still appears in the fixed assets valuation report with a non-zero price. Fixed and rerun.
 M	reporting/rep451.php
