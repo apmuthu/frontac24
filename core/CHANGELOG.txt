@@ -1,4 +1,8 @@
 2020-10-05 Janusz Dobrowolski
+Fixed error in line 1 in tcpdf.php introduced on 2020-07-04
+M	reporting/includes/tcpdf.php
+
+2020-10-05 Janusz Dobrowolski
 Bug 5214: Stock Check Sheet: changed shortages option name to be less confusing.
 M	reporting/reports_main.php
 
