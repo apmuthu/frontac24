@@ -1,4 +1,12 @@
 2020-10-05 Janusz Dobrowolski
+Bug 5209: Fixed broken reports after session timeout.
+M	includes/page/header.inc
+M	includes/session.inc
+M	js/inserts.js
+M	js/reports.js
+M	reporting/includes/reports_classes.inc
+
+2020-10-05 Janusz Dobrowolski
 Fixed error in line 1 in tcpdf.php introduced on 2020-07-04
 M	reporting/includes/tcpdf.php
 
