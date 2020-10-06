@@ -1,3 +1,7 @@
+2020-10-07 Joe Hunt
+Display company name on invoices even if the logo is set.
+M	reporting/includes/header2.inc
+
 2020-10-05 Janusz Dobrowolski
 Bug 5209: Fixed broken reports after session timeout.
 M	includes/page/header.inc
