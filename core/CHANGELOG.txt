@@ -1,4 +1,8 @@
 2020-09-28 Janusz Dobrowolski
+Bug 5202: Supplier Payment: Fixed allocation table refresh after change in supplier selector.
+M	 purchasing/supplier_payment.php
+
+2020-09-28 Janusz Dobrowolski
 Bug 5213: Additional cleanup
 M	 inventory/includes/db/items_adjust_db.inc
 
