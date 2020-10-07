@@ -1,4 +1,9 @@
 2020-10-07 Joe Hunt
+Bug 5187: Displaying suppliers list in the void part is either wrong or buggy. Fixed. Same bug in View or Print Transactions. Fixed.
+M	admin/view_print_transaction.php
+M	admin/void_transaction.php
+
+2020-10-06 Joe Hunt
 Display company name on invoices even if the logo is set.
 M	reporting/includes/header2.inc
 
