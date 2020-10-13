@@ -1,3 +1,7 @@
+2020-10-13 Janusz Dobrowolski
+Bug 5188: Fixed Attach Documents user interface to reset input fields only when needed.
+M	admin/attachments.php
+
 2020-10-13 Joe Hunt
 Bug 5186: The field lengths of item_codes.description and purch_data.supplier_description don't match. Temporary fix, final fix in 2.5.
 M	inventory/includes/db/items_purchases_db.inc
