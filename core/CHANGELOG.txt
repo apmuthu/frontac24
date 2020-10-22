@@ -1,3 +1,7 @@
+2020-10-22 Joe Hunt
+Improved layout default login form
+M	themes/default/default.css
+
 2020-10-13 Janusz Dobrowolski
 Bug 5190: Supplier Invoices fixed clearing unnecessary customer reference field on supplier selection change.
 M	purchasing/includes/db/invoice_db.inc
