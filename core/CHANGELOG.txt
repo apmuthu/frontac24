@@ -1,4 +1,10 @@
 2020-10-26 Janusz Dobrowolski
+Bugs 5189, 5211: Items, Company Setup - check for uploaded image compatibility with TCPDF report generator.
+M	admin/company_preferences.php
+M	inventory/manage/items.php
+M	reporting/includes/tcpdf.php
+
+2020-10-26 Janusz Dobrowolski
 Bug 5239: Currency Accounts Revaluation - removed sparse reference field, fixed comments for generated journal transactions.
 M	gl/includes/db/gl_db_banking.inc
 M	gl/manage/revaluate_currencies.php
