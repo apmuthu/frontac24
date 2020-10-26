@@ -1,3 +1,8 @@
+2020-10-26 Janusz Dobrowolski
+Bug 5239: Currency Accounts Revaluation - removed sparse reference field, fixed comments for generated journal transactions.
+M	gl/includes/db/gl_db_banking.inc
+M	gl/manage/revaluate_currencies.php
+
 2020-10-22 Joe Hunt
 Improved layout default login form
 M	themes/default/default.css
