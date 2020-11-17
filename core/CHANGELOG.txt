@@ -1,3 +1,7 @@
+2020-11-16 Joe Hunt
+Report Audit Trail rep710. Added totals when Trans Type is selected
+M	reporting/rep710.php
+
 2020-10-26 Janusz Dobrowolski
 Bugs 5189, 5211: Items, Company Setup - check for uploaded image compatibility with TCPDF report generator.
 M	admin/company_preferences.php
