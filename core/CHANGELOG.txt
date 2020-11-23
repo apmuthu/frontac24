@@ -1,3 +1,8 @@
+2020-11-23 Joe Hunt
+Bug 5263: Add update button for total on supplier invoice entry when tax is changed. Fixed.
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_invoice.php
+
 2020-11-16 Joe Hunt
 Report Audit Trail rep710. Added totals when Trans Type is selected
 M	reporting/rep710.php
