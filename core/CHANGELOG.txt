@@ -1,3 +1,8 @@
+2020-11-28 Joe Hunt
+No supplier trans found for given params in Supplier Payment. Fixed.
+M	includes/ui/allocation_cart.inc
+M	purchasing/includes/db/po_db.inc
+
 2020-11-23 Joe Hunt
 Bug 5263: Add update button for total on supplier invoice entry when tax is changed. Fixed.
 M	purchasing/includes/ui/invoice_ui.inc
