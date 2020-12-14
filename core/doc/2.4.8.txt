@@ -1,3 +1,553 @@
+2020-12-14 Joe Hunt
+M	version.php
+
+2020-12-14 Janusz Dobrowolski
+Gettext templates updated
+M	install/lang/new_language_template/LC_MESSAGES/empty.po
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2020-12-14 Janusz Dobrowolski
+Bug 5266: Fixed timeouts in ajax contexts
+M	access/login.php
+M	includes/session.inc
+M	js/inserts.js
+M	js/login.js
+M	js/reports.js
+
+2020-11-28 Joe Hunt
+No supplier trans found for given params in Supplier Payment. Fixed.
+M	includes/ui/allocation_cart.inc
+M	purchasing/includes/db/po_db.inc
+
+2020-11-23 Joe Hunt
+Bug 5263: Add update button for total on supplier invoice entry when tax is changed. Fixed.
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_invoice.php
+
+2020-11-16 Joe Hunt
+Report Audit Trail rep710. Added totals when Trans Type is selected
+M	reporting/rep710.php
+
+2020-10-26 Janusz Dobrowolski
+Bugs 5189, 5211: Items, Company Setup - check for uploaded image compatibility with TCPDF report generator.
+M	admin/company_preferences.php
+M	inventory/manage/items.php
+M	reporting/includes/tcpdf.php
+
+2020-10-26 Janusz Dobrowolski
+Bug 5239: Currency Accounts Revaluation - removed sparse reference field, fixed comments for generated journal transactions.
+M	gl/includes/db/gl_db_banking.inc
+M	gl/manage/revaluate_currencies.php
+
+2020-10-22 Joe Hunt
+Improved layout default login form
+M	themes/default/default.css
+
+2020-10-13 Janusz Dobrowolski
+Bug 5190: Supplier Invoices fixed clearing unnecessary customer reference field on supplier selection change.
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/ui/invoice_ui.inc
+
+2020-10-13 Janusz Dobrowolski
+Bug 5188: Fixed Attach Documents user interface to reset input fields only when needed.
+M	admin/attachments.php
+
+2020-10-13 Joe Hunt
+Bug 5186: The field lengths of item_codes.description and purch_data.supplier_description don't match. Temporary fix, final fix in 2.5.
+M	inventory/includes/db/items_purchases_db.inc
+
+2020-10-07 Joe Hunt
+Bug 5187: Displaying suppliers list in the void part is either wrong or buggy. Fixed. Same bug in View or Print Transactions. Fixed.
+M	admin/view_print_transaction.php
+M	admin/void_transaction.php
+
+2020-10-06 Joe Hunt
+Display company name on invoices even if the logo is set.
+M	reporting/includes/header2.inc
+
+2020-10-05 Janusz Dobrowolski
+Bug 5209: Fixed broken reports after session timeout.
+M	includes/page/header.inc
+M	includes/session.inc
+M	js/inserts.js
+M	js/reports.js
+M	reporting/includes/reports_classes.inc
+
+2020-10-05 Janusz Dobrowolski
+Fixed error in line 1 in tcpdf.php introduced on 2020-07-04
+M	reporting/includes/tcpdf.php
+
+2020-10-05 Janusz Dobrowolski
+Bug 5214: Stock Check Sheet: changed shortages option name to be less confusing.
+M	reporting/reports_main.php
+
+2020-10-02 Joe Hunt
+Bug 5232: A disposed fixed asset still appears in the fixed assets valuation report with a non-zero price. Fixed and rerun.
+M	reporting/rep451.php
+
+2020-09-30 Janusz Dobrowolski
+Bug 5223: Fixed Asset Purchase, Direct Supplier Invoice: fixed invalid cost handling for invoices in foreign currency.
+M	purchasing/includes/purchasing_db.inc
+
+2020-09-30 Janusz Dobrowolski
+Bug 5170: Fixed Assets Purchase: fixed error on items with long description, removed sparse fields edition in Fixed Assets.
+M	inventory/manage/items.php
+M	purchasing/includes/purchasing_db.inc
+
+2020-09-30 Janusz Dobrowolski
+Small cleanups in installer.
+M	includes/db/connect_db_mysql.inc
+M	includes/db/connect_db_mysqli.inc
+M	install/isession.inc
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.mo
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po 
+
+2020-09-29 Joe Hunt
+After creating Sales Order, sending email had PDF without a name. Fixed. 
+M	 reporting/rep109.php
+
+2020-09-28 Janusz Dobrowolski
+Fixed warnings related to empty item/customer/supplier selector in search modes.
+M	 gl/includes/db/gl_db_bank_accounts.inc
+M	 inventory/cost_update.php
+M	 inventory/manage/item_codes.php
+M	 inventory/prices.php
+M	 inventory/purchasing_data.php
+M	 purchasing/includes/db/supp_trans_db.inc
+M	 purchasing/includes/db/suppliers_db.inc
+M	 sales/includes/db/customers_db.inc
+M	 sales/manage/customer_branches.php
+
+2020-09-28 Janusz Dobrowolski
+Bug 5202: Supplier Payment: Fixed allocation table refresh after change in supplier selector.
+M	 purchasing/supplier_payment.php
+
+2020-09-28 Janusz Dobrowolski
+Bug 5213: Additional cleanup
+M	 inventory/includes/db/items_adjust_db.inc
+
+2020-09-27 Janusz Dobrowolski
+Bug 5198 @Bobby Lin: Attach Documents: constrained attachment file types to avoid XSS using javascript in SVG.
+M	 admin/attachments.php
+
+2020-09-26 Janusz Dobrowolski
+Bug 4964: Balance Sheet, P&L Drilldown invalid navigation via Back links fixed.
+M	 gl/inquiry/balance_sheet.php
+M	 gl/inquiry/profit_loss.php
+
+2020-09-26 Janusz Dobrowolski
+Bug 4756: Amounts in words on documents were printed in user language instead of document contact language. Fixed.
+M	 includes/hooks.inc
+M	 reporting/includes/class.pdf.inc
+
+2020-09-26 Janusz Dobrowolski
+Bug 5179: Added max parameter to textarea*() helpers, put into all memo/comments input fields
+M	 admin/crm_categories.php
+M	 fixed_assets/process_depreciation.php
+M	 includes/ui/ui_input.inc
+M	 manufacturing/includes/work_order_issue_ui.inc
+M	 purchasing/includes/ui/po_ui.inc
+M	 sales/includes/ui/sales_order_ui.inc (changes included on 24th)
+
+2020-09-26 Janusz Dobrowolski
+Bug 5200: filename length check limits 60 chars to avoid unexpected error on long names.
+M	 admin/attachments.php
+
+2020-09-26 Joe Hunt
+Bug Fix: Purchase Order delete when invoking hook_db_prevoid()
+M	 purchasing/includes/db/po_db.inc
+
+2020-09-24 Janusz Dobrowolski
+Bug 5178: Fixed customer selection via popup after missing inline customer search.
+M	 includes/ui/ui_lists.inc
+M	 includes/ui/ui_view.inc
+M	 sales/includes/cart_class.inc
+M	 sales/includes/ui/sales_order_ui.inc 
+
+2020-09-24 Janusz Dobrowolski
+Bug 5220: Delivery to foreign customer against Prepaid Sales Order - GL Balance fixed
+M	 sales/includes/db/sales_delivery_db.inc
+
+2020-08-11 Joe Hunt
+Dimension wise balance sheet items - AR/AP implemented
+M	gl/includes/db/gl_db_banking.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/supp_payment_db.inc
+M	purchasing/includes/purchasing_db.inc
+M	purchasing/supplier_payment.php
+M	sales/customer_payments.php
+M	sales/includes/db/payment_db.inc
+M	sales/includes/db/sales_credit_db.inc
+M	sales/includes/db/sales_invoice_db.inc
+
+2020-08-04 Joe Hunt
+PHP 7.4 fixes and rerun
+M	gl/gl_journal.php
+M	gl/includes/db/gl_db_accounts.inc
+M	includes/references.inc
+M	includes/ui/items_cart.inc
+M	purchasing/includes/db/grn_db.inc
+M	sales/includes/db/sales_order_db.inc
+M	sales/includes/sales_db.inc
+M	sales/includes/ui/sales_order_ui.inc
+
+2020-08-02 Joe Hunt
+Journal Inquiry - Counter Party column not showing on invoice. Fixed.
+M	gl/includes/db/gl_db_trans.inc
+
+2020-07-31 Joe Hunt
+Bug in Supplier Credit Note Edit, Fixed.
+M	purchasing/includes/supp_trans_class.inc
+M	purchasing/supplier_credit.php
+
+2020-07-31 Joe Hunt
+Negative Inventory Adjustments not working anymore (2.4.8). Fixed
+M	inventory/includes/db/items_adjust_db.inc
+
+2020-07-13 Janusz Dobrowolski
+Install/Update Languages: fixed directory traversal issue
+M	admin/inst_lang.php
+
+2020-07-06 Janusz Dobrowolski
+Additional syntax and PHP 7.4 compatibility fixes
+M	includes/session.inc
+M	includes/ui/ui_lists.inc
+M	reporting/includes/tcpdf.php
+
+2020-07-04 Joe Hunt
+PHP 7.4 fixes for array subscript curly braces => square brackets
+M	gl/includes/db/gl_db_trans.inc
+M	reporting/includes/barcodes.php
+M	reporting/includes/tcpdf.php
+M	sales/includes/ui/sales_order_ui.inc
+
+2020-06-22 Joe Hunt
+Trial Balance - Added Group totals only checkbox.
+M	gl/inquiry/gl_trial_balance.php
+
+2020-06-14 Joe Hunt
+Currency range fix for invoice from 2017 in FA24Mods moved to core
+M	reporting/rep107.php
+
+2020-06-13 Joe Hunt
+Print Long Item Description on Invoice. Feature. Company Setup Flag.
+M	admin/company_preferences.php
+M	reporting/rep107.php
+M	sales/includes/db/cust_trans_details_db.inc
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2020-06-13 Joe Hunt
+Delivery Against Sales Order Inquiry View, Wrong Remainder Value. Fixed.
+M	sales/includes/db/sales_order_db.inc
+
+2020-05-23 Joe Hunt
+Bug in backups.php, 'protect', fixed.
+M	admin/backups.php
+
+2020-05-17 Joe Hunt
+Optimized reports rep115 and rep704.
+M	reporting/rep115.php
+M	reporting/rep704.php
+
+2020-05-16 Joe Hunt
+Recurring invoices dimensions into gl_trans by company flag option.
+M	admin/company_preferences.php
+M	sales/create_recurrent_invoices.php
+
+2020-05-15 Joe Hunt
+Deleting a fiscal year problem. Fixed.
+M	admin/db/fiscalyears_db.inc
+
+2020-04-07 Joe Hunt
+Bug 5106: Fixed field length for inserting kit, Foreign Item Codes.
+inventory/manage/item_codes.php
+inventory/manage/sales_kits.php
+
+2020-03-17 Joe Hunt
+Bug 5081: Editing unallocated customer payment changes payment amount. Fixed.
+M	includes/ui/allocation_cart.inc
+
+2020-03-17 Joe Hunt
+Bug 5083: Manufacturing creates bank transactions but void does not delete them. Fixed.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2020-02-19 Joe Hunt
+Added missing closed.png icon to canvas, dropdown themes
+A	themes/canvas/images/closed.png
+A	themes/dropdown/images/closed.png
+
+2020-02-19 Joe Hunt
+Quantity On Hand (QOH) Now Available On Inventory Adjustments
+M	inventory/includes/item_adjustments_ui.inc
+
+2020-02-17 Janusz Dobrowolski
+Annual Expense Breakdown Report rep705 1000s print option added for annual totals.
+M	reporting/rep705.php
+M	reporting/reports_main.php
+
+2020-02-17 Janusz Dobrowolski
+GL Account Transactions Report rep704 layout for no dimension 2 improved.
+M	reporting/rep704.php
+
+2020-02-11 Janusz Dobrowolski
+Customer, Supplier Payments - weak connection inconsistency addressed
+M	includes/ui/allocation_cart.inc
+
+2020-02-05 Joe Hunt
+Release 2.4.8
+M	version.php
+
+2020-02-05 Janusz Dobrowolski
+Gettext template updated. 
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2020-02-04 Joe Hunt
+Moved dates by 1 year in standard Chart SQLs
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2020-01-29 Janusz Dobrowolski
+Bug 4904: Customer Credit Note - fixed invalid inventory GL postings for service items.
+M	sales/includes/db/sales_credit_db.inc
+
+2020-01-26 Janusz Dobrowolski
+@oakstreet1: Added support for views in Backup and Restore
+M	admin/db/maintenance_db.inc
+M	includes/db/connect_db.inc
+
+2020-01-21/25 Janusz Dobrowolski
+Added NL_nl and NB_no installer language files from FA24Mods
+M	install/isession.inc
+A	install/lang/nb_NO/LC_MESSAGES/nb_NO.mo
+A	install/lang/nb_NO/LC_MESSAGES/nb_NO.po
+A	install/lang/nl_NL/LC_MESSAGES/nl_NL.mo
+A	install/lang/nl_NL/LC_MESSAGES/nl_NL.po
+
+2020-01-21/24 Joe Hunt
+Customers/Suppliers/Items - Optimised and removed Menu in F2/F3/F4 popups
+M	includes/ui/ui_controls.inc
+M	inventory/manage/items.php
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
+2020-01-18 Janusz Dobrowolski
+Fixed Assets Depreciation: removed invalid and obsolete audit record update.
+M	fixed_assets/includes/fixed_assets_db.inc
+
+2020-01-16 Joe Hunt
+Uninitialized string offset in main.inc Fixed for php >= 7.0
+M	includes/main.inc
+
+2020-01-16 Joe Hunt
+Tax rate displayed twice in rep209 (Purchase orders). Fixed.
+M	reporting/rep209.php
+
+2020-01-13 Joe Hunt
+Sales Order Inquiry Sort Descending. Fixed.
+M	sales/includes/db/sales_order_db.inc
+M	sales/inquiry/sales_orders_view.php
+
+2020-01-01 Joe Hunt
+Bank statement report with All Bank Accounts option added, rerun
+M	reporting/includes/reports_classes.inc
+M	reporting/rep601.php
+M	reporting/reports_main.php
+
+2019-12-26 Joe Hunt
+Customer Payment Entry scrolling behaviour on All or None fixed.
+M	includes/ui/allocation_cart.inc
+
+2019-11-26 Janusz Dobrowolski
+Bug 5002: Journal Inquiry - incorrect amounts displayed for journal entries with more than one customer/supplier accounts, fixed.
+M	gl/includes/db/gl_db_trans.inc
+
+2019-11-26 Joe Hunt
+Bug 4988: Auto Increase of Document References cant be disabled. Fixed.
+M	sales/includes/cart_class.inc
+
+2019-11-25 Janusz Dobrowolski
+Bug 4993: Sales Order - incorrect prepayment guess for wholesale (non tax included) pricelists.
+M	sales/includes/cart_class.inc
+
+2019-11-25 Joe Hunt
+@brucek: Formatting error in dashboard.inc fixed.
+M	includes/dashboard.inc
+
+2019-11-10 Joe Hunt
+recurring invoices - period improved.
+M	sales/create_recurrent_invoices.php
+
+2019-11-10 Joe Hunt
+Whitespace synched with upstream
+M	sales/create_recurrent_invoices.php
+
+2019-11-10 Joe Hunt
+count error when printing to Excel. Fixed.
+M	reporting/includes/Workbook.php
+M	reporting/includes/excel_report.inc
+M	reporting/includes/pdf_report.inc
+
+2019-10-28 Joe Hunt
+Bug 5009: Page # on invoices counts up across invoices. Fixed for all documents.
+M	reporting/includes/pdf_report.inc
+
+2019-10-26 Joe Hunt
+Misspelled parameter in rep115.php
+M	reporting/rep115.php
+
+2019-10-22 Joe Hunt
+Bug 5013: zero invoices create zero payments and cause db error upon view payment. Fixed.
+M	sales/includes/db/sales_invoice_db.inc
+
+2019-10-14 Joe Hunt
+Voided documents still exist in drop-down when printing. Fixed.
+M	reporting/includes/reports_classes.inc
+
+2019-10-11 Janusz Dobrowolski
+Additional fixes for Cust / Supp Attachments to allow for Add Suppliers
+M	admin/attachments.php
+M	purchasing/manage/suppliers.php
+
+2019-10-10 Janusz Dobrowolski
+Added Customer / Supplier Attachments feature
+A	includes/ui/attachment.inc
+M	admin/attachments.php
+M	admin/db/attachments_db.inc
+M	admin/db/transactions_db.inc
+M	includes/sysnames.inc
+M	includes/types.inc
+M	purchasing/manage/suppliers.php
+M	sales/manage/customers.php
+
+2019-10-06 Joe Hunt
+Further count() => count_array() fixes
+M	reporting/includes/pdf_report.inc
+
+2019-10-04 Joe Hunt
+Additional Transaction Date presence check
+M	admin/db/transactions_db.inc
+
+2019-09-03 Joe Hunt
+Whitespace changes synched with upstream
+M	inventory/includes/stock_transfers_ui.inc
+
+2019-09-03 notrinos
+Inventory location transfer from sales kit fixed.
+M	inventory/includes/stock_transfers_ui.inc
+
+2019-08-28 Joe Hunt
+Database error message in sales_order_db.inc fixed.
+M	sales/includes/db/sales_order_db.inc
+
+2019-08-17 Joe Hunt
+Clone Manufactured Item -> Clone BOM.
+M	manufacturing/manage/bom_edit.php
+
+2019-08-17 Joe Hunt
+Report Sales Listing by Salesman fix
+M	reporting/rep106.php
+
+2019-08-17 Joe Hunt
+Bug 4987: In RTL languages, text aligned centered is printed aligned right in PDF documents. Fixed.
+M	reporting/includes/class.pdf.inc
+
+2019-08-08 Joe Hunt
+Bug 4980: Memo DB field size to match in voiding a transaction by truncation in audit_trail.
+M	includes/db/audit_trail_db.inc
+
+2019-08-02/05 Joe Hunt
+Show more relevant info in CounterPart Field, Journal Inquiry and re-run, tab => 4 spaces
+M	gl/includes/db/gl_db_trans.inc
+M	gl/inquiry/journal_inquiry.php
+
+2019-07-30 Janusz Dobrowolski
+Allocate Customer Payments or Credit Notes: fully allocated payments with discount were still displayed even with settled option off, fixed.
+M	sales/includes/db/custalloc_db.inc
+
+2019-07-24 Joe Hunt
+Journal Inquiry Dates to be from User Preference Transaction Days.
+M	gl/inquiry/journal_inquiry.php
+
+2019-07-18 Joe Hunt
+Paged transaction inquiries optimized for maximum links in Sales and Purchasing and continuation
+M	dimensions/inquiry/search_dimensions.php
+M	manufacturing/search_work_orders.php
+M	purchasing/includes/db/po_db.inc
+M	purchasing/inquiry/po_search.php
+M	purchasing/inquiry/po_search_completed.php
+M	purchasing/inquiry/supplier_inquiry.php
+M	reporting/includes/reporting.inc 
+M	sales/inquiry/customer_inquiry.php
+M	sales/inquiry/sales_orders_view.php 
+
+2019-07-18 Joe Hunt
+Limit editable stock items list in Sales Order, Credit Notes to 50 chars and re-run.
+M	includes/ui/ui_lists.inc
+M	sales/includes/ui/sales_order_ui.inc
+
+2019-07-18 Joe Hunt
+Inventory Item Movements: Purchase Order Delivery and Credit Note has trans_no in reference column or Return memo presented instead of reference. Fixed.
+M	inventory/includes/inventory_db.inc
+
+2019-07-18 Joe Hunt
+Supplier Invoice - wrong alignment in first 2 columns when selecting items to invoice. Fixed.
+M	purchasing/includes/ui/invoice_ui.inc
+
+2019-07-17 Joe Hunt
+0004944: The field characters size of Supplier's Reference is too short. Fixed.
+M	purchasing/includes/ui/po_ui.inc
+
+2019-07-17 Joe Hunt
+0004946: Inserting a supplier without the short name resets the whole form. Fixed.
+M	purchasing/manage/suppliers.php
+
+2019-07-08 Janusz Dobrowolski
+Supplier Invoice: on form opening currency was not displayed for foreign supplier.
+M	includes/ui/ui_view.inc
+M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/ui/invoice_ui.inc
+
+2019-07-07 Janusz Dobrowolski
+Code cleanup in supplier_invoice.php and supplier_credit.php
+M	purchasing/includes/supp_trans_class.inc
+M	purchasing/includes/ui/invoice_ui.inc
+M	purchasing/supplier_credit.php
+M	purchasing/supplier_invoice.php
+
+2019-07-07 Janusz Dobrowolski
+Credit Note Modification: fixed check whether transaction is editable.
+M	purchasing/supplier_credit.php
+
+2019-07-07 Janusz Dobrowolski
+Strict SQL related error when background journal transaction was saved. Fixed.
+M	includes/db/gl_journal.inc
+
+2019-07-07 Janusz Dobrowolski
+Purchase Order View: fixed dates, added overdue delivery marker.
+M	purchasing/includes/db/grn_db.inc
+M	purchasing/includes/ui/grn_ui.inc
+M	purchasing/view/view_grn.php 
+
+2019-07-03 Janusz Dobrowolski
+Audit Trail: regression in audit history (after sql strict mode related changes) fixed.
+includes/db/audit_trail_db.inc
+
+2019-07-03 Joe Hunt
+Bug 4920: Search icon in 'items table' wraps underneath select combo when screen width reduced. Fixed
+M	includes/ui/ui_lists.inc
+
+2019-06-28 Janusz Dobrowolski
+Negative Inventory Adjustment should always use current average item cost.
+M	inventory/adjustments.php
+M	inventory/includes/item_adjustments_ui.inc
+M	js/inserts.js
+
+2019-06-27 Janusz Dobrowolski
+Inventory Adjustment: Fixed entry error when inventory notifications enabled.
+M	inventory/includes/db/items_adjust_db.inc
+
 2019-06-25 Joe Hunt
 FA 2.4.7
 M	lang/new_language_template/LC_MESSAGES/empty.po
