@@ -1,3 +1,17 @@
+2020-12-14 Janusz Dobrowolski
+Gettext templates updated
+M	install/lang/new_language_template/LC_MESSAGES/empty.po
+M	install/lang/pl_PL/LC_MESSAGES/pl_PL.po
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2020-12-14 Janusz Dobrowolski
+Bug 5266: Fixed timeouts in ajax contexts
+M	access/login.php
+M	includes/session.inc
+M	js/inserts.js
+M	js/login.js
+M	js/reports.js
+
 2020-11-28 Joe Hunt
 No supplier trans found for given params in Supplier Payment. Fixed.
 M	includes/ui/allocation_cart.inc
