@@ -344,7 +344,11 @@ function get_default_supplier_bank_account($supplier_id)
 	$sql = "SELECT curr_code FROM ".TB_PREF."suppliers WHERE supplier_id=".db_escape($supplier_id);
 	$result = db_query($sql, "could not retreive default supplier currency code");
 	$row = db_fetch_row($result);
-	$id = $row ? get_default_bank_account($row[0])['id'] : 0;
+	$id = 0;
+	if ($a = get_default_bank_account($row[0])) {
+		$id = $a['id'];
+		unset ($a);
+	}
 	return $id;
 }
 //---------------------------------------------------------------------------------------------
