@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2020-12-16 PHP < 5.4 compatibility fix moved to core
 2020-12-15 PHP < 5.4 compatibility fixed
 2020-12-15 Cloned gl_db_bank_accounts.inc for PHP < 5.4 compatibility fix
 2020-09-30 Upstream installer cleanup

@@ -1,4 +1,9 @@
+2020-12-16 Joe Hunt
+Compatibility fix for commit on 2020-09-28 (php < 5.4)
+M	gl/includes/db/gl_db_bank_accounts.inc
+
 2020-12-14 Joe Hunt
+FA 2.4.9
 M	version.php
 
 2020-12-14 Janusz Dobrowolski
