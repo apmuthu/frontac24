@@ -1,3 +1,7 @@
+2020-12-17 Joe Hunt
+Fixed Purchase Order pdf printout
+M	reporting/rep209.php
+
 2020-12-16 Joe Hunt
 Compatibility fix for commit on 2020-09-28 (php < 5.4)
 M	gl/includes/db/gl_db_bank_accounts.inc
