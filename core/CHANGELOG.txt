@@ -1,3 +1,7 @@
+2020-12-18 Joe Hunt
+Item Adjustments Note disable rounding of Unit Cost. Fixed.
+M	inventory/includes/item_adjustments_ui.inc
+
 2020-12-17 Joe Hunt
 Fixed Purchase Order pdf printout
 M	reporting/rep209.php
