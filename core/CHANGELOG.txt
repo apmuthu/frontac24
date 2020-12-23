@@ -1,3 +1,7 @@
+2020-12-23/29 Janusz Dobrowolski
+Fixed volatile error on first installer page shown & rerun
+M	install/isession.inc
+
 2020-12-18 Joe Hunt
 Item Adjustments Note disable rounding of Unit Cost. Fixed.
 M	inventory/includes/item_adjustments_ui.inc
