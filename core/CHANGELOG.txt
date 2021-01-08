@@ -1,3 +1,7 @@
+2021-01-08 Joe Hunt
+Wrong target focus in accruals.php fixed.
+M	gl/accruals.php
+
 2020-12-23/29 Janusz Dobrowolski
 Fixed volatile error on first installer page shown & rerun
 M	install/isession.inc
