@@ -1,4 +1,8 @@
 2021-01-09 Joe Hunt
+Call to undefined count_array() in pdf_report.inc. Fixed.
+M	reporting/includes/pdf_report.inc
+
+2021-01-09 Joe Hunt
 Rep 704 GL A/c Txns report shows html code on Person/Item if PT_WORKORDER. Fixed.
 M	reporting/rep704.php
 
