@@ -1,3 +1,7 @@
+2021-01-09 Joe Hunt
+Rep 704 GL A/c Txns report shows html code on Person/Item if PT_WORKORDER. Fixed.
+M	reporting/rep704.php
+
 2021-01-08 Joe Hunt
 Wrong target focus in accruals.php fixed.
 M	gl/accruals.php
