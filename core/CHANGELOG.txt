@@ -1,3 +1,9 @@
+2021-01-10 Joe Hunt
+Rerun of Rep 704 GL A/c Txns report shows html code on Person/Item.
+M	includes/types.inc
+M	reporting/rep601.php
+M	reporting/rep704.php
+
 2021-01-09 Joe Hunt
 Call to undefined count_array() in pdf_report.inc. Fixed.
 M	reporting/includes/pdf_report.inc
