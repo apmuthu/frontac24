@@ -1,3 +1,7 @@
+2021-01-15 Joe Hunt
+Wrong security area passed in generalledger.php. Fixed.
+M	applications/generalledger.php
+
 2021-01-11 Joe Hunt
 Bug 5310: DB error when on supplier invoice edit if current fiscal year is missing. Fixed.
 M	purchasing/includes/db/invoice_db.inc
