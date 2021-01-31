@@ -1,4 +1,8 @@
 2021-01-20 Janusz Dobrowolski
+Bug 5326: Languages/Extensions/Themes/CoA module installation warnings fixed.
+M	includes/archive.inc
+
+2021-01-20 Janusz Dobrowolski
 Bug 5322: Added message on failed Login / Timeout
 M	access/login.php
 M	includes/current_user.inc
