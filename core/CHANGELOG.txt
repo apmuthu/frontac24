@@ -1,3 +1,7 @@
+2021-01-31 Joe Hunt
+Bug 5326 rerun for PHP < 5.5
+M	includes/archive.inc
+
 2021-01-21 Joe Hunt
 Fixed PHP 7.4 bug in function get_tag_name()
 M	admin/db/tags_db.inc

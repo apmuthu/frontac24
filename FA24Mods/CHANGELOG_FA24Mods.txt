@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2021-01-31 archive.inc fix moved to core as upstream took it in
 2021-01-31 archive.inc fixed for PHP < 5.5 unpack() function
 2021-01-31 Cloned archive.inc for PHP < 5.5 unpack fix
 2020-12-16 PHP < 5.4 compatibility fix moved to core
