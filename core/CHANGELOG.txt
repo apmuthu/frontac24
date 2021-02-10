@@ -1,4 +1,8 @@
 2021-02-11 Joe Hunt
+Bug 5332: Rep709 Tax Report - fixed multiple entries for a single tax line.
+M	reporting/rep709.php
+
+2021-02-11 Joe Hunt
 Bug 5310: DB error fixed on bank payment/transfer edit on missing fiscal year.
 M	gl/includes/db/gl_db_banking.inc
 
