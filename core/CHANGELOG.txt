@@ -1,3 +1,7 @@
+2021-02-11 Joe Hunt
+Bug 5310: DB error fixed on bank payment/transfer edit on missing fiscal year.
+M	gl/includes/db/gl_db_banking.inc
+
 2021-02-04 Joe Hunt
 Customer/Supplier Payments Recording bug fixed. 
 M	includes/ui/allocation_cart.inc
