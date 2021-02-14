@@ -1,3 +1,7 @@
+2021-02-15 Joe Hunt
+Bug 5351: dim dim2 not defined in lines 623, 627 of purchasing/includes/db/invoice_db.inc. Fixed.
+M	purchasing/includes/db/invoice_db.inc
+
 2021-02-11 Joe Hunt
 Bug 5332: Rep709 Tax Report - fixed multiple entries for a single tax line.
 M	reporting/rep709.php
