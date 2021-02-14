@@ -1,4 +1,8 @@
 2021-02-15 Joe Hunt
+Bug 5352: missing global declaration in reset_form() in attachments.php. Fixed.
+M	admin/attachments.php
+
+2021-02-15 Joe Hunt
 Bug 5351: dim dim2 not defined in lines 623, 627 of purchasing/includes/db/invoice_db.inc. Fixed.
 M	purchasing/includes/db/invoice_db.inc
 
