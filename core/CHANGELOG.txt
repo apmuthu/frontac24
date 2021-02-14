@@ -1,4 +1,13 @@
 2021-02-15 Joe Hunt
+PHP 7.4 Bugs in some reports.
+M	reporting/rep101.php
+M	reporting/rep115.php
+M	reporting/rep201.php
+M	reporting/rep206.php
+M	reporting/rep306.php
+M	reporting/rep710.php
+
+2021-02-15 Joe Hunt
 Bug 5352: missing global declaration in reset_form() in attachments.php. Fixed.
 M	admin/attachments.php
 
