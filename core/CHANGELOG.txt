@@ -1,3 +1,7 @@
+2021-02-28 Janusz Dobrowolski
+Fixed javascript error appearing on themes using SVGElements.
+M	js/behaviour.js
+
 2021-02-19 Joe Hunt
 Bug 5360: Typo in customer_allocate.php fixed.
 M	sales/allocations/customer_allocate.php
