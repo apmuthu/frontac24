@@ -1,3 +1,7 @@
+2021-02-28 Joe Hunt
+Inventory Purchasing Report (rep306.php) permission SA_SALESANALYTIC => SA_SUPPLIERANALYTIC
+M	reporting/rep306.php
+
 2021-02-28 Janusz Dobrowolski
 Fixed javascript error appearing on themes using SVGElements.
 M	js/behaviour.js
