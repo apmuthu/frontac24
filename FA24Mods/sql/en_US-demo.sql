@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - Yes
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2020-06-14
+Last Update     - 2021-04-01
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1819,6 +1819,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('loc_notification', 'glsetup.inventory', 'tinyint', '1', '0')
 ,('login_tout', 'setup.company', 'smallint', '6', '600')
 ,('long_description_invoice', 'setup.company', 'tinyint', '1', '0')
+,('max_days_in_docs','setup.company', 'smallint', 5, '180')
 ,('no_customer_list', 'setup.company', 'tinyint', '1', '0')
 ,('no_item_list', 'setup.company', 'tinyint', '1', '0')
 ,('no_supplier_list', 'setup.company', 'tinyint', '1', '0')

@@ -1,3 +1,10 @@
+2021-03-29 Joe Hunt
+Feature 5388: Print Invoices (documents) list gets too long. Fixed.
+M	admin/company_preferences.php
+M	reporting/includes/reports_classes.inc
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2021-03-10 Joe Hunt
 Function get_magic_quotes_gpc() is deprecated php7.4. Fixed.
 M	install/isession.inc
