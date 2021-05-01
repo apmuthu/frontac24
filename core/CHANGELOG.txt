@@ -1,3 +1,7 @@
+2021-05-02 Joe Hunt
+Bug 5429: Balance sheet report sometimes prints lines with zero amounts. Fixed.
+M	gl/includes/db/gl_db_trans.inc
+
 2021-03-29 Joe Hunt
 Feature 5388: Print Invoices (documents) list gets too long. Fixed.
 M	admin/company_preferences.php
