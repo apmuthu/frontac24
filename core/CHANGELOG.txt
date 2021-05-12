@@ -1,3 +1,7 @@
+2021-05-12 Joe Hunt
+Re-Run Feature 5388: Print Invoices (documents) list gets too long
+M	reporting/includes/reports_classes.inc
+
 2021-05-05 Joe Hunt
 Payments & Deposits rounding problem. Fixed.
 M	fixed_assets/includes/fixed_assets_db.inc
