@@ -1,3 +1,7 @@
+2021-05-17 Janusz Dobrowolski
+Bug 5197: Sales Invoice email subject altered to avoid false marking by spam filters.
+M	reporting/rep107.php
+
 2021-05-12 Joe Hunt
 Re-Run Feature 5388: Print Invoices (documents) list gets too long
 M	reporting/includes/reports_classes.inc
