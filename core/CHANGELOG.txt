@@ -1,4 +1,8 @@
 2021-05-17 Janusz Dobrowolski
+Bug 5245: Added debtors_master.debtor_ref to get_customer_trans() results
+M	sales/includes/db/cust_trans_db.inc
+
+2021-05-17 Janusz Dobrowolski
 Bug 5197: Sales Invoice email subject altered to avoid false marking by spam filters.
 M	reporting/rep107.php
 
