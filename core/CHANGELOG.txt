@@ -1,3 +1,17 @@
+2021-06-15/16 Joe Hunt
+New Dashboard and Graphics Engine Class and rerun
+Now includes the SVG Vector Graphics for the core.
+Much prettier graphics.
+M	admin/dashboard.php
+M	includes/dashboard.inc
+A	reporting/fonts/FreeSans.ttf
+M	reporting/includes/class.graphic.inc
+M	reporting/includes/reports_classes.inc
+M	reporting/rep102.php
+M	reporting/rep202.php
+M	reporting/rep706.php
+M	reporting/rep707.php
+
 2021-06-15 Joe Hunt
 PHP 8 - fixed undefined array key warnings.
 M	includes/errors.inc
