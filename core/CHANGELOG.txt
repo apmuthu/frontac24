@@ -1,3 +1,16 @@
+2021-06-15 Joe Hunt
+PHP 8 deprecation fixes - no required parameters after optional parameters in function.
+M	reporting/includes/reporting.inc
+M	gl/includes/db/gl_db_banking.inc
+M	gl/includes/db/gl_db_rates.inc
+M	includes/current_user.inc
+M	includes/db/class.data_set.inc
+M	includes/ui/ui_lists.inc
+M	includes/ui/ui_view.inc
+M	inventory/includes/db/items_db.inc
+M	purchasing/includes/db/suppalloc_db.inc
+M	sales/includes/db/custalloc_db.inc
+
 2021-05-17 Janusz Dobrowolski
 Bug 5245: Added debtors_master.debtor_ref to get_customer_trans() results
 M	sales/includes/db/cust_trans_db.inc
