@@ -1,4 +1,9 @@
 2021-06-15 Joe Hunt
+PHP 8 - fixed undefined array key warnings.
+M	includes/errors.inc
+M	includes/session.inc
+
+2021-06-15 Joe Hunt
 PHP 8 deprecation fixes - no required parameters after optional parameters in function.
 M	reporting/includes/reporting.inc
 M	gl/includes/db/gl_db_banking.inc
