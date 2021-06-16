@@ -1,3 +1,7 @@
+2021-06-16 Joe Hunt
+Bug 5460: Inventory valuation report rep301 retained zero quantity items for items with decimal quantity units. Fixed.
+M	reporting/rep301.php
+
 2021-06-15/16 Joe Hunt
 New Dashboard and Graphics Engine Class and rerun
 Now includes the SVG Vector Graphics for the core.
