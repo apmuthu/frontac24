@@ -1,3 +1,7 @@
+2021-06-18 Janusz Dobrowolski
+Updated gettext template with 5 new strings
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2021-06-16 Joe Hunt
 Bug 5460: Inventory valuation report rep301 retained zero quantity items for items with decimal quantity units. Fixed.
 M	reporting/rep301.php
