@@ -1,4 +1,8 @@
 2021-06-20 Joe Hunt
+Release 2.4.10
+M	version.php
+
+2021-06-20 Joe Hunt
 Updated standard CoAs to 2020-21
 M	sql/en_US-demo.sql
 M	sql/en_US-new.sql
