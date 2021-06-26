@@ -1,4 +1,8 @@
 2021-06-26 Joe Hunt
+Bug 5466: user qty decimals handled incorrectly by code that calls get_item_edit_info. Fixed
+M	includes/db/inventory_db.inc
+
+2021-06-26 Joe Hunt
 2.4.10 Balance and Profit and Loss reports fail to print. Fixed.
 M	reporting/rep706.php
 M	reporting/rep707.php
