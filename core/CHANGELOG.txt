@@ -1,3 +1,8 @@
+2021-06-26 Joe Hunt
+2.4.10 Balance and Profit and Loss reports fail to print. Fixed.
+M	reporting/rep706.php
+M	reporting/rep707.php
+
 2021-06-20 Joe Hunt
 Release 2.4.10
 M	version.php
