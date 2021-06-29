@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2021-06-20 Upstream synch of config.default.php
 2021-06-20 Updated sqls for 2020-21
 2021-06-16 Upstream synch of rep301 for Bugfix 5460
 2021-03-29 Upstream synch of standard charts - new sys_prefs variable max_days_in_docs

@@ -1,4 +1,10 @@
 2021-06-29 Joe Hunt
+Improved the Graphic Engine to show correct legends also in RTL.
+M	config.default.php
+M	includes/dashboard.inc
+M	reporting/includes/class.graphic.inc
+
+2021-06-29 Joe Hunt
 Theme default is now RTL compatible
 M	themes/default/default.css
 
