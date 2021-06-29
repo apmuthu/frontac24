@@ -1,3 +1,7 @@
+2021-06-29 Joe Hunt
+Theme default is now RTL compatible
+M	themes/default/default.css
+
 2021-06-26 Joe Hunt
 Bug 5466: user qty decimals handled incorrectly by code that calls get_item_edit_info. Fixed
 M	includes/db/inventory_db.inc
