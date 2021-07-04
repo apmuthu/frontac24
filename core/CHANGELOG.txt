@@ -1,3 +1,8 @@
+2021-06-20 Joe Hunt
+Updated standard CoAs to 2020-21
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2021-06-18 Janusz Dobrowolski
 Updated gettext template with 5 new strings
 M	lang/new_language_template/LC_MESSAGES/empty.po

@@ -10,7 +10,7 @@ COA Digits      - 4
 Demo Data       - No
 Language        - en
 Release Date    - 2017-10-03
-Last Update     - 2021-04-01
+Last Update     - 2021-06-20
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
 Support         - http://www.mnmserve.com
@@ -1335,7 +1335,7 @@ INSERT INTO `0_currencies` (`currency`,`curr_abrev`,`curr_symbol`,`country`,`hun
 ,('CA Dollars','CAD','$','Canada','Cents',1,0);
 
 INSERT INTO `0_fiscal_year` (`id`,`begin`,`end`,`closed`) VALUES
- ('1', '2019-01-01', '2019-12-31', '0');
+ ('1', '2020-01-01', '2020-12-31', '0');
 
 INSERT INTO `0_groups` (`id`,`description`,`inactive`) VALUES
  ('1', 'Small', '0')
@@ -1534,4 +1534,4 @@ INSERT INTO `0_tax_types` (`id`,`rate`,`sales_gl_code`,`purchasing_gl_code`,`nam
  ('1', '5', '2150', '2150', 'Tax', '0');
 
 INSERT INTO `0_users` (`id`,`user_id`,`password`,`real_name`,`role_id`,`phone`,`email`,`language`,`date_format`,`date_sep`,`tho_sep`,`dec_sep`,`theme`,`page_size`,`prices_dec`,`qty_dec`,`rates_dec`,`percent_dec`,`show_gl`,`show_codes`,`show_hints`,`last_visit_date`,`query_size`,`graphic_links`,`pos`,`print_profile`,`rep_popup`,`sticky_doc_date`,`startup_tab`,`transaction_days`,`save_report_selections`,`use_date_picker`,`def_print_destination`,`def_print_orientation`,`inactive`) VALUES
- ('1', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Administrator', '2', '', 'adm@example.com', 'C', '0', '0', '0', '0', 'default', 'Letter', '2', '2', '4', '1', '1', '0', '0', '2016-05-07 13:58:33', '10', '1', '1', '1', '1', '0', 'orders', '30', '0', '1', '0', '0', '0');
+ ('1', 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'Administrator', '2', '', 'adm@example.com', 'C', '0', '0', '0', '0', 'default', 'Letter', '2', '2', '4', '1', '1', '0', '0', '2020-05-07 13:58:33', '10', '1', '1', '1', '1', '0', 'orders', '30', '0', '1', '0', '0', '0');
