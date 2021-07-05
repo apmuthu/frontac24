@@ -1,3 +1,7 @@
+2021-07-05 Joe Hunt
+Wrong parameter passed to qty_cell. Fixed.
+M	inventory/manage/sales_kits.php
+
 2021-07-04 Joe Hunt
 Select item not working in purchase order and sales order entry. Fixed.
 M	includes/ui/ui_view.inc
