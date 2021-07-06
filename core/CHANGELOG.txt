@@ -1,3 +1,33 @@
+2021-07-06 Joe Hunt
+Mysqli array offset errors on type bool. Fixed.
+M	admin/db/tags_db.inc
+M	fixed_assets/includes/fa_classes_db.inc
+M	gl/bank_account_reconcile.php
+M	gl/includes/db/gl_db_account_types.inc
+M	gl/includes/db/gl_db_rates.inc
+M	gl/includes/ui/gl_bank_ui.inc
+M	includes/data_checks.inc
+M	includes/db/crm_contacts_db.inc
+M	includes/db/inventory_db.inc
+M	includes/db_pager.inc
+M	inventory/includes/db/items_category_db.inc
+M	inventory/includes/db/items_units_db.inc
+M	inventory/manage/sales_kits.php
+M	purchasing/includes/db/suppliers_db.inc
+M	reporting/rep306.php
+M	reporting/rep307.php
+M	reporting/rep308.php
+M	reporting/rep310.php
+M	reporting/rep451.php
+M	sales/includes/db/cust_trans_db.inc
+M	sales/includes/db/customers_db.inc
+M	sales/includes/db/sales_delivery_db.inc
+M	sales/includes/db/sales_groups_db.inc
+M	sales/includes/db/sales_invoice_db.inc
+M	sales/includes/db/sales_points_db.inc
+M	sales/includes/db/sales_types_db.inc
+M	taxes/db/tax_types_db.inc
+
 2021-07-05 Joe Hunt
 Wrong parameter passed to qty_cell. Fixed.
 M	inventory/manage/sales_kits.php
