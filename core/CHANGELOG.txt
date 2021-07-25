@@ -1,3 +1,8 @@
+2021-07-23/25 Joe Hunt
+Function money_format missing in PHP > 7.4 replaced with price format
+M	includes/current_user.inc
+M	reporting/includes/pdf_report.inc
+
 2021-07-06 Joe Hunt
 Mysqli array offset errors on type bool. Fixed.
 M	admin/db/tags_db.inc
