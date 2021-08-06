@@ -1,4 +1,8 @@
 2021-08-06 Joe Hunt
+@detkenn: NEW LINE bug in INVENTORY LOCATION TRANSFER fixed.
+M	inventory/transfers.php
+
+2021-08-06 Joe Hunt
 @boxygen: Credit This Option for Supplier Invoice fixed to Show Quantity Invoiced
 M	purchasing/includes/db/invoice_db.inc
 
