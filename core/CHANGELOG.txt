@@ -1,4 +1,8 @@
 2021-08-14 Joe Hunt
+@braathwaate: Unable to void a sales invoice. Fixed
+M	sales/includes/db/sales_invoice_db.inc
+
+2021-08-14 Joe Hunt
 @kvvaradha: Unable to void Work Order - Fixed
 M	manufacturing/includes/db/work_order_produce_items_db.inc
 
