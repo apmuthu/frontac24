@@ -1,3 +1,7 @@
+2021-08-16 Joe Hunt
+@apmuthu: config.default.inc error on startup fixed
+M	config.default.php
+
 2021-08-14 Joe Hunt
 @braathwaate: Unable to void a sales invoice. Fixed
 M	sales/includes/db/sales_invoice_db.inc
