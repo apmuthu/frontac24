@@ -1,3 +1,7 @@
+2021-09-07 Joe Hunt
+@boxygen: EXCHANGE-RATES.ORG rates fixed
+M	gl/includes/db/gl_db_rates.inc
+
 2021-08-16 Joe Hunt
 @itronics: Huge transactions error in GL Transactions Report fixed
 M	reporting/includes/reports_classes.inc
