@@ -1,3 +1,7 @@
+2021-10-17 Joe Hunt
+@kvvaradha: Curly braces {} in arrays replaced with []
+M	reporting/includes/Workbook.php
+
 2021-10-11 Joe Hunt
 Trying to access array offset on value of type bool.
 M	includes/ui/contacts_view.inc
