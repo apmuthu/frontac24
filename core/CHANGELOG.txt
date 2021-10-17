@@ -1,4 +1,8 @@
 2021-10-17 Joe Hunt
+@rafat: rep109 in Print Profiles fixed
+M	reporting/rep109.php
+
+2021-10-17 Joe Hunt
 @kvvaradha: Curly braces {} in arrays replaced with []
 M	reporting/includes/Workbook.php
 
