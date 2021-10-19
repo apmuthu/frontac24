@@ -28,7 +28,7 @@ multilanguage system with active worldwide users community:
 * [SourceForge project page](http://sourceforge.net/projects/frontaccounting/)
 * [Central users forum](http://frontaccounting.com/punbb/index.php)
 * [Main code repository](https://sourceforge.net/p/frontaccounting/git/ci/master/tree/)
-* [GitHub mirror](http://github.com/FrontAccountingERP/FA)
+* [GitHub mirror](http://github.com/FrontAccountingERP/FA) | Download [zip](https://codeload.github.com/FrontAccountingERP/FA/zip/refs/heads/master), [tar.gz](https://codeload.github.com/FrontAccountingERP/FA/tar.gz/refs/heads/master)
 * [Mantis bugtracker](http://mantis.frontaccounting.com)
 * [FrontAccounting Wiki](http://frontaccounting.com/fawiki/)
 
