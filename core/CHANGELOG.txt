@@ -1,3 +1,9 @@
+2021-10-24 Janusz Dobrowolski
+Bug 5509: Installer errors handling, password size fixed
+M	includes/ui/ui_input.inc
+M	install/index.php
+M	install/isession.inc
+
 2021-10-17 Janusz Dobrowolski
 Added security policy file.
 A	../SECURITY.md
