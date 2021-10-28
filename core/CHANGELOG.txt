@@ -1,3 +1,9 @@
+2021-10-26/28 Joe Hunt
+Bugs 4530, 5510: Zero Allocation Customers on list in Journal Payment fixed
+M	sales/includes/db/custalloc_db.inc
+M	sales/includes/db/cust_trans_db.inc
+M	sales/inquiry/customer_inquiry.php
+
 2021-10-24 Janusz Dobrowolski
 Bug 5498: Items/Fixed Assets: Fixed item image adding/update.
 M	inventory/manage/items.php
