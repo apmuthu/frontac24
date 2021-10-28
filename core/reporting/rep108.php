@@ -45,10 +45,10 @@ function getTransactions($debtorno, $date, $show_also_allocated)
             ON trans.trans_no=v.id AND trans.type=v.type
         WHERE tran_date <= '$date' AND debtor_no = ".db_escape($debtorno)."
 			AND trans.type <> ".ST_CUSTDELIVERY." AND ISNULL(v.date_)
-			AND ABS(ov_amount + ov_gst + ov_freight + ov_freight_tax + ov_discount) > ". FLOAT_COMP_DELTA;
+			AND ABS(ABS(ov_amount) + ov_gst + ov_freight + ov_freight_tax + ov_discount) > ". FLOAT_COMP_DELTA;
 	
   	if (!$show_also_allocated)
-		$sql .= " AND ABS(ABS(ov_amount + ov_gst + ov_freight +	ov_freight_tax + ov_discount) - alloc) > ". FLOAT_COMP_DELTA;
+		$sql .= " AND ABS(ABS(ov_amount) + ov_gst + ov_freight +	ov_freight_tax + ov_discount - alloc) > ". FLOAT_COMP_DELTA;
 	$sql .= " ORDER BY tran_date";
 
     return db_query($sql,"No transactions were returned");
@@ -137,15 +137,15 @@ function print_statements()
 		{
 			$DisplayTotal = number_format2(Abs($myrow2["TotalAmount"]),$dec);
 			$DisplayAlloc = number_format2($myrow2["Allocated"],$dec);
-			$DisplayNet = number_format2($myrow2["TotalAmount"] - $myrow2["Allocated"],$dec);
+			$DisplayNet = number_format2(Abs($myrow2["TotalAmount"]) - $myrow2["Allocated"],$dec);
 
 			$rep->TextCol(0, 1, $systypes_array[$myrow2['type']], -2);
 			$rep->TextCol(1, 2,	$myrow2['reference'], -2);
 			$rep->TextCol(2, 3,	sql2date($myrow2['tran_date']), -2);
 			if ($myrow2['type'] == ST_SALESINVOICE)
 				$rep->TextCol(3, 4,	sql2date($myrow2['due_date']), -2);
-			if ($myrow2['type'] == ST_SALESINVOICE || $myrow2['type'] == ST_BANKPAYMENT || 
-				($myrow2['type'] == ST_JOURNAL && $myrow2["TotalAmount"] > 0.0))
+			if ($myrow2['type'] == ST_SALESINVOICE || $myrow2['type'] == ST_BANKPAYMENT || ($myrow2['type'] == ST_JOURNAL && 
+				$myrow2["TotalAmount"] > 0))
 				$rep->TextCol(4, 5,	$DisplayTotal, -2);
 			else
 				$rep->TextCol(5, 6,	$DisplayTotal, -2);
