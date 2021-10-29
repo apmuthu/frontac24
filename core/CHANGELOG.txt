@@ -1,3 +1,7 @@
+2021-10-29 Joe Hunt
+Customer aging journal entry computation fixed.
+M	sales/includes/db/customers_db.inc
+
 2021-10-28 Joe Hunt
 Customer Statements shows wrong balances for Journal Entries. Fixed.
 M	reporting/rep108.php
