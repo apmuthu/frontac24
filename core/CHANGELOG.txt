@@ -1,3 +1,10 @@
+2021-11-02 Joe Hunt
+Bugs 5510, 5512: Alloc Icon, multiple journal entries in one transaction
+M	purchasing/supplier_payment.php
+M	reporting/rep101.php
+M	sales/customer_payments.php
+M	sales/inquiry/customer_allocation_inquiry.php
+
 2021-10-29 Joe Hunt
 Customer aging journal entry computation fixed.
 M	sales/includes/db/customers_db.inc
@@ -7,7 +14,7 @@ Customer Statements shows wrong balances for Journal Entries. Fixed.
 M	reporting/rep108.php
 
 2021-10-26/28 Joe Hunt
-Bugs 4530, 5510: Zero Allocation Customers on list in Journal Payment fixed
+Bugs 4530, 5510: Zero Allocation Customers on list in Journal Payment fixed (updates of 2021-11-02 as well)
 M	sales/includes/db/custalloc_db.inc
 M	sales/includes/db/cust_trans_db.inc
 M	sales/inquiry/customer_inquiry.php
