@@ -1,4 +1,9 @@
 2021-10-24 Janusz Dobrowolski
+Bug 5498: Items/Fixed Assets: Fixed item image adding/update.
+M	inventory/manage/items.php
+M	reporting/includes/tcpdf.php
+
+2021-10-24 Janusz Dobrowolski
 Bug 5509: Installer errors handling, password size fixed
 M	includes/ui/ui_input.inc
 M	install/index.php
