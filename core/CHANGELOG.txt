@@ -1,3 +1,7 @@
+2021-11-04 Joe Hunt
+Bug 5518: Total Amount of a Journal Entry with multiple rows (>2) is wrong in Journal Entry Inquiries. Fixed.
+M	gl/includes/db/gl_db_trans.inc
+
 2021-11-02 Joe Hunt
 Bugs 5510, 5512: Alloc Icon, multiple journal entries in one transaction
 M	purchasing/supplier_payment.php
