@@ -1,3 +1,7 @@
+2021-11-15 Joe Hunt
+Bug 5527 @bradlanier: Tax Type not displayed on initial setup if default Sales and/or Purchase Tax account deleted.
+M	taxes/db/tax_types_db.inc
+
 2021-11-04 Joe Hunt
 Bug 5518: Total Amount of a Journal Entry with multiple rows (>2) is wrong in Journal Entry Inquiries. Fixed.
 M	gl/includes/db/gl_db_trans.inc
