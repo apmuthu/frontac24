@@ -458,11 +458,11 @@ function add_gl_tax_details($gl_code, $trans_type, $trans_no, $amount, $ex_rate,
 //
 function add_trans_tax_details($trans_type, $trans_no, $tax_id, $rate, $included,
 	$amount, $net_amount, $ex_rate, $tran_date, $memo, $reg_type=null)
-{
+{	
 	// guess tax register if not set
 	if (!isset($reg_type))
-		$reg_type = in_array($trans_type, array(ST_SUPPINVOICE, ST_SUPPCREDIT)) ? TR_OUTPUT
-				: (in_array($trans_type, array(ST_SALESINVOICE, ST_CUSTCREDIT)) ? TR_INPUT : null);
+		$reg_type = in_array($trans_type, array(ST_SUPPINVOICE, ST_SUPPCREDIT)) ? TR_INPUT
+				: (in_array($trans_type, array(ST_SALESINVOICE, ST_CUSTCREDIT)) ? TR_OUTPUT : null);
 
 	$sql = "INSERT INTO ".TB_PREF."trans_tax_details 
 		(trans_type, trans_no, tran_date, tax_type_id, rate, ex_rate,
@@ -523,22 +523,22 @@ function get_tax_summary($from, $to, $also_zero_purchases=false)
 	$sql = "SELECT 
 				SUM(IF(trans_type=".ST_CUSTCREDIT.",-1,1)*
 				IF((reg_type=".TR_OUTPUT.")"
-					." || ((trans_type IN(".ST_SALESINVOICE.",".ST_CUSTCREDIT.") OR (trans_type=".ST_JOURNAL." AND reg_type=".TR_INPUT."))
+					." || ((trans_type IN(".ST_SALESINVOICE.",".ST_CUSTCREDIT.",".ST_BANKDEPOSIT."))
 					), net_amount*ex_rate,0)
 				) net_output,
 
 				SUM(IF(trans_type=".ST_CUSTCREDIT.",-1,1)*
 				IF((reg_type=".TR_OUTPUT.")"
-					." || ((trans_type IN(".ST_SALESINVOICE.",".ST_CUSTCREDIT.") OR (trans_type=".ST_JOURNAL." AND reg_type=".TR_INPUT."))
+					." || ((trans_type IN(".ST_SALESINVOICE.",".ST_CUSTCREDIT.",".ST_BANKDEPOSIT."))
 					), amount*ex_rate,0)) payable,
 
-				SUM(IF(trans_type IN(".ST_SUPPCREDIT."),-1,1)*
-				IF(reg_type=".TR_INPUT
+				SUM(IF(trans_type IN(".ST_SUPPCREDIT.",".ST_BANKPAYMENT."),-1,1)*
+				IF((reg_type=".TR_INPUT." OR trans_type IN (".ST_SUPPINVOICE.",".ST_BANKPAYMENT."))"
 					. ($also_zero_purchases ? '': " AND tax_type_id AND taxrec.rate")
 					.", net_amount*ex_rate, 0)) net_input,
 
-				SUM(IF(trans_type IN(".ST_SUPPCREDIT."),-1,1)*
-				IF(reg_type=".TR_INPUT
+				SUM(IF(trans_type IN(".ST_SUPPCREDIT.",".ST_BANKPAYMENT."),-1,1)*
+				IF((reg_type=".TR_INPUT." OR trans_type IN (".ST_SUPPINVOICE.",".ST_BANKPAYMENT."))"
 					. ($also_zero_purchases ? '': " AND tax_type_id AND taxrec.rate ") 
 					.", amount*ex_rate, 0)) collectible,
 				taxrec.rate,

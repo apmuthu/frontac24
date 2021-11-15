@@ -1,3 +1,9 @@
+2021-11-15/16 Joe Hunt
+Bugs 5522, 5523, 5524: Journal Entry Affecting in both sales and purchase and more with fix reruns
+M	gl/includes/db/gl_db_trans.inc
+M	includes/ui/items_cart.inc
+M	reporting/rep709.php
+
 2021-11-15 Joe Hunt
 Bug 5527 @bradlanier: Tax Type not displayed on initial setup if default Sales and/or Purchase Tax account deleted.
 M	taxes/db/tax_types_db.inc
