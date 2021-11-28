@@ -1,3 +1,7 @@
+2021-11-28 Joe Hunt
+@kvvaradha: update_material_cost function removed unnecessary call to get_item.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
 2021-11-22 Janusz Dobrowolski
 Receive Purchase Order Items blank page opening fixed for recent php versions
 M	purchasing/po_receive_items.php
