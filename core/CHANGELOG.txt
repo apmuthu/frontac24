@@ -1,3 +1,7 @@
+2021-12-03 Janusz Dobrowolski
+The secure flag was not set on session cookie. Fixed.
+M	includes/session.inc
+
 2021-11-28 Joe Hunt
 @kvvaradha: update_material_cost function removed unnecessary call to get_item.
 M	manufacturing/includes/db/work_order_costing_db.inc
