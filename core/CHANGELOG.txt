@@ -1,4 +1,8 @@
 2021-12-03 Janusz Dobrowolski
+Updated gettext template.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2021-12-03 Janusz Dobrowolski
 The secure flag was not set on session cookie. Fixed.
 M	includes/session.inc
 
