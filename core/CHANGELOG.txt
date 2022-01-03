@@ -1,3 +1,7 @@
+2022-01-03 Joe Hunt
+Graphics engine bugfixes
+M	reporting/includes/class.graphic.inc
+
 2021-12-14 Janusz Dobrowolski
 Fixed parameter lists in gl_all_accounts_list_row and calls to subledger_list_cells
 M	gl/includes/ui/gl_journal_ui.inc
