@@ -1,3 +1,7 @@
+2021-12-13 Joe Hunt
+Bug 5544: Notes from template are not used in recurring invoices. Fixed. 
+M	sales/create_recurrent_invoices.php
+
 2021-12-04 Joe Hunt
 Release 2.4.11
 M	version.php
