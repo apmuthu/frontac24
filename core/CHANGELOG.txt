@@ -1,3 +1,7 @@
+2022-01-23 Janusz Dobrowolski
+Abstraction to define in session.inc for https
+M	includes/session.inc
+
 2022-01-03 Joe Hunt
 Graphics engine bugfixes
 M	reporting/includes/class.graphic.inc
