@@ -1,3 +1,7 @@
+2022-01-24 Joe Hunt
+Renamed function usage to 'del_image' from missing 'delete_image' when deleting image as used in codebase.
+M	inventory/manage/items.php
+
 2022-01-23 Janusz Dobrowolski
 Abstraction to define in session.inc for https
 M	includes/session.inc

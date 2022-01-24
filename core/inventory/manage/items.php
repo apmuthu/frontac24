@@ -335,7 +335,7 @@ if (isset($_POST['delete']) && strlen($_POST['delete']) > 1)
 
 		$stock_id = $_POST['NewStockID'];
 		delete_item($stock_id);
-		delete_image($stock_id);
+		del_image($stock_id);
 		display_notification(_("Selected item has been deleted."));
 		$_POST['stock_id'] = '';
 		clear_data();
