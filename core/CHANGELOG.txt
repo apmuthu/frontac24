@@ -1,3 +1,8 @@
+2022-01-24 Janusz Dobrowolski
+Add and Manage Customers, Suppliers: contact persons where not removed when deleting customer/supplier. Fixed.
+M	includes/db/crm_contacts_db.inc
+M	purchasing/includes/db/suppliers_db.inc
+
 2022-01-24 Joe Hunt
 Renamed function usage to 'del_image' from missing 'delete_image' when deleting image as used in codebase.
 M	inventory/manage/items.php
