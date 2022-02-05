@@ -1,3 +1,8 @@
+2022-02-05 Joe Hunt
+Typo fixed in Translatable source string Purchable => Purchasable
+M	includes/dashboard.inc
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2022-01-24 Janusz Dobrowolski
 Add and Manage Customers, Suppliers: contact persons where not removed when deleting customer/supplier. Fixed.
 M	includes/db/crm_contacts_db.inc
