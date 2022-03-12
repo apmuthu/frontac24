@@ -11913,7 +11913,8 @@ msgid "Total:"
 msgstr ""
 
 #: purchasing/allocations/supplier_allocate.php:62
-msgid "Amount ot be settled:"
+#: sales/allocations/customer_allocate.php:64
+msgid "Amount to be settled:"
 msgstr ""
 
 #: purchasing/allocations/supplier_allocate.php:74
@@ -14567,10 +14568,6 @@ msgstr ""
 #: sales/allocations/customer_allocate.php:55
 #, php-format
 msgid "Allocation of %s # %d"
-msgstr ""
-
-#: sales/allocations/customer_allocate.php:64
-msgid "Amount to be settled:"
 msgstr ""
 
 #: sales/allocations/customer_allocation_main.php:22

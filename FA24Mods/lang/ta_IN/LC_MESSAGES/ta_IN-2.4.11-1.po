@@ -12329,7 +12329,8 @@ msgid "Total:"
 msgstr "மொத்தம்:"
 
 #: purchasing/allocations/supplier_allocate.php:62
-msgid "Amount ot be settled:"
+#: sales/allocations/customer_allocate.php:64
+msgid "Amount to be settled:"
 msgstr "தொகை தீர்க்கப்பட வேண்டும்:"
 
 #: purchasing/allocations/supplier_allocate.php:74
@@ -15060,10 +15061,6 @@ msgstr "வாடிக்கையாளர் கொடுப்பனவு �
 #, php-format
 msgid "Allocation of %s # %d"
 msgstr "%s # %d ஒதுக்கீடு"
-
-#: sales/allocations/customer_allocate.php:64
-msgid "Amount to be settled:"
-msgstr "தீர்வு செய்ய வேண்டிய தொகை:"
 
 #: sales/allocations/customer_allocation_main.php:22
 msgid "Customer Allocations"

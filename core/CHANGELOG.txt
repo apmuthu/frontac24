@@ -1,3 +1,8 @@
+2022-03-13 Joe Hunt
+Typo fixed in Translatable source string ot => to
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	purchasing/allocations/supplier_allocate.php
+
 2022-02-05 Joe Hunt
 Typo fixed in Translatable source string Purchable => Purchasable
 M	includes/dashboard.inc
