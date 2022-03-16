@@ -1,3 +1,8 @@
+2022-03-16 Joe Hunt
+Dashboard issues fixed with rerun
+M	includes/dashboard.inc
+M	purchasing/inquiry/supplier_inquiry.php (whitespace only)
+
 2022-03-13 Joe Hunt
 Typo fixed in Translatable source string ot => to
 M	lang/new_language_template/LC_MESSAGES/empty.po
