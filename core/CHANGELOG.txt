@@ -1,3 +1,7 @@
+2022-04-11 Joe Hunt
+Coding bug in inventory_db.inc. Fixed. 
+M	inventory/includes/inventory_db.inc
+
 2022-03-23 Joe Hunt
 Bank account transfers don't have GL dimensions. Fixed.
 M	gl/bank_transfer.php
