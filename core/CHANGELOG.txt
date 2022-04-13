@@ -1,3 +1,7 @@
+2022-04-13 Joe Hunt
+Journal Entry - Cursor skips through dimension field. Fixed.
+M	gl/includes/ui/gl_journal_ui.inc
+
 2022-04-11 Joe Hunt
 Coding bug in inventory_db.inc. Fixed. 
 M	inventory/includes/inventory_db.inc
