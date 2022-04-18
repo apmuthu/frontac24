@@ -1,3 +1,7 @@
+2022-04-18 Joe Hunt
+Email invoice always says invoice 0 from company. Fixed.
+M	reporting/rep107.php
+
 2022-04-13 Joe Hunt
 Journal Entry - Cursor skips through dimension field. Fixed.
 M	gl/includes/ui/gl_journal_ui.inc
