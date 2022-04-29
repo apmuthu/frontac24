@@ -1,3 +1,8 @@
+2022-04-29 Janusz Dobrowolski
+Invoice Prepaid Orders: Added new payments column for direct review of order invoicing status.
+M	sales/includes/db/sales_order_db.inc
+M	sales/inquiry/sales_orders_view.php
+
 2022-04-18 Joe Hunt
 Email invoice always says invoice 0 from company. Fixed.
 M	reporting/rep107.php
