@@ -1,4 +1,13 @@
 2022-04-29 Janusz Dobrowolski
+Customer balances reports: fixed balance sums for prepayment invoices and re-run
+M	reporting/includes/doctext.inc
+M	reporting/rep101.php
+M	reporting/rep102.php
+M	reporting/rep108.php
+M	reporting/rep115.php
+M	sales/includes/db/customers_db.inc
+
+2022-04-29 Janusz Dobrowolski
 Invoice Prepaid Orders: Added new payments column for direct review of order invoicing status.
 M	sales/includes/db/sales_order_db.inc
 M	sales/inquiry/sales_orders_view.php
