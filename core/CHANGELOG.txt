@@ -1,4 +1,8 @@
 2022-05-07 Joe Hunt
+Buttons missing on Chart of Accounts page (on some editions). Fixed.
+M	gl/manage/gl_accounts.php
+
+2022-05-07 Joe Hunt
 Adding Assets Classes fails. Fixed.
 M	fixed_assets/fixed_asset_classes.php
 
