@@ -1,3 +1,10 @@
+2022-05-11 Janusz Dobrowolski
+Customer balances reports: further fixes and cleanups.
+M	reporting/rep101.php
+M	reporting/rep102.php
+M	reporting/rep115.php
+M	sales/includes/db/customers_db.inc
+
 2022-05-07 Joe Hunt
 Buttons missing on Chart of Accounts page (on some editions). Fixed.
 M	gl/manage/gl_accounts.php
