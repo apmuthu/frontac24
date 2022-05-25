@@ -1,3 +1,8 @@
+2022-05-26 Joe Hunt
+Fixed Long product Description on Sales Quotation.
+M	reporting/rep111.php
+M	sales/includes/db/sales_order_db.inc
+
 2022-05-11 Janusz Dobrowolski
 Customer balances reports: further fixes and cleanups.
 M	reporting/rep101.php
