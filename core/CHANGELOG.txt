@@ -1,3 +1,17 @@
+2022-006-06 Joe Hunt
+Several PHP 8/8.1 deprecated NULL fixes
+M	includes/JsHttpRequest.php
+M	includes/packages.inc
+M	includes/ui/ui_lists.inc
+M	reporting/includes/class.graphic.inc
+M	reporting/includes/pdf_report.inc
+M	reporting/rep101.php
+M	reporting/rep103.php
+M	reporting/rep201.php
+M	reporting/rep206.php
+M	reporting/rep302.php
+M	reporting/rep705.php
+
 2022-05-26 Joe Hunt
 Fixed Long product Description on Sales Quotation.
 M	reporting/rep111.php

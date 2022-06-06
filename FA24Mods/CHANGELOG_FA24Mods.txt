@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2022-06-06 Upstream fix for deprecated NULL in PHP 8.1
 2022-05-26 Upstream fix for item long description in invoice
 2022-04-29 Upstream update for Prepaid Invoice
 2022-03-13 Updated core Tamil language ta_IN for FA v2.4.11
