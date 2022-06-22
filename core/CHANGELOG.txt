@@ -1,4 +1,13 @@
-2022-006-06 Joe Hunt
+2022-06-22 Janusz Dobrowolski
+Additional bugfixes for prepayment handling in sales reports (Customer Balances, Aged Customer Analysys, Customer Statements and Sales Invoice)
+M	includes/dashboard.inc
+M	reporting/rep102.php
+M	reporting/rep107.php
+M	sales/customer_invoice.php
+M	sales/includes/db/customers_db.inc
+M	sales/includes/db/sales_invoice_db.inc
+
+2022-06-03/06 Joe Hunt
 Several PHP 8/8.1 deprecated NULL fixes
 M	includes/JsHttpRequest.php
 M	includes/packages.inc
