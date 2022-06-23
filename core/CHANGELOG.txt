@@ -1,3 +1,7 @@
+2022-06-23 Joe Hunt
+Bug 5571, 5572: Unable to void/edit transactions in php 8. Due to an error in audit_trail_db.inc. _('None') returns a positive value in php 8 and not a 0 value. Fixed.
+M	includes/db/audit_trail_db.inc
+
 2022-06-22 Janusz Dobrowolski
 Additional bugfixes for prepayment handling in sales reports (Customer Balances, Aged Customer Analysys, Customer Statements and Sales Invoice)
 M	includes/dashboard.inc
