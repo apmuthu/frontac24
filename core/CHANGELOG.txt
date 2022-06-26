@@ -1,4 +1,8 @@
 2022-06-23 Joe Hunt
+Feature 5623: link to new supplier invoice after supplier payment, option to have last supplier invoice be current supplier.
+M	purchasing/supplier_payment.php
+
+2022-06-23 Joe Hunt
 Bug 5571, 5572: Unable to void/edit transactions in php 8. Due to an error in audit_trail_db.inc. _('None') returns a positive value in php 8 and not a 0 value. Fixed.
 M	includes/db/audit_trail_db.inc
 
