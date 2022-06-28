@@ -1,3 +1,7 @@
+2022-06-28 Joe Hunt
+Bug 5599: Generating an EAN-8 Barcode throws an error "Trying to access array offset on value of type bool". Fixed.
+M	inventory/manage/items.php
+
 2022-06-23 Joe Hunt
 Feature 5623: link to new supplier invoice after supplier payment, option to have last supplier invoice be current supplier.
 M	purchasing/supplier_payment.php
