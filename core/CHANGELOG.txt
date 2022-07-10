@@ -1,3 +1,7 @@
+2022-07-10 Joe Hunt
+php 8.1 bug. Parameter to urlencode cannot be null. Fixed.
+M	reporting/includes/reporting.inc
+
 2022-06-28 Joe Hunt
 Bug 5599: Generating an EAN-8 Barcode throws an error "Trying to access array offset on value of type bool". Fixed.
 M	inventory/manage/items.php
