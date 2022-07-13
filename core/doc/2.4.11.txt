@@ -1,3 +1,204 @@
+2021-12-04 Joe Hunt
+Release 2.4.11
+M	version.php
+M	CHANGELOG.txt
+
+2021-12-04 Joe Hunt
+PHP 8 Errors fixed in CRUD class
+M	includes/ui/simple_crud_class.inc
+
+2021-12-03 Janusz Dobrowolski
+Updated gettext template.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2021-12-03 Janusz Dobrowolski
+The secure flag was not set on session cookie. Fixed.
+M	includes/session.inc
+
+2021-11-28 Joe Hunt
+@kvvaradha: update_material_cost function removed unnecessary call to get_item.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2021-11-22 Janusz Dobrowolski
+Receive Purchase Order Items blank page opening fixed for recent php versions
+M	purchasing/po_receive_items.php
+
+2021-11-15/16 Joe Hunt
+Bugs 5522, 5523, 5524: Journal Entry Affecting in both sales and purchase and more with fix reruns
+M	gl/includes/db/gl_db_trans.inc
+M	includes/ui/items_cart.inc
+M	reporting/rep709.php
+
+2021-11-15 Joe Hunt
+Bug 5527 @bradlanier: Tax Type not displayed on initial setup if default Sales and/or Purchase Tax account deleted.
+M	taxes/db/tax_types_db.inc
+
+2021-11-04 Joe Hunt
+Bug 5518: Total Amount of a Journal Entry with multiple rows (>2) is wrong in Journal Entry Inquiries. Fixed.
+M	gl/includes/db/gl_db_trans.inc
+
+2021-11-02 Joe Hunt
+Bugs 5510, 5512: Alloc Icon, multiple journal entries in one transaction
+M	purchasing/supplier_payment.php
+M	reporting/rep101.php
+M	sales/customer_payments.php
+M	sales/inquiry/customer_allocation_inquiry.php
+
+2021-10-29 Joe Hunt
+Customer aging journal entry computation fixed.
+M	sales/includes/db/customers_db.inc
+
+2021-10-28 Joe Hunt
+Customer Statements shows wrong balances for Journal Entries. Fixed.
+M	reporting/rep108.php
+
+2021-10-26/28 Joe Hunt
+Bugs 4530, 5510: Zero Allocation Customers on list in Journal Payment fixed (updates of 2021-11-02 as well)
+M	sales/includes/db/custalloc_db.inc
+M	sales/includes/db/cust_trans_db.inc
+M	sales/inquiry/customer_inquiry.php
+
+2021-10-24 Janusz Dobrowolski
+Bug 5498: Items/Fixed Assets: Fixed item image adding/update.
+M	inventory/manage/items.php
+M	reporting/includes/tcpdf.php
+
+2021-10-24 Janusz Dobrowolski
+Bug 5509: Installer errors handling, password size fixed
+M	includes/ui/ui_input.inc
+M	install/index.php
+M	install/isession.inc
+
+2021-10-17 Janusz Dobrowolski
+Added security policy file.
+A	../SECURITY.md
+
+2021-10-17 Joe Hunt
+@rafat: rep109 in Print Profiles fixed
+M	reporting/rep109.php
+
+2021-10-17 Joe Hunt
+@kvvaradha: Curly braces {} in arrays replaced with []
+M	reporting/includes/Workbook.php
+
+2021-10-11 Joe Hunt
+Trying to access array offset on value of type bool.
+M	includes/ui/contacts_view.inc
+
+2021-10-11 Joe Hunt
+@kvvaradha: hook_db_prewrite was not properly used inside journal entry.
+M	gl/includes/db/gl_journal.inc
+
+2021-10-11 Joe Hunt
+@kvvaradha: PHP 8 fix - imagettfbbox => imageftbbox
+M	reporting/includes/class.graphic.inc
+
+2021-09-24 Joe Hunt
+Bug 5490: @kvvaradha - qty_done is not updated correctly on partial invoice is void fixed
+M	sales/includes/db/sales_invoice_db.inc
+
+2021-09-07 Joe Hunt
+@boxygen: EXCHANGE-RATES.ORG rates fixed
+M	gl/includes/db/gl_db_rates.inc
+
+2021-08-16 Joe Hunt
+@itronics: Huge transactions error in GL Transactions Report fixed
+M	reporting/includes/reports_classes.inc
+
+2021-08-16 Joe Hunt
+@apmuthu: config.default.inc error on startup fixed
+M	config.default.php
+
+2021-08-14 Joe Hunt
+@braathwaate: Unable to void a sales invoice. Fixed
+M	sales/includes/db/sales_invoice_db.inc
+
+2021-08-14 Joe Hunt
+@kvvaradha: Unable to void Work Order - Fixed
+M	manufacturing/includes/db/work_order_produce_items_db.inc
+
+2021-08-08 Joe Hunt
+@barbarian: GL Journal SQL bug fixed. Been around since v2.4.2.
+M	gl/includes/db/gl_journal.inc
+
+2021-08-06 Joe Hunt
+@detkenn: NEW LINE bug in INVENTORY LOCATION TRANSFER fixed.
+M	inventory/transfers.php
+
+2021-08-06 Joe Hunt
+@boxygen: Credit This Option for Supplier Invoice fixed to Show Quantity Invoiced
+M	purchasing/includes/db/invoice_db.inc
+
+2021-07-27 Janusz Dobrowolski
+Bug 5471: Fixed direct supplier payment bug introduced by Dimension wise balance sheet items - AR/AP implemented.
+M	purchasing/includes/purchasing_db.inc
+
+2021-07-25 Janusz Dobrowolski
+Customer Credit Invoice: fixed invalid processing of invoice payments (triggering blank page on php8 too)
+M	sales/includes/sales_db.inc
+
+2021-07-23/25 Joe Hunt
+Function money_format missing in PHP > 7.4 replaced with price format
+M	includes/current_user.inc
+M	reporting/includes/pdf_report.inc
+
+2021-07-06 Joe Hunt
+Mysqli array offset errors on type bool. Fixed.
+M	admin/db/tags_db.inc
+M	fixed_assets/includes/fa_classes_db.inc
+M	gl/bank_account_reconcile.php
+M	gl/includes/db/gl_db_account_types.inc
+M	gl/includes/db/gl_db_rates.inc
+M	gl/includes/ui/gl_bank_ui.inc
+M	includes/data_checks.inc
+M	includes/db/crm_contacts_db.inc
+M	includes/db/inventory_db.inc
+M	includes/db_pager.inc
+M	inventory/includes/db/items_category_db.inc
+M	inventory/includes/db/items_units_db.inc
+M	inventory/manage/sales_kits.php
+M	purchasing/includes/db/suppliers_db.inc
+M	reporting/rep306.php
+M	reporting/rep307.php
+M	reporting/rep308.php
+M	reporting/rep310.php
+M	reporting/rep451.php
+M	sales/includes/db/cust_trans_db.inc
+M	sales/includes/db/customers_db.inc
+M	sales/includes/db/sales_delivery_db.inc
+M	sales/includes/db/sales_groups_db.inc
+M	sales/includes/db/sales_invoice_db.inc
+M	sales/includes/db/sales_points_db.inc
+M	sales/includes/db/sales_types_db.inc
+M	taxes/db/tax_types_db.inc
+
+2021-07-05 Joe Hunt
+Wrong parameter passed to qty_cell. Fixed.
+M	inventory/manage/sales_kits.php
+
+2021-07-04 Joe Hunt
+Select item not working in purchase order and sales order entry. Fixed.
+M	includes/ui/ui_view.inc
+
+2021-06-29 Joe Hunt
+Improved the Graphic Engine to show correct legends also in RTL.
+M	config.default.php
+M	includes/dashboard.inc
+M	reporting/includes/class.graphic.inc
+
+2021-06-29 Joe Hunt
+Theme default is now RTL compatible
+M	themes/default/default.css
+
+2021-06-26 Joe Hunt
+Bug 5466: user qty decimals handled incorrectly by code that calls get_item_edit_info. Fixed
+M	includes/db/inventory_db.inc
+
+2021-06-26 Joe Hunt
+2.4.10 Balance and Profit and Loss reports fail to print. Fixed.
+M	reporting/rep706.php
+M	reporting/rep707.php
+
 2021-06-20 Joe Hunt
 Release 2.4.10
 M	version.php
