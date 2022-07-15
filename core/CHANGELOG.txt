@@ -1,3 +1,7 @@
+2022-07-15 Joe Hunt
+get_stock_gl_code function called twice in the add_supp_invoice. Fixed.
+M	purchasing/includes/db/invoice_db.inc
+
 2022-07-13 Joe Hunt
 Release 2.4.12
 M	version.php
