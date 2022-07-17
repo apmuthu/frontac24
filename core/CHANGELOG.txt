@@ -1,3 +1,8 @@
+2022-07-17 Joe Hunt
+Invoice not converting from DN due to float bug in PHP. items_units_db.inc is already included, reruns
+M	sales/customer_delivery.php
+M	sales/customer_invoice.php
+
 2022-07-15 Joe Hunt
 get_stock_gl_code function called twice in the add_supp_invoice. Fixed.
 M	purchasing/includes/db/invoice_db.inc
