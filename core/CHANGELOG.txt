@@ -1,3 +1,7 @@
+2022-07-22 Joe Hunt
+php 8. cannot generate recurring invoices after upgrade to 2.4.12. Fixed.
+M	reporting/includes/reporting.inc
+
 2022-07-17 Joe Hunt
 Invoice not converting from DN due to float bug in PHP. items_units_db.inc is already included, reruns
 M	sales/customer_delivery.php
