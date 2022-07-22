@@ -1,4 +1,8 @@
 2022-07-22 Joe Hunt
+php 8. strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated. Fixed.
+M	includes/date_functions.inc
+
+2022-07-22 Joe Hunt
 php 8. cannot generate recurring invoices after upgrade to 2.4.12. Fixed.
 M	reporting/includes/reporting.inc
 
