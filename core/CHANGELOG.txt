@@ -1,3 +1,7 @@
+2022-07-28 Joe Hunt
+php 8 error. class.mail.inc. line 149. #5 parameter cannot be null.
+M	reporting/includes/class.mail.inc
+
 2022-07-22 Joe Hunt
 php 8. strpos(): Passing null to parameter #1 ($haystack) of type string is deprecated. Fixed.
 M	includes/date_functions.inc
