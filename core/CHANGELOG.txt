@@ -1,3 +1,7 @@
+2022-08-15 Joe Hunt
+Show also Upcoming Purchase Invoices - in Dashboard. Fixed.
+M	includes/dashboard.inc
+
 2022-07-28 Joe Hunt
 php 8 error. class.mail.inc. line 149. #5 parameter cannot be null.
 M	reporting/includes/class.mail.inc
