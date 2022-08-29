@@ -11,6 +11,7 @@
 ***********************************************************************/
 define('VARLIB_PATH', $path_to_root.'/tmp');
 define('VARLOG_PATH', $path_to_root.'/tmp');
+// define('SECURE_ONLY', true); // if you really need also http (unsecure) access allowed, you can set this to NULL
 define('SECURE_ONLY', (parse_url($_SERVER['REQUEST_URI'], PHP_URL_SCHEME) == 'https'));
 
 class SessionManager

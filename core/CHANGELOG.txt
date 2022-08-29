@@ -1,3 +1,7 @@
+2022-08-29 Joe Hunt
+Added comment to SECURE_ONLY constant.
+M	includes/session.inc
+
 2022-08-15 Joe Hunt
 Show also Upcoming Purchase Invoices - in Dashboard. Fixed.
 M	includes/dashboard.inc
