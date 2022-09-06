@@ -1,3 +1,8 @@
+2022-09-06 Joe Hunt
+Sales group query error in mysql 8. groups is a reserved word. Fixed
+M	includes/ui/ui_lists.inc
+M	sales/includes/db/sales_groups_db.inc
+
 2022-08-29 Joe Hunt
 Added comment to SECURE_ONLY constant.
 M	includes/session.inc
