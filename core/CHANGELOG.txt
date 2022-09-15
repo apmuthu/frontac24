@@ -1,4 +1,8 @@
 2022-09-11 Joe Hunt
+PHP 8 array bool error Fixed.
+M	sales/customer_payments.php
+
+2022-09-11 Joe Hunt
 Credit note could be posted without customer/supplier selected on search list enabled. Fixed.
 M	purchasing/supplier_credit.php
 M	purchasing/supplier_invoice.php
