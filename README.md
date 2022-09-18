@@ -82,3 +82,15 @@ During installation you will need to provide data server credentials with permis
 ## Troubleshooting
 
 If you encountered any problems with FrontAccounting configuration or usage, please consult your case with other users on [Frontaccounting forum](http://frontaccounting.com/punbb/index.php). If you think you have encountered a bug in application and after consulting other community members you still are sure this is really a bug, please fill in a report in project [Mantis bugtracker](http://mantis.frontaccounting.com) with all details which allow development team reproduce the problem, and hopefully fix it. Keep in mind, that  [GitHub](http://github.com/FrontAccountingERP/FA) page is mainly passive mirror for project based on SorceForge, so posting bug reports here is at least suboptimal.
+
+## Language Template Comparisions
+* Each new release of FA can result in a new language template at `lang/new_language_template/LC_MESSAGES/empty.po`.
+* Extract out the key text elements and strip out the comments with:
+````
+cp lang/new_language_template/LC_MESSAGES/empty.po new_strings.txt
+grep ^ '^#' new.txt > new_str.txt
+# do the same for the old version of the said file
+# do a diff on both the string files
+````
+
+

@@ -1,3 +1,8 @@
+2022-09-18 Joe Hunt
+Release 2.4.13
+M	version.php
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2022-09-11 Joe Hunt
 PHP 8 array bool error Fixed.
 M	sales/customer_payments.php
