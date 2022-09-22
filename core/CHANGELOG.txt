@@ -1,3 +1,7 @@
+2022-09-22 Joe Hunt
+PHP 8 deprecated parameter in imagefilledpolygon. More float to int problems in reporting. Fixed.
+M	reporting/includes/class.graphic.inc
+
 2022-09-20 Joe Hunt
 PHP 8. Conversion from float to int loses precision in file: line 1391. Fixed.
 M	reporting/includes/class.graphic.inc
