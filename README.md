@@ -88,7 +88,7 @@ If you encountered any problems with FrontAccounting configuration or usage, ple
 * Extract out the key text elements and strip out the comments with:
 ````
 cp lang/new_language_template/LC_MESSAGES/empty.po new_strings.txt
-grep ^ '^#' new.txt > new_str.txt
+grep ^'^#' new.txt > new_str.txt
 # do the same for the old version of the said file
 # do a diff on both the string files
 ````
