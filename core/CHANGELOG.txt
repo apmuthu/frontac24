@@ -1,3 +1,7 @@
+2022-09-23 Joe Hunt
+Typo in language template ISO_8859-1 => ISO-8859-1. Fixed 
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2022-09-22 Joe Hunt
 PHP 8 deprecated parameter in imagefilledpolygon. More float to int problems in reporting. Fixed.
 M	reporting/includes/class.graphic.inc
