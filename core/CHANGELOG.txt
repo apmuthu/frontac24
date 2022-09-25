@@ -1,3 +1,7 @@
+2022-09-25 Joe Hunt
+Corrected core empty.po translation template
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2022-09-23 Joe Hunt
 Typo in language template ISO_8859-1 => ISO-8859-1. Fixed 
 M	lang/new_language_template/LC_MESSAGES/empty.po
