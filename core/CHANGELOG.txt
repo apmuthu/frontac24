@@ -1,4 +1,8 @@
 2022-09-25 Joe Hunt
+Synched core empty.po without sorting with upstream
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2022-09-25 Joe Hunt
 Corrected core empty.po translation template
 M	lang/new_language_template/LC_MESSAGES/empty.po
 
