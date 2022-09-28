@@ -1,0 +1,5 @@
+# cat for_use_frontaccounting24_emptypo_ta_IN.po | sed -e "s/\"\n\"//g" > oneliners.txt
+# Replaced "\n" with nothing in Notepad++ enhanced replacements since bash did not work in utf-8
+
+cat oneliners.txt | grep "^msgid" > msgid.txt
+cat oneliners.txt | grep "^msgstr" > msgstr.txt
