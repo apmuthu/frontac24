@@ -1,3 +1,7 @@
+2022-10-20 Joe Hunt
+Typo on line 265. Fixed.
+M	sales/customer_payments.php
+
 2022-09-29 Joe Hunt
 Modifying Supplier Credit: reverted GL postings - fixed. Supplier Credit Note: invalid reference number selected for credit against invoice - fixed
 M	purchasing/includes/db/invoice_db.inc
