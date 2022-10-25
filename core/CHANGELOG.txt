@@ -1,3 +1,7 @@
+2022-10-25 Joe Hunt
+Feature. Add Supplier Invoice Menu after Supplier Payment. Added.
+M	purchasing/supplier_payment.php
+
 2022-10-20 Joe Hunt
 Typo on line 265. Fixed.
 M	sales/customer_payments.php
