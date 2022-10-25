@@ -1,4 +1,8 @@
 2022-10-25 Joe Hunt
+Bug. Add instruction if Login from unsecure server. Fixed.
+M	access/login.php
+
+2022-10-25 Joe Hunt
 Feature. Add Supplier Invoice Menu after Supplier Payment. Added.
 M	purchasing/supplier_payment.php
 
