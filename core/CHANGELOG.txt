@@ -1,3 +1,9 @@
+2022-10-26 Joe Hunt
+Release 2.4.14
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	../README.md
+M	version.php
+
 2022-10-25 Joe Hunt
 Bug. Add instruction if Login from unsecure server. Fixed.
 M	access/login.php

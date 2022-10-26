@@ -1,15 +1,13 @@
 ![FrontAccounting ERP](./themes/default/images/logo_frontaccounting.jpg  "FrontAccounting ERP")
 
-frontac24
-=========
+frontac24 repo
+==============
 
-FrontAccounting v2.4
+## FrontAccounting v2.4
 
-This is an unofficial GitHub Repo for the current stable version of FrontAccounting maintained by me (Ap.Muthu).
-
-It will be updated only in some of my spare time.
-
-URL to clone this repo in Git:
+* This is an unofficial GitHub Repo for the current stable version of FrontAccounting maintained by me (Ap.Muthu).
+* It will be updated only in some of my spare time.
+* URL to clone this repo in Git:
 ````
 https://github.com/apmuthu/frontac24.git
 ````
@@ -19,11 +17,12 @@ https://github.com/apmuthu/frontac24.git
 
 <b>Warning</b>: Anything breaks, you get to keep the pieces!
 
-FrontAccounting ERP is open source, web-based accounting software for small and medium enterprises.
-It supports double entry accounting providing both low level journal entry and user friendly, document based 
-interface for everyday business activity with automatic GL postings generation. This is multicurrency,
-multilanguage system with active worldwide users community:
+* FrontAccounting ERP is open source, web-based accounting software for small and medium enterprises.
+* It supports double entry accounting providing both low level journal entry and user friendly, document based interface for everyday business activity with automatic GL postings generation.
+* This is multicurrency, multilanguage system with active worldwide users community:
+* FrontAccounting should NOT be used via unsecure http protocol. If you really need this - change SECURE_ONLY constant in /includes/session.inc to false (comment in the file added). Unfortunately this option cannot be added in sysprefs/config.php because the settings are not available before session is started.
 
+#### FA Links
 * [Project web site](http://frontaccounting.com)
 * [SourceForge project page](http://sourceforge.net/projects/frontaccounting/)
 * [Central users forum](http://frontaccounting.com/punbb/index.php)
@@ -44,7 +43,7 @@ GitHub HTTPS clone: https://github.com/FrontAccountingERP/FA.git
 
 To use FrontAccounting application you should have already installed: 
 
-*   Any HTTP web server supporting php eg. _**Apache with mod_php**_ or _**IIS**_.
+*   Any HTTP web server supporting PHP eg. _**Apache with mod_php**_ or _**IIS**_.
 *   **_PHP_** >=5.0 (version 5.6 or 7.x is recommended)
 *   **_MySQL_** >=4.1 server with **_Innodb_** tables enabled, or any version on **MariaDB** server
 *   **_Adobe Acrobat Reader_** (or any another PDF reader like _**evince**_) is handy for viewing reports before printing them out.
@@ -68,20 +67,20 @@ Master branch contains all the latest bugfixes made atop the last stable release
 	
 ### 3. Installation
 
-Use your browser to open page at URL related to chosen installation folder. As an example, if you plan to use application locally and in previous step you have put files on your Linux box in /var/www/html/frontaccounting subfolder, just select `http://localhost/frontaccounting` url in your browser, and you will see start page of installation wizard. Follow instructions displayed during the process.
-
-During installation you will need to provide data server credentials with permissions to create new database, or you will have to provide existing database name and credentials for user with valid usage permissions to access it. You will have to chose also a couple of other options including installation language, optimal encoding for database data etc. Keep in mind that some options (like additional translations and charts of accounts) presented during installation process could be installed also later, when FrontAccounting is already in use.
-
- After successful installation please remove or rename your install directory for safety reasons. You won't need it any more.
+* Use your browser to open page at URL related to chosen installation folder. As an example, if you plan to use application locally and in previous step you have put files on your Linux box in /var/www/html/frontaccounting subfolder, just select `http://localhost/frontaccounting` url in your browser, and you will see start page of installation wizard. Follow instructions displayed during the process.
+* During installation you will need to provide data server credentials with permissions to create new database, or you will have to provide existing database name and credentials for user with valid usage permissions to access it. You will have to chose also a couple of other options including installation language, optimal encoding for database data etc. Keep in mind that some options (like additional translations and charts of accounts) presented during installation process could be installed also later, when FrontAccounting is already in use.
+* After successful installation please remove or rename your install directory for safety reasons. You won't need it any more.
 
 ### 4. Logging In For the First Time
 
- Open a browser and enter the URL for the web server directory where FrontAccounting is installed. Enter the user name  **admin** and use password declared during install process to login as company administrator. Now you can proceed with configuration process setting up additional user accounts, creating fiscal years, defining additional currencies, GL accounts etc. All configuration options available in application are described in [FrontAccounting Wiki](http://frontaccounting.com/fawiki/) available directly from Help links on every application page under ![Help](./themes/default/images/help.gif  "Help") icon.
+Open a browser and enter the URL for the web server directory where FrontAccounting is installed. Enter the user name  **admin** and use password declared during install process to login as company administrator. Now you can proceed with configuration process setting up additional user accounts, creating fiscal years, defining additional currencies, GL accounts etc. All configuration options available in application are described in [FrontAccounting Wiki](http://frontaccounting.com/fawiki/) available directly from Help links on every application page under ![Help](./themes/default/images/help.gif  "Help") icon.
  
 
 ## Troubleshooting
 
-If you encountered any problems with FrontAccounting configuration or usage, please consult your case with other users on [Frontaccounting forum](http://frontaccounting.com/punbb/index.php). If you think you have encountered a bug in application and after consulting other community members you still are sure this is really a bug, please fill in a report in project [Mantis bugtracker](http://mantis.frontaccounting.com) with all details which allow development team reproduce the problem, and hopefully fix it. Keep in mind, that  [GitHub](http://github.com/FrontAccountingERP/FA) page is mainly passive mirror for project based on SorceForge, so posting bug reports here is at least suboptimal.
+If you encountered any problems with FrontAccounting configuration or usage, please consult your case with other users on [Frontaccounting forum](http://frontaccounting.com/punbb/index.php).
+If you think you have encountered a bug in application and after consulting other community members you still are sure this is really a bug, please fill in a report in project [Mantis bugtracker](http://mantis.frontaccounting.com) with all details which allow development team reproduce the problem, and hopefully fix it.
+Keep in mind, that [GitHub](http://github.com/FrontAccountingERP/FA) page is mainly passive mirror for project based on SourceForge, so posting bug reports here is at best suboptimal.
 
 ## Language Template Comparisions
 * Each new release of FA can result in a new language template at `lang/new_language_template/LC_MESSAGES/empty.po`.
