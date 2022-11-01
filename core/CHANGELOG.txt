@@ -1,4 +1,8 @@
 2022-11-01 Joe Hunt
+Bug 5660: php8. Unable to create customer credit note. Fixed.
+M	sales/includes/ui/sales_credit_ui.inc
+
+2022-11-01 Joe Hunt
 Dimensions bugs fixed in several commits
 M	inventory/includes/db/items_adjust_db.inc
 M	inventory/includes/db/items_trans_db.inc
