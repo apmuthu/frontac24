@@ -1,3 +1,10 @@
+2022-11-01 Joe Hunt
+Dimensions bugs fixed in several commits
+M	inventory/includes/db/items_adjust_db.inc
+M	inventory/includes/db/items_trans_db.inc
+M	sales/includes/db/sales_credit_db.inc
+M	sales/includes/db/sales_delivery_db.inc
+
 2022-10-26 Joe Hunt
 Release 2.4.14
 M	lang/new_language_template/LC_MESSAGES/empty.po
