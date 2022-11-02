@@ -1,3 +1,7 @@
+2022-11-02 Joe Hunt
+Unable to void customer payment on invoice with same number credited and rerun. Fixed.
+M	admin/db/voiding_db.inc
+
 2022-11-01 Joe Hunt
 Bug 5660: php8. Unable to create customer credit note. Fixed.
 M	sales/includes/ui/sales_credit_ui.inc
