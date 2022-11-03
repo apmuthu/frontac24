@@ -1,3 +1,9 @@
+2022-11-03 Joe Hunt
+Cost Update - Second parameter in memo was not showing decimals. Fixed.
+Secon Rerun of voiding Customer Payment. Of course test for type first.
+M	inventory/includes/db/items_trans_db.inc
+M	admin/db/voiding_db.inc
+
 2022-11-02 Joe Hunt
 Unable to void customer payment on invoice with same number credited and rerun. Fixed.
 M	admin/db/voiding_db.inc
@@ -34,6 +40,7 @@ M	sales/customer_payments.php
 2022-09-29 Joe Hunt
 Modifying Supplier Credit: reverted GL postings - fixed. Supplier Credit Note: invalid reference number selected for credit against invoice - fixed
 M	purchasing/includes/db/invoice_db.inc
+M	purchasing/includes/db/suppalloc_db.inc (entered on 2022-11-03/07)
 
 2022-09-25 Joe Hunt
 Synched core empty.po without sorting with upstream
