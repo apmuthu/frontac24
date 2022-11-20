@@ -1,3 +1,7 @@
+2022-11-20 Joe Hunt
+Bug in purchasing invoice_alloc_balance. Fixed.
+M	purchasing/includes/db/invoice_db.inc
+
 2022-11-11/12/17 Joe Hunt
 Not translated string in rep108 fixed with reruns
 M	lang/new_language_template/LC_MESSAGES/empty.po
