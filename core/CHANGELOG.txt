@@ -1,3 +1,7 @@
+2022-12-05 Joe Hunt
+Workorders bookings on balance now set dimension on the item. Fixed.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
 2022-11-20 Joe Hunt
 Bug in purchasing invoice_alloc_balance. Fixed.
 M	purchasing/includes/db/invoice_db.inc
