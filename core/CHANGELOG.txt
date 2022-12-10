@@ -1,3 +1,7 @@
+2022-12-10 Joe Hunt
+Added 'Journal Entries' to empty.po file.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2022-12-08 Joe Hunt
 Customer/Supplier Transactions, Allocations new selection type, Journal Entries.
 M	includes/ui/ui_lists.inc
