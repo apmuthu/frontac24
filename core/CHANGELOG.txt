@@ -1,3 +1,7 @@
+2022-12-26 Joe Hunt
+Inventory valuation report. 301 unit decimal -1 issue. Fixed.
+M	reporting/rep301.php
+
 2022-12-10 Joe Hunt
 Added 'Journal Entries' to empty.po file.
 M	lang/new_language_template/LC_MESSAGES/empty.po
