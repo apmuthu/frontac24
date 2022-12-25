@@ -1,4 +1,8 @@
-2022-12-26 Joe Hunt
+2022-12-25 Joe Hunt
+Reconcile Bank Account added filter up to reconcile data.
+M	gl/includes/db/gl_db_bank_accounts.inc
+
+2022-12-23 Joe Hunt
 Inventory valuation report. 301 unit decimal -1 issue. Fixed.
 M	reporting/rep301.php
 
