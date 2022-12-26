@@ -1,3 +1,18 @@
+2022-12-26 Joe Hunt
+Added company switch for placing company logo on certain views.
+M	admin/company_preferences.php
+M	gl/view/bank_transfer_view.php
+M	gl/view/gl_deposit_view.php
+M	gl/view/gl_payment_view.php
+M	gl/view/gl_trans_view.php
+M	includes/ui/ui_view.inc
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	purchasing/view/view_po.php
+M	purchasing/view/view_supp_invoice.php
+M	purchasing/view/view_supp_payment.php
+M	sales/view/view_invoice.php
+M	sales/view/view_receipt.php
+
 2022-12-25 Joe Hunt
 Reconcile Bank Account added filter up to reconcile data.
 M	gl/includes/db/gl_db_bank_accounts.inc
