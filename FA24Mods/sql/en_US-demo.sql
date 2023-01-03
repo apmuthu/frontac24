@@ -1781,6 +1781,7 @@ INSERT INTO `0_sys_prefs` (`name`,`category`,`type`,`length`,`value`) VALUES
 ,('barcodes_on_stock','setup.company', 'tinyint', 1, '0')
 ,('base_sales', 'setup.company', 'int', '11', '1')
 ,('bcc_email', 'setup.company', 'varchar', '100', '')
+,('company_logo_on_views', 'setup.company', 'tinyint', '1', '0')
 ,('company_logo_report', 'setup.company', 'tinyint', '1', '0')
 ,('coy_logo', 'setup.company', 'varchar', '100', 'logo_frontaccounting.jpg')
 ,('coy_name', 'setup.company', 'varchar', '60', 'Training Co')

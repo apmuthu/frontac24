@@ -1,3 +1,8 @@
+2023-01-03 Joe Hunt
+Added 'company_logo_on_views' in sys_prefs in the default sql charts.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2022-12-26 Joe Hunt
 Added company switch for placing company logo on certain views.
 M	admin/company_preferences.php
