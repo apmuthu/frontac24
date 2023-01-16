@@ -1,3 +1,8 @@
+2023-01-16 Joe Hunt
+Audit trail is showing double entries for Payment and Deposit. Fixed.
+M	purchasing/includes/db/supp_trans_db.inc
+M	sales/includes/db/cust_trans_db.inc
+
 2023-01-05 Joe Hunt
 Credit note bug in suppliers. Result in errors. Fixed.
 M	purchasing/includes/db/invoice_db.inc
