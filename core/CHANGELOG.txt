@@ -1,3 +1,7 @@
+2023-01-22 Joe Hunt
+Cannot add received items to invoice if there are empty prev. items. Fixed.
+M	purchasing/supplier_invoice.php
+
 2023-01-17 Joe Hunt
 GL Account in Company Defaults missing for test. Fixed
 M	gl/includes/db/gl_db_accounts.inc
