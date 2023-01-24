@@ -1,3 +1,7 @@
+2023-01-24 Joe Hunt
+Function add_access_extension was missing. Fixed.
+M	themes/dropdown/renderer.php
+
 2023-01-22 Joe Hunt
 Cannot add received items to invoice if there are empty prev. items. Fixed.
 M	purchasing/supplier_invoice.php
