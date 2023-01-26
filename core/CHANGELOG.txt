@@ -1,4 +1,9 @@
 2023-01-26 Janusz Dobrowolski
+Extensions: fixed gettext support for modules.
+M	includes/hooks.inc
+M	includes/ui/ui_input.inc
+
+2023-01-26 Janusz Dobrowolski
 Install/Activate Extensions: shows more modules info available/installed.
 M	admin/inst_module.php
 
