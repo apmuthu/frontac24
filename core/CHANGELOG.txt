@@ -1,3 +1,7 @@
+2023-01-26 Janusz Dobrowolski
+Install/Activate Extensions: shows more modules info available/installed.
+M	admin/inst_module.php
+
 2023-01-24 Joe Hunt
 Function add_access_extension was missing. Fixed.
 M	themes/dropdown/renderer.php
