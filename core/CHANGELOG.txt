@@ -1,3 +1,9 @@
+2023-01-28 Joe Hunt
+Implemented automatic greater fonts when higher screen resolutions.
+M	themes/canvas/default.css
+M	themes/default/default.css
+M	themes/dropdown/default.css
+
 2023-01-26 Janusz Dobrowolski
 Extensions: fixed gettext support for modules.
 M	includes/hooks.inc
