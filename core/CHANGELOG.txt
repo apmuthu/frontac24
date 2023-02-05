@@ -1,3 +1,8 @@
+2023-02-05 Joe Hunt
+Added Customer / Supplier Payment Attachments after operation.
+M	purchasing/supplier_payment.php
+M	sales/customer_payments.php
+
 2023-01-28 Joe Hunt
 Implemented automatic greater fonts when higher screen resolutions.
 M	themes/canvas/default.css
