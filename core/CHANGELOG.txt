@@ -1,3 +1,8 @@
+2023-02-06 Joe Hunt
+Moved years in default COAs one year forward.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
 2023-02-05 Joe Hunt
 Fixed a bug in presenting a fixed asset attachment (should be the Supplier Invoice).
 M	fixed_assets/inquiry/stock_inquiry.php
