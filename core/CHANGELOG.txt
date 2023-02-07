@@ -1,4 +1,8 @@
 2023-02-07 Joe Hunt
+Cleanup in attachments_db.inc and rerun
+M	admin/db/attachments_db.inc
+
+2023-02-07 Joe Hunt
 Bug. php 8. nl2br with null parameter in view_sales_order. Fixed.
 M	sales/view/view_sales_order.php
 
