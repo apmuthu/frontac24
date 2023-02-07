@@ -1,3 +1,7 @@
+2023-02-07 Joe Hunt
+Bug. php 8. nl2br with null parameter in view_sales_order. Fixed.
+M	sales/view/view_sales_order.php
+
 2023-02-06 Joe Hunt
 Moved years in default COAs one year forward.
 M	sql/en_US-demo.sql
