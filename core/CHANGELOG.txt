@@ -1,4 +1,9 @@
 2023-02-24 Joe Hunt
+Release 2.4.15
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	version.php
+
+2023-02-24 Joe Hunt
 PHP 8.1 onwards db_set_charset second parameter null => utf8.
 M	admin/db/maintenance_db.inc
 
