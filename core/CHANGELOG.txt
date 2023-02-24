@@ -1,4 +1,8 @@
 2023-02-24 Joe Hunt
+Bug. add_domain function generates a big list of not found domain file errors. Fixed.
+M	includes/lang/gettext.inc
+
+2023-02-24 Joe Hunt
 Release 2.4.15
 M	lang/new_language_template/LC_MESSAGES/empty.po
 M	version.php
