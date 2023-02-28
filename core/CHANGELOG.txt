@@ -1,4 +1,9 @@
 2023-02-24 Joe Hunt
+Bug 5676: Currency MySQL DOUBLE Type error. Fixed by explicitly SQL ROUND to price dec in updating allocations.
+M	purchasing/includes/db/suppalloc_db.inc
+M	sales/includes/db/custalloc_db.inc
+
+2023-02-24 Joe Hunt
 Bug. add_domain function generates a big list of not found domain file errors. Fixed.
 M	includes/lang/gettext.inc
 
@@ -148,46 +153,3 @@ Release 2.4.14
 M	lang/new_language_template/LC_MESSAGES/empty.po
 M	../README.md
 M	version.php
-
-2022-10-25 Joe Hunt
-Bug. Add instruction if Login from unsecure server. Fixed.
-M	access/login.php
-
-2022-10-25 Joe Hunt
-Feature. Add Supplier Invoice Menu after Supplier Payment. Added.
-M	purchasing/supplier_payment.php
-
-2022-10-20 Joe Hunt
-Typo on line 265. Fixed.
-M	sales/customer_payments.php
-
-2022-09-29 Joe Hunt
-Modifying Supplier Credit: reverted GL postings - fixed. Supplier Credit Note: invalid reference number selected for credit against invoice - fixed
-M	purchasing/includes/db/invoice_db.inc
-M	purchasing/includes/db/suppalloc_db.inc (entered on 2022-11-03/07)
-
-2022-09-25 Joe Hunt
-Synched core empty.po without sorting with upstream
-M	lang/new_language_template/LC_MESSAGES/empty.po
-
-2022-09-25 Joe Hunt
-Corrected core empty.po translation template
-M	lang/new_language_template/LC_MESSAGES/empty.po
-
-2022-09-23 Joe Hunt
-Typo in language template ISO_8859-1 => ISO-8859-1. Fixed 
-M	lang/new_language_template/LC_MESSAGES/empty.po
-
-2022-09-22 Joe Hunt
-PHP 8 deprecated parameter in imagefilledpolygon. More float to int problems in reporting. Fixed.
-M	reporting/includes/class.graphic.inc
-
-2022-09-20 Joe Hunt
-PHP 8. Conversion from float to int loses precision in file: line 1391. Fixed.
-M	reporting/includes/class.graphic.inc
-
-2022-09-18 Joe Hunt
-Release 2.4.13
-M	version.php
-M	lang/new_language_template/LC_MESSAGES/empty.po
-
