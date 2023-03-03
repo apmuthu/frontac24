@@ -1,4 +1,8 @@
-2023-02-24 Joe Hunt
+2023-03-03 Joe Hunt
+Bug in Supplier Payment db calls void_cust_allocations => void_supp_allocations fixed.
+M	purchasing/includes/db/supp_payment_db.inc
+
+2023-02-28 Joe Hunt
 Bug 5676: Currency MySQL DOUBLE Type error. Fixed by explicitly SQL ROUND to price dec in updating allocations.
 M	purchasing/includes/db/suppalloc_db.inc
 M	sales/includes/db/custalloc_db.inc
