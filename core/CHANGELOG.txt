@@ -1,3 +1,7 @@
+2023-03-25 Joe Hunt
+Attach documents: error message on some php8 versions fixed and rerun
+M	includes/ui/simple_crud_class.inc
+
 2023-03-18 Janusz Dobrowolski
 Bug 5679: Supplier Invoices: error when second invoice to GRN was entered, fixed.
 M	purchasing/includes/db/invoice_db.inc
