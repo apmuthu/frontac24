@@ -1,3 +1,10 @@
+2023-03-29 Joe Hunt
+Bug 5683:Annoyance. Allow attachments from most needed post-creation option screens.
+M	purchasing/po_entry_items.php
+M	purchasing/po_receive_items.php
+M	sales/customer_delivery.php
+M	sales/sales_order_entry.php
+
 2023-03-25 Joe Hunt
 Attach documents: error message on some php8 versions fixed and rerun
 M	includes/ui/simple_crud_class.inc
