@@ -1,3 +1,7 @@
+2023-04-01 Joe Hunt
+Bug 5687: Unable to dispatch SO for service items with u/m decimal places set as "user defined" when SO item qty is less than 5. Fixed.
+M	sales/customer_delivery.php
+
 2023-03-29 Joe Hunt
 Bug 5683:Annoyance. Allow attachments from most needed post-creation option screens.
 M	purchasing/po_entry_items.php
