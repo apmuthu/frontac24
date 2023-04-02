@@ -13,7 +13,7 @@ Release Date    - 2017-10-03
 Last Update     - 2021-06-20
 Author          - Ap.Muthu <apmuthu@usa.net>
 Sponsor         - http://www.gnuacademy.org
-Support         - http://www.mnmserve.com
+Support         - http://www.maknmark.com
 Licence         - GPL
 Notes           - UTF8 symbol for Indian Rupee is CHAR(226, 130, 185)
 *********************************************************************

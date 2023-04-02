@@ -1,6 +1,7 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
-2023-05-06 Upstream default sql updates from 2020 to 2021
+2023-04-02 Updated ta_IN Tamil translations
+2023-02-06 Upstream default sql updates from 2020 to 2021
 2023-01-03 Upstream default sql sys_prefs changes
 2022-12-26 Upstream decimals fix for rep301.php
 2022-11-01 Upstream Dimensions fixes
