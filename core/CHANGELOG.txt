@@ -1,3 +1,8 @@
+2023-04-04 Joe Hunt
+Bug 5685: Bank Statement w/Reconcile report includes gl_trans values that are "0.00". Fixed.
+M	reporting/rep601.php
+M	reporting/rep602.php
+
 2023-04-01 Joe Hunt
 Bug 5687: Unable to dispatch SO for service items with u/m decimal places set as "user defined" when SO item qty is less than 5. Fixed.
 M	sales/customer_delivery.php
