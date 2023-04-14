@@ -1,4 +1,8 @@
 2023-04-14 Joe Hunt
+New translatable strings in locations.php.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2023-04-14 Joe Hunt
 Bug 5692: Translatable Strings in locations.php were not translatable. Fixed.
 M	inventory/manage/locations.php
 
