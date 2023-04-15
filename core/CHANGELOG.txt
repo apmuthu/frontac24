@@ -1,3 +1,8 @@
+2023-04-15 Joe Hunt
+get_unit_dec => get_qty_dec for eliminating return -1.
+M	sales/customer_delivery.php
+M	sales/customer_invoice.php
+
 2023-04-14 Joe Hunt
 New translatable strings in locations.php.
 M	lang/new_language_template/LC_MESSAGES/empty.po
