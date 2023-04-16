@@ -1,3 +1,7 @@
+2023-04-16 Joe Hunt
+Average material cost test for qoh > 0 and qoh + qty > 0 has changed to 0.0000000001 to avoid strange php results for very small values.
+M	purchasing/includes/db/grn_db.inc
+
 2023-04-15 Joe Hunt
 get_unit_dec => get_qty_dec for eliminating return -1.
 M	sales/customer_delivery.php
