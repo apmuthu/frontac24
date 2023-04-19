@@ -1,3 +1,7 @@
+2023-04-19 Joe Hunt
+Supplier description is overwritten when receiving items. Fixed.
+M	purchasing/includes/purchasing_db.inc
+
 2023-04-16 Joe Hunt
 Average material cost test for qoh > 0 and qoh + qty > 0 has changed to 0.0000000001 to avoid strange php results for very small values.
 M	purchasing/includes/db/grn_db.inc
