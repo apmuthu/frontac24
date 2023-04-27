@@ -1,4 +1,9 @@
 2023-04-28 Joe Hunt
+Bug 5697: In Supplier Transaction Inquiry, Aging balances are Incorrect. Rerun and Fixed.
+M	purchasing/inquiry/supplier_inquiry.php
+M	reporting/rep202.php
+
+2023-04-28 Joe Hunt
 Bug 5682: Voided Invoices and PO Deliveries showing up in inquiries. Fixed.
 M	purchasing/inquiry/supplier_inquiry.php
 M	purchasing/view/view_po.php
