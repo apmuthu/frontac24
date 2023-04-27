@@ -1,4 +1,8 @@
 2023-04-28 Joe Hunt
+Bug 5694: Request Various Attachment Changes. Fixed the most.
+M	includes/ui/attachment.inc
+
+2023-04-28 Joe Hunt
 Bug 5697: In Supplier Transaction Inquiry, Aging balances are Incorrect. Rerun and Fixed.
 M	purchasing/inquiry/supplier_inquiry.php
 M	reporting/rep202.php
