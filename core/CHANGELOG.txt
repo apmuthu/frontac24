@@ -1,3 +1,11 @@
+2023-04-27 Joe Hunt
+Bug 5695: Purchase Order Item Description should be saved on the PO line description directly. Fixed.
+M	purchasing/includes/db/po_db.inc
+M	purchasing/includes/po_class.inc
+M	purchasing/includes/purchasing_db.inc
+M	purchasing/view/view_po.php
+M	reporting/rep209.php
+
 2023-04-19 Joe Hunt
 Supplier description is overwritten when receiving items. Fixed.
 M	purchasing/includes/purchasing_db.inc
