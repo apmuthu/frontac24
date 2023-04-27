@@ -1,4 +1,9 @@
 2023-04-27 Joe Hunt
+Bug 5698: Rep302 Spelling Mistake. Fixed.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	reporting/rep302.php
+
+2023-04-27 Joe Hunt
 Allow fractional entry of PO Line Price upto 6 decimals.
 M	inventory/purchasing_data.php
 M	purchasing/includes/ui/po_ui.inc
