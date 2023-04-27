@@ -1,4 +1,9 @@
 2023-04-27 Joe Hunt
+Allow fractional entry of PO Line Price upto 6 decimals.
+M	inventory/purchasing_data.php
+M	purchasing/includes/ui/po_ui.inc
+
+2023-04-27 Joe Hunt
 Bug 5695: Purchase Order Item Description should be saved on the PO line description directly. Fixed.
 M	purchasing/includes/db/po_db.inc
 M	purchasing/includes/po_class.inc
