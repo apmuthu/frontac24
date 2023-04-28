@@ -1,3 +1,8 @@
+2023-04-28 Joe Hunt
+Bug 5682: Voided Invoices and PO Deliveries showing up in inquiries. Fixed.
+M	purchasing/inquiry/supplier_inquiry.php
+M	purchasing/view/view_po.php
+
 2023-04-27 Joe Hunt
 Bug 5698: Rep302 Spelling Mistake. Fixed.
 M	lang/new_language_template/LC_MESSAGES/empty.po
