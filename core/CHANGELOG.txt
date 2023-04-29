@@ -1,3 +1,15 @@
+2023-04-30 Joe Hunt
+New Translations file, item and fixed assets attachments and reruns
+M	admin/attachments.php
+M	admin/db/attachments_db.inc
+M	admin/db/transactions_db.inc
+M	includes/sysnames.inc
+M	includes/types.inc
+M	includes/ui/attachment.inc
+M	inventory/includes/db/items_db.inc
+M	inventory/manage/items.php
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2023-04-28 Joe Hunt
 Bug 5694: Request Various Attachment Changes. Fixed the most.
 M	includes/ui/attachment.inc
