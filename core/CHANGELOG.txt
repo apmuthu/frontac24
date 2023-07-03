@@ -1,3 +1,13 @@
+2023-05-03 / 2023-07-03 Joe Hunt
+Mark Inactive Customers and Suppliers in Reports (when no Filter). Bug 5709: Calculation fixed.
+M	reporting/rep101.php
+M	reporting/rep102.php
+M	reporting/rep115.php
+M	reporting/rep201.php
+M	reporting/rep202.php
+M	reporting/rep203.php
+M	reporting/rep206.php
+
 2023-05-03 Joe Hunt
 Release 2.4.16
 M	lang/new_language_template/LC_MESSAGES/empty.po
