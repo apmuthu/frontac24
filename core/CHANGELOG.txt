@@ -1,3 +1,17 @@
+2023-08-07/08 Joe Hunt
+PHP 8.2 fixes - 4 commits
+M	admin\includes\fa_patch.class.inc
+M	includes\hooks.inc
+M	includes\prefs\userprefs.inc
+M	includes\ui\allocation_cart.inc
+M	includes\ui\attachment.inc
+M	includes\ui\contacts_view.inc
+M	purchasing\inquiry\supplier_inquiry.php
+M	reporting\rep110.php
+M	reporting\includes\class.graphic.inc
+M	sales\includes\cart_class.inc
+M	sales\inquiry\customer_inquiry.php
+
 2023-08-01/06 Joe Hunt
 Added Payment Link (Payment Service) for XUMM. A Dutch free Payment Service and re-run
 M	includes/ui/ui_view.inc

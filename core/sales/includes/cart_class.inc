@@ -21,7 +21,7 @@ iv)  a delivery note
 include_once($path_to_root . "/inventory/includes/inventory_db.inc");
 include_once($path_to_root . "/taxes/tax_calc.inc");
 
-class Cart
+class Cart 
 {
 	var $trans_type; // invoice, order, quotation, delivery note ...
 	var $trans_no = array();// array (num1=>ver1,..) or 0 for new
@@ -82,6 +82,7 @@ class Cart
 	var $ex_rate;
 
 	var $fixed_asset = false;
+	var $bo_policy = null;
 
 	//-------------------------------------------------------------------------
 	//
@@ -224,7 +225,7 @@ class Cart
 					$sodata = get_sales_order_header($this->order_no, ST_SALESORDER);
 					$this->cust_ref = $sodata["customer_ref"];
 				// currently currency is hard linked to debtor account
-					$this->delivery_to = $sodata["deliver_to"];
+					$this->deliver_to = $sodata["deliver_to"];
 					$this->delivery_address = $sodata["delivery_address"];
 				// child transaction reedition - update with parent info unless it is freehand
 				if (!$this->is_prepaid() && !$prepare_child) // this is read for view/reedition
