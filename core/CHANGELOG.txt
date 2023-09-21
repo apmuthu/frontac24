@@ -1,3 +1,7 @@
+2023-09-21 Joe Hunt
+New empty language empty.po file
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
 2023-08-07/08 Joe Hunt
 PHP 8.2 fixes - 4 commits
 M	admin\includes\fa_patch.class.inc
