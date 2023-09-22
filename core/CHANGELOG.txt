@@ -1,3 +1,7 @@
+2023-09-22 Joe Hunt
+Bug Found in Supplier Invoice in Calculating Unit Tax
+M	purchasing/includes/db/invoice_db.inc
+
 2023-09-21 Joe Hunt
 New empty language empty.po file
 M	lang/new_language_template/LC_MESSAGES/empty.po
