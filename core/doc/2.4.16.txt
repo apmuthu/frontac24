@@ -1,3 +1,262 @@
+2023-05-03 Joe Hunt
+Release 2.4.16
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	version.php
+
+2023-04-30 Joe Hunt
+New Translations file, item and fixed assets attachments and reruns
+M	admin/attachments.php
+M	admin/db/attachments_db.inc
+M	admin/db/transactions_db.inc
+M	includes/sysnames.inc
+M	includes/types.inc
+M	includes/ui/attachment.inc
+M	inventory/includes/db/items_db.inc
+M	inventory/manage/items.php
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2023-04-28 Joe Hunt
+Bug 5694: Request Various Attachment Changes. Fixed the most.
+M	includes/ui/attachment.inc
+
+2023-04-28 Joe Hunt
+Bug 5697: In Supplier Transaction Inquiry, Aging balances are Incorrect. Rerun and Fixed.
+M	purchasing/inquiry/supplier_inquiry.php
+M	reporting/rep202.php
+
+2023-04-28 Joe Hunt
+Bug 5682: Voided Invoices and PO Deliveries showing up in inquiries. Fixed.
+M	purchasing/inquiry/supplier_inquiry.php
+M	purchasing/view/view_po.php
+
+2023-04-27 Joe Hunt
+Bug 5698: Rep302 Spelling Mistake. Fixed.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	reporting/rep302.php
+
+2023-04-27 Joe Hunt
+Allow fractional entry of PO Line Price upto 6 decimals.
+M	inventory/purchasing_data.php
+M	purchasing/includes/ui/po_ui.inc
+
+2023-04-27 Joe Hunt
+Bug 5695: Purchase Order Item Description should be saved on the PO line description directly. Fixed.
+M	purchasing/includes/db/po_db.inc
+M	purchasing/includes/po_class.inc
+M	purchasing/includes/purchasing_db.inc
+M	purchasing/view/view_po.php
+M	reporting/rep209.php
+
+2023-04-19 Joe Hunt
+Supplier description is overwritten when receiving items. Fixed.
+M	purchasing/includes/purchasing_db.inc
+
+2023-04-16 Joe Hunt
+Average material cost test for qoh > 0 and qoh + qty > 0 has changed to 0.0000000001 to avoid strange php results for very small values.
+M	purchasing/includes/db/grn_db.inc
+
+2023-04-15 Joe Hunt
+get_unit_dec => get_qty_dec for eliminating return -1.
+M	sales/customer_delivery.php
+M	sales/customer_invoice.php
+
+2023-04-14 Joe Hunt
+New translatable strings in locations.php.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2023-04-14 Joe Hunt
+Bug 5692: Translatable Strings in locations.php were not translatable. Fixed.
+M	inventory/manage/locations.php
+
+2023-04-04 Joe Hunt
+Bug 5685: Bank Statement w/Reconcile report includes gl_trans values that are "0.00". Fixed.
+M	reporting/rep601.php
+M	reporting/rep602.php
+
+2023-04-01 Joe Hunt
+Bug 5687: Unable to dispatch SO for service items with u/m decimal places set as "user defined" when SO item qty is less than 5. Fixed.
+M	sales/customer_delivery.php
+
+2023-03-29 Joe Hunt
+Bug 5683:Annoyance. Allow attachments from most needed post-creation option screens.
+M	purchasing/po_entry_items.php
+M	purchasing/po_receive_items.php
+M	sales/customer_delivery.php
+M	sales/sales_order_entry.php
+
+2023-03-25 Joe Hunt
+Attach documents: error message on some php8 versions fixed and rerun
+M	includes/ui/simple_crud_class.inc
+
+2023-03-18 Janusz Dobrowolski
+Bug 5679: Supplier Invoices: error when second invoice to GRN was entered, fixed.
+M	purchasing/includes/db/invoice_db.inc
+
+2023-03-08 Joe Hunt
+Bug 5678: Customer/Supplier Transactions Ageing Inquiry fixed.
+M	purchasing/inquiry/supplier_inquiry.php
+M	sales/inquiry/customer_inquiry.php
+
+2023-03-03 Joe Hunt
+Bug in Supplier Payment db calls void_cust_allocations => void_supp_allocations fixed.
+M	purchasing/includes/db/supp_payment_db.inc
+
+2023-02-28 Joe Hunt
+Bug 5676: Currency MySQL DOUBLE Type error. Fixed by explicitly SQL ROUND to price dec in updating allocations.
+M	purchasing/includes/db/suppalloc_db.inc
+M	sales/includes/db/custalloc_db.inc
+
+2023-02-24 Joe Hunt
+Bug. add_domain function generates a big list of not found domain file errors. Fixed.
+M	includes/lang/gettext.inc
+
+2023-02-24 Joe Hunt
+Release 2.4.15
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	version.php
+
+2023-02-24 Joe Hunt
+PHP 8.1 onwards db_set_charset second parameter null => utf8.
+M	admin/db/maintenance_db.inc
+
+2023-02-07 Joe Hunt
+Cleanup in attachments_db.inc and rerun
+M	admin/db/attachments_db.inc
+
+2023-02-07 Joe Hunt
+Bug. php 8. nl2br with null parameter in view_sales_order. Fixed.
+M	sales/view/view_sales_order.php
+
+2023-02-06 Joe Hunt
+Moved years in default COAs one year forward.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2023-02-05 Joe Hunt
+Fixed a bug in presenting a fixed asset attachment (should be the Supplier Invoice).
+M	fixed_assets/inquiry/stock_inquiry.php
+
+2023-02-05 Joe Hunt
+Added Customer / Supplier Payment Attachments after operation.
+M	purchasing/supplier_payment.php
+M	sales/customer_payments.php
+
+2023-01-28 Joe Hunt
+Implemented automatic greater fonts when higher screen resolutions.
+M	themes/canvas/default.css
+M	themes/default/default.css
+M	themes/dropdown/default.css
+
+2023-01-26 Janusz Dobrowolski
+Extensions: fixed gettext support for modules.
+M	includes/hooks.inc
+M	includes/ui/ui_input.inc
+
+2023-01-26 Janusz Dobrowolski
+Install/Activate Extensions: shows more modules info available/installed.
+M	admin/inst_module.php
+
+2023-01-24 Joe Hunt
+Function add_access_extension was missing. Fixed.
+M	themes/dropdown/renderer.php
+
+2023-01-22 Joe Hunt
+Cannot add received items to invoice if there are empty prev. items. Fixed.
+M	purchasing/supplier_invoice.php
+
+2023-01-17 Joe Hunt
+GL Account in Company Defaults missing for test. Fixed
+M	gl/includes/db/gl_db_accounts.inc
+
+2023-01-16 Joe Hunt
+Audit trail is showing double entries for Payment and Deposit. Fixed.
+M	purchasing/includes/db/supp_trans_db.inc
+M	sales/includes/db/cust_trans_db.inc
+
+2023-01-05 Joe Hunt
+Credit note bug in suppliers. Result in errors. Fixed.
+M	purchasing/includes/db/invoice_db.inc
+
+2023-01-03 Joe Hunt
+Added 'company_logo_on_views' in sys_prefs in the default sql charts.
+M	sql/en_US-demo.sql
+M	sql/en_US-new.sql
+
+2022-12-26 Joe Hunt
+Added company switch for placing company logo on certain views.
+M	admin/company_preferences.php
+M	gl/view/bank_transfer_view.php
+M	gl/view/gl_deposit_view.php
+M	gl/view/gl_payment_view.php
+M	gl/view/gl_trans_view.php
+M	includes/ui/ui_view.inc
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	purchasing/view/view_po.php
+M	purchasing/view/view_supp_invoice.php
+M	purchasing/view/view_supp_payment.php
+M	sales/view/view_invoice.php
+M	sales/view/view_receipt.php
+
+2022-12-25 Joe Hunt
+Reconcile Bank Account added filter up to reconcile data.
+M	gl/includes/db/gl_db_bank_accounts.inc
+
+2022-12-23 Joe Hunt
+Inventory valuation report. 301 unit decimal -1 issue. Fixed.
+M	reporting/rep301.php
+
+2022-12-10 Joe Hunt
+Added 'Journal Entries' to empty.po file.
+M	lang/new_language_template/LC_MESSAGES/empty.po
+
+2022-12-08 Joe Hunt
+Customer/Supplier Transactions, Allocations new selection type, Journal Entries.
+M	includes/ui/ui_lists.inc
+M	purchasing/includes/db/supp_trans_db.inc
+M	purchasing/includes/db/suppalloc_db.inc
+M	sales/includes/db/cust_trans_db.inc
+M	sales/includes/db/custalloc_db.inc
+
+2022-12-05 Joe Hunt
+Workorders bookings on balance now set dimension on the item. Fixed.
+M	manufacturing/includes/db/work_order_costing_db.inc
+
+2022-11-20 Joe Hunt
+Bug in purchasing invoice_alloc_balance. Fixed.
+M	purchasing/includes/db/invoice_db.inc
+
+2022-11-11/12/17 Joe Hunt
+Not translated string in rep108 fixed with reruns
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	reporting/rep108.php
+
+2022-11-03 Joe Hunt
+Cost Update - Second parameter in memo was not showing decimals. Fixed.
+Secon Rerun of voiding Customer Payment. Of course test for type first.
+M	inventory/includes/db/items_trans_db.inc
+M	admin/db/voiding_db.inc
+
+2022-11-02 Joe Hunt
+Unable to void customer payment on invoice with same number credited and rerun. Fixed.
+M	admin/db/voiding_db.inc
+
+2022-11-01 Joe Hunt
+Bug 5660: php8. Unable to create customer credit note. Fixed.
+M	sales/includes/ui/sales_credit_ui.inc
+
+2022-11-01 Joe Hunt
+Dimensions bugs fixed in several commits
+M	inventory/includes/db/items_adjust_db.inc
+M	inventory/includes/db/items_trans_db.inc
+M	sales/includes/db/sales_credit_db.inc
+M	sales/includes/db/sales_delivery_db.inc
+
+2022-10-26 Joe Hunt
+Release 2.4.14
+M	lang/new_language_template/LC_MESSAGES/empty.po
+M	../README.md
+M	version.php
+
 2022-10-26 Joe Hunt
 Release 2.4.14
 M	lang/new_language_template/LC_MESSAGES/empty.po
