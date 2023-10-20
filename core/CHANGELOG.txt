@@ -1,4 +1,8 @@
 2023-10-21 Joe Hunt
+Customer Transaction Inquiry on Reference (partly) fixed.
+M	sales/inquiry/customer_inquiry.php
+
+2023-10-21 Joe Hunt
 Bug 5722: Canceled Sales Orders Show Up In Sales Order Inquiry. Fixed.
 M	sales/includes/db/cust_trans_db.inc
 M	sales/includes/db/sales_order_db.inc
