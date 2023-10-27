@@ -31,7 +31,7 @@ $installed_languages = array (
     'name' => 'Tamil',
     'package' => 'ta_IN',
     'encoding' => 'UTF-8',
-    'version' => '2.4.15-1',
+    'version' => '2.4.17-1',
     'path' => 'lang/ta_IN',
   ),
   3 => 
