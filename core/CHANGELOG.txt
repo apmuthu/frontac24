@@ -1,3 +1,7 @@
+2023-11-01 Janusz Dobrowolski
+Bug 5711: Bad Content-type set for invoice mail attachment - malformed invoice mails sent from Win based FA servers. Fixed. PHP short array syntax fixed in rerun.
+M	reporting/includes/class.mail.inc
+
 2023-10-24 Joe Hunt
 Implemented Bank Account Attachments with tabs with re-run
 M	admin/attachments.php
