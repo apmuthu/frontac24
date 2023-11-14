@@ -1,3 +1,7 @@
+2023-11-15 Joe Hunt
+Better sql construct in function last_sales_order_detail() moved from FA24Mods
+M	sales/includes/db/sales_order_db.inc
+
 2023-11-01 Janusz Dobrowolski
 Bug 5711: Bad Content-type set for invoice mail attachment - malformed invoice mails sent from Win based FA servers. Fixed. PHP short array syntax fixed in rerun.
 M	reporting/includes/class.mail.inc
