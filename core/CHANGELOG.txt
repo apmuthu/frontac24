@@ -1,3 +1,10 @@
+2024-01-18 Joe Hunt
+Fixed more php 8.2 deprecation bugs.
+M	frontaccounting.php
+M	reporting/includes/Workbook.php
+M	reporting/includes/excel_report.inc
+M	sales/sales_order_entry.php
+
 2023-11-15 Joe Hunt
 Better sql construct in function last_sales_order_detail() moved from FA24Mods
 M	sales/includes/db/sales_order_db.inc
