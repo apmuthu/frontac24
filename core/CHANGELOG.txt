@@ -1,3 +1,7 @@
+2024-03-15 Janusz Dobrowolski
+Fixed language modules locale.inc integration.
+M	 includes/hooks.inc
+
 2024-01-18 Joe Hunt
 Fixed more php 8.2 deprecation bugs.
 M	frontaccounting.php
