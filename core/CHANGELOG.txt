@@ -1,4 +1,12 @@
 2024-03-15 Janusz Dobrowolski
+Bug 5735: Problems with sending emails with encoding other than ASCII - fixed. PHP 8.2 fix also.
+M	inventory/includes/inventory_db.inc
+M	reporting/includes/class.mail.inc
+M	reporting/includes/pdf_report.inc
+M	reporting/rep107.php
+M	reporting/rep108.php
+
+2024-03-15 Janusz Dobrowolski
 Fixed language modules locale.inc integration.
 M	 includes/hooks.inc
 
