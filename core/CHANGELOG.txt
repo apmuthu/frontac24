@@ -1,4 +1,8 @@
 2024-03-29 Joe Hunt
+Wrong implicit conversion fixed from double to int.
+M	inventory/manage/items.php
+
+2024-03-29 Joe Hunt
 Wrong default function parameters in display_type. Fixed.
 M	gl/inquiry/profit_loss.php
 
