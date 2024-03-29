@@ -1,3 +1,7 @@
+2024-03-29 Joe Hunt
+Wrong default function parameters in display_type. Fixed.
+M	gl/inquiry/profit_loss.php
+
 2024-03-15 Joe Hunt
 Bug. Edit Journal -> orphaned attachments.
 M	gl/includes/db/gl_journal.inc
