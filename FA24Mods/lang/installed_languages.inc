@@ -31,7 +31,7 @@ $installed_languages = array (
     'name' => 'Tamil',
     'package' => 'ta_IN',
     'encoding' => 'UTF-8',
-    'version' => '2.4.17-1',
+    'version' => '2.4.18-1',
     'path' => 'lang/ta_IN',
   ),
   3 => 
@@ -40,7 +40,7 @@ $installed_languages = array (
     'name' => 'Hindi',
     'package' => 'hi_IN',
     'encoding' => 'UTF-8',
-    'version' => '2.4.8-1',
+    'version' => '2.4.18-1',
     'path' => 'lang/hi_IN',
   ),
 );
