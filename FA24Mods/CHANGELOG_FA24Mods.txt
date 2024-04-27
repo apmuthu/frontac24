@@ -1,5 +1,6 @@
 Files in this folder overwrite their counterparts in the core to effect the mods by Ap.Muthu.
 
+2024-04-26 Updated ta_IN Tamil and hi_IN Hindi translations for new upstream feature
 2024-04-06 Updated ta_IN Tamil and hi_IN Hindi translations
 2023-10-28 Updated ta_IN Tamil translations
 2023-10-21 Upstream Bug 5722 fix updated
