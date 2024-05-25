@@ -1,3 +1,11 @@
+2024-05-16 Joe Hunt
+PHP 8 fix for number format and rerun
+M	includes/current_user.inc
+
+2024-05-15 Joe Hunt
+Whitespace tab fix
+M	sales/includes/ui/sales_credit_ui.inc	
+
 2024-04-26 Joe Hunt
 New feature. Copy Delivery/Invoice from Customer Transactions Inquiry.
 M	lang/new_language_template/LC_MESSAGES/empty.po
