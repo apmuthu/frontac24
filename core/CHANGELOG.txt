@@ -4,6 +4,11 @@ M	access/login.php
 M	includes/db/connect_db_mysqli.inc
 M	includes/session.inc
 
+2024-06-27 Joe Hunt
+Multiple Attachments do not follow the transaction after editing. Fixed.
+M	gl/includes/db/gl_db_banking.inc
+M	gl/includes/db/gl_journal.inc
+
 2024-05-15 Joe Hunt
 Whitespace tab synched
 M	sales/includes/ui/sales_credit_ui.inc	
