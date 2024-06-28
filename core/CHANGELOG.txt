@@ -1,3 +1,9 @@
+2024-06-28 Joe Hunt
+PHP8 fixes and rerun - NULL to string
+M	access/login.php
+M	includes/db/connect_db_mysqli.inc
+M	includes/session.inc
+
 2024-05-15 Joe Hunt
 Whitespace tab synched
 M	sales/includes/ui/sales_credit_ui.inc	
@@ -6,7 +12,7 @@ M	sales/includes/ui/sales_credit_ui.inc
 Bug 5740 Prepaid options for SO
 M	sales/sales_order_entry.php
 
-2024-05-13 Joe Hunt
+2024-05-13 Janusz Dobrowolski
 Bug 5738 Addl Search Options for SO
 M	sales/includes/db/sales_order_db.inc
 M	sales/inquiry/sales_orders_view.php
