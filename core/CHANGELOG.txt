@@ -1,3 +1,8 @@
+2024-10-16 Joe Hunt
+Bug 5745: Supplier Credit Note Issue: Stock Move Price Overstated Due to Included Tax.
+M	purchasing/includes/db/grn_db.inc
+M	purchasing/includes/db/invoice_db.inc
+
 2024-06-28 Joe Hunt
 PHP8 fixes and rerun - NULL to string
 M	access/login.php
