@@ -1,3 +1,7 @@
+2025-01-12 Joe Hunt
+Spacing adjustment for rep705.php
+M	reporting/rep705.php
+
 2024-10-16 Joe Hunt
 Bug 5745: Supplier Credit Note Issue: Stock Move Price Overstated Due to Included Tax.
 M	purchasing/includes/db/grn_db.inc
