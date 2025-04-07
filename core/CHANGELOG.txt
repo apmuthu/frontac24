@@ -1,3 +1,7 @@
+2025-04-07 Joe Hunt
+Bug 5748: Voiding location transfer results in an increased material cost. Fixed.
+M	includes/db/inventory_db.inc
+
 2025-01-12 Joe Hunt
 Spacing adjustment for rep705.php
 M	reporting/rep705.php
