@@ -1,3 +1,10 @@
+2025-05-11 Joe Hunt
+Fixed deprecation warning when user error is triggered on php >=8.4
+M	includes/JsHttpRequest.php
+M	includes/errors.inc
+M	includes/ui/ui_msgs.inc
+M	sales/includes/db/cust_trans_db.inc
+
 2025-04-07 Joe Hunt
 Bug 5748: Voiding location transfer results in an increased material cost. Fixed.
 M	includes/db/inventory_db.inc
