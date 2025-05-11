@@ -1,4 +1,8 @@
 2025-05-11 Joe Hunt
+Fixed deprecation warning logged when sysprefs object is created on php >=8.2.
+M	includes/prefs/sysprefs.inc
+
+2025-05-11 Joe Hunt
 Fixed deprecation warning when user error is triggered on php >=8.4
 M	includes/JsHttpRequest.php
 M	includes/errors.inc
