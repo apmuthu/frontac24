@@ -1,3 +1,7 @@
+2025-10-07 Joe Hunt
+Bug 5753: The company logo $padding must be inside TCPDF class declaration.
+M	reporting/includes/tcpdf.php
+
 2025-05-11 Joe Hunt
 Fixed deprecation warning logged when sysprefs object is created on php >=8.2.
 M	includes/prefs/sysprefs.inc
